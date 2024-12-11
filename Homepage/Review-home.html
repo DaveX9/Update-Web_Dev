@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" 
+    integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/HOMESPECTOR/CSS/Review-home.css">
+    <title>Header Design</title>
+</head>
+<body>
+  <div class="content-box">
+    <div class="header">
+      <header class="top-bar">
+        <div class="container">
+          <!-- Social Icons -->
+          <div class="social-icons">
+            <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
+                <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="">
+            </a>
+            <a href="https://www.instagram.com/t.homeinspector/">
+                <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="">
+            </a>
+            <a href="https://page.line.me/t.home?openQrModal=true">
+              <img src="/HOMESPECTOR/icon/ICON/line.png" alt="">
+            </a>
+            <a href="tel:082-045-6165">
+              <img src="/HOMESPECTOR/icon/ICON/phone.png" alt="">
+           </a>
+          </div>
+      
+          <!-- Logo -->
+          <div class="logo">
+            <a href="/HOMESPECTOR/Homepage/index.html">
+              <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
+            </a>
+          </div>
+      
+          <!-- Search and Hamburger Icons -->
+          <div class="actions">
+            <i id="search-icon" class="fas fa-search" onclick="toggleSearch()"></i>
+            <div class="search-bar" id="search-bar">
+              <input type="text" placeholder="Search..." />
+              <button onclick="searchFunction()">Search</button>
+            </div>
+            <i id="hamburger-icon" class="fas fa-bars" onclick="toggleMenu()"></i>
+            <i id="close-icon" class="fas fa-times" onclick="toggleMenu()" style="display: none;"></i>
+          </div>
+      
+        <!-- Navigation -->
+        <nav class="nav-links" id="nav-links">
+          <ul>
+            <li><a href="/HOMESPECTOR/Homepage/index.html">หน้าหลัก</a></li>
+            <li><a href="/HOMESPECTOR/Homepage/service.html">บริการ</a></li>
+            <li><a href="/HOMESPECTOR/Homepage/promotion.html">สิทธิพิเศษ</a></li>
+            <li><a href="#">ผลงาน</a></li>
+            <!-- Dropdown Menu -->
+            <div class="dropdown">
+              <div class="menu-item">
+                เกี่ยวกับเรา
+                <span class="dropdown-icon">
+                  <i class="fa-solid fa-caret-down"></i>
+                </span>
+              </div>
+              <div class="dropdown-menu">
+                <a href="/HOMESPECTOR/Homepage/ourstory.html">ประวัติของเรา</a>
+                <a href="/HOMESPECTOR/Homepage/ourteam.html">ทีมงานของเรา</a>
+                
+              </div>
+            </div>
+            
+            <li><a href="/HOMESPECTOR/Homepage/articles.html">บทความ</a></li>
+            <li><a href="/HOMESPECTOR/Homepage/Review-home.html">รีวิวบ้าน</a></li>
+            <li><a href="/HOMESPECTOR/Homepage/review_interior.html">รีวิวตกแต่งบ้าน</a></li>
+            <li><a href="/HOMESPECTOR/Homepage/joinwithus.html">รวมงานกับเรา</a></li>
+            <li><a href="/HOMESPECTOR/Homepage/contactus.html">ติดต่อเรา</a></li>
+          </ul>
+        </nav>
+      </header> 
+
+      <div class="review-page">
+        <h1>รีวิวบ้าน</h1>
+        <p>
+          พาทัวร์บ้านรูปแบบใหม่ ไม่ซ้ำใคร ที่แรกและที่เดียว เพราะเราพาดูงานระบบของบ้านในโครงการต่าง ๆ
+          ไม่ว่าจะเป็นงานสถาปัตย์ ระบบไฟฟ้า ระบบสุขาภิบาล หรืองานหลังคา ซึ่งไม่มีที่ไหนทำมาก่อน
+        </p>
+      
+        <!-- Categories Section -->
+        <div class="categories">
+          <button class="category-btn active" data-category="all">All</button>
+          <button class="category-btn" data-category="Land and House">Land and House</button>
+          <button class="category-btn" data-category="Sansiri">Sansiri</button>
+          <button class="category-btn" data-category="SC Asset">SC Asset</button>
+          <button class="category-btn" data-category="Ap Thai">Ap Thai</button>
+          <button class="category-btn" data-category="Property Profect">Property Profect</button>
+          <button class="category-btn" data-category="MQDC">MQDC</button>
+          <button class="category-btn" data-category="QHouse">QHouse</button>
+          <button class="category-btn" data-category="Others">Others</button>
+        </div>
+      
+        <!-- Review Cards -->
+        <div class="review-cards">
+          <a href="/HOMESPECTOR/Homepage/after_review_home.html" class="card" data-category="Land and House">
+            <img src="/HOMESPECTOR/img/landhouse1.jpg" alt="House Review 1">
+            <p>Review SEtthasiri</p>
+          </a>
+          <a href="/HOMESPECTOR/Homepage/after_review_home1.html" class="card" data-category="Sansiri">
+            <img src="/HOMESPECTOR/img/sansiri1.png" alt="House Review 2">
+            <p>Review Ladawan</p>
+          </a>
+          <a href="/HOMESPECTOR/Homepage/after_review_home.html" class="card" data-category="SC Asset">
+            <img src="/HOMESPECTOR/img/scasset1.webp" alt="House Review 3">
+            <p>Review SC Asset</p>
+          </a>
+          <a href="/HOMESPECTOR/Homepage/after_review_home.html" class="card" data-category="Land and House">
+            <img src="/HOMESPECTOR/img/landhouse2.jpg" alt="House Review 4">
+            <p>The Residences</p>
+          </a>
+          <a href="/HOMESPECTOR/Homepage/after_review_home.html" class="card" data-category="Ap Thai">
+            <img src="/HOMESPECTOR/img/apthai1.jpg" alt="House Review 5">
+            <p>Review Ap Thai</p>
+          </a>
+          <a href="/HOMESPECTOR/Homepage/after_review_home.html" class="card" data-category="Ap Thai">
+            <img src="/HOMESPECTOR/img/apthai2.jpg" alt="House Review 6">
+            <p>Review Ap Thai</p>
+          </a>
+          <a href="/HOMESPECTOR/Homepage/after_review_home.html" class="card" data-category="Property Profect">
+            <img src="/HOMESPECTOR/img/property-perfect1.jpg" alt="House Review 7">
+            <p>Review Property Profect</p>
+          </a>
+          <a href="/HOMESPECTOR/Homepage/after_review_home.html" class="card" data-category="Ap Thai">
+            <img src="/HOMESPECTOR/img/apthai3.jpg" alt="House Review 8">
+            <p>Review Ap Thai</p>
+          </a>
+          <a href="/HOMESPECTOR/Homepage/after_review_home.html" class="card" data-category="Property Profect">
+            <img src="/HOMESPECTOR/img/property-profect2.jpg" alt="House Review 9">
+            <p>Review Property Profect</p>
+          </a><a href="/HOMESPECTOR/Homepage/after_review_home.html" class="card" data-category="MQDC">
+            <img src="/HOMESPECTOR/img/mqdc1.jpg" alt="House Review 10">
+            <p>Review MQDC</p>
+          </a>
+          <a href="/HOMESPECTOR/Homepage/after_review_home.html" class="card" data-category="Others">
+            <img src="/HOMESPECTOR/img/others1.jpg" alt="House Review 11">
+            <p>Review House</p>
+          </a>
+          <a href="/HOMESPECTOR/Homepage/after_review_home.html" class="card" data-category="MQDC">
+            <img src="/HOMESPECTOR/img/mqdc2.jpg" alt="House Review 12">
+            <p>Review MQDC</p>
+          </a>
+          <a href="/HOMESPECTOR/Homepage/after_review_home.html" class="card" data-category="QHouse">
+            <img src="/HOMESPECTOR/img/qhouse1.jpg" alt="House Review 13">
+            <p>Review QHouse</p>
+          </a>
+
+        </div>
+      </div>
+      <section class="footer">
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <h2 class="footer-title">
+                        <img src="/HOMESPECTOR/img/footer_logo.png" alt="logo" class="footer-logo">
+                    </h2>
+                    <div class="social-icons">
+                      <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
+                          <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="">
+                      </a>
+                      <a href="https://www.instagram.com/t.homeinspector/">
+                          <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="">
+                      </a>
+                      <a href="https://page.line.me/t.home?openQrModal=true">
+                        <img src="/HOMESPECTOR/icon/ICON/line.png" alt="">
+                      </a>
+                      <a href="tel:082-045-6165">
+                        <img src="/HOMESPECTOR/icon/ICON/phone.png" alt="">
+                      </a>
+                      <a href="https://www.tiktok.com/@thomeinspector">
+                          <img src="/HOMESPECTOR/icon/ICON/Tiktok.png" alt="">
+                      </a>
+                      <a href="https://www.youtube.com/channel/UC1BPUCVPBW4-ml7MrxQWjug">
+                          <img src="/HOMESPECTOR/icon/ICON/YB.png" alt="">
+                      </a>
+                  </div>
+                </div>
+                <div class="footer-center">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="/HOMESPECTOR/Homepage/index.html">หน้าหลัก</a></li>
+                        <li><a href="/HOMESPECTOR/Homepage/service.html">บริการ</a></li>
+                        <li><a href="/HOMESPECTOR/Homepage/promotion.html">สิทธิพิเศษ</a></li>
+                        <li><a href="#">ผลงาน</a></li>
+                        <!-- Dropdown Menu -->
+                        <div class="dropdown">
+                            <div class="menu-item">
+                                เกี่ยวกับเรา
+                                <span class="dropdown-icon">
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </span>
+                            </div>
+                            <div class="dropdown-menu">
+                                <a href="/HOMESPECTOR/Homepage/ourstory.html">ประวัติของเรา</a>
+                                <a href="/HOMESPECTOR/Homepage/ourteam.html">ทีมงานของเรา</a>
+
+                            </div>
+                        </div>
+
+                        <li><a href="#">บทความ</a></li>
+                        <li><a href="#">รีวิวบ้าน</a></li>
+                        <li><a href="#">รีวิวตกแต่งบ้าน</a></li>
+                        <li><a href="#">รวมงานกับเรา</a></li>
+                        <li><a href="/HOMESPECTOR/Homepage/contactus.html">ติดต่อเรา</a></li>
+                    </ul>
+                </div>
+                <div class="footer-center">
+                    <h3>บทความ</h3>
+                    <ul>
+                        <li><a href="#">ไฟ้ฟา</a></li>
+                        <li><a href="#">อุปกรณ์</a></li>
+                        <li><a href="#">Page</a></li>
+                        <li><a href="#">Page</a></li>
+                        <li><a href="#">Page</a></li>
+                    </ul>
+                </div>
+                <div class="footer-right">
+                    <h3>We Accept</h3>
+                    <div class="payment-logos">
+                        <img src="/HOMESPECTOR/img/visacard.png" alt="Visa">
+                        <img src="/HOMESPECTOR/img/Mastercard.webp" alt="MasterCard">
+                        <!-- <img src="/HOMESPECTOR/img/paypal-logo.webp" alt="PayPal">
+        <img src="/HOMESPECTOR/img/American-Express.png" alt="American Express"> -->
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 T.HOME INSPECTOR. All rights reserved.</p>
+            </div>
+        </footer>
+    </section>
+
+    </div>
+  </div>
+
+
+<!--js for search bar -->
+  <script>
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const navLinks = document.querySelector('.nav-links');
+    const searchIcon = document.getElementById('search-icon');
+    const searchBar = document.querySelector('.search-bar');
+    
+    // Toggle navigation menu (Hamburger icon)
+    hamburgerIcon.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    
+    // Toggle search bar (Search icon)
+    searchIcon.addEventListener('click', () => {
+      searchBar.classList.toggle('active');
+      navLinks.classList.add('active'); // Ensure the navigation stays visible
+    });
+    
+  </script>
+
+  <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
+  <script src="/HOMESPECTOR/JS/filter.js"></script>
+  <script src="/HOMESPECTOR/JS/dropdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+</body>
+</html>
