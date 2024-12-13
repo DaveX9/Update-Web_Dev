@@ -696,7 +696,6 @@ body {
   }
 }
 
-
 /* Carousel Container */
 .carousel-container3 {
   background-color: #001b39;
@@ -706,9 +705,8 @@ body {
   width: 70%;
   margin: 0 auto;
   position: relative;
-  /* Make the container relative for absolute positioning inside */
-  top: 70PX;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
+  margin-top: 40px;
 }
 
 /* Position the "ดูทั้งหมด" button */
@@ -720,11 +718,8 @@ body {
   border-radius: 30px;
   font-size: 14px;
   position: absolute;
-  /* Set position to absolute */
   top: 20px;
-  /* Align to the top */
   right: 20px;
-  /* Align to the right */
 }
 
 .btn-all:hover {
@@ -737,7 +732,7 @@ body {
   justify-content: space-between;
   /* Align title and button horizontally */
   align-items: center;
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 
@@ -846,19 +841,15 @@ button.next-btn {
 button.prev-btn:hover,
 button.next-btn:hover {
   background-color: #ff5c05;
-  margin-top: 60px;
 }
 
-section {
-  padding: 20px;
-  text-align: center;
-}
 
 /* Reviews Section */
 .reviews-section {
   background: linear-gradient(to bottom, #ff8c00, white);
-  color: white;
+  color: var(--font-color);
   padding: 50px 20px;
+  margin-top: 30px;
 }
 
 .reviews-header h1 {
@@ -881,13 +872,13 @@ section {
 
 .section-title {
   font-size: 2.5em;
-  color: #fff;
+  color: var(--font-color);
 }
 
 .section-subtitle {
   font-size: 1.2em;
   margin: 10px 0 30px;
-  color: #f5f5f5;
+  color:var(--font-color);
 }
 
 .stats-container {
@@ -1016,6 +1007,83 @@ section {
   margin-top: 10px;
 }
 
+/* newapp */
+.container-newapp {
+  margin: 0;
+  padding: 0;
+  /* background-color: #3ebaa5; */
+  background: linear-gradient(-225deg, #20E2D7 0%, #F9FEA5 100%);
+  margin-bottom: 30px;
+}
+
+.header-newapp {
+  position: relative;
+  /* background: #3ebaa5; */
+  background: linear-gradient(-225deg, #20E2D7 0%, #F9FEA5 100%);
+  color: var(--font-color);
+  padding: 50px 20px;
+  text-align: center;
+  transform: skewY(-5deg);
+}
+
+.header-newapp h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  transform: skewY(5deg);
+}
+
+.header-newapp h2 {
+  font-size: 1.5rem;
+  margin: 10px 0 0;
+  transform: skewY(5deg);
+}
+
+.header-newapp p {
+  font-size: 1rem;
+  margin: 10px 0;
+  transform: skewY(5deg);
+}
+
+.content-newapp {
+  max-width: 900px;
+  margin: -40px auto 20px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.app-preview {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.app-preview img {
+  width: 180px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta {
+  margin-top: 20px;
+}
+
+.cta button {
+  background-color: #ffffff;
+  color: rgb(1, 35, 107);
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cta button:hover {
+  background-color: #2a9881;
+}
 
 /* footer */
 .footer {
