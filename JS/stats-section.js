@@ -1,53 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Function to animate numbers
-    const animateValue = (id, start, end, duration) => {
-      const element = document.getElementById(id);
-      let current = start;
-      const increment = (end - start) / (duration / 50); // Animation step
-      const step = () => {
-        current += increment;
-        if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
-          element.textContent = Math.round(end); // Final value
-        } else {
-          element.textContent = Math.round(current);
-          requestAnimationFrame(step); // Continue animation
-        }
-      };
-      step();
-    };
-  
-    // Fetch data from API
-    const fetchData = () => {
-      fetch("https://checker.thomeinspector.com/adminreport/summary", {
-        method: "GET",
-        headers: {
-          "Authorization": "Basic " + btoa("yourusername:yourpassword"), // Replace with your username:password
-          "Content-Type": "application/json"
-        }
-      })
-        .then(response => {
-          if (!response.ok) throw new Error("Failed to fetch API data");
-          return response.json();
-        })
-        .then(data => {
-          // Animate values once data is loaded
-          animateValue("developerCount", 0, data.developerCount, 2000);
-          animateValue("projectCount", 0, data.projectCount, 2000);
-          animateValue("houseCount", 0, data.houseCount, 2000);
-        })
-        .catch(error => {
-          console.error("Error fetching data:", error);
-          alert("Failed to load data. Please try again later.");
-        });
-    };
-  
-    // Trigger fetch and animation on scroll
-    let animated = false;
-    window.addEventListener("scroll", () => {
-      const statsSection = document.querySelector(".stats-section");
-      if (statsSection && !animated && window.scrollY + window.innerHeight > statsSection.offsetTop) {
-        fetchData();
-        animated = true;
+  // Animated Numbers
+  const animateValue = (id, start, end, duration) => {
+    let range = end - start;
+    let current = start;
+    let increment = Math.ceil(range / (duration / 100)); // Calculate increment to fit the duration
+    const obj = document.getElementById(id);
+    let timer = setInterval(() => {
+      current += increment;
+      if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+        current = end; // Ensure it stops exactly at the end value
+        clearInterval(timer);
       }
-    });
+      obj.textContent = current.toLocaleString(); // Format number with commas
+    }, 50); // Set the step time to 50ms for smooth animation
+  };
+
+  // Trigger animations when scrolling
+  let animated = false;
+  window.addEventListener("scroll", () => {
+    const statsSection = document.querySelector(".stats-section");
+    const statsOffset = statsSection.offsetTop;
+    if (!animated && window.scrollY + window.innerHeight > statsOffset) {
+      animateValue("developer-count", 0, 253, 10000); // Complete in 5 seconds
+      animateValue("project-count", 0, 1038, 10000); // Complete in 5 seconds
+      animateValue("house-count", 0, 3669, 10000); // Complete in 5 seconds
+      animated = true;
+    }
   });
+});
