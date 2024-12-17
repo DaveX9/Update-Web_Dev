@@ -39,7 +39,7 @@ body {
 .social-icons {
   display: flex;
   gap: 10px;
-  /* Space between icons */
+  align-items: center;
 }
 
 .social-icons a img {
@@ -79,34 +79,6 @@ body {
   color: #0078d7;
 }
 
-/* 
-.nav-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: max-height 0.5s ease-in-out;
-}
-
-.nav-links ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-.nav-links ul li a {
-  text-decoration: none;
-  font-size: 16px;
-  color: var(--font-color);
-  padding: 10px 15px;
-  border-radius: 20px;
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
-}
-
-.nav-links ul li a:hover {
-  color: var(--hover-color);
-  border: 1px solid var(--navborder-color);
-} */
-
 /* Hide the default navigation and make it slideable for smaller screens */
 @media (max-width: 768px) {
   .nav-links {
@@ -134,7 +106,6 @@ body {
 /* Show menu when active */
 .nav-links.active {
   right: 0;
-  /* Slide in */
   display: flex;
 }
 
@@ -155,8 +126,28 @@ body {
   cursor: pointer;
   color: #333;
 }
+/* Language Switcher Styling */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between the flags */
+}
 
-/* Search Bar */
+.language-switcher a {
+  text-decoration: none;
+}
+
+.language-switcher img {
+  width: 20px; /* Flag icon size */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.language-switcher img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
 /* ปรับการจัดตำแหน่งของ Search Bar */
 .search-bar {
   display: none;
@@ -220,99 +211,92 @@ body {
   }
 }
 
-/* Navigation Container */
+/* Adjust Navigation Container */
 .nav-links {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Align to the left initially */
   align-items: center;
   width: 100%;
-  padding: 10px 0;
+  padding: 10px 20px; /* Add padding to the right and left */
+  margin-left: 60px; /* Move slightly to the right */
   background-color: var(--background-color);
   border-bottom: 1px solid #ddd;
   position: relative;
   z-index: 1000;
 }
 
-/* Navigation Items */
 .nav-links ul {
   display: flex;
   list-style: none;
   gap: 20px;
+  padding: 0;
+  margin: 0;
 }
 
-/* Navigation Links */
-.nav-links ul li a {
+/* Default navigation links */
+.nav-links ul li a,
+.nav-links .menu-item {
   text-decoration: none;
   font-size: 16px;
-  color: var(--font-color);
-  padding: 10px 15px;
+  color: #333; /* Text color */
+  padding: 8px 15px;
+  border: 2px solid #E2E8F0; /* Light blue-gray border */
   border-radius: 20px;
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
 }
 
+/* Border for dropdown parent ("เกี่ยวกับเรา") */
+.nav-links .menu-item {
+  cursor: pointer; /* Makes it look clickable */
+}
+
+/* Hover effect for dropdown parent */
+.nav-links .menu-item:hover,
 .nav-links ul li a:hover {
-  color: var(--hover-color);
-  border: 1px solid var(--navborder-color);
+  border-color: #FEC50E; /* Golden yellow border */
+  background-color: #FFFBEA; /* Soft yellow background */
+  color: #1E40AF; /* Dark blue text */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* .category-btn {
-  background-color: #f1f1f1;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s;
-}
-
-.category-btn.active {
-  background-color: #003f87;
-  color: #fff;
-}
-
-.category-btn:hover {
-  background-color: #ddd;
-} */
-
-/* Dropdown */
+/* Dropdown menu styling */
 .dropdown {
   position: relative;
 }
 
 .dropdown-menu {
   display: none;
-  /* Hidden by default */
   position: absolute;
-  top: 100%;
-  /* Below the parent */
+  top: 40px;
   left: 0;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 10px 0;
-  z-index: 1000;
-  min-width: 150px;
+  background-color: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 }
 
 .dropdown-menu a {
   display: block;
-  padding: 10px 15px;
-  font-size: 14px;
-  text-decoration: none;
+  padding: 5px 10px;
   color: #333;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
 .dropdown-menu a:hover {
-  background-color: #ff5c05;
-  color: white;
+  background-color: #FFFBEA; /* Soft yellow background */
+  color: #1E40AF; /* Dark blue text */
 }
 
-/* Show Dropdown on Hover */
+/* Show dropdown menu on hover */
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+
 
 /* For smaller screens, we use JavaScript to toggle */
 @media (max-width: 768px) {
@@ -530,25 +514,32 @@ body {
 
 .certifications {
   display: flex;
-  justify-content: flex-start;
-  gap: 50px;
-  padding-top: 10px;
+  justify-content: flex-start; /* Align all items to the left */
+  align-items: flex-start; /* Align items vertically at the top */
+  gap: 100px; /* Space between items */
+  padding-top: 5px;
 }
 
 .certification {
-  text-align: center;
-  max-width: 200px;
+  text-align: center; /* Center the text under each image */
+  max-width: 120px; /* Set a consistent width for each block */
 }
 
 .certification img {
-  max-width: 80px;
-  margin-bottom: 10px;
+  max-width: 80px; /* Consistent image size */
+  height: auto;
+  display: block; /* Block display ensures it stacks */
+  margin: 0 auto; /* Center the image horizontally */
 }
 
 .certification p {
   font-size: 12px;
   color: #333;
+  margin: 8px 0 0 0; /* Small spacing above the text */
+  line-height: 1.4; /* Consistent line spacing */
+  text-align: center; /* Align text to the center */
 }
+
 
 
 /* carousel2 */

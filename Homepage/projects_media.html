@@ -42,17 +42,28 @@
                         </a>
                     </div>
 
-                    <!-- Search and Hamburger Icons -->
                     <div class="actions">
+                        <!-- Language Switcher -->
+                        <div class="language-switcher">
+                            <a href="?lang=th" class="lang-link">
+                                <img src="/HOMESPECTOR/icon/ICON/thai.png" alt="Thai" title="ภาษาไทย">
+                            </a>
+                            <a href="?lang=en" class="lang-link">
+                                <img src="/HOMESPECTOR/icon/ICON/eng.png" alt="English" title="English">
+                            </a>
+                        </div>
+                    
+                        <!-- Search Icon -->
                         <i id="search-icon" class="fas fa-search" onclick="toggleSearch()"></i>
                         <div class="search-bar" id="search-bar">
                             <input type="text" placeholder="Search..." />
                             <button onclick="searchFunction()">Search</button>
                         </div>
+                        <!-- Hamburger Icon -->
                         <i id="hamburger-icon" class="fas fa-bars" onclick="toggleMenu()"></i>
                         <i id="close-icon" class="fas fa-times" onclick="toggleMenu()" style="display: none;"></i>
                     </div>
-
+                    
                     <!-- Navigation -->
                     <nav class="nav-links" id="nav-links">
                         <ul>
@@ -84,24 +95,6 @@
                     </nav>
             </header>
 
-
-            <!-- <section class="project">
-                <h2>Projects</h2>
-                <div class="feed">
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ft.homeinspector%2F%3Flocale%3Dth_TH&tabs=timeline&width=800&height=900&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-                        width="1200" 
-                        height="900" 
-                        style="border:none;overflow:hidden;" 
-                        scrolling="no" 
-                        frameborder="0" 
-                        allowfullscreen="true" 
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                    </iframe>
-                </div>
-            </section> -->
-            
-
-
             <section class="project">
                 <h1>Project</h1>
                 <div class="filter-container">
@@ -132,6 +125,9 @@
                     </div>
                 </div>
             </section>
+
+        
+            
 
             <section class="footer">
                 <footer class="footer">
@@ -273,10 +269,7 @@
 
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
     <script src="/HOMESPECTOR/JS/dropdown.js"></script>
-    <script src="/HOMESPECTOR/JS/promo_img_zoom.js"></script>
-    <script src="/HOMESPECTOR/JS/carousel.js"></script>
-    <script src="/HOMESPECTOR/JS/carousel2.js"></script>
-    <script src="/HOMESPECTOR/JS/carousel4.js"></script>
+    <script src="/HOMESPECTOR/JS/language_switch.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

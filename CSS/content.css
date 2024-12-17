@@ -66,6 +66,7 @@ body {
 .actions {
     display: flex;
     gap: 15px;
+    align-items: center;
 }
 
 .actions i {
@@ -201,12 +202,30 @@ body {
     cursor: pointer;
     color: #333;
 }
+/* Language Switcher Styling */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between the flags */
+}
 
-/* Search Bar */
+.language-switcher a {
+  text-decoration: none;
+}
+
+.language-switcher img {
+  width: 20px; /* Flag icon size */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.language-switcher img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
 /* ปรับการจัดตำแหน่งของ Search Bar */
 .search-bar {
     display: none;
-    /* Initially hidden */
     gap: 5px;
 }
 

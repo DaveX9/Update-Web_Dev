@@ -41,17 +41,28 @@
               <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
             </a>
           </div>
-
-          <!-- Search and Hamburger Icons -->
           <div class="actions">
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <a href="?lang=th" class="lang-link">
+                    <img src="/HOMESPECTOR/icon/ICON/thai.png" alt="Thai" title="ภาษาไทย">
+                </a>
+                <a href="?lang=en" class="lang-link">
+                    <img src="/HOMESPECTOR/icon/ICON/eng.png" alt="English" title="English">
+                </a>
+            </div>
+        
+            <!-- Search Icon -->
             <i id="search-icon" class="fas fa-search" onclick="toggleSearch()"></i>
             <div class="search-bar" id="search-bar">
-              <input type="text" placeholder="Search..." />
-              <button onclick="searchFunction()">Search</button>
+                <input type="text" placeholder="Search..." />
+                <button onclick="searchFunction()">Search</button>
             </div>
+            <!-- Hamburger Icon -->
             <i id="hamburger-icon" class="fas fa-bars" onclick="toggleMenu()"></i>
             <i id="close-icon" class="fas fa-times" onclick="toggleMenu()" style="display: none;"></i>
           </div>
+      
 
           <!-- Navigation -->
           <nav class="nav-links" id="nav-links">

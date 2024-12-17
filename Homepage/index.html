@@ -16,527 +16,541 @@
 
 <body>
   <div class="content-box">
-    <div class="header">
-      <header class="top-bar">
-        <div class="container">
-          <!-- Social Icons -->
-          <div class="social-icons">
-            <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
+    <div class="content-box">
+      <div class="header">
+        <header class="top-bar">
+          <div class="container">
+            <!-- Social Icons -->
+            <div class="social-icons">
+              <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
                 <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="">
-            </a>
-            <a href="https://www.instagram.com/t.homeinspector/">
+              </a>
+              <a href="https://www.instagram.com/t.homeinspector/">
                 <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="">
-            </a>
-            <a href="https://page.line.me/t.home?openQrModal=true">
+              </a>
+              <a href="https://page.line.me/t.home?openQrModal=true">
                 <img src="/HOMESPECTOR/icon/ICON/line.png" alt="">
-            </a>
-            <a href="tel:082-045-6165">
+              </a>
+              <a href="tel:082-045-6165">
                 <img src="/HOMESPECTOR/icon/ICON/phone.png" alt="">
-            </a>
-          </div>
-
-          <!-- Logo -->
-          <div class="logo">
-            <a href="/HOMESPECTOR/Homepage/index.html">
-              <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
-            </a>
-          </div>
-
-          <!-- Search and Hamburger Icons -->
-          <div class="actions">
-            <i id="search-icon" class="fas fa-search" onclick="toggleSearch()"></i>
-            <div class="search-bar" id="search-bar">
-              <input type="text" placeholder="Search..." />
-              <button onclick="searchFunction()">Search</button>
+              </a>
             </div>
-            <i id="hamburger-icon" class="fas fa-bars" onclick="toggleMenu()"></i>
-            <i id="close-icon" class="fas fa-times" onclick="toggleMenu()" style="display: none;"></i>
-          </div>
 
-          <!-- Navigation -->
-          <nav class="nav-links" id="nav-links">
-            <ul>
-              <li><a href="/HOMESPECTOR/Homepage/index.html">หน้าหลัก</a></li>
-              <li><a href="/HOMESPECTOR/Homepage/service.html">บริการ</a></li>
-              <li><a href="/HOMESPECTOR/Homepage/promotion.html">สิทธิพิเศษ</a></li>
-              <li><a href="/HOMESPECTOR/Homepage/projects_media.html">ผลงาน</a></li>
-              <!-- Dropdown Menu -->
-              <div class="dropdown">
-                <div class="menu-item">
-                  เกี่ยวกับเรา
-                  <span class="dropdown-icon">
-                    <i class="fa-solid fa-caret-down"></i>
-                  </span>
+            <!-- Logo -->
+            <div class="logo">
+              <a href="/HOMESPECTOR/Homepage/index.html">
+                <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
+              </a>
+            </div>
+
+            <div class="actions">
+              <!-- Language Switcher -->
+              <div class="language-switcher">
+                <a href="?lang=th" class="lang-link">
+                  <img src="/HOMESPECTOR/icon/ICON/thai.png" alt="Thai" title="ภาษาไทย">
+                </a>
+                <a href="?lang=en" class="lang-link">
+                  <img src="/HOMESPECTOR/icon/ICON/eng.png" alt="English" title="English">
+                </a>
+              </div>
+
+              <!-- Search Icon -->
+              <i id="search-icon" class="fas fa-search" onclick="toggleSearch()"></i>
+              <div class="search-bar" id="search-bar">
+                <input type="text" placeholder="Search..." />
+                <button onclick="searchFunction()">Search</button>
+              </div>
+              <!-- Hamburger Icon -->
+              <i id="hamburger-icon" class="fas fa-bars" onclick="toggleMenu()"></i>
+              <i id="close-icon" class="fas fa-times" onclick="toggleMenu()" style="display: none;"></i>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav-links" id="nav-links">
+              <ul>
+                <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/service.html" data-translate="nav.services">บริการ</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/promotion.html" data-translate="nav.promotion">สิทธิพิเศษ</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/projects_media.html" data-translate="nav.projects">ผลงาน</a></li>
+                <div class="dropdown">
+                  <div class="menu-item" data-translate="nav.aboutUs">
+                    เกี่ยวกับเรา <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+                  </div>
+                  <div class="dropdown-menu">
+                    <a href="/HOMESPECTOR/Homepage/ourstory.html" data-translate="nav.ourStory">ประวัติของเรา</a>
+                    <a href="/HOMESPECTOR/Homepage/ourteam.html" data-translate="nav.ourTeam">ทีมงานของเรา</a>
+                  </div>
                 </div>
-                <div class="dropdown-menu">
-                  <a href="/HOMESPECTOR/Homepage/ourstory.html">ประวัติของเรา</a>
-                  <a href="/HOMESPECTOR/Homepage/ourteam.html">ทีมงานของเรา</a>
+                <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/Review-home.html" data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
+                    data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/joinwithus.html" data-translate="nav.joinUs">รวมงานกับเรา</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/contactus.html" data-translate="nav.contact">ติดต่อเรา</a></li>
+              </ul>
+            </nav>
+        </header>
 
+
+
+        <div class="carousel-container">
+          <div class="carousel_items">
+            <div class="carousel_item item1">
+              <img src="/HOMESPECTOR/img/carousel1.jpg" alt="">
+            </div>
+            <div class="carousel_item item2">
+              <img src="/HOMESPECTOR/img/carousel2.jpg" alt="">
+            </div>
+            <div class="carousel_item item3">
+              <img src="/HOMESPECTOR/img/carousel3.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <!-- Our Services Section -->
+        <section class="services">
+          <h2 class="services-title" data-translate="services-title">บริการของเรา</h2>
+          <div class="services-logos">
+            <!-- Link Example -->
+            <div class="logo">
+              <a href="/HOMESPECTOR/Homepage/Hinspector.html">
+                <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector">
+              </a>
+            </div>
+            <div class="logo">
+              <a href="/HOMESPECTOR/Homepage/hinterior.html">
+                <img src="/HOMESPECTOR/img/s2.png" alt="T. Home Interior">
+              </a>
+            </div>
+            <div class="logo">
+              <a href="/HOMESPECTOR/Homepage/Hconstruction.html">
+                <img src="/HOMESPECTOR/img/s3.png" alt="T. Home Construction">
+              </a>
+            </div>
+            <div class="logo">
+              <a href="/HOMESPECTOR/Homepage/Hbulter.html">
+                <img src="/HOMESPECTOR/img/s4.png" alt="Home Butler" style="height: 180px; width: 800px;;">
+              </a>
+            </div>
+          </div>
+          <div class="inspection-info">
+            <img src="/HOMESPECTOR/img/carousel1.jpg" alt="Inspection Process">
+            <div class="text-content">
+              <h3 data-translate="inspection-title">ตรวจบ้านต้องทำอย่างไร ?</h3>
+              <p data-translate="inspection-details">รายละเอียดที่ต้องตกลง และเตรียมก่อนตรวจบ้าน</p>
+              <button data-translate="see-details">ดูรายละเอียด</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us">
+          <h2 class="section-title" data-translate="why-choose-us-title">ทำไมต้องเลือก ต.ตรวจบ้าน</h2>
+          <div class="content-container">
+            <div class="text-section">
+              <div class="text-item">
+                <h3 data-translate="trust-title">TRUST</h3>
+                <p data-translate="trust-details">
+                  บริษัทตรวจบ้านอันดับ 1 ที่ลูกค้าบอกต่อมากที่สุดในประเทศไทย
+                  เราเป็นผู้นำด้านการตรวจบ้านอันดับต้นๆของประเทศ
+                  <br> ที่ลูกค้าไว้วางใจให้ตรวจบ้าน โครงการแบรนด์ชั้นนำต่างๆ ในประเทศ
+                  ที่ลูกค้าไว้วางใจให้ตรวจบ้าน โครงการแบรนด์ชั้นนำต่างๆ ในประเทศ<br>
+                </p>
+              </div>
+              <div class="text-item">
+                <h3 data-translate="tech-title">TECH</h3>
+                <p data-translate="tech-details">
+                  บริษัทตรวจบ้านเจ้าแรกและเจ้าเดียวที่ออกแบบและพัฒนาระบบ Web-Application ในการตรวจบ้านเป็นของตัวเอง <br>
+                  เพื่อรองรับการให้บริการที่มีประสิทธิภาพ ครอบคลุมทุกขั้นตอนในการตรวจรับบ้าน
+                  เป็นผู้นำการใช้อุปกรณ์การตรวจที่ทันสมัย<br>
+                  มีกล้องอินฟาเรดตรวจการรั่วซึมที่ตาเปล่ามองไม่เห็น มีบินโดรนตรวจงานหลังคาทุกหลัง
+                </p>
+              </div>
+              <div class="text-item">
+                <h3 data-translate="team-title">TEAM</h3>
+                <p data-translate="team-details">
+                  เราทำงานเป็นระบบแบบมืออาชีพ มีประสบการณ์และเชี่ยวชาญในการตรวจทุกคน
+                  ทีมงานของเราไม่ใช่พนักงานของบริษัทอสัง <br>
+                  หาริมทรัพย์ที่ออกมาตรวจรับงานตัวเอง และไม่มีการส่งต่องานให้ซับ บริษัทตรวจบ้านเป็น "อาชีพหลัก
+                  ไม่ใช่งานเสริม"
+                </p>
+              </div>
+            </div>
+            <div class="image-section">
+              <img src="/HOMESPECTOR/img/carousel1.jpg" alt="Example Image">
+            </div>
+          </div>
+          <div class="certifications">
+            <div class="certification">
+              <img src="/HOMESPECTOR/img/certified1.png" alt="T. Home Inspector" style="height: 50px; width: auto;">
+              <p data-translate="certification1">ต.ตรวจบ้าน ได้รับการรับรองมาตรฐาน ISO/IEC 29110-4-3: 2018</p>
+            </div>
+            <div class="certification">
+              <img src="/HOMESPECTOR/img/certified2.png" alt="Certified Professional Inspector">
+              <p data-translate="certification2">ได้รับ Certified จาก Inter NACHI</p>
+            </div>
+            <div class="certification">
+              <img src="/HOMESPECTOR/img/certified3.png" alt="Certified Professional Inspector">
+              <p data-translate="certification3">ได้รับ Certified จาก Inter NACHI</p>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section class="carousel2">
+          <div id="carouselExampleFade" class="carousel slide carousel-fade custom-carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/HOMESPECTOR/img/carousel1.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="/HOMESPECTOR/img/carousel2.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="projects">
+          <h2 class="projects-title">ผลงาน</h2>
+          <a href="/all-projects.html" class="btn btn-firstall">ดูทั้งหมด</a>
+          <div class="projects-grid">
+            <div class="project-card">
+              <!-- Wrap both the image and project-info inside the <a> tag -->
+              <a href="/project-details/setthasiri.html">
+                <img src="/HOMESPECTOR/img/project1.jpg" alt="SETTHASIRI Project">
+                <div class="project-info">
+                  <h3>REVIEW SETTHASIRI</h3>
+                  <p>แบบบ้าน Benjamin Type | พื้นที่ใช้สอย 237 ตร.ม.</p>
+                  <span>EP.01</span>
+                </div>
+              </a>
+            </div>
+            <div class="project-card">
+              <a href="/project-details/vana-residence.html">
+                <img src="/HOMESPECTOR/img/project1.jpg" alt="VANA Residence">
+                <div class="project-info">
+                  <h3>REVIEW VANA RESIDENCE</h3>
+                  <p>บ้านเดี่ยว 3 ชั้น | สุขุมวิท 9</p>
+                  <span>EP.02</span>
+                </div>
+              </a>
+            </div>
+            <div class="project-card">
+              <a href="/project-details/flora-ville.html">
+                <img src="/HOMESPECTOR/img/project1.jpg" alt="Flora Ville">
+                <div class="project-info">
+                  <h3>REVIEW FLORA VILLE</h3>
+                  <p>รีวิวโครงการ ฟลอร่าวิลล์ สุวินทวงศ์</p>
+                  <span>EP.03</span>
+                </div>
+              </a>
+            </div>
+            <div class="project-card">
+              <a href="/project-details/mandarin-oriental-residences.html">
+                <img src="/HOMESPECTOR/img/project1.jpg" alt="Mandarin Oriental Residences">
+                <div class="project-info">
+                  <h3>REVIEW MANDARIN ORIENTAL RESIDENCES</h3>
+                  <p>ที่พักหรู 100 ล้าน!! ติด ICONSIAM</p>
+                  <span>EP.04</span>
+                </div>
+              </a>
+            </div>
+            <div class="project-card">
+              <a href="/project-details/ladawan.html">
+                <img src="/HOMESPECTOR/img/project1.jpg" alt="LADAWAN">
+                <div class="project-info">
+                  <h3>REVIEW LADAWAN</h3>
+                  <p>กฤษดานคร ศรีนครินทร์ | พระราม 2</p>
+                  <span>EP.05</span>
+                </div>
+              </a>
+            </div>
+            <div class="project-card">
+              <a href="/project-details/flora-ville-2.html">
+                <img src="/HOMESPECTOR/img/project1.jpg" alt="Flora Ville 2">
+                <div class="project-info">
+                  <h3>REVIEW FLORA VILLE 2</h3>
+                  <p>รีวิวโครงการ ฟลอร่าวิลล์ สุวินทวงศ์</p>
+                  <span>EP.06</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <div class="carousel-container3">
+          <h2 class="carousel-title3">Content</h2>
+          <a href="/HOMESPECTOR/Homepage/content.html" class="btn btn-all">ดูทั้งหมด</a>
+          <div class="carousel3">
+            <!-- Main Slide Section -->
+            <div class="carousel-slides3">
+              <div class="carousel-slide3 active">
+                <img src="/HOMESPECTOR/img/carousel2.jpg" alt="Feature 1">
+                <div class="slide-content3">
+                  <h3>มนุษย์ต่างวัย Talk</h3>
+                  <p>51 EPISODES</p>
+                  <p>ฟังประสบการณ์จากทุกช่วงวัยของชีวิตบุคคลที่น่าสนใจ...</p>
+                  <a href="#" class="btn">ดูทั้งหมด</a>
                 </div>
               </div>
+              <div class="carousel-slide3">
+                <img src="/HOMESPECTOR/img/carousel2.jpg" alt="Feature 2">
+                <div class="slide-content3">
+                  <h3>รายการที่สอง</h3>
+                  <p>30 EPISODES</p>
+                  <p>รายละเอียดเพิ่มเติมเกี่ยวกับรายการนี้...</p>
+                  <a href="#" class="btn">ดูทั้งหมด</a>
+                </div>
+              </div>
+              <div class="carousel-slide3">
+                <img src="/HOMESPECTOR/img/carousel3.jpg" alt="Feature 2">
+                <div class="slide-content3">
+                  <h3>รายการที่สอง</h3>
+                  <p>30 EPISODES</p>
+                  <p>รายละเอียดเพิ่มเติมเกี่ยวกับรายการนี้...</p>
+                  <a href="#" class="btn">ดูทั้งหมด</a>
+                </div>
+              </div>
+              <div class="carousel-slide3">
+                <img src="/HOMESPECTOR/img/carousel3.jpg" alt="Feature 2">
+                <div class="slide-content3">
+                  <h3>รายการที่สอง</h3>
+                  <p>30 EPISODES</p>
+                  <p>รายละเอียดเพิ่มเติมเกี่ยวกับรายการนี้...</p>
+                  <a href="#" class="btn">ดูทั้งหมด</a>
+                </div>
+              </div>
+              <div class="carousel-slide3">
+                <img src="/HOMESPECTOR/img/carousel2.jpg" alt="Feature 2">
+                <div class="slide-content3">
+                  <h3>รายการที่สอง</h3>
+                  <p>30 EPISODES</p>
+                  <p>รายละเอียดเพิ่มเติมเกี่ยวกับรายการนี้...</p>
+                  <a href="#" class="btn">ดูทั้งหมด</a>
+                </div>
+              </div>
+              <div class="carousel-slide3">
+                <img src="/HOMESPECTOR/img/carousel1.jpg" alt="Feature 2">
+                <div class="slide-content3">
+                  <h3>รายการที่สอง</h3>
+                  <p>30 EPISODES</p>
+                  <p>รายละเอียดเพิ่มเติมเกี่ยวกับรายการนี้...</p>
+                  <a href="#" class="btn">ดูทั้งหมด</a>
+                </div>
+              </div>
+              <!-- Add more slides if needed -->
+            </div>
 
-              <li><a href="/HOMESPECTOR/Homepage/articles.html">บทความ</a></li>
-              <li><a href="/HOMESPECTOR/Homepage/Review-home.html">รีวิวบ้าน</a></li>
-              <li><a href="/HOMESPECTOR/Homepage/review_interior.html">รีวิวตกแต่งบ้าน</a></li>
-              <li><a href="/HOMESPECTOR/Homepage/joinwithus.html">รวมงานกับเรา</a></li>
-              <li><a href="/HOMESPECTOR/Homepage/contactus.html">ติดต่อเรา</a></li>
-            </ul>
-          </nav>
-      </header>
+            <!-- Thumbnail Navigation -->
+            <div class="carousel-thumbnails">
+              <button class="prev-btn">&lt;</button> <!-- Left icon -->
+              <div class="thumbnail active" onclick="showSlide(0)"> <!-- Index 0 -->
+                <img src="/HOMESPECTOR/img/carousel2.jpg" alt="Thumb 1">
+              </div>
+              <div class="thumbnail" onclick="showSlide(1)"> <!-- Index 1 -->
+                <img src="/HOMESPECTOR/img/carousel2.jpg" alt="Thumb 2">
+              </div>
+              <div class="thumbnail" onclick="showSlide(2)"> <!-- Index 2 -->
+                <img src="/HOMESPECTOR/img/carousel3.jpg" alt="Thumb 3">
+              </div>
+              <div class="thumbnail" onclick="showSlide(3)"> <!-- Index 3 -->
+                <img src="/HOMESPECTOR/img/carousel3.jpg" alt="Thumb 4">
+              </div>
+              <div class="thumbnail" onclick="showSlide(4)"> <!-- Index 4 -->
+                <img src="/HOMESPECTOR/img/carousel2.jpg" alt="Thumb 5">
+              </div>
+              <div class="thumbnail" onclick="showSlide(5)"> <!-- Index 4 -->
+                <img src="/HOMESPECTOR/img/carousel1.jpg" alt="Thumb 5">
+              </div>
+              <button class="next-btn">&gt;</button> <!-- Right icon -->
+            </div>
 
-
-
-      <div class="carousel-container">
-        <div class="carousel_items">
-          <div class="carousel_item item1">
-            <img src="/HOMESPECTOR/img/carousel1.jpg" alt="">
-          </div>
-          <div class="carousel_item item2">
-            <img src="/HOMESPECTOR/img/carousel2.jpg" alt="">
-          </div>
-          <div class="carousel_item item3">
-            <img src="/HOMESPECTOR/img/carousel3.jpg" alt="">
           </div>
         </div>
-      </div>
-
-
-      <!-- Our Services Section -->
-      <section class="services">
-        <h2 class="services-title">บริการของเรา</h2>
-        <div class="services-logos">
-          <!-- Link Example -->
-          <div class="logo">
-            <a href="/HOMESPECTOR/Homepage/Hinspector.html">
-              <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector">
-            </a>
-          </div>
-          <div class="logo">
-            <a href="/HOMESPECTOR/Homepage/hinterior.html">
-              <img src="/HOMESPECTOR/img/s2.png" alt="T. Home Interior">
-            </a>
-          </div>
-          <div class="logo">
-            <a href="/HOMESPECTOR/Homepage/Hconstruction.html">
-              <img src="/HOMESPECTOR/img/s3.png" alt="T. Home Construction">
-            </a>
-          </div>
-          <div class="logo">
-            <a href="/HOMESPECTOR/Homepage/Hbulter.html">
-              <img src="/HOMESPECTOR/img/s4.png" alt="Home Butler">
-            </a>
+        <!-- Reviews Section -->
+        <div class="stats-section">
+          <h1 class="section-title">Read What Others Have To Say.</h1>
+          <p class="section-subtitle">
+            In the 7+ years we have been doing business, our customers have left us lots of great feedback.
+          </p>
+          <div class="stats-container">
+            <div class="stat-box">
+              <h2 id="developer-count">0</h2>
+              <p>Developer Count</p>
+            </div>
+            <div class="stat-box">
+              <h2 id="project-count">0</h2>
+              <p>Projects</p>
+            </div>
+            <div class="stat-box">
+              <h2 id="house-count">0</h2>
+              <p>Houses</p>
+            </div>
           </div>
         </div>
-        <div class="inspection-info">
-          <img src="/HOMESPECTOR/img/carousel1.jpg" alt="Inspection Process">
-          <div class="text-content">
-            <h3>ตรวจบ้านต้องทำอย่างไร ?</h3>
-            <p>รายละเอียดที่ต้องตกลง และเตรียมก่อนตรวจบ้าน</p>
-            <button>ดูรายละเอียด</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="why-choose-us">
-        <h2 class="section-title">ทำไมต้องเลือก ต.ตรวจบ้าน</h2>
-        <div class="content-container">
-          <div class="text-section">
-            <div class="text-item">
-              <h3>TRUST</h3>
-              <p>บริษัทตรวจบ้านอันดับ 1 ที่ลูกค้าบอกต่อมากที่สุดในประเทศไทย
-                เราเป็นผู้นำด้านการตรวจบ้านอันดับต้นๆของประเทศ
-                <br> ที่ลูกค้าไว้วางใจให้ตรวจบ้าน โครงการแบรนด์ชั้นนำต่างๆ ในประเทศ
-
-              </p>
-            </div>
-            <div class="text-item">
-              <h3>TECH</h3>
-              <p>บริษัทตรวจบ้านเจ้าแรกและเจ้าเดียวที่ออกแบบและพัฒนาระบบ Web-Application ในการตรวจบ้านเป็นของตัวเอง <br>
-                เพื่อรองรับการให้บริการที่มีประสิทธิภาพ ครอบคลุมทุกขั้นตอนในการตรวจรับบ้าน
-                เป็นผู้นำการใช้อุปกรณ์การตรวจที่ทันสมัย<br>
-                มีกล้องอินฟาเรดตรวจการรั่วซึมที่ตาเปล่ามองไม่เห็น มีบินโดรนตรวจงานหลังคาทุกหลัง</p>
-            </div>
-            <div class="text-item">
-              <h3>TEAM</h3>
-              <p>เราทำงานเป็นระบบแบบมืออาชีพ มีประสบการณ์และเชี่ยวชาญในการตรวจทุกคน
-                ทีมงานของเราไม่ใช่พนักงานของบริษัทอสัง <br>
-                หาริมทรัพย์ที่ออกมาตรวจรับงานตัวเอง และไม่มีการส่งต่องานให้ซับ บริษัทตรวจบ้านเป็น "อาชีพหลัก
-                ไม่ใช่งานเสริม"<br>
-            </div>
-          </div>
-          <div class="image-section">
-            <img src="/HOMESPECTOR/img/carousel1.jpg" alt="Example Image">
-          </div>
-        </div>
-        <div class="certifications">
-          <div class="certification">
-            <img src="/HOMESPECTOR/img/certified1.png" alt="T. Home Inspector">
-            <p>ต.ตรวจบ้าน ได้รับการรับรองมาตรฐาน ISO/IEC 29110-4-3: 2018</p>
-          </div>
-          <div class="certification">
-            <img src="/HOMESPECTOR/img/certified2.png" alt="Certified Professional Inspector">
-            <p>ได้รับ Certified จาก Inter NACHI</p>
-          </div>
-          <div class="certification">
-            <img src="/HOMESPECTOR/img/certified3.png" alt="Certified Professional Inspector">
-            <p>ได้รับ Certified จาก Inter NACHI</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="carousel2">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade custom-carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="/HOMESPECTOR/img/carousel1.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="/HOMESPECTOR/img/carousel2.jpg" class="d-block w-100" alt="...">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </section>
-
-      <section class="projects">
-        <h2 class="projects-title">ผลงาน</h2>
-        <a href="/all-projects.html" class="btn btn-firstall">ดูทั้งหมด</a>
-        <div class="projects-grid">
-          <div class="project-card">
-            <!-- Wrap both the image and project-info inside the <a> tag -->
-            <a href="/project-details/setthasiri.html">
-              <img src="/HOMESPECTOR/img/project1.jpg" alt="SETTHASIRI Project">
-              <div class="project-info">
-                <h3>REVIEW SETTHASIRI</h3>
-                <p>แบบบ้าน Benjamin Type | พื้นที่ใช้สอย 237 ตร.ม.</p>
-                <span>EP.01</span>
-              </div>
-            </a>
-          </div>
-          <div class="project-card">
-            <a href="/project-details/vana-residence.html">
-              <img src="/HOMESPECTOR/img/project1.jpg" alt="VANA Residence">
-              <div class="project-info">
-                <h3>REVIEW VANA RESIDENCE</h3>
-                <p>บ้านเดี่ยว 3 ชั้น | สุขุมวิท 9</p>
-                <span>EP.02</span>
-              </div>
-            </a>
-          </div>
-          <div class="project-card">
-            <a href="/project-details/flora-ville.html">
-              <img src="/HOMESPECTOR/img/project1.jpg" alt="Flora Ville">
-              <div class="project-info">
-                <h3>REVIEW FLORA VILLE</h3>
-                <p>รีวิวโครงการ ฟลอร่าวิลล์ สุวินทวงศ์</p>
-                <span>EP.03</span>
-              </div>
-            </a>
-          </div>
-          <div class="project-card">
-            <a href="/project-details/mandarin-oriental-residences.html">
-              <img src="/HOMESPECTOR/img/project1.jpg" alt="Mandarin Oriental Residences">
-              <div class="project-info">
-                <h3>REVIEW MANDARIN ORIENTAL RESIDENCES</h3>
-                <p>ที่พักหรู 100 ล้าน!! ติด ICONSIAM</p>
-                <span>EP.04</span>
-              </div>
-            </a>
-          </div>
-          <div class="project-card">
-            <a href="/project-details/ladawan.html">
-              <img src="/HOMESPECTOR/img/project1.jpg" alt="LADAWAN">
-              <div class="project-info">
-                <h3>REVIEW LADAWAN</h3>
-                <p>กฤษดานคร ศรีนครินทร์ | พระราม 2</p>
-                <span>EP.05</span>
-              </div>
-            </a>
-          </div>
-          <div class="project-card">
-            <a href="/project-details/flora-ville-2.html">
-              <img src="/HOMESPECTOR/img/project1.jpg" alt="Flora Ville 2">
-              <div class="project-info">
-                <h3>REVIEW FLORA VILLE 2</h3>
-                <p>รีวิวโครงการ ฟลอร่าวิลล์ สุวินทวงศ์</p>
-                <span>EP.06</span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <div class="carousel-container3">
-        <h2 class="carousel-title3">Content</h2>
-        <a href="/HOMESPECTOR/Homepage/content.html" class="btn btn-all">ดูทั้งหมด</a>
-        <div class="carousel3">
-          <!-- Main Slide Section -->
-          <div class="carousel-slides3">
-            <div class="carousel-slide3 active">
-              <img src="/HOMESPECTOR/img/carousel2.jpg" alt="Feature 1">
-              <div class="slide-content3">
-                <h3>มนุษย์ต่างวัย Talk</h3>
-                <p>51 EPISODES</p>
-                <p>ฟังประสบการณ์จากทุกช่วงวัยของชีวิตบุคคลที่น่าสนใจ...</p>
-                <a href="#" class="btn">ดูทั้งหมด</a>
-              </div>
-            </div>
-            <div class="carousel-slide3">
-              <img src="/HOMESPECTOR/img/carousel2.jpg" alt="Feature 2">
-              <div class="slide-content3">
-                <h3>รายการที่สอง</h3>
-                <p>30 EPISODES</p>
-                <p>รายละเอียดเพิ่มเติมเกี่ยวกับรายการนี้...</p>
-                <a href="#" class="btn">ดูทั้งหมด</a>
-              </div>
-            </div>
-            <div class="carousel-slide3">
-              <img src="/HOMESPECTOR/img/carousel3.jpg" alt="Feature 2">
-              <div class="slide-content3">
-                <h3>รายการที่สอง</h3>
-                <p>30 EPISODES</p>
-                <p>รายละเอียดเพิ่มเติมเกี่ยวกับรายการนี้...</p>
-                <a href="#" class="btn">ดูทั้งหมด</a>
-              </div>
-            </div>
-            <div class="carousel-slide3">
-              <img src="/HOMESPECTOR/img/carousel3.jpg" alt="Feature 2">
-              <div class="slide-content3">
-                <h3>รายการที่สอง</h3>
-                <p>30 EPISODES</p>
-                <p>รายละเอียดเพิ่มเติมเกี่ยวกับรายการนี้...</p>
-                <a href="#" class="btn">ดูทั้งหมด</a>
-              </div>
-            </div>
-            <div class="carousel-slide3">
-              <img src="/HOMESPECTOR/img/carousel2.jpg" alt="Feature 2">
-              <div class="slide-content3">
-                <h3>รายการที่สอง</h3>
-                <p>30 EPISODES</p>
-                <p>รายละเอียดเพิ่มเติมเกี่ยวกับรายการนี้...</p>
-                <a href="#" class="btn">ดูทั้งหมด</a>
-              </div>
-            </div>
-            <div class="carousel-slide3">
-              <img src="/HOMESPECTOR/img/carousel1.jpg" alt="Feature 2">
-              <div class="slide-content3">
-                <h3>รายการที่สอง</h3>
-                <p>30 EPISODES</p>
-                <p>รายละเอียดเพิ่มเติมเกี่ยวกับรายการนี้...</p>
-                <a href="#" class="btn">ดูทั้งหมด</a>
-              </div>
-            </div>
-            <!-- Add more slides if needed -->
-          </div>
-
-          <!-- Thumbnail Navigation -->
-          <div class="carousel-thumbnails">
-            <button class="prev-btn">&lt;</button> <!-- Left icon -->
-            <div class="thumbnail active" onclick="showSlide(0)"> <!-- Index 0 -->
-              <img src="/HOMESPECTOR/img/carousel2.jpg" alt="Thumb 1">
-            </div>
-            <div class="thumbnail" onclick="showSlide(1)"> <!-- Index 1 -->
-              <img src="/HOMESPECTOR/img/carousel2.jpg" alt="Thumb 2">
-            </div>
-            <div class="thumbnail" onclick="showSlide(2)"> <!-- Index 2 -->
-              <img src="/HOMESPECTOR/img/carousel3.jpg" alt="Thumb 3">
-            </div>
-            <div class="thumbnail" onclick="showSlide(3)"> <!-- Index 3 -->
-              <img src="/HOMESPECTOR/img/carousel3.jpg" alt="Thumb 4">
-            </div>
-            <div class="thumbnail" onclick="showSlide(4)"> <!-- Index 4 -->
-              <img src="/HOMESPECTOR/img/carousel2.jpg" alt="Thumb 5">
-            </div>
-            <div class="thumbnail" onclick="showSlide(5)"> <!-- Index 4 -->
-              <img src="/HOMESPECTOR/img/carousel1.jpg" alt="Thumb 5">
-            </div>
-            <button class="next-btn">&gt;</button> <!-- Right icon -->
-          </div>
-
-        </div>
-      </div>
-          <!-- Reviews Section -->
-          <div class="stats-section">
-            <h1 class="section-title">Read What Others Have To Say.</h1>
-            <p class="section-subtitle">
-              In the 7+ years we have been doing business, our customers have left us lots of great feedback.
-            </p>
-            <div class="stats-container">
-              <div class="stat-box">
-                <h2 id="developer-count">0</h2>
-                <p>Developer Count</p>
-              </div>
-              <div class="stat-box">
-                <h2 id="project-count">0</h2>
-                <p>Projects</p>
-              </div>
-              <div class="stat-box">
-                <h2 id="house-count">0</h2>
-                <p>Houses</p>
-              </div>
-            </div>
-          </div> 
-          
 
 
-        
-      <section class="articles">
-        <h2 class="articles-title">Latest Articles</h2>
-        <a href="/HOMESPECTOR/Homepage/articles.html" class="btn btn-firstall">ดูทั้งหมด</a>
-        <div class="articles-grid">
+
+
+        <section class="articles">
+          <h2 class="articles-title">Latest Articles</h2>
+          <a href="/HOMESPECTOR/Homepage/articles.html" class="btn btn-firstall">ดูทั้งหมด</a>
+          <div class="articles-grid">
             <!-- Dynamically populated -->
-        </div>
-      </section>
+          </div>
+        </section>
 
 
-      <div class="container-newapp">
-        <div class="header-newapp">
+        <div class="container-newapp">
+          <div class="header-newapp">
             <h1>New</h1>
             <h2>Application ตรวจบ้านด้วยตัวเอง</h2>
             <p>ตรวจบ้านด้วยตัวเอง พร้อมออกรายงานในตัว ตรวจไม่เป็นก็มีคลิปสอนให้ภายในแอป</p>
-        </div>
-        <div class="content-newapp">
+          </div>
+          <div class="content-newapp">
             <div class="app-preview">
-                <img src="/HOMESPECTOR/img/app1.png" alt="App Preview 1">
-                <img src="/HOMESPECTOR/img/app2.png" alt="App Preview 2">
+              <img src="/HOMESPECTOR/img/app1.png" alt="App Preview 1">
+              <img src="/HOMESPECTOR/img/app2.png" alt="App Preview 2">
             </div>
             <div class="cta">
-                <button>ใช้งานฟรี!</button>
+              <button>ใช้งานฟรี!</button>
             </div>
+          </div>
         </div>
-    </div>
 
-  
 
-    <section class="footer">
-      <footer class="footer">
-          <div class="footer-container">
+
+        <section class="footer">
+          <footer class="footer">
+            <div class="footer-container">
               <div class="footer-left">
-                  <h2 class="footer-title">
-                      <img src="/HOMESPECTOR/img/footer_logo.png" alt="logo" class="footer-logo">
-                  </h2>
-                  <div class="social-icons">
-                    <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
-                        <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="">
-                    </a>
-                    <a href="https://www.instagram.com/t.homeinspector/">
-                        <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="">
-                    </a>
-                    <a href="https://page.line.me/t.home?openQrModal=true">
-                      <img src="/HOMESPECTOR/icon/ICON/line.png" alt="">
-                    </a>
-                    <a href="tel:082-045-6165">
-                      <img src="/HOMESPECTOR/icon/ICON/phone.png" alt="">
-                    </a>
-                    <a href="https://www.tiktok.com/@thomeinspector">
-                        <img src="/HOMESPECTOR/icon/ICON/Tiktok.png" alt="">
-                    </a>
-                    <a href="https://www.youtube.com/channel/UC1BPUCVPBW4-ml7MrxQWjug">
-                        <img src="/HOMESPECTOR/icon/ICON/YB.png" alt="">
-                    </a>
+                <h2 class="footer-title">
+                  <img src="/HOMESPECTOR/img/footer_logo.png" alt="logo" class="footer-logo">
+                </h2>
+                <div class="social-icons">
+                  <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
+                    <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="">
+                  </a>
+                  <a href="https://www.instagram.com/t.homeinspector/">
+                    <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="">
+                  </a>
+                  <a href="https://page.line.me/t.home?openQrModal=true">
+                    <img src="/HOMESPECTOR/icon/ICON/line.png" alt="">
+                  </a>
+                  <a href="tel:082-045-6165">
+                    <img src="/HOMESPECTOR/icon/ICON/phone.png" alt="">
+                  </a>
+                  <a href="https://www.tiktok.com/@thomeinspector">
+                    <img src="/HOMESPECTOR/icon/ICON/Tiktok.png" alt="">
+                  </a>
+                  <a href="https://www.youtube.com/channel/UC1BPUCVPBW4-ml7MrxQWjug">
+                    <img src="/HOMESPECTOR/icon/ICON/YB.png" alt="">
+                  </a>
                 </div>
               </div>
               <div class="footer-center">
-                  <h3>Navigation</h3>
-                  <ul>
-                      <li><a href="/HOMESPECTOR/Homepage/index.html">หน้าหลัก</a></li>
-                      <li><a href="/HOMESPECTOR/Homepage/service.html">บริการ</a></li>
-                      <li><a href="/HOMESPECTOR/Homepage/promotion.html">สิทธิพิเศษ</a></li>
-                      <li><a href="#">ผลงาน</a></li>
-                      <!-- Dropdown Menu -->
-                      <div class="dropdown">
-                          <div class="menu-item">
-                              เกี่ยวกับเรา
-                              <span class="dropdown-icon">
-                                  <i class="fa-solid fa-caret-down"></i>
-                              </span>
-                          </div>
-                          <div class="dropdown-menu">
-                              <a href="/HOMESPECTOR/Homepage/ourstory.html">ประวัติของเรา</a>
-                              <a href="/HOMESPECTOR/Homepage/ourteam.html">ทีมงานของเรา</a>
+                <h3>Navigation</h3>
+                <ul>
+                  <li><a href="/HOMESPECTOR/Homepage/index.html">หน้าหลัก</a></li>
+                  <li><a href="/HOMESPECTOR/Homepage/service.html">บริการ</a></li>
+                  <li><a href="/HOMESPECTOR/Homepage/promotion.html">สิทธิพิเศษ</a></li>
+                  <li><a href="#">ผลงาน</a></li>
+                  <!-- Dropdown Menu -->
+                  <div class="dropdown">
+                    <div class="menu-item">
+                      เกี่ยวกับเรา
+                      <span class="dropdown-icon">
+                        <i class="fa-solid fa-caret-down"></i>
+                      </span>
+                    </div>
+                    <div class="dropdown-menu">
+                      <a href="/HOMESPECTOR/Homepage/ourstory.html">ประวัติของเรา</a>
+                      <a href="/HOMESPECTOR/Homepage/ourteam.html">ทีมงานของเรา</a>
 
-                          </div>
-                      </div>
+                    </div>
+                  </div>
 
-                      <li><a href="#">บทความ</a></li>
-                      <li><a href="#">รีวิวบ้าน</a></li>
-                      <li><a href="#">รีวิวตกแต่งบ้าน</a></li>
-                      <li><a href="#">รวมงานกับเรา</a></li>
-                      <li><a href="/HOMESPECTOR/Homepage/contactus.html">ติดต่อเรา</a></li>
-                  </ul>
+                  <li><a href="#">บทความ</a></li>
+                  <li><a href="#">รีวิวบ้าน</a></li>
+                  <li><a href="#">รีวิวตกแต่งบ้าน</a></li>
+                  <li><a href="#">รวมงานกับเรา</a></li>
+                  <li><a href="/HOMESPECTOR/Homepage/contactus.html">ติดต่อเรา</a></li>
+                </ul>
               </div>
               <div class="footer-center">
-                  <h3>บทความ</h3>
-                  <ul>
-                      <li><a href="#">ไฟ้ฟา</a></li>
-                      <li><a href="#">อุปกรณ์</a></li>
-                      <li><a href="#">Page</a></li>
-                      <li><a href="#">Page</a></li>
-                      <li><a href="#">Page</a></li>
-                  </ul>
+                <h3>บทความ</h3>
+                <ul>
+                  <li><a href="#">ไฟ้ฟา</a></li>
+                  <li><a href="#">อุปกรณ์</a></li>
+                  <li><a href="#">Page</a></li>
+                  <li><a href="#">Page</a></li>
+                  <li><a href="#">Page</a></li>
+                </ul>
               </div>
               <div class="footer-right">
-                  <h3>We Accept</h3>
-                  <div class="payment-logos">
-                      <img src="/HOMESPECTOR/img/visacard.png" alt="Visa">
-                      <img src="/HOMESPECTOR/img/Mastercard.webp" alt="MasterCard">
-                      <!-- <img src="/HOMESPECTOR/img/paypal-logo.webp" alt="PayPal">
+                <h3>We Accept</h3>
+                <div class="payment-logos">
+                  <img src="/HOMESPECTOR/img/visacard.png" alt="Visa">
+                  <img src="/HOMESPECTOR/img/Mastercard.webp" alt="MasterCard">
+                  <!-- <img src="/HOMESPECTOR/img/paypal-logo.webp" alt="PayPal">
       <img src="/HOMESPECTOR/img/American-Express.png" alt="American Express"> -->
-                  </div>
+                </div>
               </div>
-          </div>
-          <div class="footer-bottom">
+            </div>
+            <div class="footer-bottom">
               <p>© 2024 T.HOME INSPECTOR. All rights reserved.</p>
-          </div>
-      </footer>
-  </section>
+            </div>
+          </footer>
+        </section>
 
-  </div>
-</div>
+      </div>
+    </div>
 
 
 
- 
 
-  <!--js for search bar -->
-  <script>
-    const hamburgerIcon = document.getElementById('hamburger-icon');
-    const navLinks = document.querySelector('.nav-links');
-    const searchIcon = document.getElementById('search-icon');
-    const searchBar = document.querySelector('.search-bar');
 
-    // Toggle navigation menu (Hamburger icon)
-    hamburgerIcon.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
+    <!--js for search bar -->
+    <script>
+      const hamburgerIcon = document.getElementById('hamburger-icon');
+      const navLinks = document.querySelector('.nav-links');
+      const searchIcon = document.getElementById('search-icon');
+      const searchBar = document.querySelector('.search-bar');
 
-    // Toggle search bar (Search icon)
-    searchIcon.addEventListener('click', () => {
-      searchBar.classList.toggle('active');
-      navLinks.classList.add('active'); // Ensure the navigation stays visible
-    });
+      // Toggle navigation menu (Hamburger icon)
+      hamburgerIcon.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
 
-  </script>
+      // Toggle search bar (Search icon)
+      searchIcon.addEventListener('click', () => {
+        searchBar.classList.toggle('active');
+        navLinks.classList.add('active'); // Ensure the navigation stays visible
+      });
 
-  <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
-  <script src="/HOMESPECTOR/JS/dropdown.js"></script>
-  <script src="/HOMESPECTOR/JS/pull_articles.js"></script>
-  <script src="/HOMESPECTOR/JS/carousel.js"></script>
-  <script src="/HOMESPECTOR/JS/carousel2.js"></script>
-  <script src="/HOMESPECTOR/JS/carousel4.js"></script>
-  <script src="/HOMESPECTOR/JS/stats-section.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+    </script>
+
+    <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
+    <script src="/HOMESPECTOR/JS/dropdown.js"></script>
+    <script src="/HOMESPECTOR/JS/pull_articles.js"></script>
+    <script src="/HOMESPECTOR/JS/carousel.js"></script>
+    <script src="/HOMESPECTOR/JS/carousel2.js"></script>
+    <script src="/HOMESPECTOR/JS/carousel4.js"></script>
+    <script src="/HOMESPECTOR/JS/stats-section.js"></script>
+    <script src="/HOMESPECTOR/JS/language_switch.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
 
 </body>
 

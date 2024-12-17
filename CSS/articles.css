@@ -38,7 +38,8 @@ body {
 /* Social Icons */
 .social-icons {
     display: flex;
-    gap: 10px; /* Space between icons */
+    gap: 10px; 
+    align-items: center;
   }
   
   .social-icons a img {
@@ -151,8 +152,28 @@ body {
     cursor: pointer;
     color: #333;
 }
+/* Language Switcher Styling */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between the flags */
+}
 
-/* Search Bar */
+.language-switcher a {
+  text-decoration: none;
+}
+
+.language-switcher img {
+  width: 20px; /* Flag icon size */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.language-switcher img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
 /* ปรับการจัดตำแหน่งของ Search Bar */
 .search-bar {
     display: none;
