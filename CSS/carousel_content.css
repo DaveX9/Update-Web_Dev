@@ -1,4 +1,3 @@
-/* General Reset */
 :root {
     --background-color: #ffffff;
     --font-color: #0e0d0d;
@@ -357,86 +356,131 @@
       height: 80px;
     }
   }
+
+
+ /* General Styles */
+.talk-page {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+    background-color: #f9f9f9;
+  }
+  
+  /* Main Content Section */
+  section.main-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  /* Left Side Styles */
+  .left-image {
+    flex: 1;
+    max-width: 50%;
+  }
+  
+  .main-image {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .left-content {
+    margin-top: 20px;
+  }
+  
+  .left-content h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  .episodes-count {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .main-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .social-share {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+  }
+  
+  .social-share span {
+    font-weight: bold;
+  }
+  
+  .social-share a {
+    text-decoration: none;
+    color: white;
+    background-color: #3b5998;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .social-share a:hover {
+    background-color: #ff5c05;
+  }
+  
+  /* Right Side Styles */
+  .right-episodes {
+    flex: 1;
+    max-width: 50%;
+  }
+  
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .episodes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .episode {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .episode img {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .episode-info h3 {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .episode-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0;
+  }
+  
   
 
-/* Container with background image */
-.join-us-container {
-    max-width: 1200px;
-    width: 90%;
-    margin: 40px auto;
-    /* Center the entire section */
-    display: flex;
-    align-items: center;
-    /* Align items vertically in the middle */
-    gap: 20px;
-    padding: 40px;
-    background-color: #ebebeb;
-    /* Replace with your background image */
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    color: #fff;
-    /* Ensure text is readable on dark backgrounds */
-}
-
-/* Left content (text) styling */
-.join-us-content {
-    flex: 1;
-    /* Take up equal space */
-}
-
-.join-us-content h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-    color:var(--font-color);
-    font-weight: bold;
-    /* White text for visibility */
-}
-
-.join-us-content p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: var(--font-color);
-}
-
-.join-us-content .btn {
-    display: inline-block;
-    background-color: #f54e00;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    cursor: pointer;
-}
-
-.join-us-content .btn:hover {
-    background-color: var(--hover-color);
-}
-
-/* Right image styling */
-.join-us-image {
-    flex: 1;
-    /* Take up equal space */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.join-us-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    /* Optional: Add shadow to the image */
-}
-
-/* footer */
-.footer {
+  
+  
+  /* footer */
+  .footer {
     background-color: #f9f9f9;
     color: #333;
     padding: 30px 20px;

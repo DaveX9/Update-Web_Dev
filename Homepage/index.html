@@ -66,21 +66,26 @@
             </div>
 
             <!-- Navigation -->
+            <!-- Navigation -->
             <nav class="nav-links" id="nav-links">
               <ul>
                 <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a></li>
                 <li><a href="/HOMESPECTOR/Homepage/service.html" data-translate="nav.services">บริการ</a></li>
                 <li><a href="/HOMESPECTOR/Homepage/promotion.html" data-translate="nav.promotion">สิทธิพิเศษ</a></li>
                 <li><a href="/HOMESPECTOR/Homepage/projects_media.html" data-translate="nav.projects">ผลงาน</a></li>
-                <div class="dropdown">
-                  <div class="menu-item" data-translate="nav.aboutUs">
+
+                <!-- Dropdown Menu -->
+                <li class="dropdown">
+                  <a href="#" class="menu-item" data-translate="nav.aboutUs">
                     เกี่ยวกับเรา <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
-                  </div>
-                  <div class="dropdown-menu">
-                    <a href="/HOMESPECTOR/Homepage/ourstory.html" data-translate="nav.ourStory">ประวัติของเรา</a>
-                    <a href="/HOMESPECTOR/Homepage/ourteam.html" data-translate="nav.ourTeam">ทีมงานของเรา</a>
-                  </div>
-                </div>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/HOMESPECTOR/Homepage/ourstory.html" data-translate="nav.ourStory">ประวัติของเรา</a>
+                    </li>
+                    <li><a href="/HOMESPECTOR/Homepage/ourteam.html" data-translate="nav.ourTeam">ทีมงานของเรา</a></li>
+                  </ul>
+                </li>
+
                 <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
                 <li><a href="/HOMESPECTOR/Homepage/Review-home.html" data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                 <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
@@ -89,6 +94,7 @@
                 <li><a href="/HOMESPECTOR/Homepage/contactus.html" data-translate="nav.contact">ติดต่อเรา</a></li>
               </ul>
             </nav>
+
         </header>
 
 
@@ -194,31 +200,13 @@
             </div>
           </div>
         </section>
-
-
-
-        <section class="carousel2">
-          <div id="carouselExampleFade" class="carousel slide carousel-fade custom-carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="/HOMESPECTOR/img/carousel1.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="/HOMESPECTOR/img/carousel2.jpg" class="d-block w-100" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-              data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-              data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+        <section class="images-carousel">
+          <div class="single-image-container">
+            <img src="/HOMESPECTOR/img/carousel2.1.jpg" alt="Single Image" class="single-image">
           </div>
         </section>
+        
+        
 
         <section class="projects">
           <h2 class="projects-title">ผลงาน</h2>
@@ -295,7 +283,7 @@
             <!-- Main Slide Section -->
             <div class="carousel-slides3">
               <div class="carousel-slide3 active">
-                <img src="/HOMESPECTOR/img/carousel2.jpg" alt="Feature 1">
+                <img src="/HOMESPECTOR/img/thumbnail1.jpg" alt="Feature 1">
                 <div class="slide-content3">
                   <h3>มนุษย์ต่างวัย Talk</h3>
                   <p>51 EPISODES</p>
@@ -313,7 +301,7 @@
                 </div>
               </div>
               <div class="carousel-slide3">
-                <img src="/HOMESPECTOR/img/carousel3.jpg" alt="Feature 2">
+                <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Feature 2">
                 <div class="slide-content3">
                   <h3>รายการที่สอง</h3>
                   <p>30 EPISODES</p>
@@ -322,7 +310,7 @@
                 </div>
               </div>
               <div class="carousel-slide3">
-                <img src="/HOMESPECTOR/img/carousel3.jpg" alt="Feature 2">
+                <img src="/HOMESPECTOR/img/thumbnail1.jpg" alt="Feature 2">
                 <div class="slide-content3">
                   <h3>รายการที่สอง</h3>
                   <p>30 EPISODES</p>
@@ -331,7 +319,7 @@
                 </div>
               </div>
               <div class="carousel-slide3">
-                <img src="/HOMESPECTOR/img/carousel2.jpg" alt="Feature 2">
+                <img src="/HOMESPECTOR/img/thumbnail2.jpg" alt="Feature 2">
                 <div class="slide-content3">
                   <h3>รายการที่สอง</h3>
                   <p>30 EPISODES</p>
@@ -340,7 +328,7 @@
                 </div>
               </div>
               <div class="carousel-slide3">
-                <img src="/HOMESPECTOR/img/carousel1.jpg" alt="Feature 2">
+                <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Feature 2">
                 <div class="slide-content3">
                   <h3>รายการที่สอง</h3>
                   <p>30 EPISODES</p>
@@ -377,12 +365,90 @@
 
           </div>
         </div>
+       
         <!-- Reviews Section -->
         <div class="stats-section">
-          <h1 class="section-title">Read What Others Have To Say.</h1>
-          <p class="section-subtitle">
-            In the 7+ years we have been doing business, our customers have left us lots of great feedback.
-          </p>
+          <div class="content-wrapper">
+            <!-- Left Content: Title and Subtitle -->
+            <div class="text-content">
+              <h2 class="section-title">Read What Others <br> Have To Say.</h2>
+              <p class="section-subtitle">
+                In the 7+ years we have been doing business, our customers have left us lots of great feedback. <br>
+                In the 7+ years we have been doing business, our customers have left us lots of great feedback. <br>
+                In the 7+ years we have been doing business, our customers have left us lots of great feedback. <br>
+              </p>
+            </div>
+
+            <!-- Right Content: Reviews Carousel -->
+            <div class="review-carousel-container">
+              <div id="reviewCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <!-- Review 1 -->
+                  <div class="carousel-inner">
+                    <!-- Review 1 -->
+                    <div class="carousel-item active">
+                      <div class="review-card">
+                        <div class="review-header">
+                          <img src="/HOMESPECTOR/icon/ICON/review1.png" alt="Review 1" class="review-img">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Review 2 -->
+                    <div class="carousel-item">
+                      <div class="review-card">
+                        <div class="review-header">
+                          <img src="/HOMESPECTOR/icon/ICON/review2.png" alt="Review 2" class="review-img">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Review 3 -->
+                    <div class="carousel-item">
+                      <div class="review-card">
+                        <div class="review-header">
+                          <img src="/HOMESPECTOR/icon/ICON/review3.png" alt="Review 3" class="review-img">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Review 4 -->
+                    <div class="carousel-item">
+                      <div class="review-card">
+                        <div class="review-header">
+                          <img src="/HOMESPECTOR/icon/ICON/review4.png" alt="Review 4" class="review-img">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="logo-review">
+            <img src="/HOMESPECTOR/icon/ICON/header.png" alt="header.png">
+          </div> -->
+          <!-- Review Section -->
+          <div class="facebook-review">
+            <!-- Facebook Logo and Title -->
+            <div class="review-header">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" alt="Facebook Logo" class="facebook-logo">
+              <h2 class="review-title">Excellent on Facebook</h2>
+            </div>
+
+            <!-- Star Ratings and Review Count -->
+            <div class="review-content">
+              <div class="stars">
+                ★★★★★
+              </div>
+              <div class="review-text">
+                <strong>4.9</strong> out of 5 based on <span>75 reviews</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- <div class="elfsight-app-c9e9af2e-5acf-4478-8bc7-62f17e30af1c" data-elfsight-app-lazy></div> -->
+
+
+          <!-- Stats Boxes -->
           <div class="stats-container">
             <div class="stat-box">
               <h2 id="developer-count">0</h2>
@@ -398,8 +464,6 @@
             </div>
           </div>
         </div>
-
-
 
 
         <section class="articles">
@@ -428,8 +492,134 @@
           </div>
         </div>
 
+        <section class="faq">
+          <div class="faq-container">
+            <h1 class="faq-title">FAQ</h1>
+            <p class="faq-subtitle">Everything you need to know about our home inspection services.</p>
+            
+            <div class="faq-content">
+              <aside class="faq-menu">
+                <ul>
+                  <li class="active" onclick="filterFAQ('all')">All</li>
+                  <li onclick="filterFAQ('plumbing')">Plumbing</li>
+                  <li onclick="filterFAQ('roof')">Roof</li>
+                  <li onclick="filterFAQ('pricing')">Pricing</li>
+                  <li onclick="filterFAQ('process')">Process</li>
+                </ul>
+              </aside>
+              
+              <div class="faq-questions">
+                <!-- plumbing Questions -->
+                <div class="faq-section plumbing" id="plumbing">
+                  <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer(this)">
+                      What is a home inspection? <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                      <p>A home inspection is a non-invasive examination of a property's condition, focusing on the structure, electrical, plumbing, and other essential systems.</p>
+                    </div>
+                  </div>
+                  <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer(this)">
+                      Why should I get a home inspection? <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                      <p>Home inspections identify potential issues, ensuring you make an informed decision before buying or selling a property.</p>
+                    </div>
+                  </div>
+                  <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer(this)">
+                      Why should I get a home inspection? <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                      <p>Home inspections identify potential issues, ensuring you make an informed decision before buying or selling a property.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Roof Questions -->
+                <div class="faq-section roof" id="roof" style="display: none;">
+                  <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer(this)">
+                      What types of roofs do you inspect? <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                      <p>We inspect all types of roofs, including shingles, metal, tile, flat, and slate roofs, to ensure their integrity and condition.</p>
+                    </div>
+                  </div>
+                  <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer(this)">
+                      How do you check for roof damage? <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                      <p>We look for signs of wear, leaks, cracks, missing shingles, or structural damage using a combination of visual inspection and specialized tools.</p>
+                    </div>
+                  </div>
+                  <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer(this)">
+                      Can you inspect roofs during bad weather? <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                      <p>While we can perform limited inspections in light weather, we recommend rescheduling for a thorough assessment in optimal conditions.</p>
+                    </div>
+                  </div>
+                </div>
 
 
+  
+                <!-- Pricing Questions -->
+                <div class="faq-section pricing" id="pricing" style="display: none;">
+                  <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer(this)">
+                      How much does a home inspection cost? <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                      <p>Our pricing varies based on the property size and location. Typically, inspections start at $300.</p>
+                    </div>
+                  </div>
+                  <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer(this)">
+                      Are there any additional fees? <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                      <p>Additional fees may apply for specialized inspections like radon testing, mold inspection, or sewer line evaluations.</p>
+                    </div>
+                  </div>
+                  <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer(this)">
+                      Are there any additional fees? <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                      <p>Additional fees may apply for specialized inspections like radon testing, mold inspection, or sewer line evaluations.</p>
+                    </div>
+                  </div>
+                </div>
+      
+                <!-- Process Questions -->
+                <div class="faq-section process" id="process" style="display: none;">
+                  <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer(this)">
+                      How long does a home inspection take? <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                      <p>On average, a home inspection takes 2-3 hours, depending on the property's size and condition.</p>
+                    </div>
+                  </div>
+                  <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer(this)">
+                      Do I need to be present during the inspection? <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                      <p>It's not required, but we recommend it. Being present allows you to ask questions and get firsthand insights from the inspector.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      
         <section class="footer">
           <footer class="footer">
             <div class="footer-container">
@@ -461,30 +651,29 @@
               <div class="footer-center">
                 <h3>Navigation</h3>
                 <ul>
-                  <li><a href="/HOMESPECTOR/Homepage/index.html">หน้าหลัก</a></li>
-                  <li><a href="/HOMESPECTOR/Homepage/service.html">บริการ</a></li>
-                  <li><a href="/HOMESPECTOR/Homepage/promotion.html">สิทธิพิเศษ</a></li>
-                  <li><a href="#">ผลงาน</a></li>
+                  <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a></li>
+                  <li><a href="/HOMESPECTOR/Homepage/service.html" data-translate="nav.services">บริการ</a></li>
+                  <li><a href="/HOMESPECTOR/Homepage/promotion.html" data-translate="nav.promotion">สิทธิพิเศษ</a></li>
+                  <li><a href="/HOMESPECTOR/Homepage/projects_media.html" data-translate="nav.projects">ผลงาน</a></li>
+  
                   <!-- Dropdown Menu -->
-                  <div class="dropdown">
-                    <div class="menu-item">
-                      เกี่ยวกับเรา
-                      <span class="dropdown-icon">
-                        <i class="fa-solid fa-caret-down"></i>
-                      </span>
-                    </div>
-                    <div class="dropdown-menu">
-                      <a href="/HOMESPECTOR/Homepage/ourstory.html">ประวัติของเรา</a>
-                      <a href="/HOMESPECTOR/Homepage/ourteam.html">ทีมงานของเรา</a>
-
-                    </div>
-                  </div>
-
-                  <li><a href="#">บทความ</a></li>
-                  <li><a href="#">รีวิวบ้าน</a></li>
-                  <li><a href="#">รีวิวตกแต่งบ้าน</a></li>
-                  <li><a href="#">รวมงานกับเรา</a></li>
-                  <li><a href="/HOMESPECTOR/Homepage/contactus.html">ติดต่อเรา</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="menu-item" data-translate="nav.aboutUs">
+                      เกี่ยวกับเรา <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/HOMESPECTOR/Homepage/ourstory.html" data-translate="nav.ourStory">ประวัติของเรา</a>
+                      </li>
+                      <li><a href="/HOMESPECTOR/Homepage/ourteam.html" data-translate="nav.ourTeam">ทีมงานของเรา</a></li>
+                    </ul>
+                  </li>
+  
+                  <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
+                  <li><a href="/HOMESPECTOR/Homepage/Review-home.html" data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
+                  <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
+                      data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+                  <li><a href="/HOMESPECTOR/Homepage/joinwithus.html" data-translate="nav.joinUs">รวมงานกับเรา</a></li>
+                  <li><a href="/HOMESPECTOR/Homepage/contactus.html" data-translate="nav.contact">ติดต่อเรา</a></li>
                 </ul>
               </div>
               <div class="footer-center">
@@ -502,8 +691,7 @@
                 <div class="payment-logos">
                   <img src="/HOMESPECTOR/img/visacard.png" alt="Visa">
                   <img src="/HOMESPECTOR/img/Mastercard.webp" alt="MasterCard">
-                  <!-- <img src="/HOMESPECTOR/img/paypal-logo.webp" alt="PayPal">
-      <img src="/HOMESPECTOR/img/American-Express.png" alt="American Express"> -->
+      
                 </div>
               </div>
             </div>
@@ -540,6 +728,9 @@
 
     </script>
 
+    
+    <!-- <script src="https://static.elfsight.com/platform/platform.js" async></script> -->
+
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
     <script src="/HOMESPECTOR/JS/dropdown.js"></script>
     <script src="/HOMESPECTOR/JS/pull_articles.js"></script>
@@ -548,6 +739,7 @@
     <script src="/HOMESPECTOR/JS/carousel4.js"></script>
     <script src="/HOMESPECTOR/JS/stats-section.js"></script>
     <script src="/HOMESPECTOR/JS/language_switch.js"></script>
+    <script src="/HOMESPECTOR/JS/faq.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"></script>
