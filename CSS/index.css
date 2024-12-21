@@ -1368,10 +1368,23 @@ button.next-btn:hover {
 }
 
 .faq-question .icon {
-  font-size: 18px;
-  order: -1; /* Move the icon to the beginning */
+  font-size: 24px;
+  order: -1; 
+  background-color: #0056b3; /* Background color for the icon */
+  color: #ffffff; /* Icon text color */
+  padding: 5px 8px;
+  border-radius: 50%; 
+  display: inline-flex; 
+  justify-content: center;
+  align-items: center;
+  width: 30px; 
+  height: 30px; 
 }
 
+.faq-question:hover .icon {
+  background-color: #113172; 
+  color: #ffffff; 
+}
 
 .faq-answer {
   padding: 10px;
@@ -1380,6 +1393,7 @@ button.next-btn:hover {
   border-top: none;
   background-color: #fafafa;
 }
+
 
 
 /* footer */
