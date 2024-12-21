@@ -1351,10 +1351,9 @@ button.next-btn:hover {
 .faq-item {
   margin-bottom: 0; /* Removed gap between FAQ items */
 }
-
 .faq-question {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* Align items to the start */
   align-items: center;
   background: none;
   border: none;
@@ -1365,11 +1364,14 @@ button.next-btn:hover {
   background-color: #f7f7f7;
   border: 1px solid #ddd;
   text-align: left;
+  gap: 10px; /* Add space between the icon and text */
 }
 
 .faq-question .icon {
   font-size: 18px;
+  order: -1; /* Move the icon to the beginning */
 }
+
 
 .faq-answer {
   padding: 10px;

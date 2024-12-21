@@ -359,13 +359,14 @@
 
 
  /* General Styles */
-.talk-page {
+.carousel_content {
     font-family: Arial, sans-serif;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    color: #333;
+    color: var(--font-color);
     background-color: #f9f9f9;
+    margin-bottom: 30px;
   }
   
   /* Main Content Section */
@@ -417,67 +418,235 @@
     font-weight: bold;
   }
   
-  .social-share a {
-    text-decoration: none;
+  .social-share a img {
+    width: 26px;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-share a:hover img {
+    transform: scale(1.2);
+  }
+  
+  .social-share a .fa-share {
     color: white;
-    background-color: #3b5998;
-    padding: 10px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    font-size: 20px;
+    background-color: #113172;
+    padding: 3px;
+    border-radius: 50%; /* Makes the background circular */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
   }
   
-  .social-share a:hover {
-    background-color: #ff5c05;
-  }
-  
-  /* Right Side Styles */
-  .right-episodes {
-    flex: 1;
-    max-width: 50%;
-  }
-  
-  .section-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .episodes-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .episode {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-  }
-  
-  .episode img {
-    width: 120px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
-  
-  .episode-info h3 {
-    font-size: 16px;
-    margin: 0;
-  }
-  
-  .episode-info p {
-    font-size: 14px;
-    color: #666;
-    margin: 5px 0 0;
+  .social-share a:hover .fa-share {
+    transform: scale(1.2);
   }
   
   
 
   
+/* Right Side Styles */
+.right-episodes {
+  flex: 1;
+  max-width: 50%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: var(--font-color);
+  text-align: center;
+}
+
+.section-title a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.section-title a:hover {
+  color: #007bff;
+}
+
+.episodes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.episode {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.episode:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.episode img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.2s ease;
+}
+
+.episode img:hover {
+  transform: scale(1.05);
+}
+
+.episode-info {
+  flex: 1;
+}
+
+.episode-info h3 {
+  font-size: 16px;
+  margin: 0;
+  font-weight: bold;
+  color: var(--font-color);
+}
+
+.episode-info h3 a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.episode-info h3 a:hover {
+  color: #007bff;
+}
+
+.episode-info p {
+  font-size: 14px;
+  color: var(--font-color);
+  margin: 5px 0 0;
+}
+
+.episode-info p a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.episode-info p a:hover {
+  color: #007bff;
+}
+
+
+/* Section Styling */
+.carousel-content {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.carousel-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Carousel Container */
+.content-carousel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #eeeeee;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.content-carousel-item {
+  min-width: 300px;
+  max-width: 300px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  overflow: hidden;
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit text color */
+}
+
+.content-carousel-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.content-carousel-info {
+  padding: 10px;
+}
+
+.content-carousel-info h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+
+/* Navigation Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background-color: #f1f1f1;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .content-carousel-item {
+      min-width: 250px;
+      max-width: 250px;
+  }
+
+  .carousel-btn {
+      font-size: 1.2rem;
+      padding: 8px;
+  }
+}
+
+
+
   
   /* footer */
   .footer {
