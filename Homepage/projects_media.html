@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
     integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="/HOMESPECTOR/CSS/project_media.css">
   <title>Header Design</title>
@@ -96,250 +96,223 @@
 
       </header>
 
-      <!-- <section class="project">
-        <h1>Project</h1>
-        <div class="filter-container">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="ตรวจบ้าน">ตรวจบ้าน</button>
-          <button class="filter-btn" data-filter="ตกแต่ง">ตกแต่ง</button>
-          <button class="filter-btn" data-filter="ต่อเติม">ต่อเติม</button>
-          <button class="filter-btn" data-filter="H.Bulter">H.Bulter</button>
-        </div>
+      <!-- <h1>Projects</h1>
+      <div id="albums"></div>
 
+      <script>
+        async function fetchAlbums() {
+          try {
+              const response = await fetch("http://localhost:3000/albums");
+              if (!response.ok) {
+                  throw new Error(`HTTP error! status: ${response.status}`);
+              }
 
-        <div class="folder-container">
-          <div class="folder-item" data-category="ตรวจบ้าน">
-            <img
-              src="https://scontent.fbkk6-2.fna.fbcdn.net/v/t39.30808-6/471326220_1136029568532142_521241305730150494_n.jpg?stp=dst-jpg_s206x206_tt6&amp;_nc_cat=104&amp;ccb=1-7&amp;_nc_sid=c3fc3c&amp;_nc_ohc=qQlbZod4dUgQ7kNvgEB89ZC&amp;_nc_oc=AdimYTtZUpHblV5cmx6uVnKDU2Ns5dQ-6q_7mUj1nyuSvWgs_qehIY6YbLnrJG9VlMc&amp;_nc_zt=23&amp;_nc_ht=scontent.fbkk6-2.fna&amp;_nc_gid=ABckDQG7qAx_KAFZq4EUAxd&amp;oh=00_AYAO_ovEaalLcXT7QUQFBt_UHiFiu60QGbwD1VFT007ANg&amp;oe=676EA03D"
-              alt="ตรวจบ้าน">
-            <p>ตรวจบ้าน</p>
-          </div>
-          <div class="folder-item" data-category="ตกแต่ง">
-            <img src="https://via.placeholder.com/300x180" alt="ตกแต่ง">
-            <p>ตกแต่ง</p>
-          </div>
-          <div class="folder-item" data-category="ต่อเติม">
-            <img src="https://via.placeholder.com/300x180" alt="ต่อเติม">
-            <p>ต่อเติม</p>
-          </div>
-          <div class="folder-item" data-category="H.Bulter">
-            <img src="https://via.placeholder.com/300x180" alt="H.Bulter">
-            <p>H.Bulter</p>
-          </div>
-        </div> -->
+              const albums = await response.json();
 
-        <style>
-          /* General Styles */
-          h1, h2 {
-              text-align: center;
-              font-family: Arial, sans-serif;
-              margin-bottom: 20px;
+              const albumsContainer = document.getElementById("albums");
+              albumsContainer.innerHTML = ""; // Clear previous content
+
+              albums.forEach((album) => {
+                  const albumDiv = document.createElement("div");
+                  albumDiv.className = "album";
+
+                  const albumTitle = document.createElement("h3");
+                  albumTitle.textContent = album.name;
+
+                  if (album.imageUrl) {
+                      const img = document.createElement("img");
+                      img.src = album.imageUrl;
+                      img.style.cursor = "pointer";
+                      albumDiv.appendChild(img);
+                  }
+
+                  albumDiv.appendChild(albumTitle);
+                  albumsContainer.appendChild(albumDiv);
+              });
+          } catch (error) {
+              console.error("Error fetching albums:", error.message);
+              const albumsContainer = document.getElementById("albums");
+              albumsContainer.innerHTML = `<p>Error loading albums. Please try again later.</p>`;
           }
-      
-          #albums, #photos {
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: center; /* Center elements horizontally */
-              margin-top: 20px;
-              gap: 20px; /* Add spacing between items */
+      }
+
+      window.onload = fetchAlbums;
+      </script> -->
+
+
+      <h1>Projects</h1>
+      <div id="albums"></div>
+      <div id="photos" style="margin-top: 20px;"></div>
+
+      <script>
+          // Fetch and display albums
+          async function fetchAlbums() {
+          try {
+              const response = await fetch("http://localhost:3000/albums");
+              if (!response.ok) {
+                  throw new Error(`Error fetching albums: ${response.status}`);
+              }
+
+              const albums = await response.json();
+
+              const albumsContainer = document.getElementById("albums");
+              albumsContainer.innerHTML = ""; // Clear previous content
+
+              albums.forEach((album) => {
+                  const albumDiv = document.createElement("div");
+                  albumDiv.style.cursor = "pointer";
+                  albumDiv.style.margin = "10px";
+                  albumDiv.style.border = "1px solid #ccc";
+                  albumDiv.style.padding = "10px";
+                  albumDiv.style.display = "inline-block";
+
+                  const albumTitle = document.createElement("h3");
+                  albumTitle.textContent = album.name;
+
+                  if (album.coverPhotoUrl) {
+                      const img = document.createElement("img");
+                      img.src = album.coverPhotoUrl;
+                      img.style.width = "400px";
+                      img.style.height = "300px";
+                      img.style.objectFit = "cover";
+                      albumDiv.appendChild(img);
+                  } else {
+                      const placeholder = document.createElement("div");
+                      placeholder.style.width = "400px";
+                      placeholder.style.height = "300px";
+                      placeholder.style.background = "#ddd";
+                      placeholder.textContent = "No Cover Photo";
+                      albumDiv.appendChild(placeholder);
+                  }
+
+                  albumDiv.appendChild(albumTitle);
+                  albumDiv.addEventListener("click", () => fetchAlbumPhotos(album.id, album.name));
+                  albumsContainer.appendChild(albumDiv);
+              });
+          } catch (error) {
+              console.error("Error fetching albums:", error.message);
           }
-      
-          .album, .photo {
-              text-align: center; /* Center the content inside the element */
-              width: 220px; /* Fixed width for a consistent grid */
-              margin: 10px;
+      }
+
+
+          // Fetch and display photos in an album
+          async function fetchAlbumPhotos(albumId, albumName) {
+              try {
+                  const response = await fetch(`http://localhost:3000/albums/${albumId}/photos`);
+                  if (!response.ok) {
+                      throw new Error(`Error fetching photos: ${response.status}`);
+                  }
+
+                  const photos = await response.json();
+                  const photosContainer = document.getElementById("photos");
+                  photosContainer.innerHTML = `<h2>Photos in Album: ${albumName}</h2>`; // Album title
+
+                  photos.data.forEach((photo) => {
+                      const img = document.createElement("img");
+                      img.src = photo.images[0].source; // Highest resolution
+                      img.style.width = "300px";
+                      img.style.height = "300px";
+                      img.style.objectFit = "cover";
+                      img.style.margin = "10px";
+
+                      photosContainer.appendChild(img);
+                  });
+              } catch (error) {
+                  console.error(error.message);
+              }
           }
-      
-          .album img, .photo img {
-              width: 100%; /* Full width inside the container */
-              height: auto; /* Maintain aspect ratio */
-              border-radius: 5px;
-              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visuals */
-          }
-      
-          .album h3, .photo h3 {
-              font-size: 16px;
-              margin-top: 10px;
-          }
-      
-          a {
-              text-decoration: none;
-              color: #007bff;
-              font-size: 14px;
-          }
-      
-          a:hover {
-              text-decoration: underline;
-          }
-      </style>
-      
-        <h1>projects</h1>
-        <div id="albums"></div>
-        <div id="photos"></div>
 
-        <script>
-            // Your Access Token (replace with your actual access token)
-            const accessToken = "EAASIZBZCPlw2gBO1raDVgyk1QH1trYp3kkwNBdIBtBxVGRqPtLliTbZAYVQVdcTKcfZCbG37ZBfsqI7HrVBZBLZCHMZA3g6hWBA2deESZC08RqrN1uLVHlPziwRDyfpGkSoCLwfUgibZCPBqWUSQ1QpvTycp35GDcRNiKdP83QgaH8qW05Gi1TZAfM6gXWUohhQNifSosQFZAo81FDcFKyqJ3yqG7nIZD";
-
-            // Your Facebook Page ID
-            const pageId = "108812471633907"; // Replace with the ID of your Facebook page
-
-            // Fetch Albums
-            async function fetchAlbums() {
-                const response = await fetch(`https://graph.facebook.com/v12.0/${pageId}/albums?fields=id,name,cover_photo&access_token=${accessToken}`);
-                const data = await response.json();
-
-                const albumsContainer = document.getElementById("albums");
-
-                // Iterate through albums and display them
-                data.data.forEach(async album => {
-                    const albumDiv = document.createElement("div");
-                    albumDiv.className = "album";
-
-                    const albumTitle = document.createElement("h3");
-                    albumTitle.textContent = album.name;
-
-                    // Fetch and display cover photo
-                    if (album.cover_photo) {
-                        const coverPhoto = await fetchCoverPhoto(album.cover_photo.id);
-                        const img = document.createElement("img");
-                        img.src = coverPhoto;
-                        img.style.cursor = "pointer"; // Indicate it's clickable
-                        img.addEventListener("click", () => fetchAlbumPhotos(album.id, album.name));
-                        albumDiv.appendChild(img);
-                    }
-
-                    const albumLink = document.createElement("a");
-                    albumLink.href = `https://www.facebook.com/album.php?fbid=${album.id}`;
-                    albumLink.target = "_blank";
-                    albumLink.textContent = "View on Facebook";
-
-                    albumDiv.appendChild(albumTitle);
-                    albumDiv.appendChild(albumLink);
-                    albumsContainer.appendChild(albumDiv);
-                });
-            }
-
-            // Fetch Cover Photo URL
-            async function fetchCoverPhoto(photoId) {
-                const response = await fetch(`https://graph.facebook.com/v12.0/${photoId}?fields=images&access_token=${accessToken}`);
-                const data = await response.json();
-                return data.images[0].source; // Return the highest resolution image
-            }
-
-            // Fetch and Display Photos in an Album
-            async function fetchAlbumPhotos(albumId, albumName) {
-                const response = await fetch(`https://graph.facebook.com/v12.0/${albumId}/photos?fields=images,name&access_token=${accessToken}`);
-                const data = await response.json();
-
-                const photosContainer = document.getElementById("photos");
-                photosContainer.innerHTML = `<h2>Photos in Album: ${albumName}</h2>`; // Clear previous photos
-
-                // Iterate through photos and display them
-                data.data.forEach(photo => {
-                    const photoDiv = document.createElement("div");
-                    photoDiv.className = "photo";
-
-                    const img = document.createElement("img");
-                    img.src = photo.images[0].source; // Use the highest resolution image
-
-                    photoDiv.appendChild(img);
-                    photosContainer.appendChild(photoDiv);
-                });
-            }
-
-            // Initialize
-            fetchAlbums();
-        </script>
+          // Fetch albums on page load
+          window.onload = fetchAlbums;
+      </script>
 
 
-        
-        <section class="footer">
-          <footer class="footer">
-            <div class="footer-container">
-              <div class="footer-left">
-                <h2 class="footer-title">
-                  <img src="/HOMESPECTOR/img/footer_logo.png" alt="logo" class="footer-logo">
-                </h2>
-                <div class="social-icons">
-                  <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
-                    <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="">
-                  </a>
-                  <a href="https://www.instagram.com/t.homeinspector/">
-                    <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="">
-                  </a>
-                  <a href="https://page.line.me/t.home?openQrModal=true">
-                    <img src="/HOMESPECTOR/icon/ICON/line.png" alt="">
-                  </a>
-                  <a href="tel:082-045-6165">
-                    <img src="/HOMESPECTOR/icon/ICON/phone.png" alt="">
-                  </a>
-                  <a href="https://www.tiktok.com/@thomeinspector">
-                    <img src="/HOMESPECTOR/icon/ICON/Tiktok.png" alt="">
-                  </a>
-                  <a href="https://www.youtube.com/channel/UC1BPUCVPBW4-ml7MrxQWjug">
-                    <img src="/HOMESPECTOR/icon/ICON/YB.png" alt="">
-                  </a>
-                </div>
-              </div>
-              <div class="footer-center">
-                <h3>Navigation</h3>
-                <ul>
-                  <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a></li>
-                  <li><a href="/HOMESPECTOR/Homepage/service.html" data-translate="nav.services">บริการ</a></li>
-                  <li><a href="/HOMESPECTOR/Homepage/promotion.html" data-translate="nav.promotion">สิทธิพิเศษ</a></li>
-                  <li><a href="/HOMESPECTOR/Homepage/projects_media.html" data-translate="nav.projects">ผลงาน</a></li>
-
-                  <!-- Dropdown Menu -->
-                  <li class="dropdown">
-                    <a href="#" class="menu-item" data-translate="nav.aboutUs">
-                      เกี่ยวกับเรา <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="/HOMESPECTOR/Homepage/ourstory.html" data-translate="nav.ourStory">ประวัติของเรา</a>
-                      </li>
-                      <li><a href="/HOMESPECTOR/Homepage/ourteam.html" data-translate="nav.ourTeam">ทีมงานของเรา</a>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
-                  <li><a href="/HOMESPECTOR/Homepage/Review-home.html" data-translate="nav.reviewHome">รีวิวบ้าน</a>
-                  </li>
-                  <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
-                      data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
-                  <li><a href="/HOMESPECTOR/Homepage/joinwithus.html" data-translate="nav.joinUs">รวมงานกับเรา</a></li>
-                  <li><a href="/HOMESPECTOR/Homepage/contactus.html" data-translate="nav.contact">ติดต่อเรา</a></li>
-                </ul>
-              </div>
-              <div class="footer-center">
-                <h3>บทความ</h3>
-                <ul>
-                  <li><a href="#">ไฟ้ฟา</a></li>
-                  <li><a href="#">อุปกรณ์</a></li>
-                  <li><a href="#">Page</a></li>
-                  <li><a href="#">Page</a></li>
-                  <li><a href="#">Page</a></li>
-                </ul>
-              </div>
-              <div class="footer-right">
-                <h3>We Accept</h3>
-                <div class="payment-logos">
-                  <img src="/HOMESPECTOR/img/visacard.png" alt="Visa">
-                  <img src="/HOMESPECTOR/img/Mastercard.webp" alt="MasterCard">
-
-                </div>
+      <section class="footer">
+        <footer class="footer">
+          <div class="footer-container">
+            <div class="footer-left">
+              <h2 class="footer-title">
+                <img src="/HOMESPECTOR/img/footer_logo.png" alt="logo" class="footer-logo">
+              </h2>
+              <div class="social-icons">
+                <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
+                  <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="">
+                </a>
+                <a href="https://www.instagram.com/t.homeinspector/">
+                  <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="">
+                </a>
+                <a href="https://page.line.me/t.home?openQrModal=true">
+                  <img src="/HOMESPECTOR/icon/ICON/line.png" alt="">
+                </a>
+                <a href="tel:082-045-6165">
+                  <img src="/HOMESPECTOR/icon/ICON/phone.png" alt="">
+                </a>
+                <a href="https://www.tiktok.com/@thomeinspector">
+                  <img src="/HOMESPECTOR/icon/ICON/Tiktok.png" alt="">
+                </a>
+                <a href="https://www.youtube.com/channel/UC1BPUCVPBW4-ml7MrxQWjug">
+                  <img src="/HOMESPECTOR/icon/ICON/YB.png" alt="">
+                </a>
               </div>
             </div>
-            <div class="footer-bottom">
-              <p>© 2024 T.HOME INSPECTOR. All rights reserved.</p>
+            <div class="footer-center">
+              <h3>Navigation</h3>
+              <ul>
+                <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/service.html" data-translate="nav.services">บริการ</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/promotion.html" data-translate="nav.promotion">สิทธิพิเศษ</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/projects_media.html" data-translate="nav.projects">ผลงาน</a></li>
+
+                <!-- Dropdown Menu -->
+                <li class="dropdown">
+                  <a href="#" class="menu-item" data-translate="nav.aboutUs">
+                    เกี่ยวกับเรา <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/HOMESPECTOR/Homepage/ourstory.html" data-translate="nav.ourStory">ประวัติของเรา</a>
+                    </li>
+                    <li><a href="/HOMESPECTOR/Homepage/ourteam.html" data-translate="nav.ourTeam">ทีมงานของเรา</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/Review-home.html" data-translate="nav.reviewHome">รีวิวบ้าน</a>
+                </li>
+                <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
+                    data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/joinwithus.html" data-translate="nav.joinUs">รวมงานกับเรา</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/contactus.html" data-translate="nav.contact">ติดต่อเรา</a></li>
+              </ul>
             </div>
-          </footer>
-        </section>
+            <div class="footer-center">
+              <h3>บทความ</h3>
+              <ul>
+                <li><a href="#">ไฟ้ฟา</a></li>
+                <li><a href="#">อุปกรณ์</a></li>
+                <li><a href="#">Page</a></li>
+                <li><a href="#">Page</a></li>
+                <li><a href="#">Page</a></li>
+              </ul>
+            </div>
+            <div class="footer-right">
+              <h3>We Accept</h3>
+              <div class="payment-logos">
+                <img src="/HOMESPECTOR/img/visacard.png" alt="Visa">
+                <img src="/HOMESPECTOR/img/Mastercard.webp" alt="MasterCard">
+
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>© 2024 T.HOME INSPECTOR. All rights reserved.</p>
+          </div>
+        </footer>
+      </section>
     </div>
   </div>
 
-  <script>
+  <!-- <script>
     const puppeteer = require('puppeteer');
     const fs = require('fs');
 
@@ -381,9 +354,7 @@
       // Close browser
       await browser.close();
     })();
-
-
-  </script>
+  </script> -->
 
 
 
@@ -407,7 +378,7 @@
 
   </script>
 
-  <script>
+  <!-- <script>
     document.addEventListener("DOMContentLoaded", () => {
       const filterButtons = document.querySelectorAll(".filter-btn");
       const folderItems = document.querySelectorAll(".folder-item");
@@ -434,7 +405,7 @@
         });
       });
     });
-  </script>
+  </script> -->
 
 
   <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>

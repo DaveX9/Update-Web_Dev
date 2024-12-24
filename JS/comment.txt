@@ -1,0 +1,255 @@
+<!-- <script>
+          const accessToken = "EAASIZBZCPlw2gBOyoKIyZC14ZBk9w7ZA1i88txff68YTih35xuiAgmZByfcdwMhaWj93eZBi8iuoTXrkQGK4bx5uvb7LMNvWa7E01Gnn7yGU6R02zAU4LfWRtO3Ku6nRGtbtjgyLb1LbFbMgYKZBmv8INGPwKDkgFOJsSKdZBtp6DnExAMW7L74IteR0E4qDBIqak45K8ww4iVaX0530YPsW8cgtM"; // Your access token
+          const pageId = "108812471633907"; 
+        
+          async function fetchAlbums() {
+            const response = await fetch(
+              `https://graph.facebook.com/v12.0/${pageId}/albums?fields=id,name,cover_photo&access_token=${accessToken}`
+            );
+            const data = await response.json();
+            const albumsContainer = document.getElementById("albums");
+        
+            data.data.forEach(async (album) => {
+              const albumDiv = document.createElement("div");
+              albumDiv.className = "album";
+        
+              const albumTitle = document.createElement("h3");
+              albumTitle.textContent = album.name;
+        
+              if (album.cover_photo) {
+                const coverPhoto = await fetchCoverPhoto(album.cover_photo.id);
+                const img = document.createElement("img");
+                img.src = coverPhoto;
+                img.style.cursor = "pointer";
+                img.addEventListener("click", () => fetchAlbumPhotos(album.id, album.name));
+                albumDiv.appendChild(img);
+              }
+        
+              const albumLink = document.createElement("a");
+              albumLink.href = `https://www.facebook.com/album.php?fbid=${album.id}`;
+              albumLink.target = "_blank";
+              albumLink.textContent = "View on Facebook";
+        
+              albumDiv.appendChild(albumTitle);
+              albumDiv.appendChild(albumLink);
+              albumsContainer.appendChild(albumDiv);
+            });
+          }
+        
+    
+          async function fetchCoverPhoto(photoId) {
+            const response = await fetch(
+              `https://graph.facebook.com/v12.0/${photoId}?fields=images&access_token=${accessToken}`
+            );
+            const data = await response.json();
+            return data.images[0].source; 
+          }
+        
+      
+          async function fetchAlbumPhotos(albumId, albumName) {
+            const response = await fetch(
+              `https://graph.facebook.com/v12.0/${albumId}/photos?fields=images,name&access_token=${accessToken}`
+            );
+            const data = await response.json();
+        
+            const photosContainer = document.getElementById("photos");
+            photosContainer.innerHTML = `<h2>Photos in Album: ${albumName}</h2>`; 
+        
+          
+            data.data.forEach((photo) => {
+              const photoDiv = document.createElement("div");
+              photoDiv.className = "photo";
+        
+              const img = document.createElement("img");
+              img.src = photo.images[0].source;
+        
+              photoDiv.appendChild(img);
+              photosContainer.appendChild(photoDiv);
+            });
+          }
+        
+        
+          fetchAlbums();
+        </script>
+         -->
+
+
+           <!-- <section class="project">
+        <h1>Project</h1>
+        <div class="filter-container">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="ตรวจบ้าน">ตรวจบ้าน</button>
+          <button class="filter-btn" data-filter="ตกแต่ง">ตกแต่ง</button>
+          <button class="filter-btn" data-filter="ต่อเติม">ต่อเติม</button>
+          <button class="filter-btn" data-filter="H.Bulter">H.Bulter</button>
+        </div>
+
+
+        <div class="folder-container">
+          <div class="folder-item" data-category="ตรวจบ้าน">
+            <img
+              src="https://scontent.fbkk6-2.fna.fbcdn.net/v/t39.30808-6/471326220_1136029568532142_521241305730150494_n.jpg?stp=dst-jpg_s206x206_tt6&amp;_nc_cat=104&amp;ccb=1-7&amp;_nc_sid=c3fc3c&amp;_nc_ohc=qQlbZod4dUgQ7kNvgEB89ZC&amp;_nc_oc=AdimYTtZUpHblV5cmx6uVnKDU2Ns5dQ-6q_7mUj1nyuSvWgs_qehIY6YbLnrJG9VlMc&amp;_nc_zt=23&amp;_nc_ht=scontent.fbkk6-2.fna&amp;_nc_gid=ABckDQG7qAx_KAFZq4EUAxd&amp;oh=00_AYAO_ovEaalLcXT7QUQFBt_UHiFiu60QGbwD1VFT007ANg&amp;oe=676EA03D"
+              alt="ตรวจบ้าน">
+            <p>ตรวจบ้าน</p>
+          </div>
+          <div class="folder-item" data-category="ตกแต่ง">
+            <img src="https://via.placeholder.com/300x180" alt="ตกแต่ง">
+            <p>ตกแต่ง</p>
+          </div>
+          <div class="folder-item" data-category="ต่อเติม">
+            <img src="https://via.placeholder.com/300x180" alt="ต่อเติม">
+            <p>ต่อเติม</p>
+          </div>
+          <div class="folder-item" data-category="H.Bulter">
+            <img src="https://via.placeholder.com/300x180" alt="H.Bulter">
+            <p>H.Bulter</p>
+          </div>
+        </div> -->
+
+        /* 
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.media-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.media-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.media-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.media-card img,
+.media-card video {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.media-card p {
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+
+.project {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-btn.active {
+  background-color: #ff6600;
+  color: #fff;
+}
+
+.filter-btn:hover {
+  background-color: #ffa366;
+  color: #fff;
+}
+
+
+.folder-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.folder-item {
+  width: 18%;
+  max-width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.folder-item img {
+  width: 100%;
+  height: auto;
+}
+
+.folder-item p {
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.folder-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+@media (max-width: 1024px) {
+  .folder-item {
+    width: 22%;
+  }
+}
+
+@media (max-width: 768px) {
+  .folder-item {
+    width: 48%;
+  }
+}
+
+@media (max-width: 480px) {
+  .folder-item {
+    width: 100%;
+  }
+}
+
+.gallery img {
+  width: 200px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+ */
