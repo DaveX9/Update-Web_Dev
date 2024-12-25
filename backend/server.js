@@ -18,30 +18,6 @@ app.get("/", (req, res) => {
     res.send("Server is running! Access /albums to view the albums.");
 });
 
-// Albums API route
-// Route to fetch photos from a specific album
-// app.get("/albums/:albumId/photos", async (req, res) => {
-//     try {
-//         const albumId = req.params.albumId;
-//         const url = `https://graph.facebook.com/v12.0/${albumId}/photos?fields=id,name,picture,source&access_token=${process.env.ACCESS_TOKEN}`;
-//         console.log(`Fetching photos from album: ${url}`);
-
-//         const response = await fetch(url);
-//         if (!response.ok) {
-//             const errorData = await response.json();
-//             console.error("Error from Facebook API:", errorData);
-//             return res.status(500).send(`Facebook API Error: ${errorData.error.message}`);
-//         }
-
-//         const data = await response.json();
-//         console.log("Photos in album:", data);
-
-//         res.json(data); // Send the photos data to the frontend
-//     } catch (error) {
-//         console.error("Error fetching album photos:", error.message);
-//         res.status(500).send("Error fetching album photos");
-//     }
-// });
 
 app.get("/albums", async (req, res) => {
     try {

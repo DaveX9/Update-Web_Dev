@@ -684,7 +684,7 @@ body {
   color: #555;
 }
 
-.project-info span {
+/* .project-info span {
   display: inline-block;
   background-color: #e40000;
   color: white;
@@ -692,7 +692,7 @@ body {
   border-radius: 5px;
   font-size: 0.8em;
   margin-top: 10px;
-}
+} */
 
 @media (max-width: 768px) {
 
