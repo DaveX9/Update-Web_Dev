@@ -358,92 +358,157 @@ body {
   }
 }
 
-  .promotion-header {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    padding-bottom: 5px;
-    max-width: 600px; /* Limit the width of the header */
-    margin-left: auto;
-    margin-right: auto; /* Center the header */
-  }
-  
-  
-  
-  
-   /* promotion */
-   .promotion {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    position: relative;
-    margin-bottom: 90px;
-    padding-bottom: 60px;
-  }
-  
-  .promotion-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 30px; /* Optional: add a gap above the grid */
-  }
-  
-  .promotion-card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-  }
-  
-  .promotion-card a {
-    text-decoration: none;
-  }
-  
-  .promotion-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .promotion-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .promotion-info {
-    padding: 15px;
-    text-align: left;
-  }
-  
-  .promotion-info h3 {
-    font-size: 1.2em;
-    margin: 5px 0;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  .promotion-details {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
-  .promotion-details span {
-    background-color: #e40000;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8em;
-  }
-  
-  .arrow {
-    margin-left: 10px; /* Adds some space between the "อ่านต่อ" text and the arrow */
-  }
-  
-  
- 
+/*line*/
+.contact-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  background-color: #28a745;
+  /* Green background */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  /* Remove underline */
+  transition: background-color 0.3s ease;
+}
+
+.contact-item:nth-child(2) {
+  background-color: white;
+  border: 1px solid #28a745;
+  color: #28a745;
+}
+
+.contact-item .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.contact-item:hover {
+  background-color: #1e7e34;
+  /* Darker green for hover */
+  color: white;
+  /* Ensure text stays readable */
+}
+
+.contact-item:nth-child(2):hover {
+  background-color: #28a745;
+  /* Green hover for the second item */
+  color: white;
+  /* Change text to white on hover */
+}
+
+.contact-item img {
+  width: 20px;
+  height: 20px;
+}
+
+.promotion-header {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  max-width: 600px;
+  /* Limit the width of the header */
+  margin-left: auto;
+  margin-right: auto;
+  /* Center the header */
+}
+
+
+
+
+/* promotion */
+.promotion {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  margin-bottom: 90px;
+  padding-bottom: 60px;
+}
+
+.promotion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  /* Optional: add a gap above the grid */
+}
+
+.promotion-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.promotion-card a {
+  text-decoration: none;
+}
+
+.promotion-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.promotion-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.promotion-info {
+  padding: 15px;
+  text-align: left;
+}
+
+.promotion-info h3 {
+  font-size: 1.2em;
+  margin: 5px 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.promotion-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.promotion-details span {
+  background-color: #e40000;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
+
+.arrow {
+  margin-left: 10px;
+  /* Adds some space between the "อ่านต่อ" text and the arrow */
+}
+
+
+
 /* footer */
 .footer {
   background-color: #f9f9f9;
@@ -511,42 +576,57 @@ body {
 .footer-container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Align all columns at the top */
-  gap: 20px; /* Add spacing between columns */
+  align-items: flex-start;
+  /* Align all columns at the top */
+  gap: 20px;
+  /* Add spacing between columns */
 }
 
 .footer-center {
-  flex: 1; /* Each column takes equal space */
-  min-width: 200px; /* Prevent columns from shrinking too much */
+  flex: 1;
+  /* Each column takes equal space */
+  min-width: 200px;
+  /* Prevent columns from shrinking too much */
 }
 
 .footer-center h3 {
-  margin-bottom: 10px; /* Add space below the headings */
-  text-align: left; /* Align headings to the left */
+  margin-bottom: 10px;
+  /* Add space below the headings */
+  text-align: left;
+  /* Align headings to the left */
 }
 
 .footer-center ul {
-  list-style: none; /* Remove bullets */
+  list-style: none;
+  /* Remove bullets */
   padding: 0;
   margin: 0;
 }
 
 .footer-center ul li {
-  margin-bottom: 10px; /* Add spacing between list items */
+  margin-bottom: 10px;
+  /* Add spacing between list items */
 }
 
 .footer-center ul li a {
-  border: none; /* Remove border */
-  background: none; /* Remove any background color */
-  outline: none; /* Remove focus outlines if any */
-  padding: 0; 
-  color: #000; /* Set the color to black */
-  text-decoration: none; /* Optional: Removes underline if present */
+  border: none;
+  /* Remove border */
+  background: none;
+  /* Remove any background color */
+  outline: none;
+  /* Remove focus outlines if any */
+  padding: 0;
+  color: #000;
+  /* Set the color to black */
+  text-decoration: none;
+  /* Optional: Removes underline if present */
 }
 
 .footer-center ul li a:hover {
-  border: none; /* Remove border on hover */
-  background: none; /* Remove background on hover */
+  border: none;
+  /* Remove border on hover */
+  background: none;
+  /* Remove background on hover */
   color: var(--hover-color);
 }
 

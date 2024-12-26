@@ -48,7 +48,7 @@ const translations = {
     "label-email": "Email",
     "label-message": "Message",
     "submit-button": "Submit",
-    //services//
+    //index//
     "services-title": "Our Services",
     "inspection-title": "How to Inspect a House?",
     "inspection-details": "Details to prepare and agree on before inspection.",
@@ -83,6 +83,19 @@ const translations = {
     "NewAppSubtitle": "Self-Inspection Home Application",
     "NewAppDescription": "Inspect your home yourself with auto-generated reports and tutorial clips in the app.",
     "UseFree": "Use for Free!",
+    //service1//
+    "hero-title": "Inspect Your Home Before Transfer of Ownership",
+    "services-heading": "Our Home Inspection Services",
+    "services-description": "We provide home and condo inspection services to help customers verify the condition of the property they want to buy, ensuring informed and confident decisions before transferring ownership.",
+    "video-caption": "What do we check before transferring ownership?",
+    "pricing-heading": "Our Inspection Service Fees",
+    "card-front-title": "Inspect Your Home Before the 1-Year Warranty Ends",
+    "card-front-description": "Check and verify all details of the house before transferring ownership.",
+    "card-back-title": "Don't Miss Out",
+    "card-back-description": "Contractors offer a 1-year warranty for systems and major components. Inspecting these systems before the warranty expires can save future repair costs.",
+    "reports-heading": "Our Reports",
+    "pdf-button": "View Sample Report (PDF)",
+    "online-button": "View Sample Online Report",
 
   },
   th: {
@@ -133,7 +146,7 @@ const translations = {
     "label-email": "อีเมล",
     "label-message": "ข้อความ",
     "submit-button": "ส่งข้อความ",
-    //services//
+    //index//
     "services-title": "บริการของเรา",
     "inspection-title": "ตรวจบ้านต้องทำอย่างไร ?",
     "inspection-details": "รายละเอียดที่ต้องตกลง และเตรียมก่อนตรวจบ้าน",
@@ -167,8 +180,20 @@ const translations = {
     "NewAppTitle": "ใหม่",
     "NewAppSubtitle": "แอปพลิเคชันตรวจบ้านด้วยตัวเอง",
     "NewAppDescription": "ตรวจบ้านด้วยตัวเอง พร้อมออกรายงานในตัว และคลิปสอนในแอป",
-    "UseFree": "ใช้งานฟรี!"
-
+    "UseFree": "ใช้งานฟรี!",
+    //service1//
+    "hero-title": "ตรวจความเรียบร้อยของบ้านก่อนโอนกรรมสิทธิ์",
+    "services-heading": "บริการตรวจบ้านของเรา",
+    "services-description": "ต.ตรวจบ้านให้บริการ ตรวจบ้าน ตรวจคอนโดเพื่อช่วยลูกค้า ในการตรวจสอบสภาพของบ้านที่กำลังต้องการซื้อ เพื่อให้สามารถตัดสินใจได้ถูกต้องและมั่นใจ ก่อนที่จะดำเนินโอนกรรมสิทธิ์",
+    "video-caption": "ตรวจบ้านก่อนโอน ตรวจอะไรบ้าง",
+    "pricing-heading": "ค่าบริการตรวจสอบของเรา",
+    "card-front-title": "ตรวจบ้านก่อนหมดประกัน 1 ปี",
+    "card-front-description": "ตรวจสอบและเช็กรายละเอียดของบ้านก่อนรับโอนกรรมสิทธิ์",
+    "card-back-title": "ห้ามพลาด",
+    "card-back-description": "ผู้รับเหมาก่อสร้างเสนอการรับประกัน 1 ปีสำหรับระบบและส่วนประกอบหลัก การตรวจสอบระบบเหล่านี้ก่อนหมดอายุการรับประกันสามารถช่วยประหยัดค่าใช้จ่ายในการซ่อมแซมในอนาคตได้",
+    "reports-heading": "รายงานของเรา",
+    "pdf-button": "ดูตัวอย่างรายงาน (PDF)",
+    "online-button": "ดูตัวอย่างรายงานออนไลน์",
 
   }
 };

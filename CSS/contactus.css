@@ -357,6 +357,7 @@ body {
   }
 }
 
+
 /* contatct box */
 .contact-container {
   display: flex;
@@ -538,6 +539,7 @@ body {
         flex-direction: column;
     }
 }
+
 
 
 /* footer */

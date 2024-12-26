@@ -356,6 +356,61 @@
       height: 80px;
     }
   }
+  /*line*/
+.contact-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  background-color: #28a745; /* Green background */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease;
+}
+
+.contact-item:nth-child(2) {
+  background-color: white;
+  border: 1px solid #28a745;
+  color: #28a745;
+}
+
+.contact-item .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.contact-item:hover {
+  background-color: #1e7e34; /* Darker green for hover */
+  color: white; /* Ensure text stays readable */
+}
+
+.contact-item:nth-child(2):hover {
+  background-color: #28a745; /* Green hover for the second item */
+  color: white; /* Change text to white on hover */
+}
+
+.contact-item img {
+  width: 20px;
+  height: 20px;
+}
+  
   
 
 .content {
