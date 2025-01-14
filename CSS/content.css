@@ -357,6 +357,7 @@ body {
   }
 }
 
+
 /*line*/
 .contact-container {
   display: flex;
@@ -371,17 +372,17 @@ body {
 }
 
 .contact-item {
-  display: flex;
-  align-items: center;
-  background-color: #28a745;
-  /* Green background */
+  display: inline-flex; /* Ensure items are inline and don't wrap */
+  align-items: center; /* Vertically align items */
+  justify-content: center; /* Center content horizontally */
+  background-color: #28a745; /* Green background */
   color: white;
   padding: 10px 15px;
   border-radius: 25px;
   font-size: 1rem;
   font-weight: bold;
-  text-decoration: none;
-  /* Remove underline */
+  text-decoration: none; /* Remove underline */
+  white-space: nowrap; /* Prevent text wrapping */
   transition: background-color 0.3s ease;
 }
 
@@ -392,30 +393,42 @@ body {
 }
 
 .contact-item .icon {
-  display: flex;
+  display: inline-flex; /* Ensure the icon stays inline with text */
   align-items: center;
   justify-content: center;
-  margin-right: 8px;
+  margin-right: 8px; /* Add space between icon and text */
   font-size: 1.2rem;
 }
 
 .contact-item:hover {
-  background-color: #1e7e34;
-  /* Darker green for hover */
-  color: white;
-  /* Ensure text stays readable */
+  background-color: #1e7e34; /* Darker green for hover */
+  color: white; /* Ensure text stays readable */
 }
 
 .contact-item:nth-child(2):hover {
-  background-color: #28a745;
-  /* Green hover for the second item */
-  color: white;
-  /* Change text to white on hover */
+  background-color: #28a745; /* Green hover for the second item */
+  color: white; /* Change text to white on hover */
 }
 
-.contact-item img {
-  width: 20px;
-  height: 20px;
+/* Responsive Design for Smartphones */
+@media screen and (max-width: 768px) {
+  .contact-container {
+    flex-direction: row; /* Stack buttons vertically */
+    gap: 15px; /* Add spacing between buttons */
+    bottom: 10px; /* Adjust position for smaller screens */
+  }
+
+  .contact-item {
+    width: 90%; /* Make buttons take up most of the screen width */
+    padding: 12px; /* Add more padding for touch usability */
+    font-size: 1rem; /* Adjust font size for readability */
+    text-align: center; /* Center the text inside the button */
+    white-space: nowrap; /* Ensure text stays on one row */
+  }
+
+  .contact-item .icon {
+    margin-right: 8px; /* Maintain spacing between icon and text */
+  }
 }
 
 

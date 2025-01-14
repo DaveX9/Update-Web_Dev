@@ -327,13 +327,6 @@ body {
 
 
 
-/* For smaller screens, we use JavaScript to toggle */
-/* @media (max-width: 768px) {
-  .dropdown:hover .dropdown-menu {
-    display: none;
-  }
-} */
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .nav-links ul {

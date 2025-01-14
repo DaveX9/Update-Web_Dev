@@ -356,7 +356,8 @@
       height: 80px;
     }
   }
-  /*line*/
+
+/*line*/
 .contact-container {
   display: flex;
   gap: 10px;
@@ -370,8 +371,9 @@
 }
 
 .contact-item {
-  display: flex;
-  align-items: center;
+  display: inline-flex; /* Ensure items are inline and don't wrap */
+  align-items: center; /* Vertically align items */
+  justify-content: center; /* Center content horizontally */
   background-color: #28a745; /* Green background */
   color: white;
   padding: 10px 15px;
@@ -379,6 +381,7 @@
   font-size: 1rem;
   font-weight: bold;
   text-decoration: none; /* Remove underline */
+  white-space: nowrap; /* Prevent text wrapping */
   transition: background-color 0.3s ease;
 }
 
@@ -389,10 +392,10 @@
 }
 
 .contact-item .icon {
-  display: flex;
+  display: inline-flex; /* Ensure the icon stays inline with text */
   align-items: center;
   justify-content: center;
-  margin-right: 8px;
+  margin-right: 8px; /* Add space between icon and text */
   font-size: 1.2rem;
 }
 
@@ -406,9 +409,25 @@
   color: white; /* Change text to white on hover */
 }
 
-.contact-item img {
-  width: 20px;
-  height: 20px;
+/* Responsive Design for Smartphones */
+@media screen and (max-width: 768px) {
+  .contact-container {
+    flex-direction: row; /* Stack buttons vertically */
+    gap: 15px; /* Add spacing between buttons */
+    bottom: 10px; /* Adjust position for smaller screens */
+  }
+
+  .contact-item {
+    width: 90%; /* Make buttons take up most of the screen width */
+    padding: 12px; /* Add more padding for touch usability */
+    font-size: 1rem; /* Adjust font size for readability */
+    text-align: center; /* Center the text inside the button */
+    white-space: nowrap; /* Ensure text stays on one row */
+  }
+
+  .contact-item .icon {
+    margin-right: 8px; /* Maintain spacing between icon and text */
+  }
 }
   
   

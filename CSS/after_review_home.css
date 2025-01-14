@@ -357,6 +357,7 @@ body {
     height: 80px;
   }
 }
+
 /*line*/
 .contact-container {
   display: flex;
@@ -371,8 +372,9 @@ body {
 }
 
 .contact-item {
-  display: flex;
-  align-items: center;
+  display: inline-flex; /* Ensure items are inline and don't wrap */
+  align-items: center; /* Vertically align items */
+  justify-content: center; /* Center content horizontally */
   background-color: #28a745; /* Green background */
   color: white;
   padding: 10px 15px;
@@ -380,6 +382,7 @@ body {
   font-size: 1rem;
   font-weight: bold;
   text-decoration: none; /* Remove underline */
+  white-space: nowrap; /* Prevent text wrapping */
   transition: background-color 0.3s ease;
 }
 
@@ -390,10 +393,10 @@ body {
 }
 
 .contact-item .icon {
-  display: flex;
+  display: inline-flex; /* Ensure the icon stays inline with text */
   align-items: center;
   justify-content: center;
-  margin-right: 8px;
+  margin-right: 8px; /* Add space between icon and text */
   font-size: 1.2rem;
 }
 
@@ -407,59 +410,97 @@ body {
   color: white; /* Change text to white on hover */
 }
 
-.contact-item img {
-  width: 20px;
-  height: 20px;
+/* Responsive Design for Smartphones */
+@media screen and (max-width: 768px) {
+  .contact-container {
+    flex-direction: row; /* Stack buttons vertically */
+    gap: 15px; /* Add spacing between buttons */
+    bottom: 10px; /* Adjust position for smaller screens */
+  }
+
+  .contact-item {
+    width: 90%; /* Make buttons take up most of the screen width */
+    padding: 12px; /* Add more padding for touch usability */
+    font-size: 1rem; /* Adjust font size for readability */
+    text-align: center; /* Center the text inside the button */
+    white-space: nowrap; /* Ensure text stays on one row */
+  }
+
+  .contact-item .icon {
+    margin-right: 8px; /* Maintain spacing between icon and text */
+  }
 }
 
 
 
+/* General Review Page Styles */
 .review-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .review-title {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: left;
-    color: #000;
-    margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+  color: #000;
+  margin-bottom: 20px;
 }
 
 .photo-review {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
-
 .photo-container {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
 }
 
 .photo-container img {
-    max-width: 50%;
-    height: auto;
-    border-radius: 8px;
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
 }
 
 .photo-description {
-    font-size: 16px;
-    color:var(--font-color);
-    line-height: 1.6;
-    margin-bottom: 30px;
-    padding-top: 50px; /* Use padding to move it down */
-    text-align: center;
+  font-size: 16px;
+  color: var(--font-color);
+  line-height: 1.6;
+  margin-bottom: 30px;
+  padding-top: 50px; /* Padding to move text down */
+  margin-top: 20px; /* Add margin to move text further down */
+  text-align: center;
 }
 
+
+/* Upload Date Styling */
 .upload-date {
-    display: block;
-    margin-top: 5px;
-    font-size: 16px;
-    color: #888;
-    text-align: right;
+  display: block;
+  margin-top: 5px;
+  font-size: 16px;
+  color: #888;
+  text-align: right;
 }
+
+/* Responsive Design for Smartphones */
+@media screen and (max-width: 768px) {
+  .photo-container {
+      flex-direction: column; /* Stack items vertically */
+      align-items: center; /* Center align items */
+  }
+
+  .photo-container img {
+      max-width: 90%; /* Adjust image size for smaller screens */
+      margin-bottom: 20px; /* Add spacing below the image */
+  }
+
+  .photo-description {
+      text-align: center;
+      padding-top: 0; /* Remove top padding */
+  }
+}
+
 
 .related-images-title {
     font-size: 18px;
