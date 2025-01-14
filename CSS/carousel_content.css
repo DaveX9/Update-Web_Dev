@@ -606,6 +606,50 @@
 .episode-info p a:hover {
   color: #007bff;
 }
+@media (max-width: 768px) {
+  /* Stack main content sections vertically */
+  section.main-content {
+    flex-direction: column;
+  }
+
+  /* Adjust left side styles */
+  .left-image,
+  .right-episodes {
+    max-width: 100%; /* Take full width on smaller screens */
+  }
+
+  .right-episodes {
+    margin-top: 20px; /* Add spacing between sections */
+  }
+
+  .section-title {
+    font-size: 20px; /* Adjust title size for smaller screens */
+  }
+
+  .episode img {
+    width: 100px; /* Adjust image size */
+    height: 70px;
+  }
+
+  .episode-info h3 {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .episode-info p {
+    font-size: 12px; /* Adjust paragraph font size */
+  }
+
+  .social-share a img {
+    width: 20px; /* Resize social icons */
+    height: auto;
+  }
+
+  .social-share a .fa-share {
+    font-size: 16px; /* Adjust share icon size */
+    padding: 2px; /* Adjust padding */
+  }
+}
+
 
 
 /* Section Styling */
