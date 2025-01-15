@@ -207,13 +207,91 @@
         // Fetch albums on page load
         window.onload = fetchAlbums;
       </script> -->
-      <h1 style="text-align: center;">Projects</h1>
+
+      <!-- Use Now -->
+      
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          text-align: center;
+          background-color: #f9f9f9;
+        }
+        h1 {
+          margin: 20px 0;
+          font-weight: bold;
+        }
+        button {
+          cursor: pointer;
+          outline: none;
+        }
+        #image-modal {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.8);
+          z-index: 1000;
+          justify-content: center;
+          align-items: center;
+        }
+        #image-modal img {
+          max-width: 90%;
+          max-height: 80%;
+          border-radius: 10px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .modal-close-btn {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          color: #fff;
+          font-size: 2em;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+        .modal-close-btn:hover {
+          color: #f00;
+        }
+        .modal-nav-btn {
+          position: absolute;
+          color: #fff;
+          background: none;
+          border: none;
+          font-size: 3em;
+          cursor: pointer;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 1000;
+        }
+        .modal-prev-btn {
+          left: 20px;
+        }
+        .modal-next-btn {
+          right: 20px;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>Projects</h1>
       <div id="albums-container" style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 0 auto; padding: 20px 0;">
         <div id="albums" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; justify-items: center; padding: 0; margin: 0;"></div>
       </div>
       <div id="photos-container" style="display: none; justify-content: center; align-items: center; width: 100%; margin: 20px auto; padding: 20px; flex-direction: column;"></div>
-      
+      <div id="image-modal">
+        <button class="modal-close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+        <button class="modal-nav-btn modal-prev-btn" onclick="prevImage()"><i class="fa-solid fa-caret-left"></i></button>
+        <button class="modal-nav-btn modal-next-btn" onclick="nextImage()"><i class="fa-solid fa-caret-right"></i></button>
+        <img id="modal-image" src="" alt="Zoomed Image">
+      </div>
       <script>
+        let currentIndex = 0;
+        let images = [];
+    
         // Fetch and display albums
         async function fetchAlbums() {
           try {
@@ -221,12 +299,12 @@
             if (!response.ok) {
               throw new Error(`Error fetching albums: ${response.status}`);
             }
-      
+    
             const albums = await response.json();
             const albumsContainer = document.getElementById("albums");
             const photosContainer = document.getElementById("photos-container");
             albumsContainer.innerHTML = ""; // Clear previous content
-      
+    
             albums.forEach((album) => {
               const albumDiv = document.createElement("div");
               albumDiv.style.cursor = "pointer";
@@ -238,11 +316,12 @@
               albumDiv.style.borderRadius = "10px";
               albumDiv.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
               albumDiv.style.backgroundColor = "#fff";
-      
+    
               const albumTitle = document.createElement("h3");
               albumTitle.style.fontSize = "0.9em";
               albumTitle.textContent = album.name;
-      
+              albumTitle.style.fontWeight = "bold";
+    
               if (album.coverPhotoUrl) {
                 const img = document.createElement("img");
                 img.src = album.coverPhotoUrl;
@@ -263,24 +342,23 @@
                 placeholder.textContent = "No Cover Photo";
                 albumDiv.appendChild(placeholder);
               }
-      
+    
               albumDiv.appendChild(albumTitle);
-      
+    
               albumDiv.addEventListener("click", async () => {
-                // Hide albums and display photos
                 albumsContainer.style.display = "none";
                 photosContainer.style.display = "flex";
                 photosContainer.innerHTML = ""; // Clear previous photos
                 await fetchAlbumPhotos(album.id, photosContainer);
               });
-      
+    
               albumsContainer.appendChild(albumDiv);
             });
           } catch (error) {
             console.error("Error fetching albums:", error.message);
           }
         }
-      
+    
         // Fetch and display photos in an album
         async function fetchAlbumPhotos(albumId, photosContainer) {
           try {
@@ -288,10 +366,10 @@
             if (!response.ok) {
               throw new Error(`Error fetching photos: ${response.status}`);
             }
-      
+    
             const photos = await response.json();
-      
-            // Create a back button to return to albums
+            images = photos.data.map(photo => photo.images[0].source);
+    
             const backButton = document.createElement("button");
             backButton.textContent = "Back to Albums";
             backButton.style.marginBottom = "20px";
@@ -306,51 +384,58 @@
               document.getElementById("albums").style.display = "grid";
             });
             photosContainer.appendChild(backButton);
-      
-            // Create a photo grid container
+    
             const photoGrid = document.createElement("div");
             photoGrid.style.display = "grid";
-            photoGrid.style.gridTemplateColumns = "repeat(3, 1fr)"; // 3 photos per row
+            photoGrid.style.gridTemplateColumns = "repeat(3, 1fr)";
             photoGrid.style.gap = "10px";
             photoGrid.style.marginTop = "10px";
-            photoGrid.style.padding = "10px";
-      
-            // Add photos to the grid
-            photos.data.forEach((photo) => {
+    
+            photos.data.forEach((photo, index) => {
               const photoDiv = document.createElement("div");
-              photoDiv.style.border = "1px solid #ccc";
-              photoDiv.style.borderRadius = "10px";
-              photoDiv.style.backgroundColor = "#fff";
-              photoDiv.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
-              photoDiv.style.overflow = "hidden";
-      
+              photoDiv.style.cursor = "pointer";
               const img = document.createElement("img");
-              img.src = photo.images[0].source; // Use the highest resolution
+              img.src = photo.images[0].source;
               img.style.width = "100%";
               img.style.height = "150px";
               img.style.objectFit = "cover";
-      
+              img.addEventListener("click", () => openModal(index));
               photoDiv.appendChild(img);
               photoGrid.appendChild(photoDiv);
             });
-      
-            // Append the photo grid to the photos container
+    
             photosContainer.appendChild(photoGrid);
           } catch (error) {
             console.error("Error fetching photos:", error.message);
           }
         }
-      
+    
+        // Modal functionality
+        function openModal(index) {
+          currentIndex = index;
+          document.getElementById("modal-image").src = images[currentIndex];
+          document.getElementById("image-modal").style.display = "flex";
+        }
+    
+        function closeModal() {
+          document.getElementById("image-modal").style.display = "none";
+        }
+    
+        function nextImage() {
+          currentIndex = (currentIndex + 1) % images.length;
+          document.getElementById("modal-image").src = images[currentIndex];
+        }
+    
+        function prevImage() {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          document.getElementById("modal-image").src = images[currentIndex];
+        }
+    
         // Fetch albums on page load
         window.onload = fetchAlbums;
       </script>
+
       
-
-
-
-
-
-
 
 
 
