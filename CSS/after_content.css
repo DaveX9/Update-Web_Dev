@@ -621,10 +621,11 @@
 }
 
 .tags a:hover {
-    background-color: #ffebeb;
-    color: #ff0000;
-    border-color: #ff0000;
+  background-color: #cfeff7;
+  color: #000000;
+  border-color: #00b7ff;
 }
+
 
 /* Video List Section */
 .video-list {

@@ -372,17 +372,23 @@ body {
 }
 
 .contact-item {
-  display: inline-flex; /* Ensure items are inline and don't wrap */
-  align-items: center; /* Vertically align items */
-  justify-content: center; /* Center content horizontally */
-  background-color: #28a745; /* Green background */
+  display: inline-flex;
+  /* Ensure items are inline and don't wrap */
+  align-items: center;
+  /* Vertically align items */
+  justify-content: center;
+  /* Center content horizontally */
+  background-color: #28a745;
+  /* Green background */
   color: white;
   padding: 10px 15px;
   border-radius: 25px;
   font-size: 1rem;
   font-weight: bold;
-  text-decoration: none; /* Remove underline */
-  white-space: nowrap; /* Prevent text wrapping */
+  text-decoration: none;
+  /* Remove underline */
+  white-space: nowrap;
+  /* Prevent text wrapping */
   transition: background-color 0.3s ease;
 }
 
@@ -393,153 +399,280 @@ body {
 }
 
 .contact-item .icon {
-  display: inline-flex; /* Ensure the icon stays inline with text */
+  display: inline-flex;
+  /* Ensure the icon stays inline with text */
   align-items: center;
   justify-content: center;
-  margin-right: 8px; /* Add space between icon and text */
+  margin-right: 8px;
+  /* Add space between icon and text */
   font-size: 1.2rem;
 }
 
 .contact-item:hover {
-  background-color: #1e7e34; /* Darker green for hover */
-  color: white; /* Ensure text stays readable */
+  background-color: #1e7e34;
+  /* Darker green for hover */
+  color: white;
+  /* Ensure text stays readable */
 }
 
 .contact-item:nth-child(2):hover {
-  background-color: #28a745; /* Green hover for the second item */
-  color: white; /* Change text to white on hover */
+  background-color: #28a745;
+  /* Green hover for the second item */
+  color: white;
+  /* Change text to white on hover */
 }
 
 /* Responsive Design for Smartphones */
 @media screen and (max-width: 768px) {
   .contact-container {
-    flex-direction: row; /* Stack buttons vertically */
-    gap: 15px; /* Add spacing between buttons */
-    bottom: 10px; /* Adjust position for smaller screens */
+    flex-direction: row;
+    /* Stack buttons vertically */
+    gap: 15px;
+    /* Add spacing between buttons */
+    bottom: 10px;
+    /* Adjust position for smaller screens */
   }
 
   .contact-item {
-    width: 90%; /* Make buttons take up most of the screen width */
-    padding: 12px; /* Add more padding for touch usability */
-    font-size: 1rem; /* Adjust font size for readability */
-    text-align: center; /* Center the text inside the button */
-    white-space: nowrap; /* Ensure text stays on one row */
+    width: 90%;
+    /* Make buttons take up most of the screen width */
+    padding: 12px;
+    /* Add more padding for touch usability */
+    font-size: 1rem;
+    /* Adjust font size for readability */
+    text-align: center;
+    /* Center the text inside the button */
+    white-space: nowrap;
+    /* Ensure text stays on one row */
   }
 
   .contact-item .icon {
-    margin-right: 8px; /* Maintain spacing between icon and text */
+    margin-right: 8px;
+    /* Maintain spacing between icon and text */
   }
 }
 
 .article-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .article-title {
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 10px;
-    color: #333;
-  }
-
-  
-  .article-description {
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #555;
-  }
-  .upload-date {
-    display: block;
-    margin-top: 5px;
-    font-size: 16px;
-    color: #888;
-    text-align: right;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
-  
-  .content-container {
-    margin-top: 20px;
-  }
-  
-  .content-subtitle {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--font-color);
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  .main-image-container {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .main-image {
-    max-width: 50%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
-  
-  .main-image-caption {
-    font-size: 14px;
-    color: #666;
-    font-weight: bold;
-  }
-  
-  .detailed-section {
-    margin-top: 20px;
+
+.article-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+
+.article-description {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.upload-date {
+  display: block;
+  margin-top: 5px;
+  font-size: 16px;
+  color: #888;
+  text-align: right;
+}
+
+.content-container {
+  margin-top: 20px;
+}
+
+.content-subtitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--font-color);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.main-image-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.main-image {
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.main-image-caption {
+  font-size: 14px;
+  color: #666;
+  font-weight: bold;
+}
+
+.detailed-section {
+  margin-top: 20px;
 }
 
 .detailed-section h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .detailed-section p {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 20px;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .subsection {
-    display: flex; /* จัดรูปภาพและข้อความในแถวเดียวกัน */
-    gap: 20px; /* เพิ่มช่องว่างระหว่างองค์ประกอบ */
-    align-items: center; /* จัดตำแหน่งข้อความให้อยู่ตรงกลางแนวตั้ง */
-    margin-bottom: 30px; /* เพิ่มช่องว่างระหว่างแต่ละ subsection */
+  display: flex;
+  /* จัดรูปภาพและข้อความในแถวเดียวกัน */
+  gap: 20px;
+  /* เพิ่มช่องว่างระหว่างองค์ประกอบ */
+  align-items: center;
+  /* จัดตำแหน่งข้อความให้อยู่ตรงกลางแนวตั้ง */
+  margin-bottom: 30px;
+  /* เพิ่มช่องว่างระหว่างแต่ละ subsection */
 }
 
 .sub-image {
-    max-width: 200px; /* ขนาดรูปภาพ */
-    height: auto;
-    border-radius: 8px; /* มุมโค้ง */
-    flex-shrink: 0;
+  max-width: 200px;
+  /* ขนาดรูปภาพ */
+  height: auto;
+  border-radius: 8px;
+  /* มุมโค้ง */
+  flex-shrink: 0;
 }
 
 .sub-content {
-    display: flex; /* ใช้ Flexbox */
-    justify-content: center; /* จัดตำแหน่งข้อความให้อยู่กึ่งกลาง */
-    align-items: center;
-    flex: 1; /* ขยายเนื้อหาให้เต็มพื้นที่ที่เหลือ */
-    text-align: left;
+  display: flex;
+  /* ใช้ Flexbox */
+  justify-content: center;
+  /* จัดตำแหน่งข้อความให้อยู่กึ่งกลาง */
+  align-items: center;
+  flex: 1;
+  /* ขยายเนื้อหาให้เต็มพื้นที่ที่เหลือ */
+  text-align: left;
 }
 
 .subsection p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.6;
-    margin: 0; /* เอา margin ออกเพื่อความสม่ำเสมอ */
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  /* เอา margin ออกเพื่อความสม่ำเสมอ */
+}
+
+
+/* Section Styling */
+.carousel-content {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.carousel-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Carousel Container */
+.content-carousel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #eeeeee;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.content-carousel-item {
+  min-width: 300px;
+  max-width: 300px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  overflow: hidden;
+  text-decoration: none;
+  /* Remove underline */
+  color: inherit;
+  /* Inherit text color */
+}
+
+.content-carousel-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.content-carousel-info {
+  padding: 10px;
+}
+
+.content-carousel-info h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+
+/* Navigation Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background-color: #f1f1f1;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .content-carousel-item {
+    min-width: 250px;
+    max-width: 250px;
+  }
+
+  .carousel-btn {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
 }
 
 
 
-  
 
- 
 /* footer */
 .footer {
   background-color: #f9f9f9;
@@ -607,42 +740,57 @@ body {
 .footer-container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Align all columns at the top */
-  gap: 20px; /* Add spacing between columns */
+  align-items: flex-start;
+  /* Align all columns at the top */
+  gap: 20px;
+  /* Add spacing between columns */
 }
 
 .footer-center {
-  flex: 1; /* Each column takes equal space */
-  min-width: 200px; /* Prevent columns from shrinking too much */
+  flex: 1;
+  /* Each column takes equal space */
+  min-width: 200px;
+  /* Prevent columns from shrinking too much */
 }
 
 .footer-center h3 {
-  margin-bottom: 10px; /* Add space below the headings */
-  text-align: left; /* Align headings to the left */
+  margin-bottom: 10px;
+  /* Add space below the headings */
+  text-align: left;
+  /* Align headings to the left */
 }
 
 .footer-center ul {
-  list-style: none; /* Remove bullets */
+  list-style: none;
+  /* Remove bullets */
   padding: 0;
   margin: 0;
 }
 
 .footer-center ul li {
-  margin-bottom: 10px; /* Add spacing between list items */
+  margin-bottom: 10px;
+  /* Add spacing between list items */
 }
 
 .footer-center ul li a {
-  border: none; /* Remove border */
-  background: none; /* Remove any background color */
-  outline: none; /* Remove focus outlines if any */
-  padding: 0; 
-  color: #000; /* Set the color to black */
-  text-decoration: none; /* Optional: Removes underline if present */
+  border: none;
+  /* Remove border */
+  background: none;
+  /* Remove any background color */
+  outline: none;
+  /* Remove focus outlines if any */
+  padding: 0;
+  color: #000;
+  /* Set the color to black */
+  text-decoration: none;
+  /* Optional: Removes underline if present */
 }
 
 .footer-center ul li a:hover {
-  border: none; /* Remove border on hover */
-  background: none; /* Remove background on hover */
+  border: none;
+  /* Remove border on hover */
+  background: none;
+  /* Remove background on hover */
   color: var(--hover-color);
 }
 

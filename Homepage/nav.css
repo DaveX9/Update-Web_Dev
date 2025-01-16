@@ -1,0 +1,472 @@
+:root {
+    --background-color: #ffffff;
+    --font-color: #0e0d0d;
+    --hover-color: #ff5c05;
+    --navborder-color: #ea0303;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+}
+
+/* Top Bar Container */
+.top-bar {
+    width: 100%;
+    background-color: var(--background-color);
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    border-bottom: none;
+}
+
+/* Flex Container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.social-icons a img {
+    width: 16px;
+    /* Reduce the width for smaller icons */
+    height: auto;
+    /* Maintain aspect ratio */
+    transition: transform 0.5s ease;
+    /* Smooth scaling effect */
+}
+
+.social-icons a:hover img {
+    transform: scale(1.2);
+    /* Slight enlargement on hover */
+}
+
+
+/* Logo */
+.logo img {
+    height: 100px;
+    left: 50%;
+}
+
+/* Actions (Search and Hamburger Menu) */
+.actions {
+    display: flex;
+    gap: 15px;
+}
+
+.actions i {
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.actions i:hover {
+    color: #0078d7;
+}
+
+/* Hide the default navigation and make it slideable for smaller screens */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 250px;
+        height: 100%;
+        background-color: var(--background-color);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        z-index: 2000;
+        overflow-y: auto;
+        transition: right 0.3s ease-in-out;
+    }
+}
+
+/* Show menu when active */
+.nav-links.active {
+    right: 0;
+    display: flex;
+}
+
+#close-icon {
+    display: block;
+    font-size: 24px;
+    color: #333;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+/* Hamburger Icon */
+#hamburger-icon {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Language Switcher Styling */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Space between the flags */
+}
+
+.language-switcher a {
+    text-decoration: none;
+}
+
+.language-switcher img {
+    width: 20px;
+    /* Flag icon size */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.language-switcher img:hover {
+    transform: scale(1.1);
+    /* Slight zoom on hover */
+}
+
+/* ปรับการจัดตำแหน่งของ Search Bar */
+.search-bar {
+    display: none;
+    /* Initially hidden */
+    gap: 5px;
+}
+
+
+/* กล่องค้นหา */
+.search-bar input {
+    flex: 1;
+    /* ให้ช่องค้นหาปรับขนาดได้ */
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* ปุ่มค้นหา */
+.search-bar button {
+    padding: 5px 15px;
+    font-size: 14px;
+    background-color: #ff5c05;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #ea0303;
+}
+
+.search-bar.active {
+    display: flex;
+    /* Show the search bar */
+    align-items: center;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .nav-links ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        list-style: none;
+    }
+
+    .nav-links ul li {
+        margin-bottom: 15px;
+    }
+
+    .nav-links ul li a {
+        font-size: 16px;
+        color: #333;
+        text-decoration: none;
+        width: 100%;
+    }
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    /* Center the navigation horizontally */
+    align-items: center;
+    /* Center items vertically */
+    width: 100%;
+    /* Ensure full-width */
+    padding: 10px 20px;
+    background-color: var(--background-color);
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-links ul {
+    display: flex;
+    justify-content: center;
+    /* Center the list items */
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+    /* Space between menu items */
+}
+
+.nav-links ul li {
+    position: relative;
+    /* Required for dropdown menu positioning */
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    /* Prevent text from breaking */
+    background: linear-gradient(white, white) padding-box,
+        linear-gradient(90deg, rgba(0, 185, 255, 1) 0%, rgba(255, 109, 176, 1) 58%, rgba(0, 212, 255, 1) 100%) border-box;
+}
+
+.nav-links ul li a:hover {
+    color: #007BFF;
+    background: linear-gradient(white, white) padding-box,
+        linear-gradient(90deg, rgba(0, 185, 255, 1) 0%, rgba(255, 109, 176, 1) 58%, rgba(0, 212, 255, 1) 100%) border-box;
+}
+
+/* Dropdown Menu (Hidden by Default) */
+.dropdown-menu {
+    display: none;
+    /* Keep dropdown hidden by default */
+    position: absolute;
+    top: 150%;
+    /* Position below the parent */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    min-width: 130px;
+    z-index: 999;
+    /* Ensure it appears above other content */
+    opacity: 0;
+    /* Hide with opacity for smoother appearance */
+    visibility: hidden;
+    /* Prevent any interaction */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    /* Smooth transition */
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    /* Show dropdown */
+    opacity: 1;
+    /* Make it visible */
+    visibility: visible;
+    /* Allow interaction */
+}
+
+.dropdown-menu li {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #000;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+    color: #007BFF;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+
+/* For smaller screens, we use JavaScript to toggle */
+/* @media (max-width: 768px) {
+    .dropdown:hover .dropdown-menu {
+      display: none;
+    }
+  } */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links ul li a {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links ul li a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .logo img {
+        height: 80px;
+    }
+}
+
+/* Fullscreen Menu */
+
+.fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.fullscreen-menu.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Close Icon */
+#close-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: black;
+    cursor: pointer;
+}
+
+/* Menu Logo */
+.menu-logo {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.menu-logo img {
+    height: 80px;
+}
+
+/* Menu Content */
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.menu-section {
+    flex: 1 1 30%;
+    /* Adjust for responsiveness */
+    margin: 10px;
+}
+
+.menu-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.menu-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-section ul li {
+    margin: 5px 0;
+}
+
+.menu-section ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.menu-section ul li a:hover {
+    color: var(--hover-color);
+}
+
+/* Social Icons */
+.menu-social-icons {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.menu-social-icons a {
+    font-size: 1.2rem;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+/* Hamburger Icon */
+#hamburger-icon {
+    font-size: 1.5rem;
+    color: black;
+    cursor: pointer;
+}
+
+/* Styling for menu links */
+.menu-link {
+    text-decoration: none;
+    color: #333;
+    /* Default text color */
+    transition: color 0.3s ease;
+}
+
+.menu-link:hover {
+    color: var(--hover-color);
+    /* Hover color */
+}

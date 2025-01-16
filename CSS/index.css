@@ -524,6 +524,11 @@ body {
 }
 
 /* Inspection Info */
+.wrapper {
+  display: flex;
+  justify-content:center; /* Align left to allow adjustment */
+  align-items: center; /* Or margin-left: 30px */
+}
 .inspection-info {
   display: flex;
   justify-content: center;
@@ -580,6 +585,61 @@ body {
   background-color: var(--hover-color);
 }
 
+
+/* .hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 40%;
+  background: url('/HOMESPECTOR/img/ourservice.png') center center/cover no-repeat, rgba(0, 0, 0, 0.4); 
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-content .btn {
+  padding: 0.8rem 1.5rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.hero-content .btn:hover {
+  background-color: #ffffff;
+  color: var(--font-color);
+}
 /*line*/
 .contact-container {
   display: flex;
@@ -680,7 +740,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  margin-top: ;
+  margin-top: 10px;
 }
 
 .section-title {
@@ -1136,27 +1196,42 @@ button.next-btn:hover {
 
 .content-wrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* Space between text and carousel */
+  align-items: flex-start; /* Align items to the top */
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto;
   gap: 20px;
   box-sizing: border-box;
 }
 
-/* Text Content Styling */
 .text-content {
   flex: 1;
   text-align: left;
-  white-space: nowrap;
+  max-width: 800px; 
 }
 
 .section-title {
-  font-size: 2.5em;
+  font-size: 2.5em; /* Adjust font size */
   font-weight: bold;
   color: #333;
   margin-bottom: 10px;
+  line-height: 1.2; /* Adjust line spacing */
+  text-align: left; /* Align as required */
+  overflow: hidden; /* Hide extra content */
+  white-space: nowrap; /* Prevent more than one line */
+  text-overflow: ellipsis; /* Add '...' if it overflows */
+  max-width: 600px; /* Adjust max width */
+}
+
+
+.review-carousel-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Push carousel to the right */
+  align-items: flex-start; /* Align to the top */
+  max-width: 500px;
+  margin-top: 0;
 }
 
 .section-subtitle {
@@ -1177,7 +1252,7 @@ button.next-btn:hover {
 }
 
 /* Review Carousel Container */
-.review-carousel-container {
+/* .review-carousel-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1185,7 +1260,7 @@ button.next-btn:hover {
   overflow: hidden;
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+} */
 
 .review-img:hover {
   transform: scale(0.9);
@@ -1441,7 +1516,9 @@ button.next-btn:hover {
 
 .articles a {
   text-decoration: none;
-  color: #000;
+  color: #000000;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 
@@ -1456,21 +1533,23 @@ button.next-btn:hover {
   object-fit: cover;
 }
 
-.articles-info {
+/* .articles-info {
   padding: 15px;
   text-align: left;
 }
 
 .articles-info h3 {
-  font-size: 1.2em;
+  font-size: 18px;
   margin: 5px 0;
   color: #333;
+  font-weight: bold;
 }
 
 .articles-info p {
-  font-size: 0.9em;
+  font-size: 18px;
   margin: 5px 0;
-  color: #555;
+  color: #333;
+  font-weight: bold;
 }
 
 .articles-info span {
@@ -1481,7 +1560,7 @@ button.next-btn:hover {
   border-radius: 5px;
   font-size: 0.8em;
   margin-top: 10px;
-}
+} */
 
 /* newapp */
 .container-newapp {

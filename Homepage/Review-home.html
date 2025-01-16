@@ -7,6 +7,7 @@
     integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="/HOMESPECTOR/CSS/Review-home.css">
     <title>Header Design</title>
 </head>
@@ -108,7 +109,7 @@
           </a>
         </div>
 
-      <div class="review-page">
+      <div class="review-page" data-aos="fade-up">
         <h1>รีวิวบ้าน</h1>
         <p>
           พาทัวร์บ้านรูปแบบใหม่ ไม่ซ้ำใคร ที่แรกและที่เดียว เพราะเราพาดูงานระบบของบ้านในโครงการต่าง ๆ
@@ -116,7 +117,7 @@
         </p>
       
         <!-- Categories Section -->
-        <div class="categories">
+        <div class="categories" data-aos="fade-up" data-aos-duration="1500">
           <button class="category-btn active" data-category="all">All</button>
           <button class="category-btn" data-category="Land and House">Land and House</button>
           <button class="category-btn" data-category="Sansiri">Sansiri</button>
@@ -293,6 +294,10 @@
   <script src="/HOMESPECTOR/JS/filter.js"></script>
   <script src="/HOMESPECTOR/JS/dropdown.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  
+  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
