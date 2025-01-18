@@ -95,10 +95,6 @@
       z-index: 2000;
       overflow-y: auto;
       transition: right 0.3s ease-in-out;
-      -webkit-transition: right 0.3s ease-in-out;
-      -moz-transition: right 0.3s ease-in-out;
-      -ms-transition: right 0.3s ease-in-out;
-      -o-transition: right 0.3s ease-in-out;
     }
   }
   
@@ -810,70 +806,105 @@
   
   
   .footer-center {
-    flex: 1 1 20%;
-    margin-bottom: 20px;
+    flex: 1;
+    min-width: 200px;
   }
   
   .footer-center h3 {
-    font-size: 1em;
     margin-bottom: 10px;
-  }
-  
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Align all columns at the top */
-    gap: 20px; /* Add spacing between columns */
-  }
-  
-  .footer-center {
-    flex: 1; /* Each column takes equal space */
-    min-width: 200px; /* Prevent columns from shrinking too much */
-  }
-  
-  .footer-center h3 {
-    margin-bottom: 10px; /* Add space below the headings */
-    text-align: left; /* Align headings to the left */
+    text-align: left;
+    font-weight: bold;
+    font-size: 20px;
   }
   
   .footer-center ul {
-    list-style: none; /* Remove bullets */
+    list-style: none;
     padding: 0;
     margin: 0;
   }
   
   .footer-center ul li {
-    margin-bottom: 10px; /* Add spacing between list items */
+    margin-bottom: 10px;
   }
   
   .footer-center ul li a {
-    border: none; /* Remove border */
-    background: none; /* Remove any background color */
-    outline: none; /* Remove focus outlines if any */
-    padding: 0; 
-    color: #000; /* Set the color to black */
-    text-decoration: none; /* Optional: Removes underline if present */
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    color: #000;
+    text-decoration: none;
   }
   
   .footer-center ul li a:hover {
-    border: none; /* Remove border on hover */
-    background: none; /* Remove background on hover */
+    border: none;
+    background: none;
     color: var(--hover-color);
   }
   
   
-  
-  .footer-center .dropdown-menu a {
-    border: none;
+  .dropdown-menu2 {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    /* Add 10px distance from the parent */
+    left: 0;
+    /* Align left to parent */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    min-width: 130px;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transform: translateY(-10px);
+    /* Start with an offset for smooth animation */
   }
   
-  .dropdown-menu a:hover {
-    background-color: none;
+  /* Ensure Dropdown Menu Stays Open When Hovered */
+  .dropdown2:hover .dropdown-menu2 {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Adjust Dropdown Parent Styling */
+  .dropdown2 {
+    position: relative;
+    /* Ensure proper positioning for the menu */
+    cursor: pointer;
+    /* Add a pointer cursor */
+  }
+  
+  /* Ensure smooth hover behavior for dropdown items */
+  .dropdown-menu2 li {
+    display: block;
+  }
+  
+  .dropdown-menu2 a {
+    display: block;
+    padding: 10px 15px;
+    color: #000;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-menu2 a:hover {
+    background-color: #f0f0f0;
+    color: #007BFF;
   }
   
   .footer-right {
     flex: 1 1 20%;
     margin-bottom: 20px;
+  }
+  
+  .footer-right h3 {
+    font-weight: bold;
+    font-size: 20px; 
   }
   
   .payment-logos img {

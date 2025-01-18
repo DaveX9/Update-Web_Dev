@@ -55,11 +55,13 @@
                             </div>
 
                             <!-- Search Icon -->
+                            <!-- Search Icon -->
                             <i id="search-icon" class="fas fa-search"></i>
-                            <div id="search-bar" class="search-bar">
-                                <input type="text" placeholder="Search..." />
+                            <div id="search-bar" class="search-bar hidden">
+                                <input type="text" placeholder="Search..." aria-label="Search" />
                                 <button onclick="searchFunction()">Search</button>
                             </div>
+
                             <!-- Hamburger Icon -->
                             <i id="hamburger-icon" class="fas fa-bars hamburger-icon" onclick="toggleMenu()"></i>
                         </div>
@@ -224,28 +226,48 @@
                 </a>
             </div>
 
-            <!-- Use Now -->
-            <div class="main-project">
-                <h1>Projects</h1>
-                <div id="albums-container"
-                    style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 0 auto; padding: 20px 0;">
-                    <div id="albums"
-                        style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; justify-items: center; padding: 0; margin: 0;">
+            <section class="carousel-section">
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                    <!-- Indicators -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
                     </div>
+
+                    <!-- Carousel Items -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/HOMESPECTOR/img/des.png" class="d-block w-100" alt="Image 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/HOMESPECTOR/img/des1.png" class="d-block w-100" alt="Image 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/HOMESPECTOR/img/des2.png" class="d-block w-100" alt="Image 3">
+                            <!-- <div class="carousel-caption d-none d-md-block">
+                                <h5>Third Slide</h5>
+                                <p>Description for the third image.</p>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <div id="photos-container"
-                    style="display: none; justify-content: center; align-items: center; width: 100%; margin: 20px auto; padding: 20px; flex-direction: column;">
-                </div>
-                <div id="image-modal">
-                    <button class="modal-close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
-                    <button class="modal-nav-btn modal-prev-btn" onclick="prevImage()"><i
-                            class="fa-solid fa-caret-left"></i></button>
-                    <button class="modal-nav-btn modal-next-btn" onclick="nextImage()"><i
-                            class="fa-solid fa-caret-right"></i></button>
-                    <img id="modal-image" src="" alt="Zoomed Image">
-                </div>
-            </div>
-            
+            </section>
             <section class="footer">
                 <footer class="footer">
                     <div class="footer-container">
@@ -340,154 +362,36 @@
 
         </div>
     </div>
-
-
     <script>
-        let currentIndex = 0;
-        let images = [];
+        const searchBar = document.getElementById('search-bar');
+        const searchIcon = document.getElementById('search-icon');
 
-        // Fetch and display albums
-        async function fetchAlbums() {
-            try {
-                const response = await fetch("http://localhost:3000/albums");
-                if (!response.ok) {
-                    throw new Error(`Error fetching albums: ${response.status}`);
-                }
-
-                const albums = await response.json();
-                const albumsContainer = document.getElementById("albums");
-                const photosContainer = document.getElementById("photos-container");
-                albumsContainer.innerHTML = ""; // Clear previous content
-
-                albums.forEach((album) => {
-                    const albumDiv = document.createElement("div");
-                    albumDiv.style.cursor = "pointer";
-                    albumDiv.style.border = "1px solid #ccc";
-                    albumDiv.style.padding = "0";
-                    albumDiv.style.margin = "0";
-                    albumDiv.style.width = "250px";
-                    albumDiv.style.textAlign = "center";
-                    albumDiv.style.borderRadius = "10px";
-                    albumDiv.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
-                    albumDiv.style.backgroundColor = "#fff";
-
-                    const albumTitle = document.createElement("h3");
-                    albumTitle.style.fontSize = "0.9em";
-                    albumTitle.textContent = album.name;
-                    albumTitle.style.fontWeight = "bold";
-
-                    if (album.coverPhotoUrl) {
-                        const img = document.createElement("img");
-                        img.src = album.coverPhotoUrl;
-                        img.style.width = "100%";
-                        img.style.height = "150px";
-                        img.style.objectFit = "cover";
-                        img.style.borderRadius = "10px 10px 0 0";
-                        albumDiv.appendChild(img);
-                    } else {
-                        const placeholder = document.createElement("div");
-                        placeholder.style.width = "100%";
-                        placeholder.style.height = "150px";
-                        placeholder.style.background = "#ddd";
-                        placeholder.style.borderRadius = "10px 10px 0 0";
-                        placeholder.style.display = "flex";
-                        placeholder.style.alignItems = "center";
-                        placeholder.style.justifyContent = "center";
-                        placeholder.textContent = "No Cover Photo";
-                        albumDiv.appendChild(placeholder);
-                    }
-
-                    albumDiv.appendChild(albumTitle);
-
-                    albumDiv.addEventListener("click", async () => {
-                        albumsContainer.style.display = "none";
-                        photosContainer.style.display = "flex";
-                        photosContainer.innerHTML = ""; // Clear previous photos
-                        await fetchAlbumPhotos(album.id, photosContainer);
-                    });
-
-                    albumsContainer.appendChild(albumDiv);
-                });
-            } catch (error) {
-                console.error("Error fetching albums:", error.message);
+        // Function to toggle the search bar visibility
+        function toggleSearch() {
+            if (searchBar) {
+                const isActive = searchBar.classList.contains('active');
+                searchBar.classList.toggle('active', !isActive);
+                searchBar.classList.toggle('hidden', isActive);
+                searchIcon.setAttribute('aria-expanded', !isActive); // For accessibility
             }
         }
 
-        // Fetch and display photos in an album
-        async function fetchAlbumPhotos(albumId, photosContainer) {
-            try {
-                const response = await fetch(`http://localhost:3000/albums/${albumId}/photos`);
-                if (!response.ok) {
-                    throw new Error(`Error fetching photos: ${response.status}`);
-                }
-
-                const photos = await response.json();
-                images = photos.data.map(photo => photo.images[0].source);
-
-                const backButton = document.createElement("button");
-                backButton.textContent = "Back to Albums";
-                backButton.style.marginBottom = "20px";
-                backButton.style.padding = "10px 20px";
-                backButton.style.border = "none";
-                backButton.style.backgroundColor = "#007BFF";
-                backButton.style.color = "#fff";
-                backButton.style.borderRadius = "5px";
-                backButton.style.cursor = "pointer";
-                backButton.addEventListener("click", () => {
-                    photosContainer.style.display = "none";
-                    document.getElementById("albums").style.display = "grid";
-                });
-                photosContainer.appendChild(backButton);
-
-                const photoGrid = document.createElement("div");
-                photoGrid.style.display = "grid";
-                photoGrid.style.gridTemplateColumns = "repeat(3, 1fr)";
-                photoGrid.style.gap = "10px";
-                photoGrid.style.marginTop = "10px";
-
-                photos.data.forEach((photo, index) => {
-                    const photoDiv = document.createElement("div");
-                    photoDiv.style.cursor = "pointer";
-                    const img = document.createElement("img");
-                    img.src = photo.images[0].source;
-                    img.style.width = "100%";
-                    img.style.height = "150px";
-                    img.style.objectFit = "cover";
-                    img.addEventListener("click", () => openModal(index));
-                    photoDiv.appendChild(img);
-                    photoGrid.appendChild(photoDiv);
-                });
-
-                photosContainer.appendChild(photoGrid);
-            } catch (error) {
-                console.error("Error fetching photos:", error.message);
+        // Function to simulate search functionality
+        function searchFunction() {
+            const query = searchBar.querySelector('input').value;
+            if (query.trim()) {
+                alert(`Searching for: ${query}`); // Replace this with real search logic
+            } else {
+                alert('Please enter a search query.');
             }
         }
 
-        // Modal functionality
-        function openModal(index) {
-            currentIndex = index;
-            document.getElementById("modal-image").src = images[currentIndex];
-            document.getElementById("image-modal").style.display = "flex";
+        // Attach event listener for search icon
+        if (searchIcon) {
+            searchIcon.addEventListener('click', toggleSearch);
         }
-
-        function closeModal() {
-            document.getElementById("image-modal").style.display = "none";
-        }
-
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            document.getElementById("modal-image").src = images[currentIndex];
-        }
-
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            document.getElementById("modal-image").src = images[currentIndex];
-        }
-
-        // Fetch albums on page load
-        window.onload = fetchAlbums;
     </script>
+
 
 
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>

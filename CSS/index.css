@@ -95,11 +95,7 @@ body {
       padding: 20px;
       z-index: 2000;
       overflow-y: auto;
-      transition: right 0.3s ease-in-out;
-      -webkit-transition: right 0.3s ease-in-out;
-      -moz-transition: right 0.3s ease-in-out;
-      -ms-transition: right 0.3s ease-in-out;
-      -o-transition: right 0.3s ease-in-out;
+      transition: right 0.3s ease-in-out  ;
   }
 }
 
@@ -759,6 +755,7 @@ body {
 
 
 .text-content button:hover {
+  color: #fff;
   background-color: var(--hover-color);
 }
 
@@ -817,6 +814,7 @@ body {
   background-color: #ffffff;
   color: var(--font-color);
 }
+  
 /*line*/
 .contact-container {
   display: flex;
@@ -1442,10 +1440,6 @@ button.next-btn:hover {
 .review-img:hover {
   transform: scale(0.9);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  -webkit-transform: scale(0.9);
-  -moz-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  -o-transform: scale(0.9);
 }
 
 /* .logo-review img {
@@ -1709,36 +1703,13 @@ button.next-btn:hover {
   height: 200px;
   object-fit: cover;
 }
-
-/* .articles-info {
-  padding: 15px;
-  text-align: left;
+.upload-date {
+  font-size: 0.9em;
+  color: #777;
+  text-align: right;
+  white-space: nowrap;
+  margin-left: 10px;
 }
-
-.articles-info h3 {
-  font-size: 18px;
-  margin: 5px 0;
-  color: #333;
-  font-weight: bold;
-}
-
-.articles-info p {
-  font-size: 18px;
-  margin: 5px 0;
-  color: #333;
-  font-weight: bold;
-}
-
-.articles-info span {
-  display: inline-block;
-  background-color: #e40000;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.8em;
-  margin-top: 10px;
-} */
-
 /* newapp */
 .container-newapp {
   margin: 0;
@@ -1839,10 +1810,6 @@ button.next-btn:hover {
   transform: skewY(-2deg);
   transform-origin: top;
   z-index: -1;
-  -webkit-transform: skewY(-2deg);
-  -moz-transform: skewY(-2deg);
-  -ms-transform: skewY(-2deg);
-  -o-transform: skewY(-2deg);
 }
 
 .faq-container {
@@ -2037,6 +2004,8 @@ button.next-btn:hover {
 .footer-center h3 {
   margin-bottom: 10px;
   text-align: left;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .footer-center ul {
@@ -2121,6 +2090,10 @@ button.next-btn:hover {
 .footer-right {
   flex: 1 1 20%;
   margin-bottom: 20px;
+}
+.footer-right h3 {
+  font-weight: bold;
+  font-size: 20px; 
 }
 
 .payment-logos img {
