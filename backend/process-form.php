@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->SMTPSecure = 'tls';     // Encryption type
         $mail->SMTPAuth = true;
         $mail->Username = 'sahadevthapawork@gmail.com'; // Your Gmail address
-        $mail->Password = 'jitn kawr acvs gxeu';         // Use App Password for Gmail
+        $mail->Password = 'wifn rcpw dacg uopq';         // Use App Password for Gmail
 
         $mail->setFrom('sahadevthapawork@gmail.com', 'Contact Form');
         $mail->addAddress('sahadevthapawork@gmail.com'); // Replace with the recipient email

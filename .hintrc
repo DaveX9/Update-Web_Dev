@@ -44,6 +44,13 @@
           "scrollbar-width: thin"
         ]
       }
+    ],
+    "meta-viewport": "off",
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
     ]
   }
 }
