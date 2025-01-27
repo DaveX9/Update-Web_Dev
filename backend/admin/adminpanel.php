@@ -862,7 +862,7 @@
         });
     </script>
 
-    <div class="form-container">
+    <div class="form-container9">
         <h1>Manage FAQ Section</h1>
 
         <form id="faq-form" method="POST" action="save-faq.php">
@@ -882,6 +882,12 @@
                         <input type="text" name="faqs[plumbing][1][question]" value="Why should I get a home inspection?" />
                         <label>Answer:</label>
                         <textarea name="faqs[plumbing][1][answer]">Home inspections identify potential issues, ensuring you make an informed decision before buying or selling a property.</textarea>
+                    </div>
+                    <div class="faq-item">
+                        <label>Question:</label>
+                        <input type="text" name="faqs[plumbing][2][question]" value="Why should I get a home inspection?" />
+                        <label>Answer:</label>
+                        <textarea name="faqs[plumbing][2][answer]">Home inspections identify potential issues, ensuring you make an informed decision before buying or selling a property.</textarea>
                     </div>
                 </div>
                 <button type="button" class="add-btn" onclick="addFAQ('plumbing')">Add Plumbing FAQ</button>
@@ -903,6 +909,12 @@
                         <label>Answer:</label>
                         <textarea name="faqs[roof][1][answer]">We look for signs of wear, leaks, cracks, missing shingles, or structural damage using a combination of visual inspection and specialized tools.</textarea>
                     </div>
+                    <div class="faq-item">
+                        <label>Question:</label>
+                        <input type="text" name="faqs[roof][2][question]" value="Can you inspect roofs during bad weather?" />
+                        <label>Answer:</label>
+                        <textarea name="faqs[roof][2][answer]">While we can perform limited inspections in light weather, we recommend rescheduling for a thorough assessment in optimal conditions.</textarea>
+                    </div>
                 </div>
                 <button type="button" class="add-btn" onclick="addFAQ('roof')">Add Roof FAQ</button>
             </div>
@@ -916,6 +928,18 @@
                         <input type="text" name="faqs[pricing][0][question]" value="How much does a home inspection cost?" />
                         <label>Answer:</label>
                         <textarea name="faqs[pricing][0][answer]">Our pricing varies based on the property size and location. Typically, inspections start at $300.</textarea>
+                    </div>
+                    <div class="faq-item">
+                        <label>Question:</label>
+                        <input type="text" name="faqs[pricing][1][question]" value=" Are there any additional fees?" />
+                        <label>Answer:</label>
+                        <textarea name="faqs[pricing][1][answer]">Additional fees may apply for specialized inspections like radon testing,mold inspection, or sewer line evaluations.</textarea>
+                    </div>
+                    <div class="faq-item">
+                        <label>Question:</label>
+                        <input type="text" name="faqs[pricing][2][question]" value=" Are there any additional fees?" />
+                        <label>Answer:</label>
+                        <textarea name="faqs[pricing][2][answer]">Additional fees may apply for specialized inspections like radon testing,mold inspection, or sewer line evaluations.</textarea>
                     </div>
                 </div>
                 <button type="button" class="add-btn" onclick="addFAQ('pricing')">Add Pricing FAQ</button>
@@ -960,16 +984,5 @@
             container.insertAdjacentHTML('beforeend', newFAQHTML);
         }
     </script>
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
