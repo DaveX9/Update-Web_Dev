@@ -762,6 +762,210 @@
         document.getElementById('add-review-btn').addEventListener('click', addReview);
     </script>
 
+    <div class="form-container8">
+        <h1>Manage "New Application" Section</h1>
+
+        <form id="newapp-form" enctype="multipart/form-data">
+            <!-- Header Section -->
+            <div class="form-group">
+                <h2>Edit Header</h2>
+                <label for="header-title">Main Title (H1):</label>
+                <input type="text" id="header-title" name="header_title" value="New">
+                
+                <label for="header-subtitle">Subtitle (H2):</label>
+                <input type="text" id="header-subtitle" name="header_subtitle" value="Application ตรวจบ้านด้วยตัวเอง">
+                
+                <label for="header-description">Description (P):</label>
+                <textarea id="header-description" name="header_description">ตรวจบ้านด้วยตัวเอง พร้อมออกรายงานในตัว ตรวจไม่เป็นก็มีคลิปสอนให้ภายในแอป</textarea>
+            </div>
+
+            <!-- Images Section -->
+            <div class="form-group">
+                <h2>Edit Images</h2>
+                <div id="image-previews">
+                    <!-- Default Images -->
+                    <div class="image-slot" id="image-slot-1">
+                        <label for="image-upload-1">Image 1:</label>
+                        <img src="/HOMESPECTOR/img/app1.png" alt="App Preview 1" style="max-width: 200px;" id="preview-1">
+                        <input type="file" id="image-upload-1" name="image_1" accept="image/*">
+                        <button type="button" class="delete-btn" onclick="deleteImage(1)">Delete</button>
+                    </div>
+                    <div class="image-slot" id="image-slot-2">
+                        <label for="image-upload-2">Image 2:</label>
+                        <img src="/HOMESPECTOR/img/app2.png" alt="App Preview 2" style="max-width: 200px;" id="preview-2">
+                        <input type="file" id="image-upload-2" name="image_2" accept="image/*">
+                        <button type="button" class="delete-btn" onclick="deleteImage(2)">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call-to-Action -->
+            <div class="form-group">
+                <h2>Edit Call-to-Action</h2>
+                <label for="cta-text">Button Text:</label>
+                <input type="text" id="cta-text" name="cta_text" value="ใช้งานฟรี!">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="button-container">
+                <button type="submit" class="save-btn">Save Changes</button>
+                <button type="button" class="cancel-btn" onclick="window.location.reload();">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Function to delete an image slot
+        function deleteImage(id) {
+            const imageSlot = document.getElementById(`image-slot-${id}`);
+            if (imageSlot) {
+                imageSlot.remove();
+            }
+        }
+
+        // Handle form submission
+        document.getElementById('newapp-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+
+            fetch('save-newapp.php', {
+                method: 'POST',
+                body: formData,
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    alert(data.message);
+                })
+                .catch((error) => {
+                    console.error('Error saving new application section:', error);
+                    alert('Failed to save the new application section.');
+                });
+        });
+
+        // Preview uploaded images
+        document.querySelectorAll('input[type="file"]').forEach((input) => {
+            input.addEventListener('change', function (e) {
+                const id = this.id.split('-')[2]; // Extract the slot number
+                const preview = document.getElementById(`preview-${id}`);
+
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        preview.src = e.target.result;
+                    };
+
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+        });
+    </script>
+
+    <div class="form-container">
+        <h1>Manage FAQ Section</h1>
+
+        <form id="faq-form" method="POST" action="save-faq.php">
+            <!-- Plumbing FAQs -->
+            <div class="form-group">
+                <h2>Plumbing FAQs</h2>
+                <div id="plumbing-faq-items">
+                    <!-- Default Plumbing Questions -->
+                    <div class="faq-item">
+                        <label>Question:</label>
+                        <input type="text" name="faqs[plumbing][0][question]" value="What is a home inspection?" />
+                        <label>Answer:</label>
+                        <textarea name="faqs[plumbing][0][answer]">A home inspection is a non-invasive examination of a property's condition, focusing on the structure, electrical, plumbing, and other essential systems.</textarea>
+                    </div>
+                    <div class="faq-item">
+                        <label>Question:</label>
+                        <input type="text" name="faqs[plumbing][1][question]" value="Why should I get a home inspection?" />
+                        <label>Answer:</label>
+                        <textarea name="faqs[plumbing][1][answer]">Home inspections identify potential issues, ensuring you make an informed decision before buying or selling a property.</textarea>
+                    </div>
+                </div>
+                <button type="button" class="add-btn" onclick="addFAQ('plumbing')">Add Plumbing FAQ</button>
+            </div>
+
+            <!-- Roof FAQs -->
+            <div class="form-group">
+                <h2>Roof FAQs</h2>
+                <div id="roof-faq-items">
+                    <div class="faq-item">
+                        <label>Question:</label>
+                        <input type="text" name="faqs[roof][0][question]" value="What types of roofs do you inspect?" />
+                        <label>Answer:</label>
+                        <textarea name="faqs[roof][0][answer]">We inspect all types of roofs, including shingles, metal, tile, flat, and slate roofs, to ensure their integrity and condition.</textarea>
+                    </div>
+                    <div class="faq-item">
+                        <label>Question:</label>
+                        <input type="text" name="faqs[roof][1][question]" value="How do you check for roof damage?" />
+                        <label>Answer:</label>
+                        <textarea name="faqs[roof][1][answer]">We look for signs of wear, leaks, cracks, missing shingles, or structural damage using a combination of visual inspection and specialized tools.</textarea>
+                    </div>
+                </div>
+                <button type="button" class="add-btn" onclick="addFAQ('roof')">Add Roof FAQ</button>
+            </div>
+
+            <!-- Pricing FAQs -->
+            <div class="form-group">
+                <h2>Pricing FAQs</h2>
+                <div id="pricing-faq-items">
+                    <div class="faq-item">
+                        <label>Question:</label>
+                        <input type="text" name="faqs[pricing][0][question]" value="How much does a home inspection cost?" />
+                        <label>Answer:</label>
+                        <textarea name="faqs[pricing][0][answer]">Our pricing varies based on the property size and location. Typically, inspections start at $300.</textarea>
+                    </div>
+                </div>
+                <button type="button" class="add-btn" onclick="addFAQ('pricing')">Add Pricing FAQ</button>
+            </div>
+
+            <!-- Process FAQs -->
+            <div class="form-group">
+                <h2>Process FAQs</h2>
+                <div id="process-faq-items">
+                    <div class="faq-item">
+                        <label>Question:</label>
+                        <input type="text" name="faqs[process][0][question]" value="How long does a home inspection take?" />
+                        <label>Answer:</label>
+                        <textarea name="faqs[process][0][answer]">On average, a home inspection takes 2-3 hours, depending on the property's size and condition.</textarea>
+                    </div>
+                </div>
+                <button type="button" class="add-btn" onclick="addFAQ('process')">Add Process FAQ</button>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" class="save-btn">Save Changes</button>
+                <button type="button" class="cancel-btn" onclick="window.location.reload();">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function addFAQ(category) {
+            const container = document.getElementById(`${category}-faq-items`);
+            const newIndex = container.children.length; // Find the new index for the FAQ
+
+            const newFAQHTML = `
+                <div class="faq-item">
+                    <label>Question:</label>
+                    <input type="text" name="faqs[${category}][${newIndex}][question]" placeholder="Enter question">
+                    <label>Answer:</label>
+                    <textarea name="faqs[${category}][${newIndex}][answer]" placeholder="Enter answer"></textarea>
+                    <button type="button" class="delete-btn" onclick="this.parentElement.remove()">Delete</button>
+                </div>
+            `;
+
+            container.insertAdjacentHTML('beforeend', newFAQHTML);
+        }
+    </script>
+
+
+
+
+
+
 
 
 
