@@ -23,7 +23,7 @@
             background-color:rgb(255, 255, 255);
         }
         .form-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background-color: #ffffff;
             padding: 20px;
