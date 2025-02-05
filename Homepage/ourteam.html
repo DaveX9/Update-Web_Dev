@@ -238,16 +238,15 @@
                         เห็นกับตา ไปพร้อมลูกค้า”
                     </p>
                 </div>
-            </section>
-
-            <section class="video-section">
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/47ZFlpLnICQ?si=qqGsOzRYYFCuL8FQ"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
-                </div>
+                <section class="video-section">
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/47ZFlpLnICQ?si=qqGsOzRYYFCuL8FQ"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
+                    </div>
+                </section>
             </section>
 
             <section class="our-founders" data-aos="fade-up-right">
@@ -274,49 +273,59 @@
                 </div>
             </section>
 
-            <section class="team-section" data-aos="fade-up-right">
-                <h2>Our Team</h2>
+
+            <section class="team-section">
+                <div class="carousel-header">
+                    <h3 class="team-subtitle">Our Dedicated Team</h3>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn" id="prevBtn">&#10094;</button>
+                        <button class="carousel-btn" id="nextBtn">&#10095;</button>
+                    </div>
+                </div>
                 <div class="carousel-container">
-                    <button class="carousel-btn left-btn" id="prevBtn">&#10094;</button>
                     <div class="carousel" id="carousel">
                         <div class="team-member">
-                            <img src="/HOMESPECTOR/img/staff/Charnthawat.jpg" alt="Team Member 1">
+                            <img src="/HOMESPECTOR/img/staff/Charnthawat.jpg" alt="Charnthawat">
                             <h3>Charnthawat</h3>
+                            <p>Engineering Manager</p>
                         </div>
                         <div class="team-member">
-                            <img src="/HOMESPECTOR/img/staff/Supapat.jpg" alt="Team Member 2">
-                            <h3>Supapat</h3>
-                        </div>
-                        <div class="team-member">
-                            <img src="/HOMESPECTOR/img/staff/Jakkarin.jpg" alt="Team Member 3">
+                            <img src="/HOMESPECTOR/img/staff/Jakkarin.jpg" alt="Jakkarin">
                             <h3>Jakkarin</h3>
+                            <p>Senior Inspector</p>
                         </div>
                         <div class="team-member">
-                            <img src="/HOMESPECTOR/img/staff/Waroj.jpg" alt="Team Member 4">
+                            <img src="/HOMESPECTOR/img/staff/Waroj.jpg" alt="Waroj">
                             <h3>Waroj</h3>
+                            <p>Senior Inspector</p>
                         </div>
                         <div class="team-member">
-                            <img src="/HOMESPECTOR/img/staff/Watanon.jpg" alt="Team Member 5">
-                            <h3>Watanon</h3>
+                            <img src="/HOMESPECTOR/img/staff/Supapat.jpg" alt="Supapat">
+                            <h3>Supapat</h3>
+                            <p>Inspector</p>
                         </div>
                         <div class="team-member">
-                            <img src="/HOMESPECTOR/img/staff/Phonthewa.JPG" alt="Team Member 6">
-                            <h3>Phonthewa</h3>
-                        </div>
-                        <div class="team-member">
-                            <img src="/HOMESPECTOR/img/staff/Chonsawat.jpg" alt="Team Member 7">
+                            <img src="/HOMESPECTOR/img/staff/Chonsawat.jpg" alt="Chonsawat">
                             <h3>Chonsawat</h3>
+                            <p>Inspector</p>
                         </div>
-
-
-
-                        <!-- Add more team members as needed -->
+                        <div class="team-member">
+                            <img src="/HOMESPECTOR/img/staff/Phonthewa.JPG" alt="Phonthewa">
+                            <h3>Phonthewa</h3>
+                            <p>Inspector</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="/HOMESPECTOR/img/staff/Watanon.JPG" alt="Watanon">
+                            <h3>Watanon</h3>
+                            <p>Inspector</p>
+                        </div>
                     </div>
-                    <button class="carousel-btn right-btn" id="nextBtn">&#10095;</button>
                 </div>
             </section>
-
-
+            
+            
+            
+            
             <section class="footer">
                 <footer class="footer">
                     <div class="footer-container">
@@ -420,7 +429,37 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const carousel = document.getElementById("carousel");
+                const prevBtn = document.getElementById("prevBtn");
+                const nextBtn = document.getElementById("nextBtn");
+                const teamMembers = document.querySelectorAll(".team-member");
+                const visibleItems = 4;
+                let currentIndex = 0;
+            
+                function updateCarousel() {
+                    const offset = -(currentIndex * teamMembers[0].offsetWidth + 20 * currentIndex);
+                    carousel.style.transform = `translateX(${offset}px)`;
+                }
+            
+                prevBtn.addEventListener("click", () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarousel();
+                    }
+                });
+            
+                nextBtn.addEventListener("click", () => {
+                    if (currentIndex < teamMembers.length - visibleItems) {
+                        currentIndex++;
+                        updateCarousel();
+                    }
+                });
+            });
+        </script>
+            
 </body>
 
 </html>

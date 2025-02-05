@@ -212,68 +212,54 @@
                 </div>
             </div>
 
-            <div class="carousel-container">
-                <div class="carousel_items">
-                    <div class="carousel_item item1">
-                        <img src="/HOMESPECTOR/img/carousel4.jpg" alt="">
-                    </div>
-                    <div class="carousel_item item2">
-                        <img src="/HOMESPECTOR/img/newcarousel.png" alt="">
-                    </div>
-                    <div class="carousel_item item3">
-                        <img src="/HOMESPECTOR/img/carousel3.jpg" alt="">
-                    </div>
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-bg"></div> <!-- Background with Animation -->
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 id="hero-title">Thailand’s No.1 <br><span></span></h1>
+                    <p id="hero-subtitle">Home Inspection Company.</p>
                 </div>
-            </div>
-            <!-- <div class="carousel-container">
-                <div class="carousel_items" id="carousel-items">
-                    
-                </div>
-            </div>
-            
-            <!-- Our Services Section -->
-            <!-- <section class="services">
-                <h2 class="services-title" data-translate="services-title">บริการของเรา</h2>
-                <div class="services-logos">
+            </section>
+            <!-- <iframe src="https://requestform.thomeinspector.com/calc/" width="100%" height="1100px" style="border: none;" background="none" align-item="center"></iframe> -->
+            <script>
+                const texts = [
+                    {
+                        title: "Thailand’s No.1 <br><span></span>",
+                        subtitle: "Home Inspection Company."
+                    },
+                    {
+                        title: "บริษัทตรวจบ้านอันดับ 1<br><span></span>",
+                        subtitle: "ที่ลูกค้าบอกต่อมากที่สุดในประเทศ"
+                    },
+                    {
+                        title: "Thailand’s No.1<br><span></span>",
+                        subtitle: "Home Inspection Company"
+                    },
+                    {
+                        title: "บริษัทตรวจบ้านอันดับ 1 <br><span></span>",
+                        subtitle: "ที่ลูกค้าบอกต่อมากที่สุดในประเทศ"
+                    }
+                ];
 
-                    <div class="logo">
-                        <a href="/HOMESPECTOR/Homepage/Hinspector.html">
-                            <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector">
-                        </a>
-                    </div>
-                    <div class="logo">
-                        <a href="/HOMESPECTOR/Homepage/hinterior.html">
-                            <img src="/HOMESPECTOR/img/s2.png" alt="T. Home Interior">
-                        </a>
-                    </div>
-                    <div class="logo">
-                        <a href="/HOMESPECTOR/Homepage/Hconstruction.html">
-                            <img src="/HOMESPECTOR/img/s3.png" alt="T. Home Construction">
-                        </a>
-                    </div>
-                    <div class="logo">
-                        <a href="/HOMESPECTOR/Homepage/Hbulter.html">
-                            <img src="/HOMESPECTOR/img/s4.png" alt="Home Butler" style="height: 180px; width: 800px;;">
-                        </a>
-                    </div>
-                </div>
-                <div class="inspection-info" data-aos="fade-up">
-                    <img src="/HOMESPECTOR/img/carousel1.jpg" alt="Inspection Process" data-aos="fade-up-right">
-                    <div class="text-content" data-aos="fade-up-left">
-                        <h3 data-translate="inspection-title">ตรวจบ้านต้องทำอย่างไร ?</h3>
-                        <p data-translate="inspection-details">รายละเอียดที่ต้องตกลง และเตรียมก่อนตรวจบ้าน</p>
-                        <a href="/HOMESPECTOR/Homepage/description.html">
-                            <button data-translate="see-details">ดูรายละเอียด</button>
-                        </a>
-                    </div>
-                </div>
-            </section> -->
-            <!-- new service -->
+                let index = 0;
+
+                setInterval(() => {
+                    document.getElementById('hero-title').innerHTML = texts[index].title;
+                    document.getElementById('hero-subtitle').innerText = texts[index].subtitle;
+
+                    index = (index + 1) % texts.length; // Loop through the array
+                }, 5000);
+            </script>
+
+
+            <!-- Services Section -->
             <section class="services" data-aos="fade-right" data-aos-offset="200" data-aos-easing="ease-in-sine">
                 <div class="services-header">
                     <h2>Our Services</h2>
                 </div>
                 <div class="services-grid">
+                    <!-- Service 1 -->
                     <div class="service-card">
                         <div class="service-icon">
                             <a href="/HOMESPECTOR/Homepage/Hinspector.html">
@@ -282,6 +268,8 @@
                         </div>
                         <h3>T. Home Inspector</h3>
                     </div>
+
+                    <!-- Service 2 -->
                     <div class="service-card">
                         <div class="service-icon">
                             <a href="/HOMESPECTOR/Homepage/hinterior.html">
@@ -290,6 +278,8 @@
                         </div>
                         <h3>T. Home Interior</h3>
                     </div>
+
+                    <!-- Service 3 -->
                     <div class="service-card">
                         <div class="service-icon">
                             <a href="/HOMESPECTOR/Homepage/Hconstruction.html">
@@ -298,6 +288,8 @@
                         </div>
                         <h3>T. Home Construction</h3>
                     </div>
+
+                    <!-- Service 4 -->
                     <div class="service-card">
                         <div class="service-icon">
                             <a href="/HOMESPECTOR/Homepage/Hbulter.html">
@@ -307,52 +299,39 @@
                         <h3>Home Butler</h3>
                     </div>
                 </div>
-            </section>
-            <div class="wrapper">
-                <div class="inspection-info" data-aos="fade-up">
-                    <img src="/HOMESPECTOR/img/how.png" alt="Inspection Process" data-aos="fade-up-right">
-                    <div class="text-content" data-aos="fade-up-left">
-                        <h3>ตรวจบ้านต้องทำอย่างไร ?</h3>
-                        <p data-translate="inspection-details">รายละเอียดที่ต้องตกลง และเตรียมก่อนตรวจบ้าน</p>
-                        <a href="/HOMESPECTOR/Homepage/description.html">
-                            <button data-translate="see-details">
-                                <i class="fa-solid fa-eye"></i> ดูรายละเอียด
-                            </button>
-                        </a>
+                <!-- Inspection Info Section -->
+                <div class="wrapper">
+                    <div class="inspection-info">
+                        <div class="info-content">
+                            <h3>ตรวจบ้านต้องทำอย่างไร ?</h3>
+                            <p data-translate="inspection-details">
+                                รายละเอียดที่ต้องตกลง และเตรียมก่อนตรวจบ้าน
+                            </p>
+                            <a href="/HOMESPECTOR/Homepage/description.html">
+                                <button data-translate="see-details">
+                                    <i class="fa-solid fa-eye"></i> ดูรายละเอียด
+                                </button>
+                            </a>
+                        </div>
+                        <div class="info-image">
+                            <img src="/HOMESPECTOR/img/how.png" alt="Inspection Process">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- <script>
-                // Fetch and render updated content dynamically
-                fetch('inspection-info.json')
-                    .then((response) => response.json())
-                    .then((data) => {
-                        document.getElementById('inspection-image').src = data.image;
-                        document.getElementById('inspection-title').textContent = data.title;
-                        document.getElementById('inspection-description').textContent = data.description;
-                        document.getElementById('button-text').textContent = data.button_text;
-                    })
-                    .catch((error) => console.error('Error loading Inspection Info:', error));
-            </script> -->
-            <!-- <div class="hero-section">
-                <div class="overlay"></div>
-                <div class="hero-content">
-                    <h1>ตรวจบ้านต้องทำอย่างไร?</h1>
-                    <p>รายละเอียดที่ต้องตกลง และ เตรียมมาก่อนตรวจบ้าน</p>
-                    <a href="#" class="btn">ดูรายละเอียด</a>
-                </div>
-            </div> -->
+            </section>
+
+
 
             <!-- line -->
             <div class="contact-container">
-                <a href="tel:02-454-2043" class="contact-item">
+                <a href="tel:02-454-2043" class="contact-item" data-aos="fade-up-left">
                     <div class="icon">
                         <i class="fa-solid fa-phone"></i>
                     </div>
                     <span>โทร 02-454-2043</span>
                 </a>
-                <a href="https://line.me/R/ti/p/@t.home" target="_blank" class="contact-item">
+                <a href="https://line.me/R/ti/p/@t.home" target="_blank" class="contact-item" data-aos="fade-up-right">
                     <div class="icon">
                         <i class="fa-brands fa-line" style="color: #00a347;"></i>
                     </div>
@@ -360,73 +339,80 @@
                 </a>
             </div>
 
-
-            <!-- Why Choose Us Section -->
-            <section class="why-choose-us" data-aos="fade-right">
-                <h2 class="section-title" data-translate="why-choose-us-title">ทำไมต้องเลือก ต.ตรวจบ้าน</h2>
+            <section class="why-choose-us">
+                <h2 class="section-title" data-translate="why-choose-us-title" data-aos="fade-down">ทำไมต้องเลือก
+                    ต.ตรวจบ้าน</h2>
                 <div class="content-container">
+                    <!-- Left Text Section -->
                     <div class="text-section">
                         <div class="text-item">
-                            <h3 data-translate="trust-title">TRUST</h3>
-                            <p data-translate="trust-details">
-                                บริษัทตรวจบ้านอันดับ 1 ที่ลูกค้าบอกต่อมากที่สุดในประเทศไทย
-                                เราเป็นผู้นำด้านการตรวจบ้านอันดับต้นๆของประเทศ
-                                <br> ที่ลูกค้าไว้วางใจให้ตรวจบ้าน โครงการแบรนด์ชั้นนำต่างๆ ในประเทศ
-                                ที่ลูกค้าไว้วางใจให้ตรวจบ้าน โครงการแบรนด์ชั้นนำต่างๆ ในประเทศ<br>
-                            </p>
+                            <div class="icon-box">
+                                <img src="/HOMESPECTOR/icon/ICON/trusted.png" alt="Trust Icon" data-aos="fade-right">
+                            </div>
+                            <div class="text-content" data-aos="fade-right">
+                                <h3 data-translate="trust-title">TRUST</h3>
+                                <p data-translate="trust-details">
+                                    บริษัทตรวจบ้านอันดับ 1 ที่ลูกค้าบอกต่อมากที่สุดในประเทศไทย
+                                    เราเป็นผู้นำด้านการตรวจบ้านอันดับต้นๆของประเทศ
+                                    <br> ที่ลูกค้าไว้วางใจให้ตรวจบ้าน โครงการแบรนด์ชั้นนำต่างๆ ในประเทศ
+                                </p>
+                            </div>
                         </div>
                         <div class="text-item">
-                            <h3 data-translate="tech-title">TECH</h3>
-                            <p data-translate="tech-details">
-                                บริษัทตรวจบ้านเจ้าแรกและเจ้าเดียวที่ออกแบบและพัฒนาระบบ Web-Application
-                                ในการตรวจบ้านเป็นของตัวเอง <br>
-                                เพื่อรองรับการให้บริการที่มีประสิทธิภาพ ครอบคลุมทุกขั้นตอนในการตรวจรับบ้าน
-                                เป็นผู้นำการใช้อุปกรณ์การตรวจที่ทันสมัย<br>
-                                มีกล้องอินฟาเรดตรวจการรั่วซึมที่ตาเปล่ามองไม่เห็น มีบินโดรนตรวจงานหลังคาทุกหลัง
-                            </p>
+                            <div class="icon-box">
+                                <img src="/HOMESPECTOR/icon/ICON/future.png" alt="Tech Icon" data-aos="fade-right">
+                            </div>
+                            <div class="text-content" data-aos="fade-right">
+                                <h3 data-translate="tech-title">TECH</h3>
+                                <p data-translate="tech-details">
+                                    บริษัทตรวจบ้านเจ้าแรกและเจ้าเดียวที่ออกแบบและพัฒนาระบบ Web-Application
+                                    ในการตรวจบ้านเป็นของตัวเอง <br>
+                                    เป็นผู้นำการใช้อุปกรณ์การตรวจที่ทันสมัย เช่น กล้องอินฟาเรด และโดรนตรวจหลังคา
+                                </p>
+                            </div>
                         </div>
                         <div class="text-item">
-                            <h3 data-translate="team-title">TEAM</h3>
-                            <p data-translate="team-details">
-                                เราทำงานเป็นระบบแบบมืออาชีพ มีประสบการณ์และเชี่ยวชาญในการตรวจทุกคน
-                                ทีมงานของเราไม่ใช่พนักงานของบริษัทอสัง <br>
-                                หาริมทรัพย์ที่ออกมาตรวจรับงานตัวเอง และไม่มีการส่งต่องานให้ซับ บริษัทตรวจบ้านเป็น
-                                "อาชีพหลัก
-                                ไม่ใช่งานเสริม"
-                            </p>
+                            <div class="icon-box">
+                                <img src="/HOMESPECTOR/icon/ICON/group.png" alt="Team Icon" data-aos="fade-right">
+                            </div>
+                            <div class="text-content" data-aos="fade-right">
+                                <h3 data-translate="team-title">TEAM</h3>
+                                <p data-translate="team-details">
+                                    เราทำงานเป็นระบบแบบมืออาชีพ มีประสบการณ์และเชี่ยวชาญ ทีมของเราไม่ใช่พนักงานของ
+                                    บริษัทอสังหาริมทรัพย์ที่ออกมาตรวจรับงานตัวเอง และไม่มีการส่งต่องานให้ซับ
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="image-section" data-aos="fade-up-left">
-                        <img src="/HOMESPECTOR/img/carousel2.1.jpg" alt="Example Image">
+
+                    <!-- Right Image Section -->
+                    <div class="image-section" data-aos="fade-up-left"">
+                        <img src=" /HOMESPECTOR/img/carousel2.1.jpg" alt="Example Image">
                     </div>
                 </div>
-                <div class="certifications" data-aos="fade-up-right">
-                    <div class="certification">
-                        <img src="/HOMESPECTOR/img/certified1.png" alt="T. Home Inspector"
-                            style="height: 50px; width: auto;">
-                        <p data-translate="certification1">ต.ตรวจบ้าน ได้รับการรับรองมาตรฐาน ISO/IEC 29110-4-3: 2018</p>
-                    </div>
-                    <div class="certification">
-                        <img src="/HOMESPECTOR/img/certified2.png" alt="Certified Professional Inspector">
-                        <p data-translate="certification2">ได้รับ Certified จาก Inter NACHI</p>
-                    </div>
-                    <div class="certification">
-                        <img src="/HOMESPECTOR/img/certified3.png" alt="Certified Professional Inspector">
-                        <p data-translate="certification3">ได้รับ Certified จาก Inter NACHI</p>
-                    </div>
+                <div class="certifications" data-aos="fade-up-right"">
+                    <div class=" certification">
+                    <img src="/HOMESPECTOR/img/certified1.png" alt="T. Home Inspector">
+                    <p data-translate="certification1">ต.ตรวจบ้าน ได้รับการรับรองมาตรฐาน ISO/IEC 29110-4-3: 2018</p>
+                </div>
+                <div class="certification" data-aos="fade-up-right">
+                    <img src="/HOMESPECTOR/img/certified2.png" alt="Certified Professional Inspector">
+                    <p data-translate="certification2">ได้รับ Certified จาก Inter NACHI</p>
+                </div>
+                <div class="certification" data-aos="fade-up-right">
+                    <img src="/HOMESPECTOR/img/certified3.png" alt="Certified Professional Inspector">
+                    <p data-translate="certification3">ได้รับ Certified จาก Inter NACHI</p>
                 </div>
             </section>
-            <section class="images-carousel" data-aos="fade-up">
-                <!-- <div class="single-image-container">
-            <img src="/HOMESPECTOR/img/carousel2.1.jpg" alt="Single Image" class="single-image">
-          </div> -->
+            <section class="elfsight" data-aos="fade-up">
+                <h1>Facebook </h1>
                 <div class="elfsight-app-497acae0-7e96-4622-8948-67f19c0a831b" data-aos="fade-up"
                     data-elfsight-app-lazy>
                 </div>
             </section>
 
 
-            <section class="projects">
+            <section class="projects" data-aos="fade-up" data-aos-duration="3000">
                 <h2 class="projects-title">ผลงาน</h2>
                 <a href="/HOMESPECTOR/Homepage/projects_media.html" class="btn btn-firstall">ดูทั้งหมด</a>
                 <div class="projects-grid" id="project-cards">
@@ -435,8 +421,8 @@
             </section>
 
 
-            <div class="carousel-container3" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                <h2 class="carousel-title3">Content</h2>
+            <div class="carousel-container3" data-aos="fade-up" data-aos-anchor-placement="top-center"">
+            <h2 class=" carousel-title3">Content</h2>
                 <a href="/HOMESPECTOR/Homepage/content.html" class="btn btn-all">ดูทั้งหมด</a>
                 <div class="carousel3">
                     <!-- Main Slide Section -->
@@ -530,7 +516,7 @@
                 <div class="content-wrapper">
                     <!-- Left Content: Title and Subtitle -->
                     <div class="text-content">
-                        <h2 class="section-title">Read What Others <br> Have To Say.</h2>
+                        <h2 class="section-title">Read What Others Have To Say.</h2>
                         <p class="section-subtitle">
                             In the 7+ years we have been doing business, our customers have left us lots of great
                             feedback. <br>
@@ -540,93 +526,24 @@
                             feedback. <br>
                         </p>
                     </div>
-
-                    <!-- Right Content: Reviews Carousel -->
-                    <div class="review-carousel-container">
-                        <div id="reviewCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <!-- Review 1 -->
-                                <div class="carousel-inner">
-                                    <!-- Review 1 -->
-                                    <div class="carousel-item active">
-                                        <div class="review-card">
-                                            <div class="review-header">
-                                                <img src="/HOMESPECTOR/icon/ICON/review1.png" alt="Review 1"
-                                                    class="review-img">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Review 2 -->
-                                    <div class="carousel-item">
-                                        <div class="review-card">
-                                            <div class="review-header">
-                                                <img src="/HOMESPECTOR/icon/ICON/review2.png" alt="Review 2"
-                                                    class="review-img">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Review 3 -->
-                                    <div class="carousel-item">
-                                        <div class="review-card">
-                                            <div class="review-header">
-                                                <img src="/HOMESPECTOR/icon/ICON/review3.png" alt="Review 3"
-                                                    class="review-img">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Review 4 -->
-                                    <div class="carousel-item">
-                                        <div class="review-card">
-                                            <div class="review-header">
-                                                <img src="/HOMESPECTOR/icon/ICON/review4.png" alt="Review 4"
-                                                    class="review-img">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="elfsight-app-c9e9af2e-5acf-4478-8bc7-62f17e30af1c" data-elfsight-app-lazy></div>
+                    <!-- Stats Boxes -->
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <img src="/HOMESPECTOR/icon/ICON/capacity.png" alt="Developer Count">
+                            <h2 id="developer-count">0</h2>
+                            <p>Developer Count</p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- <div class="logo-review">
-            <img src="/HOMESPECTOR/icon/ICON/header.png" alt="header.png">
-        </div> -->
-                <!-- Review Section -->
-                <div class="facebook-review">
-                    <!-- Facebook Logo and Title -->
-                    <div class="review-header">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png"
-                            alt="Facebook Logo" class="facebook-logo">
-                        <h2 class="review-title">Excellent on Facebook</h2>
-                    </div>
-
-                    <!-- Star Ratings and Review Count -->
-                    <div class="review-content">
-                        <div class="stars">
-                            ★★★★★
+                        <div class="stat-box">
+                            <img src="/HOMESPECTOR/icon/ICON/blueprint.png" alt="Projects">
+                            <h2 id="project-count">0</h2>
+                            <p>Projects</p>
                         </div>
-                        <div class="review-text">
-                            <strong>4.9</strong> out of 5 based on <span>75 reviews</span>
+                        <div class="stat-box">
+                            <img src="/HOMESPECTOR/icon/ICON/house.png" alt="Houses">
+                            <h2 id="house-count">0</h2>
+                            <p>Houses</p>
                         </div>
-                    </div>
-                </div>
-                <!-- <div class="elfsight-app-c9e9af2e-5acf-4478-8bc7-62f17e30af1c" data-elfsight-app-lazy></div> -->
-
-
-                <!-- Stats Boxes -->
-                <div class="stats-container">
-                    <div class="stat-box">
-                        <h2 id="developer-count">0</h2>
-                        <p>Developer Count</p>
-                    </div>
-                    <div class="stat-box">
-                        <h2 id="project-count">0</h2>
-                        <p>Projects</p>
-                    </div>
-                    <div class="stat-box">
-                        <h2 id="house-count">0</h2>
-                        <p>Houses</p>
                     </div>
                 </div>
             </div>
@@ -842,7 +759,8 @@
                                 <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
                                 </li>
                                 <li><a href="/HOMESPECTOR/Homepage/service.html"
-                                        data-translate="nav.services">บริการ</a></li>
+                                        data-translate="nav.services">บริการ</a>
+                                </li>
                                 <li><a href="/HOMESPECTOR/Homepage/promotion.html"
                                         data-translate="nav.promotion">สิทธิพิเศษ</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/projects_media.html"
@@ -864,7 +782,8 @@
                                 </li>
 
                                 <li><a href="/HOMESPECTOR/Homepage/articles.html"
-                                        data-translate="nav.articles">บทความ</a></li>
+                                        data-translate="nav.articles">บทความ</a>
+                                </li>
                                 <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
                                         data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
@@ -922,6 +841,44 @@
         AOS.init();
     </script>
     <script src="https://static.elfsight.com/platform/platform.js" async></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const heroBg = document.querySelector(".hero-bg");
+
+            let scale = 1;
+            let growing = true;
+
+            function animateBackground() {
+                if (growing) {
+                    scale += 0.005; // Slowly zoom in
+                    if (scale >= 1.1) growing = false;
+                } else {
+                    scale -= 0.005; // Slowly zoom out
+                    if (scale <= 1) growing = true;
+                }
+                heroBg.style.transform = `scale(${scale})`;
+                requestAnimationFrame(animateBackground);
+            }
+
+            animateBackground();
+        });
+
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navbar = document.querySelector(".navbar");
+
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add("scrolled");
+                } else {
+                    navbar.classList.remove("scrolled");
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
