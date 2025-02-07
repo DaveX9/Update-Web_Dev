@@ -15,88 +15,185 @@
 </head>
 
 <body>
-  <div class="content-box">
-    <div class="header">
-      <header class="top-bar">
-        <div class="container">
-          <!-- Social Icons -->
-          <div class="social-icons">
-            <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
-              <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
-            </a>
-            <a href="https://www.instagram.com/t.homeinspector/">
-              <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="Instagram">
-            </a>
-            <a href="https://page.line.me/t.home?openQrModal=true">
-              <img src="/HOMESPECTOR/icon/ICON/line.png" alt="Line">
-            </a>
-            <a href="tel:082-045-6165">
-              <img src="/HOMESPECTOR/icon/ICON/phone.png" alt="Phone">
-            </a>
-          </div>
-
-          <!-- Logo -->
-          <div class="logo">
-            <a href="/HOMESPECTOR/Homepage/index.html">
-              <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
-            </a>
-          </div>
-
-          <div class="actions">
-            <!-- Language Switcher -->
-            <div class="language-switcher">
-              <a href="?lang=th" class="lang-link">
-                <img src="/HOMESPECTOR/icon/ICON/thai.png" alt="Thai" title="ภาษาไทย">
+    <div class="content-box">
+      <div class="header">
+        <header class="top-bar">
+          <div class="container">
+            <!-- Social Icons -->
+            <div class="social-icons">
+              <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
+                <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
               </a>
-              <a href="?lang=en" class="lang-link">
-                <img src="/HOMESPECTOR/icon/ICON/eng.png" alt="English" title="English">
+              <a href="https://www.instagram.com/t.homeinspector/">
+                <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="Instagram">
+              </a>
+              <a href="https://page.line.me/t.home?openQrModal=true">
+                <img src="/HOMESPECTOR/icon/ICON/line.png" alt="Line">
+              </a>
+              <a href="tel:082-045-6165">
+                <img src="/HOMESPECTOR/icon/ICON/phone.png" alt="Phone">
+              </a>
+            </div>
+            <!-- Logo -->
+            <div class="logo">
+              <a href="/HOMESPECTOR/Homepage/index.html">
+                <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
               </a>
             </div>
 
-            <!-- Search Icon -->
-            <i id="search-icon" class="fas fa-search" onclick="toggleSearch()"></i>
-            <div class="search-bar" id="search-bar">
-              <input type="text" placeholder="Search..." />
-              <button onclick="searchFunction()">Search</button>
-            </div>
-            <!-- Hamburger Icon -->
-            <i id="hamburger-icon" class="fas fa-bars" onclick="toggleMenu()"></i>
-            <i id="close-icon" class="fas fa-times" onclick="toggleMenu()" style="display: none;"></i>
-          </div>
-
-          <!-- Navigation -->
-          <!-- Navigation -->
-          <nav class="nav-links" id="nav-links">
-            <ul>
-              <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a></li>
-              <li><a href="/HOMESPECTOR/Homepage/service.html" data-translate="nav.services">บริการ</a>
-              </li>
-              <li><a href="/HOMESPECTOR/Homepage/promotion.html" data-translate="nav.promotion">สิทธิพิเศษ</a></li>
-              <li><a href="/HOMESPECTOR/Homepage/projects_media.html" data-translate="nav.projects">ผลงาน</a></li>
-
-              <!-- Dropdown Menu -->
-              <li class="dropdown">
-                <a href="#" class="menu-item" data-translate="nav.aboutUs">
-                  เกี่ยวกับเรา <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+            <div class="actions">
+              <!-- Language Switcher -->
+              <div class="language-switcher">
+                <a href="?lang=th" class="lang-link">
+                  <img src="/HOMESPECTOR/icon/ICON/thai.png" alt="Thai" title="ภาษาไทย">
                 </a>
-                <ul class="dropdown-menu">
-                  <li><a href="/HOMESPECTOR/Homepage/ourstory.html" data-translate="nav.ourStory">ประวัติของเรา</a>
-                  </li>
-                  <li><a href="/HOMESPECTOR/Homepage/ourteam.html" data-translate="nav.ourTeam">ทีมงานของเรา</a></li>
-                </ul>
-              </li>
+                <a href="?lang=en" class="lang-link">
+                  <img src="/HOMESPECTOR/icon/ICON/eng.png" alt="English" title="English">
+                </a>
+              </div>
 
-              <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a>
-              </li>
-              <li><a href="/HOMESPECTOR/Homepage/Review-home.html" data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
-              <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
-                  data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
-              <li><a href="/HOMESPECTOR/Homepage/joinwithus.html" data-translate="nav.joinUs">รวมงานกับเรา</a></li>
-              <li><a href="/HOMESPECTOR/Homepage/contactus.html" data-translate="nav.contact">ติดต่อเรา</a></li>
-            </ul>
-          </nav>
+              <!-- Search Icon -->
+              <i id="search-icon" class="fas fa-search"></i>
+              <div id="search-bar" class="search-bar">
+                <input type="text" placeholder="Search..." />
+                <button onclick="searchFunction()">Search</button>
+              </div>
+              <!-- Hamburger Icon -->
+              <i id="hamburger-icon" class="fas fa-bars hamburger-icon" onclick="toggleMenu()"></i>
+            </div>
+        </header>
+        <nav class="nav-links" id="nav-links">
+          <ul>
+            <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
+            </li>
+            <li><a href="/HOMESPECTOR/Homepage/service.html" data-translate="nav.services">บริการ</a></li>
+            <li><a href="/HOMESPECTOR/Homepage/promotion.html" data-translate="nav.promotion">สิทธิพิเศษ</a>
+            </li>
+            <li><a href="/HOMESPECTOR/Homepage/projects_media.html" data-translate="nav.projects">ผลงาน</a>
+            </li>
 
-      </header>
+            <!-- Dropdown Menu -->
+            <li class="dropdown">
+              <a href="#" class="menu-item" data-translate="nav.aboutUs">
+                เกี่ยวกับเรา <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="/HOMESPECTOR/Homepage/ourstory.html" data-translate="nav.ourStory">ประวัติของเรา</a>
+                </li>
+                <li><a href="/HOMESPECTOR/Homepage/ourteam.html" data-translate="nav.ourTeam">ทีมงานของเรา</a></li>
+              </ul>
+            </li>
+
+            <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
+            <li><a href="/HOMESPECTOR/Homepage/Review-home.html" data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
+            <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
+                data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+            <li><a href="/HOMESPECTOR/Homepage/joinwithus.html" data-translate="nav.joinUs">รวมงานกับเรา</a>
+            </li>
+            <li><a href="/HOMESPECTOR/Homepage/contactus.html" data-translate="nav.contact">ติดต่อเรา</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- Fullscreen Navigation -->
+        <div id="fullscreen-menu" class="fullscreen-menu">
+          <!-- Close Icon -->
+          <i id="close-icon" class="fas fa-times"></i>
+          <header class="top-bar">
+            <div class="container">
+              <!-- Social Icons -->
+              <div class="social-icons">
+                <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
+                  <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/t.homeinspector/">
+                  <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="Instagram">
+                </a>
+                <a href="https://page.line.me/t.home?openQrModal=true">
+                  <img src="/HOMESPECTOR/icon/ICON/line.png" alt="Line">
+                </a>
+                <a href="tel:082-045-6165">
+                  <img src="/HOMESPECTOR/icon/ICON/phone.png" alt="Phone">
+                </a>
+              </div>
+
+              <!-- Logo -->
+              <div class="logo">
+                <a href="/HOMESPECTOR/Homepage/index.html">
+                  <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
+                </a>
+              </div>
+
+              <!-- Actions -->
+              <div class="actions">
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                  <a href="?lang=th" class="lang-link">
+                    <img src="/HOMESPECTOR/icon/ICON/thai.png" alt="Thai" title="ภาษาไทย">
+                  </a>
+                  <a href="?lang=en" class="lang-link">
+                    <img src="/HOMESPECTOR/icon/ICON/eng.png" alt="English" title="English">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </header>
+          <!-- Navigation Content -->
+          <div class="menu-content">
+            <!-- Topics Section -->
+            <div class="menu-section">
+              <h3>Navigation</h3>
+              <ul>
+                <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
+                </li>
+                <li><a href="/HOMESPECTOR/Homepage/service.html" data-translate="nav.services">บริการ</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/promotion.html" data-translate="nav.promotion">สิทธิพิเศษ</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/projects_media.html" data-translate="nav.projects">ผลงาน</a></li>
+
+                <!-- Dropdown Menu -->
+                <li class="dropdown1">
+                  <a href="#" class="menu-item1" data-translate="nav.aboutUs">
+                    เกี่ยวกับเรา <span class="dropdown-icon1"><i class="fa-solid fa-caret-down"></i></span>
+                  </a>
+                  <ul class="dropdown-menu1">
+                    <li><a href="/HOMESPECTOR/Homepage/ourstory.html" data-translate="nav.ourStory">ประวัติของเรา</a>
+                    </li>
+                    <li><a href="/HOMESPECTOR/Homepage/ourteam.html" data-translate="nav.ourTeam">ทีมงานของเรา</a></li>
+                  </ul>
+                </li>
+
+                <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/Review-home.html" data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
+                    data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/joinwithus.html" data-translate="nav.joinUs">รวมงานกับเรา</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/contactus.html" data-translate="nav.contact">ติดต่อเรา</a></li>
+              </ul>
+            </div>
+
+            <!-- Series & Podcast Section -->
+            <div class="menu-section">
+              <h3>Content/Articles</h3>
+              <ul>
+                <li><a href="#">รายการทั้งหมด</a></li>
+                <li><a href="#">มนุษย์ต่างวัย Talk</a></li>
+                <li><a href="#">บพุทธ์ที่โครฟ</a></li>
+                <li><a href="#">Life Long Investing</a></li>
+                <li><a href="#">มนุษย์ต่างวัย Podcast</a></li>
+                <li><a href="#">ชีวิตชีวา 2</a></li>
+                <li><a href="#">The O Idol</a></li>
+                <li><a href="#">มนุษย์ต่างวัย Talk</a></li>
+              </ul>
+            </div>
+
+            <!-- Other Sections -->
+            <div class="menu-section">
+              <h3><a href="/HOMESPECTOR/Homepage/Contactus.html" class="menu-link">Contact</a></h3>
+              <h3><a href="/HOMESPECTOR/Homepage/projects_media.html" class="menu-link">Projects</a></h3>
+              <h3><a href="/HOMESPECTOR/Homepage/joinwithus.html" class="menu-link">joinwithus</a></h3>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- line -->
       <div class="contact-container">
         <a href="tel:02-454-2043" class="contact-item">
@@ -340,12 +437,12 @@
             </a>
             <!-- Item 6 -->
             <!-- <a href="/HOMESPECTOR/Homepage/carousel_content5.html" class="content-carousel-item">
-                      <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Content 5">
-                      <div class="content-carousel-info">
-                        <h3>สนุก มันส์ ฮา กับช่างตรวจ</h3>
-                        <p>สนุก มันส์ ฮา กับช่างตรวจ</p>
-                      </div>
-                    </a> -->
+                        <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Content 5">
+                        <div class="content-carousel-info">
+                          <h3>สนุก มันส์ ฮา กับช่างตรวจ</h3>
+                          <p>สนุก มันส์ ฮา กับช่างตรวจ</p>
+                        </div>
+                      </a> -->
           </div>
           <!-- Navigation Buttons -->
           <button class="carousel-btn next-btn">❯</button>
@@ -435,29 +532,8 @@
           </div>
         </footer>
       </section>
-
-
     </div>
   </div>
-  <!--js for search bar -->
-  <script>
-    const hamburgerIcon = document.getElementById('hamburger-icon');
-    const navLinks = document.querySelector('.nav-links');
-    const searchIcon = document.getElementById('search-icon');
-    const searchBar = document.querySelector('.search-bar');
-
-    // Toggle navigation menu (Hamburger icon)
-    hamburgerIcon.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-    // Toggle search bar (Search icon)
-    searchIcon.addEventListener('click', () => {
-      searchBar.classList.toggle('active');
-      navLinks.classList.add('active'); // Ensure the navigation stays visible
-    });
-
-  </script>
 
 
   <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
@@ -465,6 +541,7 @@
   <script src="/HOMESPECTOR/JS/language_switch.js"></script>
   <script src="/HOMESPECTOR/JS/share_icon.js"></script>
   <script src="/HOMESPECTOR/JS/content_carousel.js"></script>
+  <script src="/HOMESPECTOR/JS/search_ham.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
