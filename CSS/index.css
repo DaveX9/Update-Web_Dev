@@ -581,7 +581,7 @@ header {
     color: white;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 450px) {
     .contact-container {
         flex-direction: row;
         gap: 15px;
