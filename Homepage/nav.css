@@ -1955,6 +1955,7 @@ button.next-btn:hover {
     background-color: #f9f9f9;
     color: #333;
     padding: 30px 20px;
+    font-family: "Noto Sans Thai", serif;
 }
 
 .footer-container {
@@ -1973,7 +1974,6 @@ button.next-btn:hover {
 
 .footer-logo {
     height: auto;
-    /* Make it smaller as per your requirements */
     width: 50%;
     display: inline-block;
 }
@@ -1988,19 +1988,16 @@ button.next-btn:hover {
 .social-icons {
     display: flex;
     gap: 10px;
-    /* Space between icons */
 }
 
 .social-icons a img {
     width: 20px;
     height: auto;
     transition: transform 0.5s ease;
-    /* Smooth scaling effect */
 }
 
 .social-icons a:hover img {
     transform: scale(1.2);
-    /* Slight enlargement on hover */
 }
 
 
@@ -2063,9 +2060,7 @@ button.next-btn:hover {
     display: none;
     position: absolute;
     top: calc(100% + 10px);
-    /* Add 10px distance from the parent */
     left: 0;
-    /* Align left to parent */
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -2077,7 +2072,6 @@ button.next-btn:hover {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     transform: translateY(-10px);
-    /* Start with an offset for smooth animation */
 }
 
 /* Ensure Dropdown Menu Stays Open When Hovered */
@@ -2090,9 +2084,7 @@ button.next-btn:hover {
 /* Adjust Dropdown Parent Styling */
 .dropdown2 {
     position: relative;
-    /* Ensure proper positioning for the menu */
     cursor: pointer;
-    /* Add a pointer cursor */
 }
 
 /* Ensure smooth hover behavior for dropdown items */
@@ -2136,4 +2128,60 @@ button.next-btn:hover {
     font-size: 0.9em;
     color: #777;
     margin-bottom: -30px;
+}
+
+.toggle-icon {
+    font-size: 24px;
+    order: -1;
+    background-color: #0056b3;
+    color: #ffffff;
+    padding: 5px 8px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+.toggle-icon:hover .icon {
+    background-color: var(--font2-color);
+    color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-menu {
+        display: none;
+        flex-direction: column;
+        text-align: left;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 5px;
+        list-style-type: none;
+    }
+
+    .toggle-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px;
+        background: #f1f1f1;
+        border-radius: 5px;
+    }
+
+    .toggle-icon {
+        font-size: 20px;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+        background-color: var(--font2-color);
+        border-radius: 50%;
+    }
+
+    /* Rotate + to - when active */
+    .toggle-menu.active .toggle-icon {
+        transform: rotate(45deg);
+    }
 }

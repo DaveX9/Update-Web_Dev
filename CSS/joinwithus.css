@@ -537,7 +537,7 @@ header {
     z-index: 1000;
 }
 
-.contact-item1{
+.contact-item1 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -625,6 +625,7 @@ header {
     margin-bottom: 10px;
     color: var(--font-color);
     font-weight: bold;
+    text-align: left;
 }
 
 .join-us-content p {
@@ -668,11 +669,94 @@ header {
 }
 
 
+/* job apply */
+.apply-job{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+h1 {
+    color: var(--font-color);
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+.job-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 10px;
+}
+.job-listing {
+    padding: 20px;
+    background: #e0f7ff;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.job-listing i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #ff69b4;
+}
+.job-listing h2 {
+    margin: 10px 0;
+}
+.apply-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #002e6d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-top: 15px;
+    border-radius: 15px;
+
+}
+.apply-btn:hover {
+    background:var(--hover-color);
+}
+@media (max-width: 768px) {
+    .job-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .job-container {
+        grid-template-columns: 1fr;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    .job-listing h2 {
+        font-size: 18px;
+    }
+    .apply-btn {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
 /* footer */
 .footer {
     background-color: #f9f9f9;
     color: #333;
     padding: 30px 20px;
+    font-family: "Noto Sans Thai", serif;
 }
 
 .footer-container {
@@ -691,7 +775,6 @@ header {
 
 .footer-logo {
     height: auto;
-    /* Make it smaller as per your requirements */
     width: 50%;
     display: inline-block;
 }
@@ -706,19 +789,16 @@ header {
 .social-icons {
     display: flex;
     gap: 10px;
-    /* Space between icons */
 }
 
 .social-icons a img {
     width: 20px;
     height: auto;
     transition: transform 0.5s ease;
-    /* Smooth scaling effect */
 }
 
 .social-icons a:hover img {
     transform: scale(1.2);
-    /* Slight enlargement on hover */
 }
 
 
@@ -781,9 +861,7 @@ header {
     display: none;
     position: absolute;
     top: calc(100% + 10px);
-    /* Add 10px distance from the parent */
     left: 0;
-    /* Align left to parent */
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -795,7 +873,6 @@ header {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     transform: translateY(-10px);
-    /* Start with an offset for smooth animation */
 }
 
 /* Ensure Dropdown Menu Stays Open When Hovered */
@@ -808,9 +885,7 @@ header {
 /* Adjust Dropdown Parent Styling */
 .dropdown2 {
     position: relative;
-    /* Ensure proper positioning for the menu */
     cursor: pointer;
-    /* Add a pointer cursor */
 }
 
 /* Ensure smooth hover behavior for dropdown items */

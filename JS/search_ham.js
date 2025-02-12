@@ -1,3 +1,6 @@
+// --------------------------
+// HAMBURGER MENU FUNCTIONALITY
+// --------------------------
 const hamburgerIcon = document.getElementById('hamburger-icon');
 const closeIcon = document.getElementById('close-icon');
 const fullscreenMenu = document.getElementById('fullscreen-menu');
@@ -5,7 +8,7 @@ const searchBar = document.getElementById('search-bar');
 const searchIcon = document.getElementById('search-icon');
 
 // Function to toggle the full-screen menu
-function toggleMenu(action) {
+function toggleHamburgerMenu(action) {
     if (action === 'open') {
         fullscreenMenu.classList.add('active');
     } else if (action === 'close') {
@@ -21,20 +24,15 @@ function toggleSearch() {
     }
 }
 
-// Function to simulate search functionality
-function searchFunction() {
-    alert('Search functionality not implemented yet.');
-}
-
-// Attach event listeners for menu functionality
+// Attach event listeners for hamburger menu functionality
 if (hamburgerIcon && closeIcon && fullscreenMenu) {
-    hamburgerIcon.addEventListener('click', () => toggleMenu('open')); // Open the menu
-    closeIcon.addEventListener('click', () => toggleMenu('close')); // Close the menu
+    hamburgerIcon.addEventListener('click', () => toggleHamburgerMenu('open')); // Open menu
+    closeIcon.addEventListener('click', () => toggleHamburgerMenu('close')); // Close menu
 
-    // Optional: Close menu when clicking outside the content area
+    // Optional: Close menu when clicking outside
     fullscreenMenu.addEventListener('click', (event) => {
         if (event.target === fullscreenMenu) {
-            toggleMenu('close');
+            toggleHamburgerMenu('close');
         }
     });
 }
@@ -42,4 +40,24 @@ if (hamburgerIcon && closeIcon && fullscreenMenu) {
 // Attach event listener for search icon functionality
 if (searchIcon && searchBar) {
     searchIcon.addEventListener('click', toggleSearch);
+}
+
+// --------------------------
+// FOOTER TOGGLE FUNCTIONALITY
+// --------------------------
+// FOOTER TOGGLE MENU FUNCTIONALITY
+function toggleFooterMenu(menuId) {
+    let menu = document.getElementById(menuId);
+    let header = menu.previousElementSibling; // Get the h3 header
+    let icon = header.querySelector(".toggle-icon"); // Get the + icon
+
+    if (menu.style.display === "block") {
+        menu.style.display = "none";
+        header.classList.remove("active");
+        icon.textContent = "+"; // Change back to +
+    } else {
+        menu.style.display = "block";
+        header.classList.add("active");
+        icon.textContent = "−"; // Change to -
+    }
 }

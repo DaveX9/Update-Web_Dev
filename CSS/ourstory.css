@@ -844,21 +844,41 @@ p {
 
 /* Commitment Section */
 .commitment {
+  position: relative;
   text-align: center;
   padding: 60px 20px;
-  background: #f0f0f0;
+  background-image: url("/HOMESPECTOR/img/cummit-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 10px;
+  color: white;
+  overflow: hidden; 
+}
+
+.commitment::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.commitment * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Section Title */
 .commitment h2 {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #333;
+  color: white; /* Ensure text is white */
   margin-bottom: 20px;
 }
-
-/* Flexbox for Image & List */
 .commitment-content {
   display: flex;
   align-items: center;

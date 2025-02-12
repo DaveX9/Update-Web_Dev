@@ -243,7 +243,7 @@
                 </div>
             </section>
             <!-- Our Services Section -->
-            <section class="services"  data-aos="fade-up" data-aos-anchor-placement="top-center">
+            <section class="services" data-aos="fade-up" data-aos-anchor-placement="top-center">
                 <div class="service-container">
                     <!-- Left Image Section -->
                     <div class="image-container">
@@ -268,7 +268,8 @@
                         <p><i class="fa-solid fa-user-tie"></i> 082-045-6165, 02-301-0283</p>
                         <p><i class="fa-solid fa-user"></i> 082-669-9666</p>
                         <p><i class="fa-solid fa-user"></i> 086-500-0019</p>
-                        <p><i class="fa-solid fa-location-dot"></i> 2043 Soi Kanchanaphisek 008, Bangkae, Bangkae Bangkok 10160 Thailand</p>
+                        <p><i class="fa-solid fa-location-dot"></i> 2043 Soi Kanchanaphisek 008, Bangkae, Bangkae
+                            Bangkok 10160 Thailand</p>
 
                         <!-- Social Icons -->
                         <div class="social-icons">
@@ -289,22 +290,24 @@
                 </div>
             </section>
 
-        
-            <section class="carousel2 py-4"  data-aos="fade-up" data-aos-duration="3000">
+
+            <section class="carousel2 py-4" data-aos="fade-up" data-aos-duration="3000">
                 <div id="customCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <!-- First Slide -->
                         <div class="carousel-item active">
                             <div class="carousel-content mx-auto text-center">
                                 <div class="carousel-heading">ราคาค่าบริการตรวจบ้านทาวน์โฮม</div>
-                                <img src="/HOMESPECTOR/img/servicecharge1.png" alt="Service Pricing 1" class="img-fluid">
+                                <img src="/HOMESPECTOR/img/servicecharge1.png" alt="Service Pricing 1"
+                                    class="img-fluid">
                             </div>
                         </div>
                         <!-- Second Slide -->
                         <div class="carousel-item">
                             <div class="carousel-content mx-auto text-center">
                                 <div class="carousel-heading">ราคาค่าบริการตรวจบ้านทาวน์โฮม</div>
-                                <img src="/HOMESPECTOR/img/servicecharge2.png" alt="Service Pricing 2" class="img-fluid">
+                                <img src="/HOMESPECTOR/img/servicecharge2.png" alt="Service Pricing 2"
+                                    class="img-fluid">
                             </div>
                         </div>
                         <!-- Third Slide -->
@@ -323,13 +326,15 @@
                         </div>
                     </div>
                     <!-- Previous Button -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#customCarousel" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#customCarousel"
+                        data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"
                             style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; width: 40px; height: 40px;"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <!-- Next Button -->
-                    <button class="carousel-control-next" type="button" data-bs-target="#customCarousel" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#customCarousel"
+                        data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"
                             style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; width: 40px; height: 40px;"></span>
                         <span class="visually-hidden">Next</span>
@@ -366,49 +371,27 @@
                             </div>
                         </div>
                         <div class="footer-center">
-                            <h3>Navigation</h3>
-                            <ul>
-                                <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
-                                </li>
-                                <li><a href="/HOMESPECTOR/Homepage/service.html" data-translate="nav.services">บริการ</a>
-                                </li>
-                                <li><a href="/HOMESPECTOR/Homepage/promotion.html" data-translate="nav.promotion">สิทธิพิเศษ</a>
-                                </li>
-                                <li><a href="/HOMESPECTOR/Homepage/projects_media.html" data-translate="nav.projects">ผลงาน</a>
-                                </li>
-
-                                <!-- Dropdown Menu -->
-                                <li class="dropdown2">
-                                    <a href="#" class="menu-item" data-translate="nav.aboutUs">
-                                        เกี่ยวกับเรา <span class="dropdown-icon2"><i class="fa-solid fa-caret-down"></i></span>
-                                    </a>
-                                    <ul class="dropdown-menu2">
-                                        <li><a href="/HOMESPECTOR/Homepage/ourstory.html"
-                                                data-translate="nav.ourStory">ประวัติของเรา</a>
-                                        </li>
-                                        <li><a href="/HOMESPECTOR/Homepage/ourteam.html"
-                                                data-translate="nav.ourTeam">ทีมงานของเรา</a></li>
-                                    </ul>
-                                </li>
-
-                                <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a>
-                                </li>
-                                <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
-                                        data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
-                                        data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/joinwithus.html" data-translate="nav.joinUs">รวมงานกับเรา</a>
-                                </li>
-                                <li><a href="/HOMESPECTOR/Homepage/contactus.html" data-translate="nav.contact">ติดต่อเรา</a>
-                                </li>
+                            <h3 class="toggle-menu" onclick="toggleFooterMenu('nav-menu')">
+                                Navigation <span class="toggle-icon">+</span>
+                            </h3>
+                            <ul id="nav-menu" class="footer-menu">
+                                <li><a href="index.html">หน้าหลัก</a></li>
+                                <li><a href="service.html">บริการ</a></li>
+                                <li><a href="promotion.html">สิทธิพิเศษ</a></li>
+                                <li><a href="projects_media.html">ผลงาน</a></li>
+                                <li><a href="articles.html">บทความ</a></li>
+                                <li><a href="contactus.html">ติดต่อเรา</a></li>
                             </ul>
                         </div>
+
+                        <!-- บทความ -->
                         <div class="footer-center">
-                            <h3>บทความ</h3>
-                            <ul>
-                                <li><a href="#">ไฟ้ฟา</a></li>
+                            <h3 class="toggle-menu" onclick="toggleFooterMenu('article-menu')">
+                                บทความ <span class="toggle-icon">+</span>
+                            </h3>
+                            <ul id="article-menu" class="footer-menu">
+                                <li><a href="#">ไฟฟ้า</a></li>
                                 <li><a href="#">อุปกรณ์</a></li>
-                                <li><a href="#">Page</a></li>
                                 <li><a href="#">Page</a></li>
                                 <li><a href="#">Page</a></li>
                             </ul>
@@ -442,9 +425,9 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-        <script>
-            AOS.init();
-        </script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>

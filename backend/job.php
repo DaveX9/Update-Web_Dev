@@ -1,3 +1,29 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST["name"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $phone = htmlspecialchars($_POST["phone"]);
+    $position = htmlspecialchars($_POST["position"]);
+    
+    // Handle file upload
+    if (isset($_FILES["resume"]) && $_FILES["resume"]["error"] == 0) {
+        $uploadDir = "uploads/";
+        $fileName = basename($_FILES["resume"]["name"]);
+        $uploadFilePath = $uploadDir . $fileName;
+        move_uploaded_file($_FILES["resume"]["tmp_name"], $uploadFilePath);
+        $resumeLink = $uploadFilePath;
+    } else {
+        $resumeLink = "No file uploaded";
+    }
+    
+    // Save application data (This should be saved in a database in a real-world scenario)
+    $message = "Application received:\nName: $name\nEmail: $email\nPhone: $phone\nPosition: $position\nResume: $resumeLink";
+    file_put_contents("applications.txt", $message.PHP_EOL, FILE_APPEND);
+    
+    echo "<p class='success-message'>Application submitted successfully!</p>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,11 +36,59 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/HOMESPECTOR/CSS/joinwithus.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <link rel="stylesheet" href="/HOMESPECTOR/CSS/after_review_home.css">
     <title>Header Design</title>
 </head>
-
+<style>
+        .form-container {
+            background-image: url(/img/hero-bg3.webp);
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        h2 {
+            color:#0e0d0d;
+            text-align: center;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            border: 1px solid #ccc;
+        }
+        input::placeholder {
+            color: #aaa;
+        }
+        .submit-btn {
+            background:#006ac0;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 15px;
+            width: 32%;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .submit-btn:hover {
+            background:#ff5c05;
+        }
+        .success-message {
+            color: green;
+            font-weight: bold;
+        }
+</style>
 <body>
     <div class="content-box">
         <div class="content-box">
@@ -209,15 +283,14 @@
                     </div>
                 </div>
             </div>
-
-            <div class="contact-container">
-                <a href="tel:02-454-2043" class="contact-item" data-aos="fade-up-left">
+            <div class="contact-container1">
+                <a href="tel:02-454-2043" class="contact-item1" data-aos="fade-up-left">
                     <div class="icon">
                         <i class="fa-solid fa-phone"></i>
                     </div>
                     <span>โทร 02-454-2043</span>
                 </a>
-                <a href="https://line.me/R/ti/p/@t.home" target="_blank" class="contact-item" data-aos="fade-up-right">
+                <a href="https://line.me/R/ti/p/@t.home" target="_blank" class="contact-item1" data-aos="fade-up-right">
                     <div class="icon">
                         <i class="fa-brands fa-line" style="color: #00a347;"></i>
                     </div>
@@ -225,65 +298,22 @@
                 </a>
             </div>
 
-            <section class="review-page">
-                <h2 class="review-title">ทัวร์บ้าน EP.3 ตกแต่งบ้าน Style Modern Luxury 1 ล้านบาท จะได้อะไรบ้าง !?</h2>
-                <!-- Only one place for the date -->
-                <span class="upload-date" data-date="auto"></span>
-                <div class="photo-review">
-                    <div class="photo-container">
-                        <img src="/HOMESPECTOR/img/after_review/interrior-bg5.jpg" alt="House Review 5">
-                        <p class="photo-description">
-                            คลิปนี้ต้องขอขอบคุณผู้ใหญ่ใจดี พี่ตี๋ จาก SIAM DAIKIN SALES CO.,LTD. <br>
-                            ที่ให้โอกาสเราได้เข้าไปตกแต่งบ้านและถ่ายวีดีโอเพื่อมาแชร์เป็นข้อมูลเพื่อเป็นแนวทางสำหรับผู้ที่ชื่นชอบสไตล
-                            Modern Luxury <br>
-                            ทางทีมงานต.ตกแต่งหวังว่าผู้ที่รับชมคลิปนี้จะได้ข้อมูลและประโยชน์ในการตกแต่งบ้านของท่านนะครับ
-                        </p>
-                    </div>
-                </div>
-
-                <h3 class="related-images-title">รูปภาพที่เกี่ยวข้อง</h3>
-                <div class="image-gallery">
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter5.1.jpg" alt="ตรวจสอบโครงสร้างพื้น">
-                        <!-- <p>ตรวจสอบโครงสร้างพื้น</p> -->
-                    </div>
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter5.2.jpg" alt="ตรวจสอบการติดตั้งรั้ว">
-                        <!-- <p>ตรวจสอบการติดตั้งรั้ว</p> -->
-                    </div>
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter5.3.jpg" alt="ตรวจสอบการระบายน้ำ">
-                        <!-- <p>ตรวจสอบการระบายน้ำ</p> -->
-                    </div>
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter5.4.jpg" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
-                    </div>
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter5.5.jpg" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
-                    </div>
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter5.6.jpg" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
-                    </div>
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter5.7.jpg" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
-                    </div>
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter5.8.jpg" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Modal for Zoomed Image -->
-            <div id="imageModal" class="modal">
-                <span class="close">&times;</span>
-                <img class="modal-content" id="fullImage" alt="Zoomed Image">
+            <div class="form-container">
+                <h2>Job Application Form</h2>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <input type="text" id="name" name="name" placeholder="Full Name" required>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <input type="text" id="phone" name="phone" placeholder="+66 XXX-XXX-XXXX" required>
+                    <select id="position" name="position">
+                        <option value="" disabled selected>Select Position</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Civil Engineer">Civil Engineer</option>
+                        <option value="Intern Student">Intern Student</option>
+                    </select>
+                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+                    <input type="submit" value="Submit Application" class="submit-btn">
+                </form>
             </div>
-
 
             <section class="footer">
                 <footer class="footer">
@@ -359,14 +389,14 @@
 
 
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
-    <script src="/HOMESPECTOR/JS/review_zoom.js"></script>
-    <script src="/HOMESPECTOR/JS/filter.js"></script>
-    <script src="/HOMESPECTOR/JS/upload_date.js"></script>
-    <script src="/HOMESPECTOR/JS/dropdown.js"></script>
+    <script src="/HOOMESPECTOR/JS/dropdown.js"></script>
+    <script src="/HOMESPECTOR/JS/carousel.js"></script>
+    <script src="/HOMESPECTOR/JS/carousel2.js"></script>
+    <script src="/HOMESPECTOR/JS/carousel5.js"></script>
+    <script src="/HOMESPECTOR/JS/search_ham.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="/HOMESPECTOR/JS/search_ham.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init();

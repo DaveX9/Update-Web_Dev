@@ -777,6 +777,7 @@ header {
     padding: 50px 20px;
     border-radius: 0;
     z-index: 1;
+    margin-bottom: 30px;
 }
 
 .services::before {
@@ -981,15 +982,15 @@ header {
 } */
 
 
-
 /* Wrapper Section */
 .wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 50px 20px;
 }
 
-/* Inspection Info Section */
+
 .inspection-info {
     display: flex;
     align-items: center;
@@ -1003,7 +1004,6 @@ header {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Left Content Section */
 .info-content {
     flex: 1;
     padding: 40px;
@@ -1043,7 +1043,6 @@ header {
     transition: all 0.3s ease;
     margin-top: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    /* Soft shadow */
     outline: none;
     text-decoration: none;
 }
@@ -1067,7 +1066,7 @@ header {
 }
 
 /* Right Image Section */
-.info-image {
+/* .info-image {
     flex: 1;
     overflow: hidden;
     display: flex;
@@ -1081,7 +1080,7 @@ header {
     object-fit: cover;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-}
+} */
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
@@ -1094,11 +1093,11 @@ header {
         padding: 30px;
     }
 
-    .info-image img {
+    /* .info-image img {
         width: 100%;
         height: auto;
         border-radius: 0;
-    }
+    } */
 }
 
 
@@ -1296,9 +1295,6 @@ header {
     width: 100%;
     border-radius: 10px;
 }
-
-
-
 /* projets */
 .projects {
     max-width: 1200px;
@@ -1498,76 +1494,94 @@ header {
     }
 }
 
-/* Carousel Container */
+/* Full-Screen Background */
 .carousel-container3 {
     background-color: #001b39;
     padding: 40px;
-    border-radius: 10px;
+    border-radius: 0;
     color: white;
-    width: 1100px;
+    width: 100vw;
     max-width: 100%;
     margin: 0 auto;
     position: relative;
-    margin-bottom: 50px;
-    margin-top: 40px;
     box-sizing: border-box;
-}
-
-/* Position the "ดูทั้งหมด" button */
-.btn-all {
-    border-color: #ddd;
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-size: 14px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.btn-all:hover {
-    background-color: #ff5c05;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Header Section */
 .carousel-header3 {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
-    /* Align title and button vertically */
-    margin-bottom: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    padding: 0 20px;
 }
 
-/* Carousel Slides */
+/* Title aligned to the left */
+.carousel-title3 {
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+/* "ดูทั้งหมด" Button aligned to the right */
+.btn-all {
+    border: 1px solid #ddd;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.btn-all:hover {
+    background-color: #ff5c05;
+}
+/* Main Carousel */
+.carousel3 {
+    width: 80%;
+    max-width: 1200px;
+    text-align: center;
+    position: relative;
+}
+
+/* Center Carousel Slides */
 .carousel-slides3 {
     position: relative;
     overflow: hidden;
-    height: 600px;
-    max-width: 120%;
-    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Individual Slide */
 .carousel-slide3 {
-    position: absolute;
-    top: 0;
-    left: 100%;
+    position: relative;
     width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
+    height: auto;
+    border-radius: 10px;
+    display: none;
 }
 
 .carousel-slide3.active {
-    left: 0;
-    opacity: 1;
-    z-index: 1;
+    display: block;
 }
 
+/* Image */
 .carousel-slide3 img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     border-radius: 10px;
 }
 
@@ -1603,21 +1617,34 @@ header {
     background-color: #ff5c05;
 }
 
-/* Thumbnail Navigation */
+
+/* Center Thumbnails */
 .carousel-thumbnails {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-    gap: 15px;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 15px 0;
+    width: 80%;
+    max-width: 1200px;
+    white-space: nowrap;
 }
 
+.carousel-thumbnails::-webkit-scrollbar {
+    display: none;
+}
+
+/* Thumbnail Style */
 .thumbnail {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border: 2px solid transparent;
     border-radius: 5px;
     cursor: pointer;
     transition: border-color 0.3s;
+    flex-shrink: 0;
 }
 
 .thumbnail.active {
@@ -1631,12 +1658,13 @@ header {
     border-radius: 5px;
 }
 
+/* Navigation Buttons */
 button.prev-btn,
 button.next-btn {
     background-color: #ffa500;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 15px;
     font-size: 18px;
     border-radius: 5px;
     cursor: pointer;
@@ -1648,6 +1676,68 @@ button.next-btn:hover {
     background-color: #ff5c05;
 }
 
+/* Responsive for Smartphones */
+@media screen and (max-width: 768px) {
+    .carousel-container3 {
+        padding: 20px;
+    }
+    .carousel-header3 {
+        flex-direction: row;
+        align-items: center;
+        padding: 0 15px;
+    }
+
+    .carousel-title3 {
+        font-size: 18px; /* Adjust for smaller screens */
+    }
+
+    .btn-all {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+
+    .carousel3 {
+        width: 95%;
+    }
+
+    .carousel-slide3 img {
+        width: 100%;
+        height: auto;
+    }
+
+    .slide-content3 {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .slide-content3 h3 {
+        font-size: 16px;
+    }
+
+    .slide-content3 p {
+        font-size: 14px;
+    }
+
+    .slide-content3 .btn {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+
+    .carousel-thumbnails {
+        width: 95%;
+    }
+
+    .thumbnail {
+        width: 50px;
+        height: 50px;
+    }
+
+    button.prev-btn,
+    button.next-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
 
 
 /* Article */
@@ -1805,7 +1895,33 @@ button.next-btn:hover {
 .cta button:hover {
     background-color: #2a9881;
 }
+@media screen and (max-width: 768px) {
+    .container-newapp {
+        padding: 20px;
+        text-align: center;
+    }
 
+    .content-newapp {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .app-preview {
+        flex-direction: column; /* Stack images vertically */
+        align-items: center;
+        gap: 15px;
+    }
+
+    .app-preview img {
+        width: 80%; /* Make images responsive */
+        max-width: 250px;
+    }
+
+    .cta button {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}
 
 
 /* Stats Section with Skewed Background */
@@ -1909,13 +2025,15 @@ button.next-btn:hover {
     }
 
     .stats-container {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+        gap: 10px; 
     }
 
     .stat-box {
-        width: 90%;
-        max-width: 250px;
+        width: 45%; 
+        max-width: 200px;
     }
 
     .stat-box h2 {
@@ -1926,6 +2044,15 @@ button.next-btn:hover {
         font-size: 0.9em;
     }
 }
+
+/* Extra Small Screens (Phones under 480px) */
+@media screen and (max-width: 480px) {
+    .stat-box {
+        width: 48%; 
+        max-width: 180px; 
+    }
+}
+
 
 
 /* FAQ */
@@ -2060,6 +2187,77 @@ button.next-btn:hover {
     border: 1px solid #ddd;
     border-top: none;
     background-color: #fafafa;
+}
+@media (max-width: 768px) {
+    .faq {
+        padding: 30px 15px; /* Reduce padding for smaller screens */
+    }
+
+    .faq-container {
+        max-width: 100%; /* Ensure full width on small screens */
+        text-align: center;
+    }
+
+    .faq-title {
+        font-size: 28px; /* Reduce title size */
+    }
+
+    .faq-subtitle {
+        font-size: 16px;
+        margin-bottom: 20px; /* Adjust spacing */
+    }
+
+    /* Stack FAQ content for mobile */
+    .faq-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Adjust FAQ menu */
+    .faq-menu {
+        width: 100%; /* Full width */
+        text-align: center;
+    }
+
+    .faq-menu ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .faq-menu li {
+        width: 45%; /* Make menu items fit 2 per row */
+        text-align: center;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    /* Adjust FAQ Questions */
+    .faq-questions {
+        width: 100%;
+        text-align: left;
+    }
+
+    .faq-question {
+        font-size: 16px;
+        padding: 8px;
+        gap: 5px;
+    }
+
+    /* Icon adjustments */
+    .faq-question .icon {
+        font-size: 20px;
+        width: 25px;
+        height: 25px;
+    }
+
+    /* Expandable Answer */
+    .faq-answer {
+        font-size: 14px;
+        padding: 8px;
+    }
 }
 
 /* elfsight */
@@ -2254,4 +2452,59 @@ button.next-btn:hover {
     font-size: 0.9em;
     color: #777;
     margin-bottom: -30px;
+}
+.toggle-icon {
+    font-size: 24px;
+    order: -1;
+    background-color: #0056b3;
+    color: #ffffff;
+    padding: 5px 8px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+.toggle-icon:hover .icon {
+    background-color:var(--font2-color);
+    color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-menu {
+        display: none;
+        flex-direction: column;
+        text-align: left;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 5px;
+        list-style-type: none;
+    }
+
+    .toggle-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px;
+        background: #f1f1f1;
+        border-radius: 5px;
+    }
+
+    .toggle-icon {
+        font-size: 20px;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+        background-color: var(--font2-color);
+        border-radius: 50%;
+}
+
+    /* Rotate + to - when active */
+    .toggle-menu.active .toggle-icon {
+        transform: rotate(45deg);
+    }
 }
