@@ -732,14 +732,10 @@ header {
 .related-video-item h3 {
     font-size: 1rem;
     color: var(--font-color);
-    /* Text color */
     margin: 0;
     flex: 1;
-    /* Allow text to grow if needed */
     word-break: break-word;
-    /* Handle long titles gracefully */
     transition: color 0.2s;
-    /* Smooth transition on hover */
 }
 
 .related-video-item h3:hover {
@@ -773,21 +769,20 @@ header {
 }
 
 .tags a {
-    text-decoration: none;
-    background-color: white;
-    color: var(--font-color);
-    padding: 8px 15px;
-    border: 2px solid #ccc;
+    padding: 8px 16px;
+    border: 1px solid #0056b3;
     border-radius: 20px;
-    margin: 5px;
-    display: inline-block;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    background: transparent;
+    font-size: 14px;
+    color: #0056b3;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
 }
 
 .tags a:hover {
-    background-color: #cfeff7;
-    color: #000000;
-    border-color: #00b7ff;
+    background: #0056b3;
+    color: white;
 }
 
 

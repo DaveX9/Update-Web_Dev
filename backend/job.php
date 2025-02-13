@@ -1,26 +1,83 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php'; // Include PHPMailer
+
+$successMessage = ""; // Initialize success message
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = htmlspecialchars($_POST["name"]);
     $email = htmlspecialchars($_POST["email"]);
     $phone = htmlspecialchars($_POST["phone"]);
     $position = htmlspecialchars($_POST["position"]);
-    
-    // Handle file upload
+    $address = htmlspecialchars($_POST["address"]); // Capture address
+
+    // File upload directory
+    $uploadDir = "uploads/";
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
+    }
+
+    // Handle file upload (Resume)
+    $resumeLink = "No file uploaded";
     if (isset($_FILES["resume"]) && $_FILES["resume"]["error"] == 0) {
-        $uploadDir = "uploads/";
         $fileName = basename($_FILES["resume"]["name"]);
-        $uploadFilePath = $uploadDir . $fileName;
+        $uploadFilePath = $uploadDir . time() . "_" . $fileName;
         move_uploaded_file($_FILES["resume"]["tmp_name"], $uploadFilePath);
         $resumeLink = $uploadFilePath;
-    } else {
-        $resumeLink = "No file uploaded";
     }
-    
-    // Save application data (This should be saved in a database in a real-world scenario)
-    $message = "Application received:\nName: $name\nEmail: $email\nPhone: $phone\nPosition: $position\nResume: $resumeLink";
-    file_put_contents("applications.txt", $message.PHP_EOL, FILE_APPEND);
-    
-    echo "<p class='success-message'>Application submitted successfully!</p>";
+
+    // Handle file upload (Cover Letter)
+    $coverLetterFile = "No file uploaded";
+    if (isset($_FILES["cover_letter_file"]) && $_FILES["cover_letter_file"]["error"] == 0) {
+        $fileName = basename($_FILES["cover_letter_file"]["name"]);
+        $uploadFilePath = $uploadDir . time() . "_" . $fileName;
+        move_uploaded_file($_FILES["cover_letter_file"]["tmp_name"], $uploadFilePath);
+        $coverLetterFile = $uploadFilePath;
+    }
+
+    // Send Email using PHPMailer
+    $mail = new PHPMailer(true);
+
+    try {
+        // SMTP settings
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'sahadevthapawork@gmail.com'; // Replace with your email
+        $mail->Password = 'yyry vtil xiko nhaz'; // Replace with your app password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+
+        // Email content
+        $mail->setFrom('sahadevthapawork@gmail.com', 'Job Application System');
+        $mail->addAddress('sahadevthapawork@gmail.com'); // Change to recipient email
+
+        // Attach resume if available
+        if ($resumeLink !== "No file uploaded") {
+            $mail->addAttachment($resumeLink);
+        }
+        // Attach cover letter file if available
+        if ($coverLetterFile !== "No file uploaded") {
+            $mail->addAttachment($coverLetterFile);
+        }
+
+        $mail->Subject = "New Job Application - $position";
+        $mail->Body = "Application received:\n\n" .
+                        "Name: $name\n" .
+                        "Email: $email\n" .
+                        "Phone: $phone\n" .
+                        "Position: $position\n" .
+                        "Address: $address\n\n" .
+                        "Resume: $resumeLink\n" .
+                        "Cover Letter File: $coverLetterFile";
+
+        $mail->send();
+        $successMessage = "<p class='success-message'>Application submitted successfully! We have received your application.</p>";
+    } catch (Exception $e) {
+        $successMessage = "<p class='error-message'>Failed to send application email. Error: {$mail->ErrorInfo}</p>";
+    }
 }
 ?>
 
@@ -41,53 +98,101 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Header Design</title>
 </head>
 <style>
+    .form-container {
+        position: relative;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 50%;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        max-width: 600px;
+        position: relative;
+        z-index: 2;
+        background: white;
+        border-radius: 10px;
+    }
+    h2 {
+        color:#0e0d0d;
+        text-align: center;
+        font-weight: bold;
+    }
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border-radius: 15px;
+        border: 1px solid #ccc;
+    }
+    input::placeholder {
+        color: #aaa;
+    }
+    .submit-btn {
+        background:#006ac0;
+        color: white;
+        border: none;
+        padding: 12px;
+        cursor: pointer;
+        border-radius: 15px;
+        width: 32%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .submit-btn:hover {
+        background:#ff5c05;
+    }
+    .success-message {
+        color: green;
+        font-weight: bold;
+        margin-top: 30px;
+        text-align: center;
+    }
+    .error-message {
+        color: red;
+        font-size: 16px;
+        margin-top: 30px;
+    }
+
+     /* Responsive Design */
+    @media (max-width: 768px) {
         .form-container {
-            background-image: url(/img/hero-bg3.webp);
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 50%;
-            margin: auto;
-            margin-top: 30px;
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-        h2 {
-            color:#0e0d0d;
-            text-align: center;
-            font-weight: bold;
+            width: 90%;
+            padding: 15px;
         }
         input, select {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            border-radius: 15px;
-            border: 1px solid #ccc;
-        }
-        input::placeholder {
-            color: #aaa;
+            font-size: 16px;
+            padding: 12px;
         }
         .submit-btn {
-            background:#006ac0;
-            color: white;
-            border: none;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            }
+        }
+    /* For very small devices (phones below 480px) */
+    @media (max-width: 480px) {
+        .form-container {
+            width: 95%;
             padding: 10px;
-            cursor: pointer;
-            border-radius: 15px;
-            width: 32%;
-            display: block;
-            margin: 0 auto;
-            text-align: center;
+            }
+        h2 {
+            font-size: 20px;
+            }
+        input, select {
+            font-size: 14px;
+            padding: 10px;
         }
-        .submit-btn:hover {
-            background:#ff5c05;
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
         }
-        .success-message {
-            color: green;
-            font-weight: bold;
-        }
+    }
 </style>
 <body>
     <div class="content-box">
@@ -297,22 +402,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <span>@t.home</span>
                 </a>
             </div>
-
             <div class="form-container">
                 <h2>Job Application Form</h2>
                 <form action="" method="post" enctype="multipart/form-data">
                     <input type="text" id="name" name="name" placeholder="Full Name" required>
                     <input type="email" id="email" name="email" placeholder="Email" required>
-                    <input type="text" id="phone" name="phone" placeholder="+66 XXX-XXX-XXXX" required>
-                    <select id="position" name="position">
-                        <option value="" disabled selected>Select Position</option>
-                        <option value="Admin">Admin</option>
-                        <option value="Civil Engineer">Civil Engineer</option>
-                        <option value="Intern Student">Intern Student</option>
-                    </select>
-                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
-                    <input type="submit" value="Submit Application" class="submit-btn">
+                    <input type="tel" id="phone" name="phone" placeholder="+66 XXX-XXX-XXXX" required maxlength="10">
+                    <input type="text" id="position" name="position" placeholder="Position" required>
+                    <input type="text" id="address" name="address" placeholder="Current Address" required>
+
+                    <!-- Resume Upload -->
+                    <label>Upload Your Resume</label>
+                    <div class="file-upload">
+                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                    </div>
+
+                    <!-- Cover Letter Upload -->
+                    <label>Upload Cover Letter</label>
+                    <div class="file-upload">
+                        <input type="file" id="cover_letter_file" name="cover_letter_file" accept=".pdf,.doc,.docx">
+                    </div>
+                    
+                    <input type="submit" value="Apply" class="submit-btn">
                 </form>
+
+                <!-- Success message displayed below the form -->
+                <?php echo $successMessage; ?>
             </div>
 
             <section class="footer">

@@ -683,35 +683,26 @@ header {
   /* Optional: Adds a light border */
 }
 
-.social-icons a {
-  margin-right: 10px;
-}
-
 /* Social Icons */
 .social-icons {
   display: flex;
   gap: 10px;
 }
 
-/* Social Icons */
 .social-icons {
   display: flex;
   gap: 10px;
-  /* Space between icons */
 }
 
 .social-icons a img {
   width: 20px;
   height: auto;
   transition: transform 0.5s ease;
-  /* Smooth scaling effect */
 }
 
 .social-icons a:hover img {
   transform: scale(1.2);
-  /* Slight enlargement on hover */
 }
-
 /* form */
 .contact-form {
   flex: 1;
@@ -790,23 +781,19 @@ header {
   gap: 10px;
 }
 
-/* Social Icons */
 .social-icons {
   display: flex;
   gap: 10px;
-  /* Space between icons */
 }
 
 .social-icons a img {
   width: 20px;
   height: auto;
   transition: transform 0.5s ease;
-  /* Smooth scaling effect */
 }
 
 .social-icons a:hover img {
   transform: scale(1.2);
-  /* Slight enlargement on hover */
 }
 
 .footer-center {
@@ -851,9 +838,7 @@ header {
   display: none;
   position: absolute;
   top: calc(100% + 10px);
-  /* Add 10px distance from the parent */
   left: 0;
-  /* Align left to parent */
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 10px;

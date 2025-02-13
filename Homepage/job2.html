@@ -10,10 +10,134 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/HOMESPECTOR/CSS/joinwithus.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <link rel="stylesheet" href="/HOMESPECTOR/CSS/articles_view.css">
     <title>Header Design</title>
 </head>
+
+<style>
+    .bg-img {
+        position: relative;
+        background: url('/HOMESPECTOR/img/hero-bg1.jpg') no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
+    }
+
+    /* Silver Overlay */
+    .bg-img::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(192, 192, 192, 0.5);
+        /* Silver color with 50% opacity */
+        z-index: 1;
+    }
+
+    /* Ensure content stays on top */
+    .container-job {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: var(--font-color);
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .job-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .job-info p {
+        font-size: 16px;
+        margin: 5px 0;
+        color: var(--font-color);
+    }
+
+    .section {
+        margin-bottom: 20px;
+    }
+
+    .section h2 {
+        font-size: 18px;
+        color: var(--font-color);
+        font-weight: bold;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+
+    }
+
+    .section p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    .contact {
+        background: #f2f2f2;
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    .apply-btn {
+        display: block;
+        width: 20%;
+        text-align: center;
+        align-items: center;
+        background: var(--font2-color);
+        color: white;
+        padding: 12px;
+        font-size: 18px;
+        border-radius: 15px;
+        text-decoration: none;
+        margin-top: 20px;
+    }
+
+    .apply-btn:hover {
+        background: #ff5c05;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container-job {
+            width: 90%;
+            padding: 15px;
+        }
+
+        h1 {
+            font-size: 22px;
+            text-align: left;
+        }
+
+        .job-info {
+            flex-direction: column;
+        }
+
+        .apply-btn {
+            font-size: 16px;
+            padding: 10px;
+            width: 30%;
+        }
+    }
+</style>
 
 <body>
     <div class="content-box">
@@ -209,192 +333,97 @@
                     </div>
                 </div>
             </div>
-
-            <div class="contact-container">
-                <a href="tel:02-454-2043" class="contact-item" data-aos="fade-up-left">
+            <div class="contact-container1">
+                <a href="tel:02-454-2043" class="contact-item1" data-aos="fade-up-left">
                     <div class="icon">
                         <i class="fa-solid fa-phone"></i>
                     </div>
                     <span>โทร 02-454-2043</span>
                 </a>
-                <a href="https://line.me/R/ti/p/@t.home" target="_blank" class="contact-item" data-aos="fade-up-right">
+                <a href="https://line.me/R/ti/p/@t.home" target="_blank" class="contact-item1" data-aos="fade-up-right">
                     <div class="icon">
                         <i class="fa-brands fa-line" style="color: #00a347;"></i>
                     </div>
                     <span>@t.home</span>
                 </a>
             </div>
-            <section class="article-section" data-aos="fade-up">
-                <h1 class="article-title">บทความ</h1>
-                <p class="article-description">
-                    ความรู้เกี่ยวกับ งานตรวจรับบ้านเเละคอนโดก่อนโอนกรรมสิทธิ์
-                </p>
+            <div class="container-job">
+                <h1>Job Details </h1>
 
-                <div class="content-container">
-                    <!-- <h2 class="content-subtitle">สรุป!! จัดการการออกแบบสาย LAN ตามบ้าน</h2> -->
-                    <span class="upload-date" data-date="2024-12-10"></span>
-
-                    <!-- Main Image Section -->
-                    <div class="main-image-container">
-                        <img src="https://www.thomeinspector.com/assets/upload/newsThumbnail/90dbea8d588eb5f86ae1bab8ab3ad45ecec27944.jpg"
-                            alt="Main LAN Design" class="main-image">
-                        <p class="main-image-caption">
-                            <!-- สรุป!! จัดการการออกแบบสาย LAN ตามบ้าน............... -->
-                        </p>
-                    </div>
-                    <section class="image-guide">
-                        <div class="image-container">
-                            <!-- Row 1 -->
-                            <div class="image-step">
-                                <img src="https://www.thomeinspector.com/assets/upload/flora/c67a42da65707f9decc766e2beac0a344738a5ce.jpg"
-                                    alt="Step 1">
-                                <p>กดเพิ่มเพื่อนของเรา <a href="https://lin.ee/4kHRtmA" target="_blank">Line Official
-                                        Account</a> @ต.ตรวจบ้าน</p>
-                            </div>
-
-                            <div class="image-step">
-                                <img src="https://www.thomeinspector.com/assets/upload/flora/8f44cc81961f1546049f5bb68fa33999b298de6b.jpg"
-                                    alt="Step 2">
-                                <p>เมื่อเข้าไปที่หน้าแชท จะพบกับเมนู ให้กดเลือกหัวข้อ
-                                    <strong>ตัวแอนดรอยด์ทดสอบไฟฟ้า</strong>
-                                </p>
-                            </div>
-
-                            <!-- Row 2 -->
-                            <div class="image-step">
-                                <img src="https://www.thomeinspector.com/assets/upload/flora/6b667d0d0f84212e5d8e16292a092a2d51417325.jpg"
-                                    alt="Step 3">
-                                <p>กดเลือกเมนู เพื่อตรวจเช็คข้อมูล</p>
-                            </div>
-
-                            <div class="image-step">
-                                <img src="https://www.thomeinspector.com/assets/upload/flora/1d2e54625ce4c100c1364966451d2d24066278fc.jpg"
-                                    alt="Step 4">
-                                <p>เลือกขนาดเบรกเกอร์ โดยสามารถเช็คขนาดเบรกเกอร์เครื่องทำน้ำอุ่นที่ติดตั้งมาให้ได้ <br>
-                                    ภายใน<strong>ตู้ไฟฟ้าภายในบ้าน</strong>จากนั้นกดเลือกประเภทระบบไฟฟ้าในบ้าน <strong>1
-                                        <br>
-                                        เฟส หรือ 3 เฟส </strong>จากนั้นกด คำนวณ</p>
-                            </div>
-
-                            <!-- Row 3 -->
-                            <div class="image-step">
-                                <img src="https://www.thomeinspector.com/assets/upload/flora/cf01e25f4df567c8f9454843f0251a0e10da0b62.jpg"
-                                    alt="Step 5">
-                                <p>จจากรูปจะเห็นว่า เบรกเกอร์เครื่องทำน้ำอุ่นที่ติดตั้งมาให้มีขนาด<br> <strong>20
-                                        แอมแปร์</strong> และจากบล็อกไฟเครื่องทำน้ำอุ่นจะมีขนาดของสายไฟ <strong>4
-                                        sq.mm.</strong>ที่ระบุบนสายไฟ</p>
-                            </div>
-
-                            <div class="image-step">
-                                <img src="https://www.thomeinspector.com/assets/upload/flora/96696d0779f99862d99c469dfb6ca416933d0e21.jpg"
-                                    alt="Step 6">
-                                <p>เมื่อกดคำนวณแล้ว จะได้ขนาดเครื่องทำน้ำอุ่นที่เหมาะสมกับเบรกเกอร์ขนาด <br> <strong>20
-                                        แอมแปร์</strong> และสายไฟที่เหมาะสมต้องมีขนาด <strong>4 sq.mm. </strong>หรือต้อง
-                                    <br>
-                                    <strong>ไม่เล็กกว่า 4 sq.mm.</strong><br>
-                                    <br>สามารถนำผลลัพธ์ขนาดเครื่องทำน้ำอุ่นที่คำนวณได้ หรือ แคปหน้าจอแบบในรูป ไปสั่งที่
-                                    <br>
-                                    HomePro ทุกสาขาได้เลย !!!!
-                                </p>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- Tag Section -->
-                    <div class="tag-section">
-                        <button class="tag-btn">ตตรวจบ้าน</button>
-                        <button class="tag-btn">ต่อเติมบ้าน</button>
-                        <button class="tag-btn">ตรวจคอนโด</button>
-                        <button class="tag-btn">homeinspector</button>
-                    </div>
-
-                    <!-- Article Display Section -->
-                    <div id="article-list"></div>
-
-
-                    <!-- Social Share Section -->
-                    <div class="social-share">
-                        <span>SHARE :</span>
-                        <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
-                            <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
-                        </a>
-                        <a href="https://www.instagram.com/t.homeinspector/">
-                            <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="Instagram">
-                        </a>
-                        <a href="https://page.line.me/t.home?openQrModal=true">
-                            <img src="/HOMESPECTOR/icon/ICON/line.png" alt="Line">
-                        </a>
-                        <a href="#" id="share-icon">
-                            <i class="fa-solid fa-share" aria-label="Share"></i>
-                        </a>
-                    </div>
-
+                <div class="job-info">
+                    <p><strong>📍 Location:</strong>On-Site</p>
+                    <p><strong>💼 Job Type:</strong> Permanent</p>
+                    <p><strong>📌 Job Function:</strong> Civil Engineering</p>
+                    <!-- <p><strong>🏢 Industry:</strong> Corporate</p> -->
+                    <p><strong>💰 Salary:</strong> 25,000 - 30,000 ฿</p>
                 </div>
-            </section>
-            <section class="carousel-content" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                <h2>Other Articles</h2>
-                <div class="content-carousel-container">
-                    <!-- Navigation Buttons -->
-                    <button class="carousel-btn prev-btn">❮</button>
-                    <div class="content-carousel">
-                        <!-- Item 1 -->
-                        <a href="/HOMESPECTOR/Homepage/articles_view3.html" class="content-carousel-item">
-                            <img src="https://www.thomeinspector.com/assets/upload/newsThumbnail/90dbea8d588eb5f86ae1bab8ab3ad45ecec27944.jpg"
-                                alt="Content 1">
-                            <div class="content-carousel-info">
-                                <h3>....... <i class="fa-solid fa-circle-arrow-right"></i></h3>
-                            </div>
-                        </a>
-                        <a href="/HOMESPECTOR/Homepage/articles_view2.html" class="content-carousel-item">
-                            <img src="https://www.thomeinspector.com/assets/upload/newsThumbnail/b764dd4c5037789dd95efac895cfbac14aa2a041.jpg"
-                                alt="Content 1">
-                            <div class="content-carousel-info">
-                                <h3>เราต่างจากที่อื่นอย่างไร What Makes US Different?<i
-                                        class="fa-solid fa-circle-arrow-right"></i></h3>
-                            </div>
-                        </a>
-                        <!-- Item 2 -->
-                        <a href="/HOMESPECTOR/Homepage/articles_view6.html" class="content-carousel-item">
-                            <img src="https://www.thomeinspector.com/assets/upload/newsThumbnail/e49cf3ed20f9f59a2a7d6576f65e9a786d2e4047.jpg"
-                                alt="Content 2">
-                            <div class="content-carousel-info">
-                                <h3>สิ่งที่ต้องรู้เกี่ยวกับ EV Charger <i class="fa-solid fa-circle-arrow-right"></i>
-                                </h3>
-                            </div>
-                        </a>
 
-                        <!-- Item 3 -->
-                        <a href="/HOMESPECTOR/Homepage/articles_view9.html" class="content-carousel-item">
-                            <img src="https://www.thomeinspector.com/assets/upload/newsThumbnail/f2131033b23c18668dccb3ecfbe4e8f11ca289ff.jpg"
-                                alt="Content 3">
-                            <div class="content-carousel-info">
-                                <h3>การตรวจเช็คเครื่องปรับอากาศ <i class="fa-solid fa-circle-arrow-right"></i></h3>
-                            </div>
-                        </a>
-                        <!-- Item 4 -->
-                        <a href="/HOMESPECTOR/Homepage/articles_view7.html" class="content-carousel-item">
-                            <img src="https://www.thomeinspector.com/assets/upload/newsThumbnail/552982ce38cf40320ec81c960d02a9f76204c99e.jpg"
-                                alt="Content 4">
-                            <div class="content-carousel-info">
-                                <h3>ความแตกต่างระหว่างมิเตอร์ปกติกับมิเตอร์ TOU <i
-                                        class="fa-solid fa-circle-arrow-right"></i></h3>
-                            </div>
-                        </a>
-                        <!-- Item 5 -->
-                        <a href="/HOMESPECTOR/Homepage/articles_view4.html" class="content-carousel-item">
-                            <img src="https://www.thomeinspector.com/assets/upload/newsThumbnail/0cdfa8d1785d2c2abfab80bdf78bcb4bafa523b3.jpg"
-                                alt="Content 5">
-                            <div class="content-carousel-info">
-                                <h3>แจกฟรี!!! ebook ความรู้ระบบไฟฟ้าภายในบ้าน<i
-                                        class="fa-solid fa-circle-arrow-right"></i></h3>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Navigation Buttons -->
-                    <button class="carousel-btn next-btn">❯</button>
+                <div class="section">
+                    <h2>About the Role (Position)</h2>
+                    <p>ตำแหน่งวิศวกรโยธามีหน้าที่ดูแลงานก่อสร้าง วิเคราะห์โครงสร้าง และออกแบบโครงการโดยใช้ซอฟต์แวร์ CAD
+                        นอกจากนี้ยังต้องทำงานร่วมกับผู้จัดการโครงการ สถาปนิก
+                        และทีมก่อสร้างเพื่อให้มั่นใจว่าโครงการเป็นไปตามมาตรฐานความปลอดภัยและคุณภาพ
+                    </p>
                 </div>
-            </section>
+
+                <div class="section">
+                    <h2>Job Responsibilities</h2>
+                    <ul>
+                        <li>เพศชาย</li>
+                        <li>วุฒิ ปวส.- ป.ตรี สาขา วิศวกรรมโยธา, ก่อสร้าง, ไฟฟ้า</li>
+                        <li>หากมีใบ กว. จะได้รับพิจารณาเป็นพิเศษ</li>
+                        <li>มีความเป็นผู้นำ และทำงานเป็นทีมได้</li>
+                        <li>บุคลิกดี สุภาพ พูดจาดี พร้อมลุยงาน มีใจรักงานบริการแบบขั้นสุด</li>
+                        <li>ทัศนคติดี มีความกระตือรือร้น และพร้อมเรียนรู้สิ่งใหม่ๆ</li>
+                        <li>สามารถปฏิบัติงานภายใต้ภาวะกดดันได้ และมีทักษะในการติดต่อสื่อสาร</li>
+                        <li>สามารถใช้ Microsoft Office พื้นฐานได้</li>
+                    </ul>
+                    
+                    <h4>สวัสดิการอื่นๆ</h4>
+                    <ul>
+                        <li>ประกันอุบัติเหตุ</li>
+                        <li>โบนัสประจำปี ตามความสามารถและผลประกอบการของบริษัท</li>
+                        <li>ตรวจสุขภาพประจำปี</li>
+                        <li>ค่า OT ล่วงเวลา</li>
+                        <li>ค่าใบ กว.</li>
+                    </ul>
+                    
+                </div>
+
+                <div class="section">
+                    <h2>Experience Requirements</h2>
+                    <p>มีประสบการณ์ 1-5 ปี ในงานวิศวกรรมโยธา การบริหารโครงการก่อสร้าง หรือสาขาที่เกี่ยวข้อง</p>
+                </div>
+
+                <div class="section">
+                    <h2>Education Requirements</h2>
+                    <ul>
+                        <li>ปริญญาตรีในสาขาวิศวกรรมโยธาหรือสาขาที่เกี่ยวข้อง</li>
+                        <li>มีทักษะการใช้ซอฟต์แวร์ CAD และเครื่องมือวิเคราะห์โครงสร้าง</li>
+                        <li>ความรู้เกี่ยวกับข้อกำหนดความปลอดภัยในการก่อสร้างและการควบคุมคุณภาพ</li>
+                    </ul>
+                </div>
 
 
+                <div class="contact">
+                    <h4> 📞Contact Person</h4>
+                    <ul>
+                        <li><strong>Office:</strong> สามารถเดินทางมาลงที่ MRT สถานีบางแค</li>
+                        <li><strong>เวลาทำงาน:</strong> 6 วัน/สัปดาห์ เวลา 8.00 น. – 17.00 น.</li>
+                        <li><strong>บริษัท:</strong> ต.จรัสชัย สากลก่อสร้าง จำกัด</li>
+                        <li><strong>ที่อยู่:</strong> 2043 ซอยกาญจนาภิเษก 008 แขวงบางแค เขตบางแค กรุงเทพฯ 10160 (หมู่บ้านมั่งมีซิตี้)</li>
+                    </ul>
+                    
+                    <h4>📩 ช่องทางติดต่อหรือสมัครงาน</h4>
+                    <ul>
+                        <li><strong>ส่ง Resume:</strong> <a href="mailto:Info@thomeinspector.com">Info@thomeinspector.com</a></li>
+                        <li><strong>โทร:</strong> <a href="tel:0842916446">084-291-6446 (ปัญปัญ)</a></li>
+                        <li><strong>อินบ็อกซ์:</strong> ติดต่อผ่านข้อความโดยตรง</li>
+                    </ul>
+                </div>
+
+                <a href="/HOMESPECTOR/backend/job.php" class="apply-btn">Apply Now</a>
+            </div>
             <section class="footer">
                 <footer class="footer">
                     <div class="footer-container">
@@ -467,99 +496,12 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Sample Articles with Multiple Links
-            const articles = [
-                {
-                    title: "ต.ตรวจบ้าน - ตรวจสอบก่อนโอน",
-                    content: "<p>บทความเกี่ยวกับการตรวจบ้านก่อนโอนกรรมสิทธิ์...</p>",
-                    links: {
-                        "ตตรวจบ้าน": "/HOMESPECTOR/Homepage/articles_view1.html",
-                        "homeinspector": "/HOMESPECTOR/Homepage/articles_view2.html",
-                    },
-                    tags: ["ตตรวจบ้าน", "homeinspector"],
-                },
-                {
-                    title: "การต่อเติมบ้านต้องรู้อะไรบ้าง?",
-                    content: "<p>คำแนะนำเกี่ยวกับการต่อเติมบ้านให้ถูกต้องตามกฎหมาย...</p>",
-                    links: {
-                        "ต่อเติมบ้าน": "/HOMESPECTOR/Homepage/articles_view3.html",
-                    },
-                    tags: ["ต่อเติมบ้าน"],
-                },
-                {
-                    title: "ตรวจคอนโดก่อนรับมอบต้องเช็คอะไร?",
-                    content: "<p>ข้อควรรู้ก่อนตรวจรับคอนโดใหม่...</p>",
-                    links: {
-                        "ตรวจคอนโด": "/HOMESPECTOR/Homepage/articles_view4.html",
-                    },
-                    tags: ["ตรวจคอนโด"],
-                },
-                {
-                    title: "Home Inspector มีความสำคัญอย่างไร?",
-                    content: "<p>บทความอธิบายเกี่ยวกับบทบาทของ Home Inspector...</p>",
-                    links: {
-                        "homeinspector": "/HOMESPECTOR/Homepage/articles_view5.html",
-                    },
-                    tags: ["homeinspector"],
-                },
-            ];
-
-            const articleList = document.getElementById("article-list");
-            const tagButtons = document.querySelectorAll(".tag-btn");
-
-            // Add event listeners to tags
-            tagButtons.forEach((button) => {
-                button.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    const selectedTag = e.target.textContent.trim(); // Get text of the clicked button
-
-                    // Filter articles based on the selected tag
-                    const filteredArticles = articles.filter((article) =>
-                        article.tags.includes(selectedTag)
-                    );
-
-                    // Clear existing articles
-                    articleList.innerHTML = "";
-
-                    // Add filtered articles with multiple links
-                    if (filteredArticles.length > 0) {
-                        filteredArticles.forEach((article) => {
-                            let linksHTML = "";
-                            article.tags.forEach((tag) => {
-                                if (article.links[tag]) {
-                                    linksHTML += `<a href="${article.links[tag]}" class="read-more" target="_blank">${tag}</a> `;
-                                }
-                            });
-
-                            const articleCard = `
-                        <div class="article-card">
-                            <h2>${article.title}</h2>
-                            <div class="article-content">${article.content}</div>
-                            ${linksHTML}
-                        </div>
-                    `;
-                            articleList.innerHTML += articleCard;
-                        });
-                    } else {
-                        articleList.innerHTML = "<p>ไม่มีบทความสำหรับแท็กนี้</p>";
-                    }
-
-                    // Smooth scroll to article section
-                    articleList.scrollIntoView({ behavior: "smooth", block: "start" });
-                });
-            });
-        });
-
-
-    </script>
 
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
-    <script src="/HOMESPECTOR/JS/upload_date.js"></script>
-    <script src="/HOMESPECTOR/JS/dropdown.js"></script>
-    <script src="/HOMESPECTOR/JS/content_carousel.js"></script>
-    <script src="/HOMESPECTOR/JS/article_tag.js"></script>
+    <script src="/HOOMESPECTOR/JS/dropdown.js"></script>
+    <script src="/HOMESPECTOR/JS/carousel.js"></script>
+    <script src="/HOMESPECTOR/JS/carousel2.js"></script>
+    <script src="/HOMESPECTOR/JS/carousel5.js"></script>
     <script src="/HOMESPECTOR/JS/search_ham.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

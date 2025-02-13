@@ -1627,7 +1627,7 @@ header {
     gap: 10px;
     overflow-x: auto;
     padding: 15px 0;
-    width: 80%;
+    width: 100%;
     max-width: 1200px;
     white-space: nowrap;
 }
@@ -2472,39 +2472,3 @@ button.next-btn:hover {
     color: #ffffff;
 }
 
-@media screen and (max-width: 768px) {
-    .footer-menu {
-        display: none;
-        flex-direction: column;
-        text-align: left;
-        padding: 10px;
-        background: #f9f9f9;
-        border-radius: 5px;
-        list-style-type: none;
-    }
-
-    .toggle-menu {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 18px;
-        font-weight: bold;
-        cursor: pointer;
-        padding: 10px;
-        background: #f1f1f1;
-        border-radius: 5px;
-    }
-
-    .toggle-icon {
-        font-size: 20px;
-        font-weight: bold;
-        transition: transform 0.3s ease;
-        background-color: var(--font2-color);
-        border-radius: 50%;
-}
-
-    /* Rotate + to - when active */
-    .toggle-menu.active .toggle-icon {
-        transform: rotate(45deg);
-    }
-}
