@@ -232,7 +232,6 @@
 
                 <div class="content-container">
                     <!-- <h2 class="content-subtitle">สรุป!! จัดการการออกแบบสาย LAN ตามบ้าน</h2> -->
-                    <span class="upload-date" data-date="2024-12-10"></span>
 
                     <!-- Main Image Section -->
                     <div class="main-image-container">
@@ -326,6 +325,7 @@
                         <a href="#" id="share-icon">
                             <i class="fa-solid fa-share" aria-label="Share"></i>
                         </a>
+
                     </div>
 
                 </div>
@@ -466,101 +466,14 @@
 
         </div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Sample Articles with Multiple Links
-            const articles = [
-                {
-                    title: "ต.ตรวจบ้าน - ตรวจสอบก่อนโอน",
-                    content: "<p>บทความเกี่ยวกับการตรวจบ้านก่อนโอนกรรมสิทธิ์...</p>",
-                    links: {
-                        "ตตรวจบ้าน": "/HOMESPECTOR/Homepage/articles_view1.html",
-                        "homeinspector": "/HOMESPECTOR/Homepage/articles_view2.html",
-                    },
-                    tags: ["ตตรวจบ้าน", "homeinspector"],
-                },
-                {
-                    title: "การต่อเติมบ้านต้องรู้อะไรบ้าง?",
-                    content: "<p>คำแนะนำเกี่ยวกับการต่อเติมบ้านให้ถูกต้องตามกฎหมาย...</p>",
-                    links: {
-                        "ต่อเติมบ้าน": "/HOMESPECTOR/Homepage/articles_view3.html",
-                    },
-                    tags: ["ต่อเติมบ้าน"],
-                },
-                {
-                    title: "ตรวจคอนโดก่อนรับมอบต้องเช็คอะไร?",
-                    content: "<p>ข้อควรรู้ก่อนตรวจรับคอนโดใหม่...</p>",
-                    links: {
-                        "ตรวจคอนโด": "/HOMESPECTOR/Homepage/articles_view4.html",
-                    },
-                    tags: ["ตรวจคอนโด"],
-                },
-                {
-                    title: "Home Inspector มีความสำคัญอย่างไร?",
-                    content: "<p>บทความอธิบายเกี่ยวกับบทบาทของ Home Inspector...</p>",
-                    links: {
-                        "homeinspector": "/HOMESPECTOR/Homepage/articles_view5.html",
-                    },
-                    tags: ["homeinspector"],
-                },
-            ];
-
-            const articleList = document.getElementById("article-list");
-            const tagButtons = document.querySelectorAll(".tag-btn");
-
-            // Add event listeners to tags
-            tagButtons.forEach((button) => {
-                button.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    const selectedTag = e.target.textContent.trim(); // Get text of the clicked button
-
-                    // Filter articles based on the selected tag
-                    const filteredArticles = articles.filter((article) =>
-                        article.tags.includes(selectedTag)
-                    );
-
-                    // Clear existing articles
-                    articleList.innerHTML = "";
-
-                    // Add filtered articles with multiple links
-                    if (filteredArticles.length > 0) {
-                        filteredArticles.forEach((article) => {
-                            let linksHTML = "";
-                            article.tags.forEach((tag) => {
-                                if (article.links[tag]) {
-                                    linksHTML += `<a href="${article.links[tag]}" class="read-more" target="_blank">${tag}</a> `;
-                                }
-                            });
-
-                            const articleCard = `
-                        <div class="article-card">
-                            <h2>${article.title}</h2>
-                            <div class="article-content">${article.content}</div>
-                            ${linksHTML}
-                        </div>
-                    `;
-                            articleList.innerHTML += articleCard;
-                        });
-                    } else {
-                        articleList.innerHTML = "<p>ไม่มีบทความสำหรับแท็กนี้</p>";
-                    }
-
-                    // Smooth scroll to article section
-                    articleList.scrollIntoView({ behavior: "smooth", block: "start" });
-                });
-            });
-        });
-
-
-    </script>
-
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
     <script src="/HOMESPECTOR/JS/upload_date.js"></script>
     <script src="/HOMESPECTOR/JS/dropdown.js"></script>
     <script src="/HOMESPECTOR/JS/content_carousel.js"></script>
     <script src="/HOMESPECTOR/JS/article_tag.js"></script>
     <script src="/HOMESPECTOR/JS/search_ham.js"></script>
+    <script src="/HOMESPECTOR/JS/article_tag.js"></script>
+    <script src="/HOMESPECTOR/JS/share_icon.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
@@ -568,7 +481,7 @@
     <script>
         AOS.init();
     </script>
-
+    
 </body>
 
 </html>

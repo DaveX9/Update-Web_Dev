@@ -669,33 +669,38 @@ header {
 }
 
 
-/* job apply */
-.apply-job{
-    width: 100%;
+/* Job Apply Section */
+.apply-job {
+    width: 90%;
     max-width: 1200px;
     margin: auto;
     overflow: hidden;
     background: #fff;
-    padding: 20px;
+    padding: 40px 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
 h1 {
     color: var(--font-color);
     text-align: center;
-    justify-content: center;
-    margin-bottom: 30px;
     font-weight: bold;
+    font-size: 32px;
 }
+
+/* Job Container */
 .job-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    flex-wrap: wrap;
     gap: 20px;
     padding: 10px;
 }
+
+/* Job Listings */
 .job-listing {
     padding: 20px;
     background: #e0f7ff;
@@ -706,44 +711,47 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 280px; /* Fixed width for better centering */
 }
-.job-listing i {
-    font-size: 40px;
-    margin-bottom: 10px;
-    color: #ff69b4;
-}
-.job-listing h2 {
-    margin: 10px 0;
-}
+
+/* Apply Button */
 .apply-btn {
     display: inline-block;
     padding: 10px 20px;
     background-color: #002e6d;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 15px;
     transition: 0.3s;
     margin-top: 15px;
-    border-radius: 15px;
+}
 
-}
 .apply-btn:hover {
-    background:var(--hover-color);
+    background: var(--hover-color);
 }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .job-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
 @media (max-width: 768px) {
     .job-container {
-        grid-template-columns: repeat(2, 1fr);
+        flex-direction: column;
+        align-items: center;
     }
 }
+
 @media (max-width: 480px) {
-    .job-container {
-        grid-template-columns: 1fr;
-    }
     h1 {
-        font-size: 20px;
+        font-size: 24px;
     }
-    .job-listing h2 {
-        font-size: 18px;
+    .job-listing {
+        width: 100%;
+        max-width: 300px;
     }
     .apply-btn {
         font-size: 16px;
@@ -751,7 +759,8 @@ h1 {
     }
 }
 
-/* footer */
+
+/* Footer Styles */
 .footer {
     background-color: #f9f9f9;
     color: #333;
@@ -785,12 +794,6 @@ h1 {
     gap: 10px;
 }
 
-/* Social Icons */
-.social-icons {
-    display: flex;
-    gap: 10px;
-}
-
 .social-icons a img {
     width: 20px;
     height: auto;
@@ -801,7 +804,7 @@ h1 {
     transform: scale(1.2);
 }
 
-
+/* Footer Menu */
 .footer-center {
     flex: 1 1 20%;
     margin-bottom: 20px;
@@ -812,116 +815,29 @@ h1 {
     margin-bottom: 10px;
 }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.footer-center {
-    flex: 1;
-    min-width: 200px;
-}
-
-.footer-center h3 {
-    margin-bottom: 10px;
-    text-align: left;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.footer-center ul {
+.footer-menu {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.footer-center ul li {
+.footer-menu li {
     margin-bottom: 10px;
 }
 
-.footer-center ul li a {
-    border: none;
-    background: none;
-    outline: none;
-    padding: 0;
+.footer-menu li a {
     color: #000;
     text-decoration: none;
 }
 
-.footer-center ul li a:hover {
-    border: none;
-    background: none;
+.footer-menu li a:hover {
     color: var(--hover-color);
 }
-
-
-.dropdown-menu2 {
-    display: none;
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
-    min-width: 130px;
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-    transform: translateY(-10px);
-}
-
-/* Ensure Dropdown Menu Stays Open When Hovered */
-.dropdown2:hover .dropdown-menu2 {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Adjust Dropdown Parent Styling */
-.dropdown2 {
-    position: relative;
-    cursor: pointer;
-}
-
-/* Ensure smooth hover behavior for dropdown items */
-.dropdown-menu2 li {
-    display: block;
-}
-
-.dropdown-menu2 a {
-    display: block;
-    padding: 10px 15px;
-    color: #000;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.dropdown-menu2 a:hover {
-    background-color: #f0f0f0;
-    color: #007BFF;
-}
-
-.footer-right {
-    flex: 1 1 20%;
-    margin-bottom: 20px;
-}
-
-.footer-right h3 {
-    font-weight: bold;
-    font-size: 20px;
-}
-
 .payment-logos img {
     height: 30px;
     margin-right: 10px;
     margin-top: 10px;
 }
-
 .footer-bottom {
     text-align: center;
     border-top: 1px solid #ccc;
@@ -930,3 +846,35 @@ h1 {
     color: #777;
     margin-bottom: -30px;
 }
+/* Toggle Icon */
+.toggle-icon {
+    font-size: 24px;
+    background-color: #0056b3;
+    color: #ffffff;
+    padding: 5px 8px;
+    border-radius: 50%;
+    display: none; /* Hide by default */
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+/* Show + Icon on Mobile Only */
+@media screen and (max-width: 768px) {
+    .toggle-icon {
+        display: inline-flex;
+    }
+    .footer-menu {
+        display: none; /* Hide menu initially on mobile */
+    }
+}
+
+/* Ensure Menus Stay Open on Desktop */
+@media screen and (min-width: 769px) {
+    .footer-menu {
+        display: block !important;
+    }
+}
+
+

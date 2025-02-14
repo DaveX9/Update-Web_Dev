@@ -1,4 +1,3 @@
-// --------------------------
 // HAMBURGER MENU FUNCTIONALITY
 // --------------------------
 const hamburgerIcon = document.getElementById('hamburger-icon');
@@ -42,8 +41,9 @@ if (searchIcon && searchBar) {
     searchIcon.addEventListener('click', toggleSearch);
 }
 
+
 // --------------------------
-// FOOTER TOGGLE FUNCTIONALITY
+// FOOTER TOGGLE MENU FUNCTIONALITY
 function toggleFooterMenu(menuId) {
     let menu = document.getElementById(menuId);
     let header = menu.previousElementSibling; // Get the h3 header
@@ -61,5 +61,3 @@ function toggleFooterMenu(menuId) {
         }
     }
 }
-
-

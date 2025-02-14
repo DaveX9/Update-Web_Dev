@@ -14,6 +14,59 @@
     <link rel="stylesheet" href="/HOMESPECTOR/CSS/project_media.css">
     <title>Header Design</title>
 </head>
+<style>
+    .link-cards {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .facebook {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background-image: url('/HOMESPECTOR/img/hero-bg3.jpg'); */
+        background-color: var(--font2-color);
+        background-size: cover;
+        background-position: center;
+        color: white;
+        border-radius: 15px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        width: 200px;
+        height: 60px;
+        box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.767);
+        padding: 10px 20px;
+    }
+
+    .facebook:hover {
+        color: #000;
+
+    }
+
+    .facebook-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .facebook-content p {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .facebook-content i {
+        font-size: 20px;
+        margin-left: 5px;
+    }
+</style>
 
 <body>
     <div class="content-box">
@@ -244,6 +297,15 @@
                             class="fa-solid fa-caret-right"></i></button>
                     <img id="modal-image" src="" alt="Zoomed Image">
                 </div>
+            </div>
+            <!-- facebook-link -->
+            <div class="link-cards" id="link-cards">
+                <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH" class="facebook">
+                    <div class="facebook-content">
+                        <p>Read More</p>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
             </div>
 
             <section class="footer">
