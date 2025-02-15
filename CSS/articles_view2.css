@@ -522,6 +522,21 @@ header {
 .menu-link:hover {
     color: var(--hover-color);
 }
+/* Hide search and language switcher by default on mobile */
+@media (max-width: 768px) {
+    .language-switcher,
+    .search-bar {
+        display: none;
+    }
+
+    /* Show inside the fullscreen menu */
+    .fullscreen-menu .language-switcher,
+    .fullscreen-menu .search-bar {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
 
 
 /*line*/
@@ -626,7 +641,7 @@ header {
 /* Subtitle */
 .content-subtitle {
     font-size: 22px;
-    color:var(--font-color); 
+    color: var(--font-color);
     text-align: left;
     margin-bottom: 15px;
 }
@@ -670,14 +685,14 @@ header {
 }
 
 .inspection-info h2 {
-    color: var(--font-color); 
+    color: var(--font-color);
     padding-bottom: 5px;
     margin-top: 30px;
 }
 
 /* Web Application Section */
 .web-application h2 {
-    color:var(--font-color); 
+    color: var(--font-color);
     padding-bottom: 5px;
     margin-top: 30px;
 }
@@ -699,7 +714,7 @@ header {
 blockquote {
     font-size: 18px;
     font-weight: bold;
-    color: #6A0DAD; 
+    color: #6A0DAD;
     border-left: 4px solid #6A0DAD;
     padding-left: 15px;
     margin: 20px 0;
@@ -754,7 +769,8 @@ blockquote {
 /* Responsive Design */
 @media (max-width: 768px) {
     .video-container {
-        grid-template-columns: 1fr; /* Show 1 video per row on small screens */
+        grid-template-columns: 1fr;
+        /* Show 1 video per row on small screens */
     }
 }
 
@@ -791,6 +807,128 @@ blockquote {
     }
 }
 
+/* Tag Section */
+.tag-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.tag-btn {
+    padding: 8px 16px;
+    border: 1px solid #0056b3;
+    border-radius: 20px;
+    background: transparent;
+    font-size: 14px;
+    color: #0056b3;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.tag-btn:hover {
+    background: #0056b3;
+    color: white;
+}
+
+
+/* Article Section */
+#article-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.article-card {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.article-card h2 {
+    font-size: 20px;
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+.article-content {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Read More Button */
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.read-more:hover {
+    background-color: #003d80;
+}
+
+.social-share {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #0056b3;
+    margin-top: 10px;
+}
+
+.social-share a .fa-share {
+    color: white;
+    font-size: 20px;
+    background-color: #113172;
+    padding: 3px;
+    border-radius: 50%;
+    /* Makes the background circular */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.social-share a:hover .fa-share {
+    transform: scale(1.2);
+}
+
+.social-share a:hover img {
+    transform: scale(1.2);
+}
+
+.social-share a img {
+    width: 26px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.social-share a i {
+    color: white;
+    font-size: 16px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .tag-section {
+        justify-content: center;
+    }
+
+    .social-share {
+        flex-direction: row;
+        align-items: center;
+    }
+}
 
 
 /* carousel articles */
@@ -966,11 +1104,13 @@ blockquote {
 .footer-menu li a:hover {
     color: var(--hover-color);
 }
+
 .payment-logos img {
     height: 30px;
     margin-right: 10px;
     margin-top: 10px;
 }
+
 .footer-bottom {
     text-align: center;
     border-top: 1px solid #ccc;
@@ -979,6 +1119,7 @@ blockquote {
     color: #777;
     margin-bottom: -30px;
 }
+
 /* Toggle Icon */
 .toggle-icon {
     font-size: 24px;
@@ -986,7 +1127,8 @@ blockquote {
     color: #ffffff;
     padding: 5px 8px;
     border-radius: 50%;
-    display: none; /* Hide by default */
+    display: none;
+    /* Hide by default */
     justify-content: center;
     align-items: center;
     width: 30px;
@@ -998,8 +1140,10 @@ blockquote {
     .toggle-icon {
         display: inline-flex;
     }
+
     .footer-menu {
-        display: none; /* Hide menu initially on mobile */
+        display: none;
+        /* Hide menu initially on mobile */
     }
 }
 
@@ -1009,5 +1153,3 @@ blockquote {
         display: block !important;
     }
 }
-
-
