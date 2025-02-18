@@ -10,134 +10,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="/HOMESPECTOR/CSS/joinwithus.css">
+    <link rel="stylesheet" href="/HOMESPECTOR/CSS/contactus.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <title>Header Design</title>
 </head>
-
-<style>
-    .bg-img {
-        position: relative;
-        background: url('/HOMESPECTOR/img/hero-bg3.webp') no-repeat center center;
-        background-size: cover;
-        background-attachment: fixed;
-        width: 100%;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 50px 0;
-    }
-
-    /* Silver Overlay */
-    .bg-img::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(192, 192, 192, 0.5);
-        /* Silver color with 50% opacity */
-        z-index: 1;
-    }
-
-    /* Ensure content stays on top */
-    .container-job {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        margin: 30px auto;
-        padding: 20px;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-        color: var(--font-color);
-        text-align: center;
-        font-size: 24px;
-    }
-
-    .job-info {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-
-    .job-info p {
-        font-size: 16px;
-        margin: 5px 0;
-        color: var(--font-color);
-    }
-
-    .section {
-        margin-bottom: 20px;
-    }
-
-    .section h2 {
-        font-size: 18px;
-        color: var(--font-color);
-        font-weight: bold;
-        border-bottom: 2px solid #ddd;
-        padding-bottom: 5px;
-
-    }
-
-    .section p {
-        font-size: 16px;
-        color: #555;
-    }
-
-    .contact {
-        background: #f2f2f2;
-        padding: 15px;
-        border-radius: 5px;
-    }
-
-    .apply-btn {
-        display: block;
-        width: 20%;
-        text-align: center;
-        align-items: center;
-        background: var(--font2-color);
-        color: white;
-        padding: 12px;
-        font-size: 18px;
-        border-radius: 15px;
-        text-decoration: none;
-        margin-top: 20px;
-    }
-
-    .apply-btn:hover {
-        background: #ff5c05;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .container-job {
-            width: 90%;
-            padding: 15px;
-        }
-
-        h1 {
-            font-size: 22px;
-            text-align: left;
-        }
-
-        .job-info {
-            flex-direction: column;
-        }
-
-        .apply-btn {
-            font-size: 16px;
-            padding: 10px;
-            width: 30%;
-        }
-    }
-</style>
 
 <body>
     <div class="content-box">
@@ -217,9 +93,9 @@
                                 data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
                                 data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
-                        <li><a href="/HOMESPECTOR/Homepage/joinwithus.html" data-translate="nav.joinUs">รวมงานกับเรา</a>
+                        <li><a href="/HOMESPECTOR/Homepage/joinwithus.php" data-translate="nav.joinUs">รวมงานกับเรา</a>
                         </li>
-                        <li><a href="/HOMESPECTOR/Homepage/contactus.html" data-translate="nav.contact">ติดต่อเรา</a>
+                        <li><a href="/HOMESPECTOR/Homepage/Contactus.php" data-translate="nav.contact">ติดต่อเรา</a>
                         </li>
                     </ul>
                 </nav>
@@ -302,9 +178,9 @@
                                         data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
                                         data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/joinwithus.html"
+                                <li><a href="/HOMESPECTOR/Homepage/joinwithus.php"
                                         data-translate="nav.joinUs">รวมงานกับเรา</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/contactus.html"
+                                <li><a href="/HOMESPECTOR/Homepage/Contactus.php"
                                         data-translate="nav.contact">ติดต่อเรา</a></li>
                             </ul>
                         </div>
@@ -326,13 +202,14 @@
 
                         <!-- Other Sections -->
                         <div class="menu-section">
-                            <h3><a href="/HOMESPECTOR/Homepage/Contactus.html" class="menu-link">Contact</a></h3>
+                            <h3><a href="/HOMESPECTOR/Homepage/Contactus.php" class="menu-link">Contact</a></h3>
                             <h3><a href="/HOMESPECTOR/Homepage/projects_media.html" class="menu-link">Projects</a></h3>
-                            <h3><a href="/HOMESPECTOR/Homepage/joinwithus.html" class="menu-link">joinwithus</a></h3>
+                            <h3><a href="/HOMESPECTOR/Homepage/joinwithus.php" class="menu-link">joinwithus</a></h3>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- line -->
             <div class="contact-container1">
                 <a href="tel:02-454-2043" class="contact-item1" data-aos="fade-up-left">
                     <div class="icon">
@@ -347,81 +224,72 @@
                     <span>@t.home</span>
                 </a>
             </div>
-            <div class="container-job">
-                <h1>Job Details </h1>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2 data-translate="head-office-title">บริษัท ต.จรัสชัย สากลก่อสร้าง จำกัด</h2>
+                    <p><strong data-translate="office-address">2043 ซอย กาญจนาภิเษก 8 แขวงบางแค เขตบางแค กรุงเทพมหานคร 10160</strong></p>
+                    <p data-translate="office-address">
+                        <!-- 2043 ซอย กาญจนาภิเษก 8 แขวงบางแค เขตบางแค กรุงเทพมหานคร 10160 -->
+                    </p>
+                    <a href="https://maps.app.goo.gl/wqofxUPRpDrbbRmv5" target="_blank" class="get-direction-btn"
+                        data-translate="get-direction">
+                        Get Direction
+                    </a>
 
-                <div class="job-info">
-                    <p><strong>📍 Location:</strong> Office</p>
-                    <p><strong>💼 Job Type:</strong> Permanent</p>
-                    <p><strong>📌 Job Function:</strong> Administration</p>
-                    <!-- <p><strong>🏢 Industry:</strong> Corporate</p> -->
-                    <p><strong>💰 Salary:</strong> 15,000 - 18,000 ฿</p>
+
+                    <!-- Map container -->
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.382748942745!2d100.41417899999999!3d13.6952533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2bd6191c4dc0f%3A0x525332376dd66d01!2z4Lia4Lij4Li04Lip4Lix4LiXIOC4lS7guIjguKPguLHguKrguIrguLHguKIg4Liq4Liy4LiB4Lil4LiB4LmI4Lit4Liq4Lij4LmJ4Liy4LiHIOC4iOC4s-C4geC4seC4lA!5e0!3m2!1sth!2sth!4v1733535737301!5m2!1sth!2sth"
+                            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <p>
+                        <i class="fa-solid fa-phone"></i> :
+                        <a href="tel:02-454-2043" data-translate="phone-numbers">02-454-2043, 082-045-6155</a>
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-envelope"></i> :
+                        <a href="mailto:Info@thomeinspector.com"
+                            data-translate="email">Info@thomeinspector.com</a>
+                    </p>
+
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
+                            <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/t.homeinspector/">
+                            <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="Instagram">
+                        </a>
+                        <a href="https://page.line.me/t.home?openQrModal=true">
+                            <img src="/HOMESPECTOR/icon/ICON/line.png" alt="Line">
+                        </a>
+                        <a href="tel:082-045-6165">
+                            <img src="/HOMESPECTOR/icon/ICON/phone.png" alt="Phone">
+                        </a>
+                    </div>
                 </div>
 
-                <div class="section">
-                    <h2>About the Role (Position)</h2>
-                    <ul>
-                        <li>ตอบแชทลูกค้า ลงคิวงานและจัดตารางงาน</li>
-                        <li>รวบรวมเอกสารค่าใช้จ่ายบริษัททั้งหมด ส่งให้ฝ่ายบัญชี</li>
-                        <li>ทำงานเอกสารต่างๆ ตามที่ได้รับมอบหมาย</li>
-                        <li>สนับสนุนงานอื่นๆ (ช่วยคิด Content ลงเพจ)</li>
-                        <li>ดูแลเพจ Social Media & Ecommerce (Lazada / Shopee)</li>
-                    </ul>
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2>CONTACT US</h2>
+                    <form action="/HomeSpector/backend/process-form.php" method="POST">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
 
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" required></textarea>
+
+                        <button type="submit">Submit</button>
+                    </form>
                 </div>
-
-                <div class="section">
-                    <h2>Job Responsibilities</h2>
-                    <ul>
-                        <li><strong>เพศหญิง</strong> อายุ 18 ปีขึ้นไป (ยินดีรับ ปวช./ปวส. และนักศึกษาจบใหม่)</li>
-                        <li>พร้อมเรียนรู้งาน และพัฒนาตัวเอง</li>
-                        <li><strong>มีทักษะการประสานงาน</strong> ละเอียดรอบคอบ อดทน และมีทักษะการสื่อสารที่ดี</li>
-                        <li><strong>สามารถใช้คอมพิวเตอร์</strong> และโปรแกรมพื้นฐาน (Microsoft Office)</li>
-                        <li><strong>มีมนุษย์สัมพันธ์ดี</strong> กระตือรือร้น เปิดใจเรียนรู้สิ่งใหม่ๆ</li>
-                        <li><strong>ใช้ภาษาไทยได้ถูกต้อง</strong></li>
-                    </ul>
-
-                    <h4>สวัสดิการอื่นๆ</h4>
-                    <ul>
-                        <li><strong>ประกันอุบัติเหตุ</strong> (หลังจากผ่านช่วงทดลองงาน 3 เดือน)</li>
-                        <li><strong>โบนัสประจำปี</strong> ตามความสามารถและผลประกอบการของบริษัท</li>
-                        <li> <strong>ตรวจสุขภาพประจำปี</strong></li>
-                    </ul>
-                </div>
-
-                <div class="section">
-                    <h2>Experience Requirements</h2>
-                    <p>0-3 ปี ในสายงานธุรการ การจัดการสำนักงาน หรือสายงานที่เกี่ยวข้อง</p>
-                </div>
-
-                <div class="section">
-                    <h2>Education Requirements</h2>
-                    <p>ปริญญาตรีในสาขาการบริหารธุรกิจ การจัดการสำนักงาน หรือสาขาอื่นที่เกี่ยวข้อง</p>
-                    <p>มีความสามารถในการใช้โปรแกรม Microsoft Office (Excel, Word, PowerPoint)
-                        จะได้รับการพิจารณาเป็นพิเศษ</p>
-                </div>
-
-
-                <div class="contact">
-                    <h4> 📞Contact Person</h4>
-                    <ul>
-                        <li><strong>Office:</strong> สามารถเดินทางมาลงที่ MRT สถานีบางแค</li>
-                        <li><strong>เวลาทำงาน:</strong> 6 วัน/สัปดาห์ เวลา 8.00 น. – 17.00 น.</li>
-                        <li><strong>บริษัท:</strong> ต.จรัสชัย สากลก่อสร้าง จำกัด</li>
-                        <li><strong>ที่อยู่:</strong> 2043 ซอยกาญจนาภิเษก 008 แขวงบางแค เขตบางแค กรุงเทพฯ 10160 (หมู่บ้านมั่งมีซิตี้)</li>
-                    </ul>
-                    
-                    <h4>📩 ช่องทางติดต่อหรือสมัครงาน</h4>
-                    <ul>
-                        <li><strong>ส่ง Resume:</strong> <a href="mailto:Info@thomeinspector.com">Info@thomeinspector.com</a></li>
-                        <li><strong>โทร:</strong> <a href="tel:0842916446">084-291-6446 (ปัญปัญ)</a></li>
-                        <li><strong>อินบ็อกซ์:</strong> ติดต่อผ่านข้อความโดยตรง</li>
-                    </ul>
-                </div>
-
-                <a href="/HOMESPECTOR/backend/job.php" class="apply-btn">Apply Now</a>
             </div>
-            <section class="footer">
+                <section class="footer">
                 <footer class="footer">
                     <div class="footer-container">
                         <div class="footer-left">
@@ -459,7 +327,7 @@
                                 <li><a href="promotion.html">สิทธิพิเศษ</a></li>
                                 <li><a href="projects_media.html">ผลงาน</a></li>
                                 <li><a href="articles.html">บทความ</a></li>
-                                <li><a href="contactus.html">ติดต่อเรา</a></li>
+                                <li><a href="Contactus.php">ติดต่อเรา</a></li>
                             </ul>
                         </div>
 

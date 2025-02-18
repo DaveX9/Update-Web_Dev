@@ -27,9 +27,9 @@
                                 data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
                                 data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
-                        <li><a href="/HOMESPECTOR/Homepage/joinwithus.html" data-translate="nav.joinUs">รวมงานกับเรา</a>
+                        <li><a href="/HOMESPECTOR/Homepage/joinwithus.php" data-translate="nav.joinUs">รวมงานกับเรา</a>
                         </li>
-                        <li><a href="/HOMESPECTOR/Homepage/contactus.html" data-translate="nav.contact">ติดต่อเรา</a>
+                        <li><a href="/HOMESPECTOR/Homepage/Contactus.php" data-translate="nav.contact">ติดต่อเรา</a>
                         </li>
                     </ul>
 </nav>

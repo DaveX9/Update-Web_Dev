@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Noto+Sans+Thai:wght@100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 :root {
     --background-color: #ffffff;
     --font-color: #0e0d0d;
@@ -11,7 +11,7 @@
 /* @font-face {
     font-family: "FC Sound";
     src: url("../fonts/FCSoundNoncommercial-Bold.woff2") format("woff2");
-    font-weight: bold;
+    font-weight: mormal;
     font-style: normal;
 } */
 

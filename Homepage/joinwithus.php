@@ -15,129 +15,6 @@
     <title>Header Design</title>
 </head>
 
-<style>
-    .bg-img {
-        position: relative;
-        background: url('/HOMESPECTOR/img/hero-bg1.jpg') no-repeat center center;
-        background-size: cover;
-        background-attachment: fixed;
-        width: 100%;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 50px 0;
-    }
-
-    /* Silver Overlay */
-    .bg-img::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(192, 192, 192, 0.5);
-        /* Silver color with 50% opacity */
-        z-index: 1;
-    }
-
-    /* Ensure content stays on top */
-    .container-job {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        margin: 30px auto;
-        padding: 20px;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-        color: var(--font-color);
-        text-align: center;
-        font-size: 24px;
-    }
-
-    .job-info {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-
-    .job-info p {
-        font-size: 16px;
-        margin: 5px 0;
-        color: var(--font-color);
-    }
-
-    .section {
-        margin-bottom: 20px;
-    }
-
-    .section h2 {
-        font-size: 18px;
-        color: var(--font-color);
-        font-weight: bold;
-        border-bottom: 2px solid #ddd;
-        padding-bottom: 5px;
-
-    }
-
-    .section p {
-        font-size: 16px;
-        color: #555;
-    }
-
-    .contact {
-        background: #f2f2f2;
-        padding: 15px;
-        border-radius: 5px;
-    }
-
-    .apply-btn {
-        display: block;
-        width: 20%;
-        text-align: center;
-        align-items: center;
-        background: var(--font2-color);
-        color: white;
-        padding: 12px;
-        font-size: 18px;
-        border-radius: 15px;
-        text-decoration: none;
-        margin-top: 20px;
-    }
-
-    .apply-btn:hover {
-        background: #ff5c05;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .container-job {
-            width: 90%;
-            padding: 15px;
-        }
-
-        h1 {
-            font-size: 22px;
-            text-align: left;
-        }
-
-        .job-info {
-            flex-direction: column;
-        }
-
-        .apply-btn {
-            font-size: 16px;
-            padding: 10px;
-            width: 30%;
-        }
-    }
-</style>
 
 <body>
     <div class="content-box">
@@ -217,9 +94,9 @@
                                 data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
                                 data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
-                        <li><a href="/HOMESPECTOR/Homepage/joinwithus.html" data-translate="nav.joinUs">รวมงานกับเรา</a>
+                        <li><a href="/HOMESPECTOR/Homepage/joinwithus.php" data-translate="nav.joinUs">รวมงานกับเรา</a>
                         </li>
-                        <li><a href="/HOMESPECTOR/Homepage/contactus.html" data-translate="nav.contact">ติดต่อเรา</a>
+                        <li><a href="/HOMESPECTOR/Homepage/Contactus.php" data-translate="nav.contact">ติดต่อเรา</a>
                         </li>
                     </ul>
                 </nav>
@@ -302,9 +179,9 @@
                                         data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
                                         data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/joinwithus.html"
+                                <li><a href="/HOMESPECTOR/Homepage/joinwithus.php"
                                         data-translate="nav.joinUs">รวมงานกับเรา</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/contactus.html"
+                                <li><a href="/HOMESPECTOR/Homepage/Contactus.php"
                                         data-translate="nav.contact">ติดต่อเรา</a></li>
                             </ul>
                         </div>
@@ -326,9 +203,9 @@
 
                         <!-- Other Sections -->
                         <div class="menu-section">
-                            <h3><a href="/HOMESPECTOR/Homepage/Contactus.html" class="menu-link">Contact</a></h3>
+                            <h3><a href="/HOMESPECTOR/Homepage/Contactus.php" class="menu-link">Contact</a></h3>
                             <h3><a href="/HOMESPECTOR/Homepage/projects_media.html" class="menu-link">Projects</a></h3>
-                            <h3><a href="/HOMESPECTOR/Homepage/joinwithus.html" class="menu-link">joinwithus</a></h3>
+                            <h3><a href="/HOMESPECTOR/Homepage/joinwithus.php" class="menu-link">joinwithus</a></h3>
                         </div>
                     </div>
                 </div>
@@ -347,83 +224,179 @@
                     <span>@t.home</span>
                 </a>
             </div>
-            <div class="container-job">
-                <h1>Job Details </h1>
-
-                <div class="job-info">
-                    <p><strong>📍 Location:</strong>On-Site</p>
-                    <p><strong>💼 Job Type:</strong> Permanent</p>
-                    <p><strong>📌 Job Function:</strong> Civil Engineering</p>
-                    <!-- <p><strong>🏢 Industry:</strong> Corporate</p> -->
-                    <p><strong>💰 Salary:</strong> 25,000 - 30,000 ฿</p>
-                </div>
-
-                <div class="section">
-                    <h2>About the Role (Position)</h2>
-                    <p>ตำแหน่งวิศวกรโยธามีหน้าที่ดูแลงานก่อสร้าง วิเคราะห์โครงสร้าง และออกแบบโครงการโดยใช้ซอฟต์แวร์ CAD
-                        นอกจากนี้ยังต้องทำงานร่วมกับผู้จัดการโครงการ สถาปนิก
-                        และทีมก่อสร้างเพื่อให้มั่นใจว่าโครงการเป็นไปตามมาตรฐานความปลอดภัยและคุณภาพ
+            
+            <!-- <div class="join-us-container">
+                <div class="join-us-content">
+                    <h1 data-translate="join-title">JOIN US !</h1>
+                    <p data-translate="join-description">
+                        Join us to be a part of the professional consulting team, providing extraordinary
+                        level of expertise on services and solutions of the ever growing industry.
                     </p>
+                    <a href="mailto:admin@thomeinspector.com" class="btn" data-translate="join-button">Join Us</a>
                 </div>
 
-                <div class="section">
-                    <h2>Job Responsibilities</h2>
-                    <ul>
-                        <li>เพศชาย</li>
-                        <li>วุฒิ ปวส.- ป.ตรี สาขา วิศวกรรมโยธา, ก่อสร้าง, ไฟฟ้า</li>
-                        <li>หากมีใบ กว. จะได้รับพิจารณาเป็นพิเศษ</li>
-                        <li>มีความเป็นผู้นำ และทำงานเป็นทีมได้</li>
-                        <li>บุคลิกดี สุภาพ พูดจาดี พร้อมลุยงาน มีใจรักงานบริการแบบขั้นสุด</li>
-                        <li>ทัศนคติดี มีความกระตือรือร้น และพร้อมเรียนรู้สิ่งใหม่ๆ</li>
-                        <li>สามารถปฏิบัติงานภายใต้ภาวะกดดันได้ และมีทักษะในการติดต่อสื่อสาร</li>
-                        <li>สามารถใช้ Microsoft Office พื้นฐานได้</li>
-                    </ul>
-                    
-                    <h4>สวัสดิการอื่นๆ</h4>
-                    <ul>
-                        <li>ประกันอุบัติเหตุ</li>
-                        <li>โบนัสประจำปี ตามความสามารถและผลประกอบการของบริษัท</li>
-                        <li>ตรวจสุขภาพประจำปี</li>
-                        <li>ค่า OT ล่วงเวลา</li>
-                        <li>ค่าใบ กว.</li>
-                    </ul>
-                    
+                <div class="join-us-image">
+                    <img src="/HOMESPECTOR/img/joinwithus2.png" alt="Join Us Illustration">
                 </div>
-
-                <div class="section">
-                    <h2>Experience Requirements</h2>
-                    <p>มีประสบการณ์ 1-5 ปี ในงานวิศวกรรมโยธา การบริหารโครงการก่อสร้าง หรือสาขาที่เกี่ยวข้อง</p>
-                </div>
-
-                <div class="section">
-                    <h2>Education Requirements</h2>
-                    <ul>
-                        <li>ปริญญาตรีในสาขาวิศวกรรมโยธาหรือสาขาที่เกี่ยวข้อง</li>
-                        <li>มีทักษะการใช้ซอฟต์แวร์ CAD และเครื่องมือวิเคราะห์โครงสร้าง</li>
-                        <li>ความรู้เกี่ยวกับข้อกำหนดความปลอดภัยในการก่อสร้างและการควบคุมคุณภาพ</li>
-                    </ul>
-                </div>
-
-
-                <div class="contact">
-                    <h4> 📞Contact Person</h4>
-                    <ul>
-                        <li><strong>Office:</strong> สามารถเดินทางมาลงที่ MRT สถานีบางแค</li>
-                        <li><strong>เวลาทำงาน:</strong> 6 วัน/สัปดาห์ เวลา 8.00 น. – 17.00 น.</li>
-                        <li><strong>บริษัท:</strong> ต.จรัสชัย สากลก่อสร้าง จำกัด</li>
-                        <li><strong>ที่อยู่:</strong> 2043 ซอยกาญจนาภิเษก 008 แขวงบางแค เขตบางแค กรุงเทพฯ 10160 (หมู่บ้านมั่งมีซิตี้)</li>
-                    </ul>
-                    
-                    <h4>📩 ช่องทางติดต่อหรือสมัครงาน</h4>
-                    <ul>
-                        <li><strong>ส่ง Resume:</strong> <a href="mailto:Info@thomeinspector.com">Info@thomeinspector.com</a></li>
-                        <li><strong>โทร:</strong> <a href="tel:0842916446">084-291-6446 (ปัญปัญ)</a></li>
-                        <li><strong>อินบ็อกซ์:</strong> ติดต่อผ่านข้อความโดยตรง</li>
-                    </ul>
-                </div>
-
-                <a href="/HOMESPECTOR/backend/job.php" class="apply-btn">Apply Now</a>
             </div>
+
+
+            <div class="apply-job" data-aos="fade-up">
+                <h1>We're Hiring!</h1>
+                <p>Join our team and grow your career with us. Check out our latest job openings below</p>
+                
+                <div class="job-container" data-aos="fade-up-right">
+                    <div class="job-listing">
+                        <h2>Admin</h2>
+                        <p><strong>Location:</strong> Office</p>
+                        <p><strong>Requirements:</strong> Experience with office management, scheduling, and communication skills.</p>
+                        <a href="/HOMESPECTOR/Homepage/job1.php" class="apply-btn">Apply Now</a>
+                    </div>
+                    
+                    <div class="job-listing" data-aos="fade-up">
+                        <h2>Civil Engineer</h2>
+                        <p><strong>Location:</strong> On-site </p>
+                        <p><strong>Requirements:</strong> Experience with structural analysis, CAD software, and construction management.</p>
+                        <a href="/HOMESPECTOR/Homepage/job2.php" class="apply-btn">Apply Now</a>
+                    </div>
+                    
+                    <div class="job-listing" data-aos="fade-up-left">
+                        <h2>Intern Student</h2>
+                        <p><strong>Location:</strong> On-site</p>
+                        <p><strong>Requirements:</strong> Currently enrolled in a relevant degree program, eager to learn, and strong analytical skills.</p>
+                        <a href="/HOMESPECTOR/Homepage/job3.html" class="apply-btn">Apply Now</a>
+                    </div> 
+                </div>
+            </div> -->
+            <?php
+                // Database Connection
+                $pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                // Fetch ONLY the latest content from the database
+                $stmt = $pdo->prepare("SELECT content FROM pages WHERE page_name = 'joinwithus' ORDER BY id DESC LIMIT 1");
+                $stmt->execute();
+                $content = $stmt->fetchColumn();
+
+                // Clear any previous output before displaying the new content
+                ob_clean();
+                echo $content;
+            ?>
+            <?php
+                // Fetch job listings
+                $stmt = $pdo->prepare("SELECT * FROM job_listings ORDER BY date_posted DESC");
+                $stmt->execute();
+                $jobs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+                <div class="container mt-5">
+                    <div class="row">
+                        <?php foreach ($jobs as $job): ?>
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <h4 class="card-title"><?php echo htmlspecialchars($job['title']); ?></h4>
+                                        <h6 class="card-subtitle mb-2 text-muted"><?php echo htmlspecialchars($job['company_name']); ?></h6>
+                                        <p><strong>Location:</strong> <?php echo htmlspecialchars($job['location']); ?></p>
+                                        <p><strong>Job Type:</strong> <?php echo htmlspecialchars($job['job_type']); ?></p>
+                                        <p><strong>Salary:</strong> <?php echo htmlspecialchars($job['salary']); ?></p>
+                                        <a href="job_details.php?id=<?php echo $job['id']; ?>" class="btn btn-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <style>
+                    /* Job Apply Section */
+                    .apply-job {
+                        width: 90%;
+                        max-width: 1200px;
+                        margin: auto;
+                        overflow: hidden;
+                        background: #fff;
+                        padding: 40px 20px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                        border-radius: 10px;
+                        text-align: center;
+                        margin-top: 30px;
+                        margin-bottom: 30px;
+                    }
+
+                    h1 {
+                        color: #002e6d;
+                        text-align: center;
+                        font-weight: bold;
+                        font-size: 32px;
+                    }
+
+                    /* Job Container */
+                    .job-container {
+                        display: flex;
+                        justify-content: center; /* Centers items horizontally */
+                        flex-wrap: wrap;
+                        gap: 20px;
+                        padding: 10px;
+                    }
+
+                    /* Job Listings */
+                    .job-listing {
+                        padding: 20px;
+                        background: #e0f7ff;
+                        border-radius: 15px;
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+                        text-align: center;
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        width: 280px; /* Fixed width for better centering */
+                    }
+
+                    /* Apply Button */
+                    .apply-btn {
+                        display: inline-block;
+                        padding: 10px 20px;
+                        background-color: #002e6d;
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 15px;
+                        transition: 0.3s;
+                        margin-top: 15px;
+                    }
+
+                    .apply-btn:hover {
+                        background: #001a4d;
+                    }
+
+                    /* Responsive Design */
+                    @media (max-width: 1024px) {
+                        .job-container {
+                            flex-direction: row;
+                            justify-content: center;
+                        }
+                    }
+
+                    @media (max-width: 768px) {
+                        .job-container {
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                    }
+
+                    @media (max-width: 480px) {
+                        h1 {
+                            font-size: 24px;
+                        }
+                        .job-listing {
+                            width: 100%;
+                            max-width: 300px;
+                        }
+                        .apply-btn {
+                            font-size: 16px;
+                            padding: 12px;
+                        }
+                    }
+                </style>
             <section class="footer">
                 <footer class="footer">
                     <div class="footer-container">
@@ -462,7 +435,7 @@
                                 <li><a href="promotion.html">สิทธิพิเศษ</a></li>
                                 <li><a href="projects_media.html">ผลงาน</a></li>
                                 <li><a href="articles.html">บทความ</a></li>
-                                <li><a href="contactus.html">ติดต่อเรา</a></li>
+                                <li><a href="Contactus.php">ติดต่อเรา</a></li>
                             </ul>
                         </div>
 

@@ -36,7 +36,7 @@
                             <li><a href="promotion.html">สิทธิพิเศษ</a></li>
                             <li><a href="projects_media.html">ผลงาน</a></li>
                             <li><a href="articles.html">บทความ</a></li>
-                            <li><a href="contactus.html">ติดต่อเรา</a></li>
+                            <li><a href="Contactus.php">ติดต่อเรา</a></li>
                         </ul>
                     </div>
 
