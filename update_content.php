@@ -6,7 +6,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['content'])) {
     $content = $_POST['content'];
 
-    // Ensure content is replaced, not duplicated
+    // Update only one page content
     $stmt = $pdo->prepare("UPDATE pages SET content = ? WHERE page_name = 'joinwithus'");
     $stmt->execute([$content]);
 

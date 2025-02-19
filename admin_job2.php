@@ -6,13 +6,13 @@ $pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Fetch Latest Job Section
-$stmt = $pdo->prepare("SELECT job_content FROM job_details ORDER BY id DESC LIMIT 1");
+$stmt = $pdo->prepare("SELECT job_content FROM job_details1 ORDER BY id DESC LIMIT 1");
 $stmt->execute();
 $job_content = $stmt->fetchColumn();
 
 // Handle Update
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $stmt = $pdo->prepare("UPDATE job_details SET job_content=? ORDER BY id DESC LIMIT 1");
+    $stmt = $pdo->prepare("UPDATE job_details1 SET job_content=? ORDER BY id DESC LIMIT 1");
     if ($stmt->execute([$_POST['content']])) {
         echo "success";
     } else {
@@ -133,11 +133,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </div>
 
 <script>
-    $(document).ready(function() {
-        new FroalaEditor('#froala-editor', {
-            heightMin: 400,
-            heightMax: 800
-        });
+        $(document).ready(function() {
+                    // Initialize Froala Editor
+                    new FroalaEditor('#froala-editor', {
+                        toolbarButtons: [
+                            'bold', 'italic', 'underline', 'strikeThrough', '|',
+                            'fontFamily', 'fontSize', 'color', 'backgroundColor', '|',
+                            'align', 'formatOL', 'formatUL', 'indent', 'outdent', '|',
+                            'insertLink', 'insertImage', 'insertVideo', 'insertTable', '|',
+                            'undo', 'redo', 'clearFormatting', 'html', 'fullscreen', '|',
+                            'paragraphFormat', 'quote', 'insertHR', 'specialCharacters', '|',
+                            'insertFile', 'emoticons', 'print', 'help'
+                        ],
+                        heightMin: 400,
+                        heightMax: 800
+                    });
 
         $("#edit-form").on("submit", function(event) {
             event.preventDefault();

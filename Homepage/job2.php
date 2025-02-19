@@ -429,7 +429,7 @@
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 // Fetch Latest Job Posting
-                $stmt = $pdo->prepare("SELECT job_content FROM job_details ORDER BY id DESC LIMIT 1");
+                $stmt = $pdo->prepare("SELECT job_content FROM job_details1 ORDER BY id DESC LIMIT 1");
                 $stmt->execute();
                 $job_content = $stmt->fetchColumn();
 

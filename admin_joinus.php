@@ -10,19 +10,6 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $stmt = $pdo->prepare("SELECT content FROM pages WHERE page_name = 'joinwithus'");
 $stmt->execute();
 $content = $stmt->fetchColumn();
-
-// Update content in the database
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $updatedContent = $_POST['content'];
-    $stmt = $pdo->prepare("UPDATE pages SET content = ? WHERE page_name = 'joinwithus'");
-    $stmt->execute([$updatedContent]);
-
-    // Force frontend refresh after updating
-    echo "<script>
-        alert('Content updated successfully!');
-        window.location.href = 'admin_joinus.php';
-    </script>";
-}
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Admin Panel - Edit Page</title>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.15/css/froala_editor.pkgd.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.15/css/froala_editor.pkgd.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/HOMESPECTOR/CSS/admin_panel.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.15/js/froala_editor.pkgd.min.js"></script>
 </head>
@@ -44,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     <form id="edit-form" class="admin-form">
         <textarea id="froala-editor" name="content"><?php echo htmlspecialchars($content); ?></textarea>
-        <button type="submit">Save Changes</button>
+        <button type="submit" id="save-btn">Save Changes</button>
     </form>
 
     <!-- Success Message (Initially Hidden) -->
@@ -55,6 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $(document).ready(function() {
         // Initialize Froala Editor
         new FroalaEditor('#froala-editor', {
+            heightMin: 400,
+            heightMax: 800,
             toolbarButtons: [
                 'bold', 'italic', 'underline', 'strikeThrough', '|',
                 'fontFamily', 'fontSize', 'color', 'backgroundColor', '|',
@@ -63,9 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'undo', 'redo', 'clearFormatting', 'html', 'fullscreen', '|',
                 'paragraphFormat', 'quote', 'insertHR', 'specialCharacters', '|',
                 'insertFile', 'emoticons', 'print', 'help'
-            ],
-            heightMin: 400,
-            heightMax: 800
+            ]
         });
 
         // AJAX Submission to Prevent Page Reload
@@ -78,10 +65,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 url: "update_content.php", // PHP file to process the update
                 type: "POST",
                 data: formData,
+                dataType: "text",
                 success: function(response) {
+                    console.log(response); // Debugging
                     if (response.trim() === "success") {
                         $("#success-message").fadeIn().delay(2000).fadeOut(); // Show message & hide after 2 sec
+                    } else {
+                        alert("Error updating content!");
                     }
+                },
+                error: function(xhr, status, error) {
+                    console.log("AJAX Error:", error);
+                    alert("Failed to update content!");
                 }
             });
         });

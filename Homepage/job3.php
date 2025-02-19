@@ -10,133 +10,62 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="/HOMESPECTOR/CSS/joinwithus.css">
+    <link rel="stylesheet" href="/HOMESPECTOR/CSS/header.css">
+    <link rel="stylesheet" href="/HOMESPECTOR/CSS/footer.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <title>Header Design</title>
 </head>
 
 <style>
-    .bg-img {
-        position: relative;
-        background: url('/HOMESPECTOR/img/hero-bg2.jpg') no-repeat center center;
-        background-size: cover;
-        background-attachment: fixed;
-        width: 100%;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 50px 0;
-    }
-
-    /* Silver Overlay */
-    .bg-img::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(192, 192, 192, 0.5);
-        /* Silver color with 50% opacity */
-        z-index: 1;
-    }
-
-    /* Ensure content stays on top */
-    .container-job {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        margin: 30px auto;
-        padding: 20px;
-        background: white;
+    .apply-job {
+        max-width: 900px;
+        margin: 50px auto;
+        background: #ffffff;
+        padding: 25px;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
-    h1 {
-        color: var(--font-color);
-        text-align: center;
-        font-size: 24px;
-    }
-
-    .job-info {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-
-    .job-info p {
-        font-size: 16px;
-        margin: 5px 0;
-        color: var(--font-color);
-    }
-
-    .section {
-        margin-bottom: 20px;
-    }
-
-    .section h2 {
-        font-size: 18px;
-        color: var(--font-color);
-        font-weight: bold;
-        border-bottom: 2px solid #ddd;
-        padding-bottom: 5px;
-
-    }
-
-    .section p {
-        font-size: 16px;
-        color: #555;
-    }
-
-    .contact {
-        background: #f2f2f2;
-        padding: 15px;
-        border-radius: 5px;
-    }
-
-    .apply-btn {
-        display: block;
-        width: 20%;
-        text-align: center;
-        align-items: center;
-        background: var(--font2-color);
-        color: white;
-        padding: 12px;
-        font-size: 18px;
-        border-radius: 15px;
-        text-decoration: none;
+    .job-container {
         margin-top: 20px;
     }
 
-    .apply-btn:hover {
-        background: #ff5c05;
+    .job-listing {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 15px;
+        background: #fff;
     }
 
-    /* Responsive Design */
+    .job-listing p {
+        font-size: 16px;
+        color: #333;
+    }
+
     @media (max-width: 768px) {
-        .container-job {
-            width: 90%;
+        .apply-job {
+            width: 95%;
             padding: 15px;
         }
-
-        h1 {
-            font-size: 22px;
-            text-align: left;
-        }
-
-        .job-info {
-            flex-direction: column;
-        }
-
-        .apply-btn {
-            font-size: 16px;
-            padding: 10px;
-            width: 30%;
-        }
     }
+    .apply-btn {
+    display: block;
+    width: 150px;
+    text-align: center;
+    background:var(--font2-color);
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 10px;
+    }
+
+    .apply-btn:hover {
+        background:var(--hover-color);
+    }
+
 </style>
 
 <body>
@@ -333,84 +262,49 @@
                     </div>
                 </div>
             </div>
-            <div class="contact-container1">
-                <a href="tel:02-454-2043" class="contact-item1" data-aos="fade-up-left">
+            <div class="contact-container">
+                <a href="tel:02-454-2043" class="contact-item" data-aos="fade-up-left">
                     <div class="icon">
                         <i class="fa-solid fa-phone"></i>
                     </div>
                     <span>โทร 02-454-2043</span>
                 </a>
-                <a href="https://line.me/R/ti/p/@t.home" target="_blank" class="contact-item1" data-aos="fade-up-right">
+                <a href="https://line.me/R/ti/p/@t.home" target="_blank" class="contact-item" data-aos="fade-up-right">
                     <div class="icon">
                         <i class="fa-brands fa-line" style="color: #00a347;"></i>
                     </div>
                     <span>@t.home</span>
                 </a>
             </div>
-            <div class="container-job">
-                <h1>Job Details </h1>
+            <?php
+            // Database Connection
+                $pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                <div class="job-info">
-                    <p><strong>📍 Location:</strong>On-Site</p>
-                    <p><strong>💼 Job Type:</strong> Permanent</p>
-                    <p><strong>📌 Job Function:</strong>Intern Student</p>
-                    <!-- <p><strong>🏢 Industry:</strong> Corporate</p> -->
-                    <p><strong>💰 Compensation:</strong> Based on company policy</p>
+                // Fetch job descriptions and IDs from job_listings table
+                $stmt = $pdo->prepare("SELECT id, job_description FROM job_listings ORDER BY created_at DESC");
+                $stmt->execute();
+                $jobs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+
+            <!-- Job Descriptions Section -->
+            <div class="apply-job" data-aos="fade-up">
+                <h2 class="text-center">Job Descriptions</h2>
+
+                <div class="job-container" data-aos="fade-up-right">
+                    <?php if (!empty($jobs)): ?>
+                        <?php foreach ($jobs as $job): ?>
+                            <div class="job-listing" data-aos="fade-up">
+                                <p><?php echo htmlspecialchars_decode($job['job_description']); ?></p>
+                                <a href="/HOMESPECTOR/Homepage/apply.php?job_id=<?php echo $job['id']; ?>" class="apply-btn">Apply Now</a>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <p class="text-center">No job descriptions available at the moment.</p>
+                    <?php endif; ?>
                 </div>
-
-                <div class="section">
-                    <h2>About the Role (Position)</h2>
-                    <p>ตำแหน่งนักศึกษาฝึกงานเป็นโอกาสสำหรับนักศึกษาที่กำลังศึกษาในระดับปริญญาตรี
-                        เพื่อเรียนรู้และพัฒนาทักษะการทำงานในสภาพแวดล้อมจริง ฝึกงานในแผนกที่เกี่ยวข้อง
-                        และทำงานร่วมกับทีมเพื่อเสริมสร้างประสบการณ์</p>
-                </div>
-
-                <div class="section">
-                    <h2>Job Responsibilities</h2>
-                    <ul>
-                        <li>ช่วยสนับสนุนงานด้านธุรการ และงานเอกสารในแผนกที่เกี่ยวข้อง</li>
-                        <li>เรียนรู้และใช้ซอฟต์แวร์ที่เกี่ยวข้องกับงาน เช่น Microsoft Office, CAD
-                            (หากฝึกงานด้านวิศวกรรม)</li>
-                        <li>ทำงานร่วมกับทีมเพื่อช่วยดำเนินโครงการให้เป็นไปตามเป้าหมาย</li>
-                        <li>ศึกษาและเรียนรู้จากพี่เลี้ยงที่ดูแลโครงการฝึกงาน</li>
-                        <li>เข้าร่วมการประชุมและนำเสนอรายงานฝึกงานเมื่อสิ้นสุดโครงการ</li>
-                    </ul>
-                </div>
-
-                <div class="section">
-                    <h2>Experience Requirements</h2>
-                    <p>ไม่จำเป็นต้องมีประสบการณ์ แต่ต้องมีความกระตือรือร้นในการเรียนรู้</p>
-                </div>
-
-                <div class="section">
-                    <h2>Education Requirements</h2>
-                    <ul>
-                        <li>กำลังศึกษาอยู่ในระดับปริญญาตรี ในสาขาที่เกี่ยวข้องกับตำแหน่งฝึกงาน</li>
-                        <li>มีความสามารถในการคิดวิเคราะห์และแก้ไขปัญหา</li>
-                        <li>สามารถทำงานเป็นทีมและมีทักษะการสื่อสารที่ดี</li>
-                    </ul>
-                </div>
-
-                <div class="contact">
-                    <h4> 📞Contact Person</h4>
-                    <ul>
-                        <li><strong>Office:</strong> สามารถเดินทางมาลงที่ MRT สถานีบางแค</li>
-                        <li><strong>เวลาทำงาน:</strong> 6 วัน/สัปดาห์ เวลา 8.00 น. – 17.00 น.</li>
-                        <li><strong>บริษัท:</strong> ต.จรัสชัย สากลก่อสร้าง จำกัด</li>
-                        <li><strong>ที่อยู่:</strong> 2043 ซอยกาญจนาภิเษก 008 แขวงบางแค เขตบางแค กรุงเทพฯ 10160
-                            (หมู่บ้านมั่งมีซิตี้)</li>
-                    </ul>
-
-                    <h4>📩 ช่องทางติดต่อหรือสมัครงาน</h4>
-                    <ul>
-                        <li><strong>ส่ง Resume:</strong> <a
-                                href="mailto:Info@thomeinspector.com">Info@thomeinspector.com</a></li>
-                        <li><strong>โทร:</strong> <a href="tel:0842916446">084-291-6446 (ปัญปัญ)</a></li>
-                        <li><strong>อินบ็อกซ์:</strong> ติดต่อผ่านข้อความโดยตรง</li>
-                    </ul>
-                </div>
-                <a href="/HOMESPECTOR/backend/job.php" class="apply-btn">Apply Now</a>
             </div>
+
             <section class="footer">
                 <footer class="footer">
                     <div class="footer-container">

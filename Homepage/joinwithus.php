@@ -264,7 +264,7 @@
                         <h2>Intern Student</h2>
                         <p><strong>Location:</strong> On-site</p>
                         <p><strong>Requirements:</strong> Currently enrolled in a relevant degree program, eager to learn, and strong analytical skills.</p>
-                        <a href="/HOMESPECTOR/Homepage/job3.html" class="apply-btn">Apply Now</a>
+                        <a href="/HOMESPECTOR/Homepage/job3.php" class="apply-btn">Apply Now</a>
                     </div> 
                 </div>
             </div> -->
@@ -282,121 +282,39 @@
                 ob_clean();
                 echo $content;
             ?>
+
             <?php
+            // Database Connection
+                $pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
                 // Fetch job listings
-                $stmt = $pdo->prepare("SELECT * FROM job_listings ORDER BY date_posted DESC");
+                $stmt = $pdo->prepare("SELECT * FROM job_listings ORDER BY created_at DESC");
                 $stmt->execute();
                 $jobs = $stmt->fetchAll(PDO::FETCH_ASSOC);
             ?>
-                <div class="container mt-5">
-                    <div class="row">
+
+            <!-- Job Listings Section -->
+            <div class="apply-job" data-aos="fade-up">
+                <div class="job-container" data-aos="fade-up-right">
+                    <?php if (!empty($jobs)): ?>
                         <?php foreach ($jobs as $job): ?>
-                            <div class="col-md-4">
-                                <div class="card mb-4">
-                                    <div class="card-body">
-                                        <h4 class="card-title"><?php echo htmlspecialchars($job['title']); ?></h4>
-                                        <h6 class="card-subtitle mb-2 text-muted"><?php echo htmlspecialchars($job['company_name']); ?></h6>
-                                        <p><strong>Location:</strong> <?php echo htmlspecialchars($job['location']); ?></p>
-                                        <p><strong>Job Type:</strong> <?php echo htmlspecialchars($job['job_type']); ?></p>
-                                        <p><strong>Salary:</strong> <?php echo htmlspecialchars($job['salary']); ?></p>
-                                        <a href="job_details.php?id=<?php echo $job['id']; ?>" class="btn btn-primary">View Details</a>
-                                    </div>
-                                </div>
+                            <div class="job-listing" data-aos="fade-up">
+                                <h2><?php echo htmlspecialchars($job['job_title']); ?></h2>
+                                <p><strong>Location:</strong> <?php echo htmlspecialchars($job['job_location']); ?></p>
+                                <p><strong>Job Type:</strong> <?php echo htmlspecialchars($job['job_type']); ?></p>
+                                <p><strong>Salary:</strong> <?php echo htmlspecialchars($job['salary']); ?></p>
+                                <p><strong>Contact:</strong> <?php echo htmlspecialchars($job['contact_email']); ?></p>
+                                <a href="/HOMESPECTOR/Homepage/job3.php?job_id=<?php echo $job['id']; ?>" class="apply-btn">Apply Now</a>
                             </div>
                         <?php endforeach; ?>
-                    </div>
+                    <?php else: ?>
+                        <p class="text-center">No jobs available at the moment.</p>
+                    <?php endif; ?>
                 </div>
-                <style>
-                    /* Job Apply Section */
-                    .apply-job {
-                        width: 90%;
-                        max-width: 1200px;
-                        margin: auto;
-                        overflow: hidden;
-                        background: #fff;
-                        padding: 40px 20px;
-                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                        border-radius: 10px;
-                        text-align: center;
-                        margin-top: 30px;
-                        margin-bottom: 30px;
-                    }
+            </div>
 
-                    h1 {
-                        color: #002e6d;
-                        text-align: center;
-                        font-weight: bold;
-                        font-size: 32px;
-                    }
-
-                    /* Job Container */
-                    .job-container {
-                        display: flex;
-                        justify-content: center; /* Centers items horizontally */
-                        flex-wrap: wrap;
-                        gap: 20px;
-                        padding: 10px;
-                    }
-
-                    /* Job Listings */
-                    .job-listing {
-                        padding: 20px;
-                        background: #e0f7ff;
-                        border-radius: 15px;
-                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-                        text-align: center;
-                        position: relative;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        width: 280px; /* Fixed width for better centering */
-                    }
-
-                    /* Apply Button */
-                    .apply-btn {
-                        display: inline-block;
-                        padding: 10px 20px;
-                        background-color: #002e6d;
-                        color: white;
-                        text-decoration: none;
-                        border-radius: 15px;
-                        transition: 0.3s;
-                        margin-top: 15px;
-                    }
-
-                    .apply-btn:hover {
-                        background: #001a4d;
-                    }
-
-                    /* Responsive Design */
-                    @media (max-width: 1024px) {
-                        .job-container {
-                            flex-direction: row;
-                            justify-content: center;
-                        }
-                    }
-
-                    @media (max-width: 768px) {
-                        .job-container {
-                            flex-direction: column;
-                            align-items: center;
-                        }
-                    }
-
-                    @media (max-width: 480px) {
-                        h1 {
-                            font-size: 24px;
-                        }
-                        .job-listing {
-                            width: 100%;
-                            max-width: 300px;
-                        }
-                        .apply-btn {
-                            font-size: 16px;
-                            padding: 12px;
-                        }
-                    }
-                </style>
+                
             <section class="footer">
                 <footer class="footer">
                     <div class="footer-container">
