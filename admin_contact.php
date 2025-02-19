@@ -1,7 +1,8 @@
-<?php 
-session_start(); // ✅ Start session BEFORE any output
+<?php
+ob_start(); // ✅ Start output buffering to prevent premature output issues
+session_start(); // ✅ MUST be the first thing
 
-include './backend/header.php'; // ✅ Now it's safe to include the header
+include './backend/header.php'; // ✅ Ensure this file has NO output before `session_start()`
 
 // Database connection
 $pdo = new PDO("mysql:host=localhost;dbname=homespector", "root", "");
@@ -33,10 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ✅ Set session variable to show success message after redirect
     $_SESSION['updated'] = true;
 
-    // ✅ Redirect to same page to prevent resubmission
+    // ✅ Redirect to same page to prevent form resubmission
     header("Location: " . $_SERVER['PHP_SELF']);
     exit();
 }
+ob_end_flush(); // ✅ Flush output buffer
 ?>
 
 
