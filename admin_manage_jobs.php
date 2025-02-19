@@ -1,4 +1,5 @@
 <?php
+include './backend/header.php'; // ✅ Now it's safe to include the header
 $pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -18,16 +19,7 @@ $jobs = $stmt_jobs->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <style>
-        /* General Styles */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Container with Max Width */
-        .container {
+        .container-manage {
             max-width: 900px;
             width: 90%;
             margin: 50px auto;
@@ -125,7 +117,7 @@ $jobs = $stmt_jobs->fetchAll(PDO::FETCH_ASSOC);
         }
     </style>
 
-<div class="container mt-5">
+<div class="container-manage">
     <h2 class="text-center">Manage Job Listings</h2>
 
     <!-- Left-Aligned Add New Job Button -->

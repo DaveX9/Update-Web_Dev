@@ -1,5 +1,6 @@
 <?php
 session_start();
+include './backend/header.php'; // ✅ Now it's safe to include the header
 
 $pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -62,14 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/froala-editor/css/froala_editor.pkgd.min.css">
 </head>
 <style>
-    body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-}
 
-    .container {
+    .container-add {
         max-width: 900px; /* Limit width to 900px */
         width: 90%; /* Adjust for smaller screens */
         margin: 50px auto;
@@ -138,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </style>
 <body>
-    <div class="container">
+    <div class="container-add">
         <h2 class="mt-3"><?php echo $job_id ? "Edit Job" : "Add New Job"; ?></h2>
         <form action="" method="POST">
             <div class="mb-3">

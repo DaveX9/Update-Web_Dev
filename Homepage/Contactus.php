@@ -224,20 +224,30 @@
                     <span>@t.home</span>
                 </a>
             </div>
-            
+
+            <?php
+                // Database connection
+                try {
+                    $pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                    // Fetch company details
+                    $stmt = $pdo->prepare("SELECT * FROM contact_info LIMIT 1");
+                    $stmt->execute();
+                    $contact = $stmt->fetch(PDO::FETCH_ASSOC);
+                } catch (PDOException $e) {
+                    die("Database error: " . $e->getMessage());
+                }
+            ?>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h2 data-translate="head-office-title">บริษัท ต.จรัสชัย สากลก่อสร้าง จำกัด</h2>
-                    <p><strong data-translate="office-address">2043 ซอย กาญจนาภิเษก 8 แขวงบางแค เขตบางแค กรุงเทพมหานคร 10160</strong></p>
-                    <p data-translate="office-address">
-                        <!-- 2043 ซอย กาญจนาภิเษก 8 แขวงบางแค เขตบางแค กรุงเทพมหานคร 10160 -->
-                    </p>
+                    <h2><?php echo htmlspecialchars($contact['company_name']); ?></h2>
+                    <p><strong><?php echo htmlspecialchars($contact['address']); ?></strong></p>
+
                     <a href="https://maps.app.goo.gl/wqofxUPRpDrbbRmv5" target="_blank" class="get-direction-btn"
                         data-translate="get-direction">
                         Get Direction
                     </a>
-
-
                     <!-- Map container -->
                     <div class="map-container">
                         <iframe
@@ -246,16 +256,19 @@
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
-                    <p>
-                        <i class="fa-solid fa-phone"></i> :
-                        <a href="tel:02-454-2043" data-translate="phone-numbers">02-454-2043, 082-045-6155</a>
+
+                    <p><i class="fa-solid fa-phone"></i> : 
+                        <a href="tel:<?php echo htmlspecialchars($contact['phone']); ?>">
+                            <?php echo htmlspecialchars($contact['phone']); ?>
+                        </a>
                     </p>
-                    <p>
-                        <i class="fa-solid fa-envelope"></i> :
-                        <a href="mailto:Info@thomeinspector.com"
-                            data-translate="email">Info@thomeinspector.com</a>
+                    <p><i class="fa-solid fa-envelope"></i> : 
+                        <a href="mailto:<?php echo htmlspecialchars($contact['email']); ?>">
+                            <?php echo htmlspecialchars($contact['email']); ?>
+                        </a>
                     </p>
 
+                    <!-- Social Media (Not Editable) -->
                     <div class="social-icons">
                         <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
                             <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
@@ -272,7 +285,7 @@
                     </div>
                 </div>
 
-                <!-- Contact Form -->
+                <!-- Contact Form (Not Editable) -->
                 <div class="contact-form">
                     <h2>CONTACT US</h2>
                     <form action="/HomeSpector/backend/process-form.php" method="POST">
@@ -288,7 +301,10 @@
                         <button type="submit">Submit</button>
                     </form>
                 </div>
+
             </div>
+
+            
                 <section class="footer">
                 <footer class="footer">
                     <div class="footer-container">

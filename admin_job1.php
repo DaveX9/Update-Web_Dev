@@ -1,5 +1,6 @@
 <?php
 session_start();
+include './backend/header.php'; // ✅ Now it's safe to include the header
 
 // Database Connection
 $pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
@@ -39,13 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.15/js/froala_editor.pkgd.min.js"></script>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
+    
+        .container-job {
             max-width: 900px;
             width: 90%;
             margin: 50px auto;
@@ -102,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
 
-<div class="container">
+<div class="container-job">
     <h2>Edit Job Section 1</h2>
     <form class="edit-form" data-form-type="job_section">
         <textarea class="froala-editor" name="content"><?php echo htmlspecialchars_decode($job_section); ?></textarea>
@@ -113,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
 </div>
 
-<div class="container">
+<div class="container-job">
     <h2>Edit Job Section 2</h2>
     <form class="edit-form" data-form-type="job_content">
         <textarea class="froala-editor" name="content"><?php echo htmlspecialchars_decode($job_content); ?></textarea>
