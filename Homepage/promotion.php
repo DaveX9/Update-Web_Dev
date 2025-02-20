@@ -274,10 +274,6 @@
                 </section>
             </section>
 
-
-
-
-
             <section class="footer">
                 <footer class="footer">
                     <div class="footer-container">

@@ -1,5 +1,5 @@
 <?php
-include './backend/header.php'; // ✅ Now it's safe to include the header
+include '../header.php';
 $pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

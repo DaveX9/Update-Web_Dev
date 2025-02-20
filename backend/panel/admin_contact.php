@@ -1,8 +1,7 @@
 <?php
-ob_start(); // ✅ Start output buffering to prevent premature output issues
-session_start(); // ✅ MUST be the first thing
-
-include './backend/header.php'; // ✅ Ensure this file has NO output before `session_start()`
+ob_start(); 
+session_start(); 
+include '../header.php';
 
 // Database connection
 $pdo = new PDO("mysql:host=localhost;dbname=homespector", "root", "");

@@ -98,7 +98,7 @@
             <ul>
                 <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
                 </li>
-                <li><a href="/HOMESPECTOR/Homepage/service.html" data-translate="nav.services">บริการ</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/service.php" data-translate="nav.services">บริการ</a></li>
                 <li><a href="/HOMESPECTOR/Homepage/promotion.html" data-translate="nav.promotion">สิทธิพิเศษ</a>
                 </li>
                 <li><a href="/HOMESPECTOR/Homepage/projects_media.html" data-translate="nav.projects">ผลงาน</a>
@@ -125,13 +125,13 @@
                     รวมงานกับเรา <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="/HOMESPECTOR/admin_joinus.php" data-translate="nav.ourStory">รวมงานกับเรา</a>
+                    <li><a href="/HOMESPECTOR/backend/panel/admin_joinus.php" data-translate="nav.ourStory">รวมงานกับเรา</a>
                     </li>
-                    <li><a href="/HOMESPECTOR/admin_job1.php" data-translate="nav.ourTeam">Job-details</a></li>
-                    <li><a href="/HOMESPECTOR/admin_manage_jobs.php" data-translate="nav.ourTeam">Manage Jobs</a></li>
+                    <li><a href="/HOMESPECTOR/backend/panel/admin_job1.php" data-translate="nav.ourTeam">Job-details</a></li>
+                    <li><a href="/HOMESPECTOR/backend/panel/admin_manage_jobs.php" data-translate="nav.ourTeam">Manage Jobs</a></li>
                 </ul>
                 </li>
-                <li><a href="/HOMESPECTOR/admin_contact.php" data-translate="nav.contact">ติดต่อเรา</a>
+                <li><a href="/HOMESPECTOR/backend/panel/admin_contact.php" data-translate="nav.contact">ติดต่อเรา</a>
                 </li>
                 <li class="login-option">
                 <!-- Logout Icon with Logout Text -->
@@ -238,25 +238,6 @@
                 <h3><a href="/HOMESPECTOR/Homepage/projects_media.html" class="menu-link">Projects</a></h3>
                 <h3><a href="/HOMESPECTOR/Homepage/joinwithus.php" class="menu-link">joinwithus</a></h3>
                 </div>
-                </div>
             </div>
             </div>
-        <!-- script -->
-        <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
-        <script src="/HOMESPECTOR/JS/dropdown.js"></script>
-        <script src="/HOMESPECTOR/JS/pull_articles.js"></script>
-        <script src="/HOMESPECTOR/JS/carousel.js"></script>
-        <script src="/HOMESPECTOR/JS/carousel2.js"></script>
-        <script src="/HOMESPECTOR/JS/carousel4.js"></script>
-        <script src="/HOMESPECTOR/JS/stats-section.js"></script>
-        <script src="/HOMESPECTOR/JS/pull_project.js"></script>
-        <script src="/HOMESPECTOR/JS/faq.js"></script>
-        <script src="/HOMESPECTOR/JS/search_ham.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-        <script>
-            AOS.init();
-        </script>
-        <script src="https://static.elfsight.com/platform/platform.js" async></script>
+        </div>

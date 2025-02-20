@@ -1,7 +1,6 @@
 <?php
 session_start();
-include './backend/header.php'; // ✅ Now it's safe to include the header
-
+include '../header.php';
 // Database Connection
 $pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

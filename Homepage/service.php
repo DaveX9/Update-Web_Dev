@@ -196,6 +196,20 @@
           </div>
         </div>
       </div>
+      <div class="contact-container">
+        <a href="tel:02-454-2043" class="contact-item" data-aos="fade-up-left">
+          <div class="icon">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <span>โทร 02-454-2043</span>
+        </a>
+        <a href="https://line.me/R/ti/p/@t.home" target="_blank" class="contact-item" data-aos="fade-up-right">
+          <div class="icon">
+            <i class="fa-brands fa-line" style="color: #00a347;"></i>
+          </div>
+          <span>@t.home</span>
+        </a>
+      </div>
 
       <section class="services" data-aos="fade-right" data-aos-offset="200" data-aos-easing="ease-in-sine">
         <div class="services-header">
@@ -291,20 +305,6 @@
         </div>
       </section>
 
-      <div class="contact-container">
-        <a href="tel:02-454-2043" class="contact-item" data-aos="fade-up-left">
-          <div class="icon">
-            <i class="fa-solid fa-phone"></i>
-          </div>
-          <span>โทร 02-454-2043</span>
-        </a>
-        <a href="https://line.me/R/ti/p/@t.home" target="_blank" class="contact-item" data-aos="fade-up-right">
-          <div class="icon">
-            <i class="fa-brands fa-line" style="color: #00a347;"></i>
-          </div>
-          <span>@t.home</span>
-        </a>
-      </div>
       <section class="carousel2 py-4" data-aos="fade-up" data-aos-duration="3000">
         <div id="customCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
@@ -351,7 +351,6 @@
           </button>
         </div>
       </section>
-
 
       <section class="footer">
         <footer class="footer">
