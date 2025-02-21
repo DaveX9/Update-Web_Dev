@@ -21,7 +21,6 @@ $content = $stmt->fetchColumn();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.15/css/froala_editor.pkgd.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/HOMESPECTOR/CSS/admin_panel.css">
-    <link rel="stylesheet" href="">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.15/js/froala_editor.pkgd.min.js"></script>
 </head>
 <body>
