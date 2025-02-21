@@ -672,7 +672,7 @@ header {
 .story-content p {
   margin: 0;
   padding: 10px 0;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .story-content p::after {
@@ -721,6 +721,9 @@ header {
 .values {
   position: relative;
   z-index: 2;
+}
+.vision-mission p{
+  font-size: 22px;
 }
 
 .head {
@@ -889,11 +892,10 @@ p {
 
 /* Section Title */
 .commitment h2 {
-  font-size: 2.5rem;
+  font-size: 2.9rem;
   font-weight: bold;
   color: white;
   margin-bottom: 20px;
-  text-shadow: 3px 3px 6px rgba(248, 142, 71, 0.623);
 }
 
 .commitment-content {
@@ -925,7 +927,7 @@ p {
 /* Custom Bullets */
 .centered-list li {
   position: relative;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: #ffffff;
   padding: 12px 15px;
   border-radius: 5px;
