@@ -14,6 +14,115 @@
     <link rel="stylesheet" href="/HOMESPECTOR/CSS/articles_view.css">
     <title>Header Design</title>
 </head>
+<style>
+    /* Main Container */
+    .article-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Title & Description */
+    .article-title {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .article-description {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #555;
+        font-weight: bold;
+    }
+
+    /* Upload Date */
+    .upload-date {
+        display: block;
+        margin-top: 5px;
+        font-size: 16px;
+        color: #888;
+        text-align: right;
+    }
+
+    /* Content Section */
+    .content-container {
+        margin-top: 20px;
+    }
+
+    .content-subtitle {
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--font-color);
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    /* Main Image Styling */
+    .main-image-container {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .main-image {
+        max-width: 50%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    .main-image-caption {
+        font-size: 14px;
+        color: #666;
+        font-weight: bold;
+    }
+
+    /* Subsection Layout (Image on top, Text Below) */
+    .subsection {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    /* Image Styling for Each Subsection */
+    .sub-image {
+        max-width: 300px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Subsection Text */
+    .sub-content p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+        max-width: 600px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .main-image {
+            max-width: 90%;
+        }
+
+        .sub-image {
+            max-width: 100%;
+        }
+
+        .sub-content p {
+            text-align: center;
+            max-width: 100%;
+            padding: 0 15px;
+        }
+    }
+</style>
 
 <body>
     <div class="content-box">
@@ -92,7 +201,7 @@
                         <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
                                 data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
-                                data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+                                data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/joinwithus.php" data-translate="nav.joinUs">รวมงานกับเรา</a>
                         </li>
                         <li><a href="/HOMESPECTOR/Homepage/Contactus.php" data-translate="nav.contact">ติดต่อเรา</a>
@@ -177,7 +286,7 @@
                                 <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
                                         data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
-                                        data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+                                        data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/joinwithus.php"
                                         data-translate="nav.joinUs">รวมงานกับเรา</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/Contactus.php"
@@ -225,11 +334,6 @@
                 </a>
             </div>
             <section class="article-section" data-aos="fade-up">
-                <h1 class="article-title">บทความ</h1>
-                <p class="article-description">
-                    ความรู้เกี่ยวกับ งานตรวจรับบ้านเเละคอนโดก่อนโอนกรรมสิทธิ์
-                </p>
-
                 <div class="content-container">
                     <h2 class="content-subtitle">สรุป!! จัดการการออกแบบสาย LAN ตามบ้าน</h2>
                     <span class="upload-date" data-date="2024-12-10"></span>

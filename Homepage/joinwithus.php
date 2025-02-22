@@ -93,7 +93,7 @@
                         <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
                                 data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
-                                data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+                                data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/joinwithus.php" data-translate="nav.joinUs">รวมงานกับเรา</a>
                         </li>
                         <li><a href="/HOMESPECTOR/Homepage/Contactus.php" data-translate="nav.contact">ติดต่อเรา</a>
@@ -178,7 +178,7 @@
                                 <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
                                         data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
-                                        data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+                                        data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/joinwithus.php"
                                         data-translate="nav.joinUs">รวมงานกับเรา</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/Contactus.php"

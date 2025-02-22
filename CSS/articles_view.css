@@ -777,6 +777,15 @@ header {
   }
 }
 
+.photo-description {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  max-width: 800px; 
+  margin: 0 auto;
+}
+
 /* Tag Section */
 .tag-section {
   display: flex;

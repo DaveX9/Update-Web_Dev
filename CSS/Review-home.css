@@ -522,8 +522,10 @@ header {
 .menu-link:hover {
     color: var(--hover-color);
 }
+
 /* Hide search and language switcher by default on mobile */
 @media (max-width: 768px) {
+
     .language-switcher,
     .search-bar {
         display: none;
@@ -660,7 +662,7 @@ header {
     background-color: #ddd;
 }
 
-.review-cards {
+/* .review-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -698,7 +700,181 @@ header {
 
 .card:hover {
     transform: scale(1.05);
+} */
+
+/* new  */
+
+.review-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    text-decoration: none;
+    padding: 20px;
 }
+
+.review-cards .card {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 320px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    text-decoration: none;
+    color: inherit;
+}
+
+.review-cards .card img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.review-cards .card::before {
+    content: "ดูเพิ่มเติม";
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.review-cards .card:hover::before {
+    opacity: 1;
+}
+
+.review-cards .card .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+.review-cards .card:hover .overlay {
+    opacity: 1;
+    color: var(--background-color);
+}
+
+.review-cards .card .overlay p {
+    margin: 5px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.review-cards .card p {
+    padding: 12px;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+    .review-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .review-cards .card {
+        width: 90%;
+    }
+}
+
+
+/* video carousel of review interior */
+
+.video-carousel {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 20px;
+    background-color: #222;
+    margin-bottom: 50px;
+}
+
+
+.video-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.video-item {
+    flex: 0 0 33.33%;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.video-item iframe {
+    width: 95%;
+    height: 250px;
+    border-radius: 10px;
+}
+
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 5px;
+    z-index: 100;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .video-item {
+        flex: 0 0 100%;
+    }
+}
+
 
 
 
@@ -776,11 +952,13 @@ header {
 .footer-menu li a:hover {
     color: var(--hover-color);
 }
+
 .payment-logos img {
     height: 30px;
     margin-right: 10px;
     margin-top: 10px;
 }
+
 .footer-bottom {
     text-align: center;
     border-top: 1px solid #ccc;
@@ -789,6 +967,7 @@ header {
     color: #777;
     margin-bottom: -30px;
 }
+
 /* Toggle Icon */
 .toggle-icon {
     font-size: 24px;
@@ -796,7 +975,8 @@ header {
     color: #ffffff;
     padding: 5px 8px;
     border-radius: 50%;
-    display: none; /* Hide by default */
+    display: none;
+    /* Hide by default */
     justify-content: center;
     align-items: center;
     width: 30px;
@@ -808,8 +988,10 @@ header {
     .toggle-icon {
         display: inline-flex;
     }
+
     .footer-menu {
-        display: none; /* Hide menu initially on mobile */
+        display: none;
+        /* Hide menu initially on mobile */
     }
 }
 
@@ -819,5 +1001,3 @@ header {
         display: block !important;
     }
 }
-
-

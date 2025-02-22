@@ -95,7 +95,7 @@
                         <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
                                 data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
-                                data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+                                data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/joinwithus.php" data-translate="nav.joinUs">รวมงานกับเรา</a>
                         </li>
                         <li><a href="/HOMESPECTOR/Homepage/Contactus.php" data-translate="nav.contact">ติดต่อเรา</a>
@@ -180,7 +180,7 @@
                                 <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
                                         data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
-                                        data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+                                        data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/joinwithus.php"
                                         data-translate="nav.joinUs">รวมงานกับเรา</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/Contactus.php"
@@ -318,10 +318,10 @@
                 <div class="wrapper" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
                     <div class="inspection-info">
                         <div class="info-content">
-                            <h3>ตรวจบ้านต้องทำอย่างไร ?</h3>
-                            <p data-translate="inspection-details">
+                            <h2>ตรวจบ้านต้องทำอย่างไร ?</h2>
+                            <h3 data-translate="inspection-details">
                                 รายละเอียดที่ต้องตกลง และเตรียมก่อนตรวจบ้าน
-                            </p>
+                            </h3>
                             <a href="/HOMESPECTOR/Homepage/description.html">
                                 <button data-translate="see-details">
                                     <i class="fa-solid fa-eye"></i> ดูรายละเอียด
@@ -335,6 +335,32 @@
                 </div>
 
             </section>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const servicesSection = document.querySelector(".services");
+
+                    const bgImages = [
+                        "/HOMESPECTOR/img/hero-bg3.jpg",
+                        "/HOMESPECTOR/img/inspector-bg.jpg",
+                        "/HOMESPECTOR/img/interior-bg.jpg",
+                        "/HOMESPECTOR/img/construction-bg.jpg",
+                    ];
+
+                    let index = 0;
+
+                    function changeBackground() {
+                        servicesSection.style.backgroundImage = `url(${bgImages[index]})`;
+                        index = (index + 1) % bgImages.length;
+                    }
+
+                    // Change background every 5 seconds
+                    setInterval(changeBackground, 5000);
+
+                    // Initialize first background
+                    changeBackground();
+                });
+            </script>
+
 
 
 

@@ -1,22 +1,4 @@
-<?php
-// Database connection
-try {
-    $pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // ✅ Fetch latest service section
-    $stmt = $pdo->prepare("SELECT * FROM services_section ORDER BY id DESC LIMIT 1");
-    $stmt->execute();
-    $service = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // ✅ Fetch latest carousel images
-    $stmt = $pdo->prepare("SELECT * FROM service_carousel ORDER BY id DESC");
-    $stmt->execute();
-    $carousel_images = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Database error: " . $e->getMessage());
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -109,7 +91,7 @@ try {
             <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
             <li><a href="/HOMESPECTOR/Homepage/Review-home.html" data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
             <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
-                data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+                data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
             <li><a href="/HOMESPECTOR/Homepage/joinwithus.php" data-translate="nav.joinUs">รวมงานกับเรา</a>
             </li>
             <li><a href="/HOMESPECTOR/Homepage/Contactus.php" data-translate="nav.contact">ติดต่อเรา</a>
@@ -186,7 +168,7 @@ try {
                 <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
                 <li><a href="/HOMESPECTOR/Homepage/Review-home.html" data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                 <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
-                    data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+                    data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
                 <li><a href="/HOMESPECTOR/Homepage/joinwithus.php" data-translate="nav.joinUs">รวมงานกับเรา</a></li>
                 <li><a href="/HOMESPECTOR/Homepage/Contactus.php" data-translate="nav.contact">ติดต่อเรา</a></li>
               </ul>
@@ -371,73 +353,8 @@ try {
           </button>
         </div>
       </section>
-      <!-- ✅ Service Section -->
-      <section class="services1">
-          <div class="services-container">
-              <div class="image-container">
-                  <div class="image-box">
-                      <img src="uploads/<?php echo htmlspecialchars($service['image']); ?>" alt="Service Image">
-                  </div>
-                  <div class="call-box">
-                      <i class="fa-solid fa-phone"></i> <?php echo htmlspecialchars($service['phone']); ?>
-                  </div>
-              </div>
+    
 
-              <div class="text-container">
-                  <h2>Our Services</h2>
-                  <p><?php echo nl2br(htmlspecialchars($service['content'])); ?></p>
-
-                  <h2 class="contact-title">Contact Us</h2>
-                  <p><strong><i class="fa-solid fa-user-tie"></i>:</strong> <?php echo htmlspecialchars($service['phone']); ?></p>
-                  <p><strong><i class="fa-solid fa-location-dot"></i>:</strong> 2043 Soi Kanchanaphisek, Bangkok</p>
-
-                  <!-- ✅ Social Icons -->
-                  <div class="social-icons">
-                      <a href="<?php echo htmlspecialchars($service['facebook_link']); ?>">
-                          <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
-                      </a>
-                      <a href="<?php echo htmlspecialchars($service['instagram_link']); ?>">
-                          <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="Instagram">
-                      </a>
-                      <a href="<?php echo htmlspecialchars($service['line_link']); ?>">
-                          <img src="/HOMESPECTOR/icon/ICON/line.png" alt="Line">
-                      </a>
-                      <a href="<?php echo htmlspecialchars($service['phone_link']); ?>">
-                          <img src="/HOMESPECTOR/icon/ICON/phone.png" alt="phone">
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </section>
-
-      <!-- ✅ Carousel Section -->
-      <section class="carousel2 py-4">
-          <div id="customCarousel" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                  <?php $active = "active"; ?>
-                  <?php foreach ($carousel_images as $image): ?>
-                      <div class="carousel-item <?php echo $active; ?>">
-                          <div class="carousel-content mx-auto text-center">
-                              <img src="uploads/<?php echo htmlspecialchars($image['image']); ?>" alt="Carousel Image" class="img-fluid">
-                          </div>
-                      </div>
-                      <?php $active = ""; ?> <!-- Remove "active" after the first item -->
-                  <?php endforeach; ?>
-              </div>
-
-              <button class="carousel-control-prev" type="button" data-bs-target="#customCarousel" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-              </button>
-
-              <button class="carousel-control-next" type="button" data-bs-target="#customCarousel" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-              </button>
-          </div>
-      </section>
-
-      
       <section class="footer">
         <footer class="footer">
           <div class="footer-container">

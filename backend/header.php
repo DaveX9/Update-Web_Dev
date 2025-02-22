@@ -119,7 +119,7 @@
                 <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
                 <li><a href="/HOMESPECTOR/Homepage/Review-home.html" data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                 <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
-                    data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+                    data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
                 <li class="dropdown">
                 <a href="#" class="menu-item" data-translate="nav.aboutUs">
                     รวมงานกับเรา <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
@@ -211,7 +211,7 @@
                     <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
                     <li><a href="/HOMESPECTOR/Homepage/Review-home.html" data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                     <li><a href="/HOMESPECTOR/Homepage/review_interior.html"
-                        data-translate="nav.reviewInterior">รีวิวตกแต่งบ้าน</a></li>
+                        data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
                     <li><a href="/HOMESPECTOR/Homepage/joinwithus.php" data-translate="nav.joinUs">รวมงานกับเรา</a></li>
                     <li><a href="/HOMESPECTOR/Homepage/admin_contact.php" data-translate="nav.contact">ติดต่อเรา</a></li>
                 </ul>

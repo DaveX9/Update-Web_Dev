@@ -53,7 +53,7 @@
         <h2>Review Page</h2>
         <div class="form-group">
             <label for="review-heading">Review Page Heading (H1):</label>
-            <input type="text" id="review-heading" name="review_heading" value="รีวิวตกแต่งบ้าน">
+            <input type="text" id="review-heading" name="review_heading" value="บริการตกแต่งภายใน">
         </div>
 
         <h2>Manage Reviews</h2>

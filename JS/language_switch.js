@@ -108,7 +108,7 @@ const translations = {
     "nav.ourTeam": "ทีมงานของเรา",
     "nav.articles": "บทความ",
     "nav.reviewHome": "รีวิวบ้าน",
-    "nav.reviewInterior": "รีวิวตกแต่งบ้าน",
+    "nav.reviewInterior": "บริการตกแต่งภายใน",
     "nav.joinUs": "รวมงานกับเรา",
     "nav.contact": "ติดต่อเรา",
     //join us_ footer//
@@ -125,7 +125,7 @@ const translations = {
     "our-team": "ทีมงานของเรา",
     "articles": "บทความ",
     "home-reviews": "รีวิวบ้าน",
-    "interior-reviews": "รีวิวตกแต่งบ้าน",
+    "interior-reviews": "บริการตกแต่งภายใน",
     "join-us": "ร่วมงานกับเรา",
     "contact-us": "ติดต่อเรา",
     "articles-title": "บทความ",
