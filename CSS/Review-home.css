@@ -834,7 +834,7 @@ header {
 }
 
 .video-item iframe {
-    width: 95%;
+    width: 90%;
     height: 250px;
     border-radius: 10px;
 }
@@ -874,10 +874,6 @@ header {
         flex: 0 0 100%;
     }
 }
-
-
-
-
 
 /* Footer Styles */
 .footer {
