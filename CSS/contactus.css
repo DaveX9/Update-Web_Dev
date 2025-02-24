@@ -647,7 +647,6 @@ header {
 
 .map-container {
   text-align: left;
-  /* Align iframe container to the left */
 }
 
 .map-container iframe {
@@ -661,16 +660,12 @@ header {
   display: inline-block;
   margin: 10px 0;
   padding: 8px 12px;
-  /* Adjust padding for better sizing */
   font-size: 14px;
   background-color: #003f87;
-  /* Button background color */
   color: #fff !important;
-  /* Ensure white text is applied */
   border: none;
   border-radius: 5px;
   text-decoration: none;
-  /* Remove underline */
   text-align: center;
   cursor: pointer;
 }

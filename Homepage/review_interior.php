@@ -11,7 +11,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <link rel="stylesheet" href="/HOMESPECTOR/CSS/after_review_home.css">
+    <link rel="stylesheet" href="/HOMESPECTOR/CSS/Review-home.css">
     <title>Header Design</title>
 </head>
 
@@ -87,6 +87,22 @@
                                         data-translate="nav.ourTeam">ทีมงานของเรา</a></li>
                             </ul>
                         </li>
+                        <li class="dropdown">
+                            <a href="#" class="menu-item" data-translate="nav.aboutUs">
+                                service <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/HOMESPECTOR/Homepage/ourstory.html"
+                                        data-translate="nav.ourStory">App Inspector</a>
+                                </li>
+                                <li><a href="cal-electric.html"
+                                        data-translate="nav.cal-electric">คำณวนไฟฟ้า</a>
+                                </li>
+                                <li><a href="/HOMESPECTOR/Homepage/ourteam.html"
+                                    data-translate="checklist.html">Checklist</a>
+                            </li>
+                            </ul>
+                        </li>
 
                         <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
@@ -150,20 +166,18 @@
                             <ul>
                                 <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
                                 </li>
-                                <li><a href="/HOMESPECTOR/Homepage/service.html"
-                                        data-translate="nav.services">บริการ</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/promotion.html"
-                                        data-translate="nav.promotion">สิทธิพิเศษ</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/projects_media.html"
-                                        data-translate="nav.projects">ผลงาน</a></li>
+                                <li><a href="/HOMESPECTOR/Homepage/service.html" data-translate="nav.services">บริการ</a></li>
+                                <li><a href="/HOMESPECTOR/Homepage/promotion.html" data-translate="nav.promotion">สิทธิพิเศษ</a>
+                                </li>
+                                <li><a href="/HOMESPECTOR/Homepage/projects_media.html" data-translate="nav.projects">ผลงาน</a>
+                                </li>
 
                                 <!-- Dropdown Menu -->
-                                <li class="dropdown1">
-                                    <a href="#" class="menu-item1" data-translate="nav.aboutUs">
-                                        เกี่ยวกับเรา <span class="dropdown-icon1"><i
-                                                class="fa-solid fa-caret-down"></i></span>
+                                <li class="dropdown">
+                                    <a href="#" class="menu-item" data-translate="nav.aboutUs">
+                                        เกี่ยวกับเรา <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
                                     </a>
-                                    <ul class="dropdown-menu1">
+                                    <ul class="dropdown-menu">
                                         <li><a href="/HOMESPECTOR/Homepage/ourstory.html"
                                                 data-translate="nav.ourStory">ประวัติของเรา</a>
                                         </li>
@@ -171,17 +185,32 @@
                                                 data-translate="nav.ourTeam">ทีมงานของเรา</a></li>
                                     </ul>
                                 </li>
+                                <li class="dropdown">
+                                    <a href="#" class="menu-item" data-translate="nav.aboutUs">
+                                        service <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/HOMESPECTOR/Homepage/ourstory.html"
+                                                data-translate="appinspector.ourStory">App Inspector</a>
+                                        </li>
+                                        <li><a href="/HOMESPECTOR/Homepage/ourteam.html"
+                                                data-translate="cal-electric.html">คำณวนไฟฟ้า</a>
+                                        </li>
+                                        <li><a href="/HOMESPECTOR/Homepage/ourteam.html"
+                                            data-translate="checklist.html">Checklist</a>
+                                    </li>
+                                    </ul>
+                                </li>
 
-                                <li><a href="/HOMESPECTOR/Homepage/articles.html"
-                                        data-translate="nav.articles">บทความ</a></li>
+                                <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
                                         data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/review_interior.php"
                                         data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/joinwithus.php"
-                                        data-translate="nav.joinUs">รวมงานกับเรา</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/Contactus.php"
-                                        data-translate="nav.contact">ติดต่อเรา</a></li>
+                                <li><a href="/HOMESPECTOR/Homepage/joinwithus.php" data-translate="nav.joinUs">รวมงานกับเรา</a>
+                                </li>
+                                <li><a href="/HOMESPECTOR/Homepage/Contactus.php" data-translate="nav.contact">ติดต่อเรา</a>
+                                </li>
                             </ul>
                         </div>
 
@@ -210,81 +239,185 @@
                 </div>
             </div>
 
-            <div class="contact-container">
-                <a href="tel:02-454-2043" class="contact-item" data-aos="fade-up-left">
+            <!-- line -->
+            <div class="contact-container1">
+                <a href="tel:02-454-2043" class="contact-item1" data-aos="fade-up-left">
                     <div class="icon">
                         <i class="fa-solid fa-phone"></i>
                     </div>
                     <span>โทร 02-454-2043</span>
                 </a>
-                <a href="https://line.me/R/ti/p/@t.home" target="_blank" class="contact-item" data-aos="fade-up-right">
+                <a href="https://line.me/R/ti/p/@t.home" target="_blank" class="contact-item1" data-aos="fade-up-right">
                     <div class="icon">
                         <i class="fa-brands fa-line" style="color: #00a347;"></i>
                     </div>
                     <span>@t.home</span>
                 </a>
             </div>
+            <div class="review-page" data-aos="fade-up">
+                <h1>ผลงานออกแบบตกแต่งภายใน</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                    Neque consequatur corrupti ipsum laudantium,<br>
+                </p>
+                <hr>
+                <br>
+                <h1>เลือกตามสไตล์การออกแบบ</h1>
+                <br>
+                <div class="categories" data-aos="fade-up" data-aos-duration="1500">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="Modern">Modern</button>
+                    <button class="category-btn" data-category="Modern Luxury">Modern Luxury</button>
+                    <button class="category-btn" data-category="Modern Classic">Modern Classic</button>
+                </div>
 
-            <section class="review-page">
-                <h2 class="review-title">ตกแต่งบ้านหรู สไตล์ Modern classic</h2>
-                <!-- Only one place for the date -->
-                <span class="upload-date" data-date="auto"></span>
-                <div class="photo-review">
-                    <div class="photo-container">
+
+                <div class="review-cards">
+                    <a href="/HOMESPECTOR/Homepage/after_review_interior1.html" class="card" data-category="Modern">
                         <img src="/HOMESPECTOR/img/after_review/interrior-bg1.jpg" alt="House Review 1">
-                        <p class="photo-description">
-                            <strong>Project :</strong> นันทวัน รามอินทรา - พหลโยธิน 50 <br>
-                            <strong>Price house :</strong> 20,000,000 baht <br>
-                            <strong>Size :</strong> 278 sq.m. <br>
-                            <strong>Type :</strong> Modern Classic
-                        </p>
-                    </div>
+                        <p>ตกแต่งบ้านหรู สไตล์ Modern classic</p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_interior2.html" class="card" data-category="Modern">
+                        <img src="/HOMESPECTOR/img/after_review/interrior-bg2.jpg" alt="House Review 1">
+                        <p>ตกแต่งบ้านหรู สไตล์ Modern classic</p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_interior3.html" class="card" data-category="Modern">
+                        <img src="/HOMESPECTOR/img/after_review/interrior-bg3.jpg" alt="House Review 2">
+                        <p>ตกแต่งคฤหาสน์หรู 30 ล้าน</p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_interior4.html" class="card"
+                        data-category="Modern Luxury">
+                        <img src="/HOMESPECTOR/img/after_review/interrior-bg4.jpg" alt="House Review 3">
+                        <p>CANAPAYA คอนโดหรู 30 ล้าน!! วิวแม่น้ำเจ้าพระยา</p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_interior5.html" class="card"
+                        data-category="Modern Luxury">
+                        <img src="/HOMESPECTOR/img/after_review/interrior-bg5.jpg" alt="House Review 5">
+                        <p>ทัวร์บ้าน EP.3 ตกแต่งบ้าน Style Modern Luxury 1 ล้านบาท จะได้อะไรบ้าง !?</p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_interior6.html" class="card"
+                        data-category="Modern Luxury">
+                        <img src="/HOMESPECTOR/img/after_review/interrior-bg6.jpg" alt="House Review 6">
+                        <p>City สาทร-สุขสวัสดิ์</p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_interior7.html" class="card"
+                        data-category="Modern Classic">
+                        <img src="/HOMESPECTOR/img/after_review/interrior-bg7.jpg" alt="House Review 7">
+                        <p>ทัวร์บ้าน EP.1 ตกแต่งบ้านหรู 13 ล้าน ตัวท้อปของศุภาลัย</p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_interior8.html" class="card"
+                        data-category="Modern Classic">
+                        <img src="/HOMESPECTOR/img/after_review/interrior-bg8.jpg" alt="House Review 8">
+                        <p>ทัวร์บ้าน EP.3 ตกแต่งบ้าน Style Modern Luxury 1 ล้านบาท จะได้อะไรบ้าง !?</p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_interior9.html" class="card"
+                        data-category="Modern Classic">
+                        <img src="/HOMESPECTOR/img/after_review/interrior-bg9.jpg" alt="House Review 9">
+                        <p>City สาทร-สุขสวัสดิ์</p>
+                    </a>
                 </div>
-
-                <h3 class="related-images-title">รูปภาพที่เกี่ยวข้อง</h3>
-                <div class="image-gallery">
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter1.1.jpg" alt="ตรวจสอบโครงสร้างพื้น">
-                        <!-- <p>ตรวจสอบโครงสร้างพื้น</p> -->
-                    </div>
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter1.2.jpg" alt="ตรวจสอบการติดตั้งรั้ว">
-                        <!-- <p>ตรวจสอบการติดตั้งรั้ว</p> -->
-                    </div>
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter1.3.jpg" alt="ตรวจสอบการระบายน้ำ">
-                        <!-- <p>ตรวจสอบการระบายน้ำ</p> -->
-                    </div>
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter1.4.jpg" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
-                    </div>
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter1.5.jpg" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
-                    </div>
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter1.6.jpg" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
-                    </div>
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter1.7.jpg" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
-                    </div>
-                    <div class="image-item">
-                        <img src="/HOMESPECTOR/img/after_review/reviewinter1.8.jpg" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Modal for Zoomed Image -->
-            <div id="imageModal" class="modal">
-                <span class="close">&times;</span>
-                <img class="modal-content" id="fullImage" alt="Zoomed Image">
             </div>
+            <div class="video-carousel">
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <div class="video-wrapper" id="videoSlider">
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/H5fKBLhB0fI" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/0rephbygVXE" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/z-rCBMvam-U" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/oAPAWQvzN6Y" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/f1W1amptQuc" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/FogHo9GmfjY" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            </div> 
 
+            <?php
+                try {
+                    $pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+                    // Fetch company details
+                    $stmt = $pdo->prepare("SELECT * FROM contact_info LIMIT 1");
+                    $stmt->execute();
+                    $contact = $stmt->fetch(PDO::FETCH_ASSOC);
+                } catch (PDOException $e) {
+                    die("Database error: " . $e->getMessage());
+                }
+            ?>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2><?php echo htmlspecialchars($contact['company_name']); ?></h2>
+                    <p><strong><?php echo htmlspecialchars($contact['address']); ?></strong></p>
+
+                    <a href="https://maps.app.goo.gl/wqofxUPRpDrbbRmv5" target="_blank" class="get-direction-btn"
+                        data-translate="get-direction">
+                        Get Direction
+                    </a>
+                    <!-- Map container -->
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.382748942745!2d100.41417899999999!3d13.6952533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2bd6191c4dc0f%3A0x525332376dd66d01!2z4Lia4Lij4Li04Lip4Lix4LiXIOC4lS7guIjguKPguLHguKrguIrguLHguKIg4Liq4Liy4LiB4Lil4LiB4LmI4Lit4Liq4Lij4LmJ4Liy4LiHIOC4iOC4s-C4geC4seC4lA!5e0!3m2!1sth!2sth!4v1733535737301!5m2!1sth!2sth"
+                            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <p><i class="fa-solid fa-phone"></i> : 
+                        <a href="tel:<?php echo htmlspecialchars($contact['phone']); ?>">
+                            <?php echo htmlspecialchars($contact['phone']); ?>
+                        </a>
+                    </p>
+                    <p><i class="fa-solid fa-envelope"></i> : 
+                        <a href="mailto:<?php echo htmlspecialchars($contact['email']); ?>">
+                            <?php echo htmlspecialchars($contact['email']); ?>
+                        </a>
+                    </p>
+
+                    <!-- Social Media (Not Editable) -->
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
+                            <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/t.homeinspector/">
+                            <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="Instagram">
+                        </a>
+                        <a href="https://page.line.me/t.home?openQrModal=true">
+                            <img src="/HOMESPECTOR/icon/ICON/line.png" alt="Line">
+                        </a>
+                        <a href="tel:082-045-6165">
+                            <img src="/HOMESPECTOR/icon/ICON/phone.png" alt="Phone">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form (Not Editable) -->
+                <div class="contact-form">
+                    <h2>CONTACT US</h2>
+                    <form action="/HomeSpector/backend/process-form.php" method="POST">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" required></textarea>
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+            
             <section class="footer">
                 <footer class="footer">
                     <div class="footer-container">
@@ -370,6 +503,26 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init();
+    </script>
+    <!-- video slider js -->
+    <script>
+        let currentIndex = 0;
+        const videos = document.querySelectorAll(".video-item");
+        const totalVideos = videos.length;
+        const videoSlider = document.getElementById("videoSlider");
+
+        function moveSlide(direction) {
+            currentIndex += direction;
+
+            if (currentIndex < 0) {
+                currentIndex = totalVideos - 1;
+            } else if (currentIndex >= totalVideos) {
+                currentIndex = 0;
+            }
+
+            const offset = -currentIndex * 100 + "%";
+            videoSlider.style.transform = "translateX(" + offset + ")";
+        }
     </script>
 
 </body>
