@@ -616,7 +616,7 @@ header {
 
 .join-us-container {
     max-width: 1200px;
-    width: 90%;
+    width: 100%;
     margin: 40px auto;
     display: flex;
     align-items: center;
@@ -670,7 +670,6 @@ header {
 /* Right image styling */
 .join-us-image {
     flex: 1;
-    /* Take up equal space */
     display: flex;
     justify-content: center;
     align-items: center;

@@ -88,22 +88,19 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="menu-item" data-translate="nav.aboutUs">
-                                service <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+                            <a href="#" class="menu-item" data-translate="nav.service">
+                                บริการเสริม <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="/HOMESPECTOR/Homepage/ourstory.html"
-                                        data-translate="nav.ourStory">App Inspector</a>
+                                <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                                        data-translate="nav.appinspector">ตรวจบ้านเอง</a>
                                 </li>
-                                <li><a href="cal-electric.html"
-                                        data-translate="nav.cal-electric">คำณวนไฟฟ้า</a>
+                                <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
                                 </li>
-                                <li><a href="/HOMESPECTOR/Homepage/ourteam.html"
-                                    data-translate="checklist.html">Checklist</a>
-                            </li>
+                                <li><a href="checklist.html" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
+                                </li>
                             </ul>
                         </li>
-
                         <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
                                 data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
@@ -187,21 +184,20 @@
                                 </li>
                                 <li class="dropdown">
                                     <a href="#" class="menu-item" data-translate="nav.aboutUs">
-                                        service <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+                                        บริการเสริม <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="/HOMESPECTOR/Homepage/ourstory.html"
-                                                data-translate="appinspector.ourStory">App Inspector</a>
+                                                data-translate="appinspector.ourStory">ตรวจบ้านเอง</a>
                                         </li>
-                                        <li><a href="/HOMESPECTOR/Homepage/ourteam.html"
-                                                data-translate="cal-electric.html">คำณวนไฟฟ้า</a>
+                                        <li><a href="cal-electric.html"
+                                                data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
                                         </li>
-                                        <li><a href="/HOMESPECTOR/Homepage/ourteam.html"
-                                            data-translate="checklist.html">Checklist</a>
-                                    </li>
+                                        <li><a href="checklist.html"
+                                            data-translate="nav.checklist">เทียบสเปกบ้าน</a>
+                                        </li>
                                     </ul>
                                 </li>
-
                                 <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
                                         data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
