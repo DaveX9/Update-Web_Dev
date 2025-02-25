@@ -1,3 +1,4 @@
+// --------------------------
 // HAMBURGER MENU FUNCTIONALITY
 // --------------------------
 const hamburgerIcon = document.getElementById('hamburger-icon');
@@ -39,25 +40,4 @@ if (hamburgerIcon && closeIcon && fullscreenMenu) {
 // Attach event listener for search icon functionality
 if (searchIcon && searchBar) {
     searchIcon.addEventListener('click', toggleSearch);
-}
-
-
-// --------------------------
-// FOOTER TOGGLE MENU FUNCTIONALITY
-function toggleFooterMenu(menuId) {
-    let menu = document.getElementById(menuId);
-    let header = menu.previousElementSibling; // Get the h3 header
-    let icon = header.querySelector(".toggle-icon"); // Get the + icon
-
-    if (window.innerWidth <= 768) { // Only allow toggle on mobile
-        if (menu.style.display === "block") {
-            menu.style.display = "none";
-            header.classList.remove("active");
-            icon.textContent = "+"; // Change back to +
-        } else {
-            menu.style.display = "block";
-            header.classList.add("active");
-            icon.textContent = "−"; // Change to -
-        }
-    }
 }
