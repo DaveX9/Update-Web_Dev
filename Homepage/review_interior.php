@@ -18,7 +18,7 @@
 <body>
     <div class="content-box">
         <div class="content-box">
-            <div class="header">
+        <div class="header">
                 <header class="top-bar">
                     <div class="container">
                         <!-- Social Icons -->
@@ -93,7 +93,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
-                                        data-translate="nav.appinspector">ตรวจบ้านเอง</a>
+                                        data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                 </li>
                                 <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
                                 </li>
@@ -163,18 +163,20 @@
                             <ul>
                                 <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
                                 </li>
-                                <li><a href="/HOMESPECTOR/Homepage/service.html" data-translate="nav.services">บริการ</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/promotion.html" data-translate="nav.promotion">สิทธิพิเศษ</a>
-                                </li>
-                                <li><a href="/HOMESPECTOR/Homepage/projects_media.html" data-translate="nav.projects">ผลงาน</a>
-                                </li>
+                                <li><a href="/HOMESPECTOR/Homepage/service.html"
+                                        data-translate="nav.services">บริการ</a></li>
+                                <li><a href="/HOMESPECTOR/Homepage/promotion.html"
+                                        data-translate="nav.promotion">สิทธิพิเศษ</a></li>
+                                <li><a href="/HOMESPECTOR/Homepage/projects_media.html"
+                                        data-translate="nav.projects">ผลงาน</a></li>
 
                                 <!-- Dropdown Menu -->
-                                <li class="dropdown">
-                                    <a href="#" class="menu-item" data-translate="nav.aboutUs">
-                                        เกี่ยวกับเรา <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+                                <li class="dropdown1">
+                                    <a href="#" class="menu-item1" data-translate="nav.aboutUs">
+                                        เกี่ยวกับเรา <span class="dropdown-icon1"><i
+                                                class="fa-solid fa-caret-down"></i></span>
                                     </a>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu1">
                                         <li><a href="/HOMESPECTOR/Homepage/ourstory.html"
                                                 data-translate="nav.ourStory">ประวัติของเรา</a>
                                         </li>
@@ -183,30 +185,30 @@
                                     </ul>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" class="menu-item" data-translate="nav.aboutUs">
-                                        บริการเสริม <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+                                    <a href="#" class="menu-item" data-translate="nav.service">
+                                        บริการเสริม <span class="dropdown-icon"><i
+                                                class="fa-solid fa-caret-down"></i></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/HOMESPECTOR/Homepage/ourstory.html"
-                                                data-translate="appinspector.ourStory">ตรวจบ้านเอง</a>
+                                        <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                                                data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                         </li>
-                                        <li><a href="cal-electric.html"
-                                                data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
+                                        <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
                                         </li>
-                                        <li><a href="checklist.html"
-                                            data-translate="nav.checklist">เทียบสเปกบ้าน</a>
+                                        <li><a href="checklist.html" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
+                                <li><a href="/HOMESPECTOR/Homepage/articles.html"
+                                        data-translate="nav.articles">บทความ</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
                                         data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/review_interior.php"
                                         data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/joinwithus.php" data-translate="nav.joinUs">รวมงานกับเรา</a>
-                                </li>
-                                <li><a href="/HOMESPECTOR/Homepage/Contactus.php" data-translate="nav.contact">ติดต่อเรา</a>
-                                </li>
+                                <li><a href="/HOMESPECTOR/Homepage/joinwithus.php"
+                                        data-translate="nav.joinUs">รวมงานกับเรา</a></li>
+                                <li><a href="/HOMESPECTOR/Homepage/Contactus.php"
+                                        data-translate="nav.contact">ติดต่อเรา</a></li>
                             </ul>
                         </div>
 
@@ -270,45 +272,45 @@
                 <div class="review-cards">
                     <a href="/HOMESPECTOR/Homepage/after_review_interior1.html" class="card" data-category="Modern">
                         <img src="/HOMESPECTOR/img/after_review/interrior-bg1.jpg" alt="House Review 1">
-                        <p>ตกแต่งบ้านหรู สไตล์ Modern classic</p>
+                        <p>Bangkok Boulevard Ramintra109</p>
                     </a>
                     <a href="/HOMESPECTOR/Homepage/after_review_interior2.html" class="card" data-category="Modern">
                         <img src="/HOMESPECTOR/img/after_review/interrior-bg2.jpg" alt="House Review 1">
-                        <p>ตกแต่งบ้านหรู สไตล์ Modern classic</p>
+                        <p>Nantawan Pinklao</p>
                     </a>
                     <a href="/HOMESPECTOR/Homepage/after_review_interior3.html" class="card" data-category="Modern">
                         <img src="/HOMESPECTOR/img/after_review/interrior-bg3.jpg" alt="House Review 2">
-                        <p>ตกแต่งคฤหาสน์หรู 30 ล้าน</p>
+                        <p>Veritz Sathupradit34</p>
                     </a>
                     <a href="/HOMESPECTOR/Homepage/after_review_interior4.html" class="card"
                         data-category="Modern Luxury">
                         <img src="/HOMESPECTOR/img/after_review/interrior-bg4.jpg" alt="House Review 3">
-                        <p>CANAPAYA คอนโดหรู 30 ล้าน!! วิวแม่น้ำเจ้าพระยา</p>
+                        <p>CHAIYAPRUEK Bangna km 15</p>
                     </a>
                     <a href="/HOMESPECTOR/Homepage/after_review_interior5.html" class="card"
                         data-category="Modern Luxury">
                         <img src="/HOMESPECTOR/img/after_review/interrior-bg5.jpg" alt="House Review 5">
-                        <p>ทัวร์บ้าน EP.3 ตกแต่งบ้าน Style Modern Luxury 1 ล้านบาท จะได้อะไรบ้าง !?</p>
+                        <p>Grand Bangkok boulevard Krungthepkreetra</p>
                     </a>
                     <a href="/HOMESPECTOR/Homepage/after_review_interior6.html" class="card"
                         data-category="Modern Luxury">
                         <img src="/HOMESPECTOR/img/after_review/interrior-bg6.jpg" alt="House Review 6">
-                        <p>City สาทร-สุขสวัสดิ์</p>
+                        <p>S'RIN Ratchapruek-Sai1</p>
                     </a>
                     <a href="/HOMESPECTOR/Homepage/after_review_interior7.html" class="card"
                         data-category="Modern Classic">
                         <img src="/HOMESPECTOR/img/after_review/interrior-bg7.jpg" alt="House Review 7">
-                        <p>ทัวร์บ้าน EP.1 ตกแต่งบ้านหรู 13 ล้าน ตัวท้อปของศุภาลัย</p>
+                        <p>MANTANA Barom-thaweewattana</p>
                     </a>
                     <a href="/HOMESPECTOR/Homepage/after_review_interior8.html" class="card"
                         data-category="Modern Classic">
                         <img src="/HOMESPECTOR/img/after_review/interrior-bg8.jpg" alt="House Review 8">
-                        <p>ทัวร์บ้าน EP.3 ตกแต่งบ้าน Style Modern Luxury 1 ล้านบาท จะได้อะไรบ้าง !?</p>
+                        <p>Prinn Sathorn-ratchapruek</p>
                     </a>
                     <a href="/HOMESPECTOR/Homepage/after_review_interior9.html" class="card"
                         data-category="Modern Classic">
                         <img src="/HOMESPECTOR/img/after_review/interrior-bg9.jpg" alt="House Review 9">
-                        <p>City สาทร-สุขสวัสดิ์</p>
+                        <p>THE CITY Pinklao-sirinthorn</p>
                     </a>
                 </div>
             </div>
@@ -316,22 +318,22 @@
                 <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
                 <div class="video-wrapper" id="videoSlider">
                     <div class="video-item">
-                        <iframe src="https://www.youtube.com/embed/H5fKBLhB0fI" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/V5cP06m2dqM?si=kIWEI0rr26nbiy9W" allowfullscreen></iframe>
                     </div>
                     <div class="video-item">
-                        <iframe src="https://www.youtube.com/embed/0rephbygVXE" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/XiE60iwh4B8?si=2nUsa6ov1Us4sGQQ" allowfullscreen></iframe>
                     </div>
                     <div class="video-item">
-                        <iframe src="https://www.youtube.com/embed/z-rCBMvam-U" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/BLk85ITjFA0?si=chO07-lAlwg6q39h" allowfullscreen></iframe>
                     </div>
                     <div class="video-item">
-                        <iframe src="https://www.youtube.com/embed/oAPAWQvzN6Y" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/JV3YbNgw_Uw?si=T--TiY3b7p2_3fFq" allowfullscreen></iframe>
                     </div>
                     <div class="video-item">
-                        <iframe src="https://www.youtube.com/embed/f1W1amptQuc" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/M-nLhplc-mc?si=Q4eYZIiDOL1wbzH9" allowfullscreen></iframe>
                     </div>
                     <div class="video-item">
-                        <iframe src="https://www.youtube.com/embed/FogHo9GmfjY" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/m_lOwlSrFng?si=akO-BDY7yZnghdR5" allowfullscreen></iframe>
                     </div>
                 </div>
                 <button class="next" onclick="moveSlide(1)">&#10095;</button>

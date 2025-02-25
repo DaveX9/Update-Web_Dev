@@ -18,7 +18,7 @@
 <body>
     <div class="content-box">
         <div class="content-box">
-            <div class="header">
+        <div class="header">
                 <header class="top-bar">
                     <div class="container">
                         <!-- Social Icons -->
@@ -88,18 +88,16 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="menu-item" data-translate="nav.aboutUs">
+                            <a href="#" class="menu-item" data-translate="nav.service">
                                 บริการเสริม <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="/HOMESPECTOR/Homepage/ourstory.html"
-                                        data-translate="appinspector.ourStory">ตรวจบ้านเอง</a>
+                                <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                                        data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                 </li>
-                                <li><a href="cal-electric.html"
-                                        data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
+                                <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
                                 </li>
-                                <li><a href="checklist.html"
-                                    data-translate="nav.checklist">เทียบสเปกบ้าน</a>
+                                <li><a href="checklist.html" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
                                 </li>
                             </ul>
                         </li>
@@ -187,18 +185,17 @@
                                     </ul>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" class="menu-item" data-translate="nav.aboutUs">
-                                        บริการเสริม <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
+                                    <a href="#" class="menu-item" data-translate="nav.service">
+                                        บริการเสริม <span class="dropdown-icon"><i
+                                                class="fa-solid fa-caret-down"></i></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/HOMESPECTOR/Homepage/ourstory.html"
-                                                data-translate="appinspector.ourStory">ตรวจบ้านเอง</a>
+                                        <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                                                data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                         </li>
-                                        <li><a href="cal-electric.html"
-                                                data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
+                                        <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
                                         </li>
-                                        <li><a href="checklist.html"
-                                            data-translate="nav.checklist">เทียบสเปกบ้าน</a>
+                                        <li><a href="checklist.html" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
                                         </li>
                                     </ul>
                                 </li>

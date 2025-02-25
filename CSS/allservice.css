@@ -631,7 +631,6 @@ header {
 
 .service-banner {
     width: 100vw;
-    /* Full viewport width */
     height: 500px;
     overflow: hidden;
     display: flex;
