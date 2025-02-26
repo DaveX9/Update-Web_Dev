@@ -8,7 +8,7 @@
     --navborder-color: #ea0303;
     --seconadry-color: #3ec8ff;
     --font2-color: #006ac0;
-    --font3-color:#002d5b;
+    --font3-color: #002d5b;
 }
 
 /* General Reset */
@@ -614,6 +614,7 @@ header {
         /* Maintain spacing between icon and text */
     }
 }
+
 .review-page {
     max-width: 1200px;
     margin: 0 auto;
@@ -659,13 +660,14 @@ header {
 .category-btn:hover {
     background-color: #ddd;
 }
+
 /* hr line */
 hr {
-    border: none;      
-    height: 2px;       
-    background-color: #333; 
-    width: 40%;          
-    margin: 20px auto; 
+    border: none;
+    height: 2px;
+    background-color: #333;
+    width: 40%;
+    margin: 20px auto;
 }
 
 /* review card */
@@ -841,7 +843,6 @@ hr {
 }
 
 
-
 /* contatct box */
 .contact-container {
     display: flex;
@@ -979,6 +980,80 @@ hr {
 
 .contact-form button:hover {
     background-color: #002e6d;
+}
+
+/* Responsive for tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: left;
+        padding: 20px;
+    }
+
+    .contact-info {
+        order: 1;
+        width: 90%;
+        text-align: left;
+    }
+
+    .contact-form {
+        order: 2;
+        width: 90%;
+    }
+
+    .map-container iframe {
+        max-width: 100%;
+        height: 350px;
+    }
+}
+
+/* Responsive for mobile devices (max-width: 576px) */
+@media (max-width: 576px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: left;
+        padding: 15px;
+    }
+
+    .contact-info {
+        order: 1;
+        width: 100%;
+        text-align: left;
+        padding: 15px;
+    }
+
+    .contact-form {
+        order: 2;
+        width: 100%;
+        text-align: left;
+        padding: 15px;
+    }
+
+    .contact-info h2,
+    .contact-form h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .contact-form button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 300px;
+    }
+
+    .social-icons a img {
+        width: 18px;
+    }
 }
 
 

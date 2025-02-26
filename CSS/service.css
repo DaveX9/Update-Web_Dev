@@ -858,7 +858,7 @@ header {
 }
 
 .social-icons a img {
-  width: 20px;
+  width: 16px;
   height: auto;
   transition: transform 0.5s ease;
 }
@@ -867,29 +867,67 @@ header {
   transform: scale(1.2);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .services-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 10px;
   }
 
-  .image-container,
-  .text-container {
+  .image-container {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
-  .text-container {
-    text-align: center;
+  .image-box {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .image-box img {
+    max-width: 100%;
+    border-radius: 8px;
   }
 
   .call-box {
-    position: relative;
-    bottom: -10px;
+    font-size: 1em;
+    padding: 8px 15px;
+    bottom: 0;
+    margin-top: 10px;
+  }
+
+  .text-container {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .text-container h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  .text-container p {
+    font-size: 1em;
+    line-height: 1.4;
+  }
+
+  .contact-title {
+    font-size: 1.5em;
+    margin-top: 15px;
+  }
+
+  .social-icons {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .social-icons a img {
+    width: 20px;
   }
 }
-
 
 /* carousel5 */
 .carousel-item {
@@ -921,7 +959,6 @@ header {
   margin-bottom: 15px;
   font-weight: bold;
 }
-
 
 
 /* Footer Base */
