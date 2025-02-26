@@ -314,7 +314,7 @@
                     </a>
                 </div>
             </div>
-            <div class="video-carousel">
+            <div class="video-carousel" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                 <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
                 <div class="video-wrapper" id="videoSlider">
                     <div class="video-item">
@@ -352,7 +352,7 @@
                     die("Database error: " . $e->getMessage());
                 }
             ?>
-            <div class="contact-container">
+            <div class="contact-container" data-aos="fade-up-right">
                 <div class="contact-info">
                     <h2><?php echo htmlspecialchars($contact['company_name']); ?></h2>
                     <p><strong><?php echo htmlspecialchars($contact['address']); ?></strong></p>
@@ -399,7 +399,7 @@
                 </div>
 
                 <!-- Contact Form (Not Editable) -->
-                <div class="contact-form">
+                <div class="contact-form" data-aos="fade-up-left">
                     <h2>CONTACT US</h2>
                     <form action="/HomeSpector/backend/process-form.php" method="POST">
                         <label for="name">Name:</label>

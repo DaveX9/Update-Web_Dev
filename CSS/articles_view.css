@@ -8,6 +8,7 @@
   --navborder-color: #ea0303;
   --seconadry-color: #3ec8ff;
   --font2-color: #006ac0;
+  --font3-color:#002d5b;
 }
 
 /* General Reset */
@@ -470,7 +471,7 @@ header {
 .menu-section h3 {
   font-size: 20px;
   margin-bottom: 10px;
-  color: #333;
+  color:var(--font3-color);
   font-weight: bold;
 }
 
@@ -485,7 +486,7 @@ header {
 
 .menu-section ul li a {
   text-decoration: none;
-  color: #333;
+  color: var(--font3-color);
   font-size: 1rem;
   transition: color 0.3s ease;
 }
@@ -515,7 +516,7 @@ header {
 
 .menu-link {
   text-decoration: none;
-  color: #333;
+  color: var(--font3-color);
   transition: color 0.3s ease;
 }
 
