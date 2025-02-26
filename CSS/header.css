@@ -340,6 +340,58 @@ header {
         height: 80px;
     }
 }
+/* Responsive for tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .logo img {
+        height: 80px;
+    }
+
+    .actions i {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: white;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: none; 
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links ul li {
+        text-align: center;
+        width: 100%;
+        padding: 8px 0;
+    }
+
+    .nav-links ul li a {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+    #hamburger-icon {
+        display: block;
+        font-size: 22px;
+        cursor: pointer;
+    }
+}
 
 /* Fullscreen Menu */
 .fullscreen-menu {
