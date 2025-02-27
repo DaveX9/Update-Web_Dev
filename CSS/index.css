@@ -1954,6 +1954,49 @@ button.next-btn:hover {
     background-color: #2a9881;
 }
 
+/* @media screen and (max-width: 768px) {
+    .container-newapp {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .content-newapp {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .app-preview {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .app-preview img {
+        width: 45%;
+        max-width: 180px;
+    }
+
+    .cta button {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .app-preview {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .app-preview img {
+        width: 45%;
+        max-width: 150px;
+    }
+} */
+
 @media screen and (max-width: 768px) {
     .container-newapp {
         padding: 20px;
@@ -1966,21 +2009,35 @@ button.next-btn:hover {
     }
 
     .app-preview {
-        flex-direction: column;
-        /* Stack images vertically */
-        align-items: center;
-        gap: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
     }
 
     .app-preview img {
-        width: 80%;
-        /* Make images responsive */
-        max-width: 250px;
+        width: 45%;
+        max-width: 180px;
     }
 
     .cta button {
         font-size: 1rem;
         padding: 8px 15px;
+    }
+}
+
+/* Extra Small Screens (Phones under 480px) */
+@media screen and (max-width: 480px) {
+    .app-preview {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .app-preview img {
+        width: 45%;
+        max-width: 150px;
     }
 }
 
@@ -1997,7 +2054,6 @@ button.next-btn:hover {
     width: 100%;
 }
 
-/* Unskew Child Elements */
 .content-wrapper {
     display: flex;
     flex-direction: column;
@@ -2009,7 +2065,6 @@ button.next-btn:hover {
     box-sizing: border-box;
 }
 
-/* Section Title */
 .section-title {
     font-size: 2.5em;
     font-weight: bold;
@@ -2017,7 +2072,6 @@ button.next-btn:hover {
     margin-bottom: 10px;
 }
 
-/* Section Subtitle */
 .section-subtitle {
     font-size: 1.2em;
     color: #555;
@@ -2025,14 +2079,13 @@ button.next-btn:hover {
     line-height: 1.6;
 }
 
-/* Center Elfsight Widget */
 .elfsight-app-c9e9af2e-5acf-4478-8bc7-62f17e30af1c {
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
-/* Stats Container */
+
 .stats-container {
     display: flex;
     justify-content: center;
@@ -2041,38 +2094,38 @@ button.next-btn:hover {
     margin-top: 20px;
 }
 
-/* Individual Stat Box */
+
 .stat-box {
     background-color: #f0f8ff;
     padding: 20px 30px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 180px;
+    width: 150px;
+    height: 200px;
 }
 
 .stat-box img {
-    width: 50px;
-    height: auto;
+    width: 40px;
+    height: 40px;
     margin: 10px 0;
 }
 
-/* Stat Numbers */
+
 .stat-box h2 {
-    font-size: 2.5em;
+    font-size: 2.2em;
     color: #007bff;
     margin: 0;
 }
 
-/* Stat Descriptions */
+
 .stat-box p {
     font-size: 1em;
     color: #555;
     margin-top: 5px;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .content-wrapper {
         max-width: 90%;
     }
@@ -2092,13 +2145,14 @@ button.next-btn:hover {
         gap: 10px;
     }
 
+
     .stat-box {
-        width: 45%;
-        max-width: 200px;
+        width: 30%;
+        max-width: 140px; 
     }
 
     .stat-box h2 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
     .stat-box p {
@@ -2106,13 +2160,79 @@ button.next-btn:hover {
     }
 }
 
-/* Extra Small Screens (Phones under 480px) */
 @media screen and (max-width: 480px) {
+    .stats-container {
+        justify-content: center;
+    }
+
+
     .stat-box {
-        width: 48%;
-        max-width: 180px;
+        width: 30%; 
+        max-width: 120px; 
+    }
+} */
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .content-wrapper {
+        max-width: 90%;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .section-subtitle {
+        font-size: 1.1em;
+    }
+
+    .stats-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+        gap: 10px;
+    }
+
+    /* Ensure Three Stat Boxes Per Row */
+    .stat-box {
+        width: calc(33.33% - 10px);
+        max-width: 140px;
+        min-width: 100px; 
+        text-align: center;
+        padding: 15px;
+    }
+
+    .stat-box h2 {
+        font-size: 1.5em;
+    }
+
+    .stat-box p {
+        font-size: 0.9em;
     }
 }
+
+
+@media screen and (max-width: 480px) {
+    .stats-container {
+        justify-content: center;
+        gap: 5px;
+    }
+
+    /* Ensure Three Per Row */
+    .stat-box {
+        width: 32%; 
+        max-width: 120px; 
+        min-width: 90px; 
+    }
+
+    .stat-box h2 {
+        font-size: 1em;
+    }
+
+    .stat-box p {
+        font-size: 0.8em;
+    }
+}
+
 
 
 

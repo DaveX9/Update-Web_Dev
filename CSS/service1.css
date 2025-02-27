@@ -693,7 +693,7 @@ header {
 .services-section {
   position: relative;
   padding: 80px 20px;
-  background: url('https://www.jesusislife.in/wp-content/uploads/2019/05/Savin-NY-Website-Background-Web.jpg') no-repeat center center;
+  background: url('/HOMESPECTOR/img/web-bg.webp') no-repeat center center;
   background-size: cover;
   color: white;
   text-align: center;
@@ -799,7 +799,7 @@ header {
   position: relative;
   padding: 60px 20px;
   text-align: center;
-  background: url('https://www.jesusislife.in/wp-content/uploads/2019/05/Savin-NY-Website-Background-Web.jpg') no-repeat center center;
+  background: url('/HOMESPECTOR/img/web-bg.webp') no-repeat center center;
   background-size: cover;
 }
 
