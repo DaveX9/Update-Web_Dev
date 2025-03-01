@@ -6,32 +6,10 @@ include '../header.php';
 $pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Fetch Story Content
-$stmt = $pdo->prepare("SELECT description FROM our_story WHERE type = 'story' LIMIT 1");
+// Fetch latest content
+$stmt = $pdo->prepare("SELECT content FROM ourstory WHERE page_name = 'ourstory'");
 $stmt->execute();
-$story_content = $stmt->fetchColumn();
-
-// Fetch Vision Content
-$stmt = $pdo->prepare("SELECT title, description FROM our_story WHERE type = 'vision' LIMIT 1");
-$stmt->execute();
-$vision = $stmt->fetch(PDO::FETCH_ASSOC);
-
-// Fetch Founders
-$stmt = $pdo->prepare("SELECT id, title, description, image_path FROM our_story WHERE type = 'founder'");
-$stmt->execute();
-$founders = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// Fetch Commitments
-$stmt = $pdo->prepare("SELECT description FROM our_story WHERE type = 'commitment'");
-$stmt->execute();
-$commitments = $stmt->fetchAll(PDO::FETCH_COLUMN);
-
-// Format commitments as HTML for Froala Editor
-$commitmentText = "";
-foreach ($commitments as $commitment) {
-    $commitmentText .= "✅ " . htmlspecialchars($commitment) . "<br>\n";
-}
-
+$content = $stmt->fetchColumn();
 ?>
 
 <!DOCTYPE html>
@@ -40,204 +18,252 @@ foreach ($commitments as $commitment) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Manage Content</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.15/css/froala_editor.pkgd.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.15/css/froala_editor.pkgd.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.15/js/froala_editor.pkgd.min.js"></script>
+
 </head>
-<style>
-    h2 {
-        text-align: center;
-    }
+<style>body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
 
-    .ourstory{
-        background: #fff;
-        padding: 20px;
-        max-width: 800px;
-        margin: auto;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
+.story-container {
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
 
-    .content-box {
-        border: 2px solid #ddd;
-        padding: 15px;
-        margin-bottom: 20px;
-        background: #f9f9f9;
-    }
+/* Header Section */
+.story-header {
+    text-align: center;
+    position: relative;
+}
 
-    .section {
-        margin-bottom: 15px;
-        padding: 10px;
-        border-bottom: 1px solid #ccc;
-    }
+.header-image {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
 
-    label {
-        font-weight: bold;
-        display: block;
-        margin-top: 10px;
-    }
+.header-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 24px;
+}
 
-    input, textarea {
-        width: 100%;
-        padding: 8px;
-        margin-top: 5px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
+/* Content Sections */
+.story-content, 
+.vision-mission, 
+.our-founders, 
+.commitment {
+    margin-top: 20px;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
 
+/* Vision & Mission */
+.vision-mission h2 {
+    text-align: center;
+    color: #333;
+}
+
+.head {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Values (Trust, Tech, Team) */
+.values {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.value {
+    flex: 1;
+    min-width: 150px;
+    margin: 10px;
+}
+
+.value img {
+    width: 50px;
+    margin-bottom: 8px;
+}
+
+/* Founders Section */
+.founders-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.founder {
+    text-align: center;
+    margin: 15px;
+}
+
+.founder-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Commitments */
+.commitment-content {
+    padding: 10px;
+}
+
+.commitment-content ul {
+    padding-left: 20px;
+}
+
+.commitment-content li {
+    margin-bottom: 8px;
+}
+/* Save Button */
+.save-btn {
+    width: 100%;
+    max-width: 200px; /* Prevents button from stretching on large screens */
+    display: block;
+    margin: 20px auto;
+    padding: 12px;
+    background: linear-gradient(90deg, #3b82f6, #9333ea);
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: linear-gradient(90deg, #2563eb, #7e22ce);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+.success-message {
+            text-align: center;
+            color: green;
+            display: none;
+            font-weight: bold;
+}
+@media screen and (max-width: 600px) {
     button {
-        width: 100%;
+        width: 90%;
+        font-size: 14px;
         padding: 10px;
-        background-color: #28a745;
-        color: white;
-        border: none;
-        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .story-container {
+        width: 95%;
     }
 
-    button:hover {
-        background-color: #218838;
+    .header-title {
+        font-size: 20px;
+        padding: 8px 12px;
     }
 
-    .image-preview {
-        margin-top: 10px;
-        display: block;
-        max-width: 100px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
-    .fr-toolbar {
-        display: flex !important;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        background-color: #fff !important;
-        border-radius: 5px;
-        padding: 5px;
-        z-index: 99999 !important;
+    .values {
+        flex-direction: column;
     }
 
-    .fr-popup, .fr-dropdown-menu {
-        z-index: 999999 !important;
+    .value {
+        width: 100%;
     }
 
-    .fr-wrapper {
-        border: 1px solid #ddd !important;
-        border-radius: 5px;
+    .founders-container {
+        flex-direction: column;
     }
 
-    .fr-command {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
+    .founder {
+        width: 100%;
     }
+}
 
-    .fr-btn {
-        height: 35px;
-        width: 35px;
-        margin: 3px;
-        font-size: 14px !important;
-    }
 </style>
 <body>
-    <div class="ourstory">
-        <h2>Manage Our Story</h2>
-
+    <div class="admin-container">
+        <h2 style="text-align: center;">Manage "Our Story"</h2>
         <form id="edit-form">
-            <!-- Story Section -->
-            <label>Story Content:</label>
-            <div id="froala-story"><?php echo $story_content; ?></div>
-            <input type="hidden" name="story" id="story">
-
-            <!-- Vision Section -->
-            <label>Vision Title:</label>
-            <input type="text" name="vision_title" value="<?php echo htmlspecialchars($vision['title']); ?>">
-
-            <label>Vision Description:</label>
-            <div id="froala-vision"><?php echo htmlspecialchars($vision['description']); ?></div>
-            <input type="hidden" name="vision_description" id="vision_description">
-
-            <!-- Founders Section -->
-            <h3>Founders</h3>
-            <?php foreach ($founders as $founder): ?>
-                <div>
-                    <input type="hidden" name="founder_id[]" value="<?php echo $founder['id']; ?>">
-                    <label>Name:</label>
-                    <input type="text" name="founder_name[<?php echo $founder['id']; ?>]" value="<?php echo htmlspecialchars($founder['title']); ?>">
-
-                    <label>Description:</label>
-                    <div class="froala-founder" data-id="<?php echo $founder['id']; ?>"><?php echo htmlspecialchars($founder['description']); ?></div>
-                    <input type="hidden" name="founder_description[<?php echo $founder['id']; ?>]" class="founder_description" data-id="<?php echo $founder['id']; ?>">
-
-                    <label>Upload Image:</label>
-                    <input type="file" name="founder_image[<?php echo $founder['id']; ?>]" accept="image/*">
-                    <?php if (!empty($founder['image_path'])): ?>
-                        <img class="image-preview" src="<?php echo $founder['image_path']; ?>" alt="Founder Image">
-                    <?php endif; ?>
-                </div>
-            <?php endforeach; ?>
-
-            <!-- Commitments Section -->
-            <label>All Commitments:</label>
-            <div id="froala-commitments"><?php echo $commitmentText; ?></div>
-            <input type="hidden" name="commitments" id="commitments">
-
-            <button type="submit">Save Changes</button>
+            <textarea id="froala-editor" name="content"><?php echo htmlspecialchars($content); ?></textarea>
+            <button type="submit" class="save-btn">Save Changes</button>
         </form>
 
-        <p id="success-message" style="display: none; color: green;">Save Successfully!</p>
+        <div id="success-message" class="success-message">Content updated successfully!</div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.15/js/froala_editor.pkgd.min.js"></script>
     <script>
-        $(document).ready(function() {
-            var storyEditor = new FroalaEditor('#froala-story', {
-                heightMin: 300, heightMax: 600
+        document.addEventListener("DOMContentLoaded", function() {
+            var editor = new FroalaEditor('#froala-editor', {
+                heightMin: 400,
+                heightMax: 800,
+                toolbarButtons: [
+                    'bold', 'italic', 'underline', 'strikeThrough', '|',
+                    'fontFamily', 'fontSize', 'color', 'backgroundColor', '|',
+                    'align', 'formatOL', 'formatUL', 'indent', 'outdent', '|',
+                    'insertLink', 'insertImage', 'insertVideo', 'insertTable', '|',
+                    'undo', 'redo', 'clearFormatting', 'html', 'fullscreen', '|',
+                    'paragraphFormat', 'quote', 'insertHR', 'specialCharacters', '|',
+                    'insertFile', 'emoticons', 'print', 'help'
+                ]
             });
 
-            var visionEditor = new FroalaEditor('#froala-vision', {
-                heightMin: 200, heightMax: 400
-            });
-
-            var commitmentEditor = new FroalaEditor('#froala-commitments', {
-                heightMin: 300, heightMax: 600
-            });
-
-            $(".froala-founder").each(function() {
-                new FroalaEditor(this, { heightMin: 200, heightMax: 400 });
-            });
-
-            // AJAX Form Submission
             $("#edit-form").on("submit", function(event) {
-                event.preventDefault(); // Prevent page reload
-
-                $("#story").val(storyEditor.html.get());
-                $("#vision_description").val(visionEditor.html.get());
-                $("#commitments").val(commitmentEditor.html.get());
-
-                $(".froala-founder").each(function() {
-                    var id = $(this).attr("data-id");
-                    $("input.founder_description[data-id='" + id + "']").val($(this).html());
-                });
-
-                var formData = new FormData(this);
+                event.preventDefault();
+                
+                var content = editor.html.get();
+                var formData = { content: content };
 
                 $.ajax({
-                    url: "update-ourstory.php",
+                    url: "update-ourstory.php",  // 🔹 Update correct path
                     type: "POST",
                     data: formData,
-                    contentType: false,
-                    processData: false,
+                    dataType: "json",
                     success: function(response) {
-                        if (response.trim() === "success") {
+                        console.log("Server Response:", response);
+                        if (response.status === "success") {
                             $("#success-message").fadeIn().delay(2000).fadeOut();
+                            localStorage.setItem("latestContent", response.content);
                         } else {
-                            alert("Error updating content: " + response);
+                            alert("Failed to update content! Server error.");
                         }
                     },
                     error: function(xhr, status, error) {
-                        alert("Failed to update content!");
+                        console.error("AJAX Error:", xhr.responseText);
+                        alert("An error occurred while updating content!");
                     }
                 });
             });
-        });
-    </script>
 
+        });
+
+
+    </script>
 </body>
 </html>

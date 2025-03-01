@@ -749,6 +749,11 @@ body {
   height: 2px;
   margin: 15px auto 0;
 }
+.story-container, .story-content, .commitment-content {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
 
 /* Responsive for Mobile */
 @media (max-width: 768px) {
