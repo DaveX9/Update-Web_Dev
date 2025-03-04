@@ -673,7 +673,7 @@ header {
 .about {
   padding: 30px 20px;
   text-align: center;
-  background-image: url('https://www.jesusislife.in/wp-content/uploads/2019/05/Savin-NY-Website-Background-Web.jpg');
+  background-image: url('/HOMESPECTOR/img/web-bg.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -730,6 +730,7 @@ header {
 
 .our-founders h2 {
   font-weight: bold;
+  text-align: center !important;
 }
 
 .founder {

@@ -1,17 +1,16 @@
 <?php
-// Database Connection
-$pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+include __DIR__ . '/../backend/panel/db.php';
 
-// Fetch latest content (Only content, because youtube_video is removed)
-$stmt = $pdo->prepare("SELECT content FROM ourteam WHERE section_name = 'ourteam'");
-$stmt->execute();
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$content = $row['content'];
+function getContent($section) {
+    global $conn;
+    $stmt = $conn->prepare("SELECT content FROM ourteam WHERE section = ?");
+    $stmt->bind_param("s", $section);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_assoc()['content'];
+}
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -294,8 +293,8 @@ $content = $row['content'];
                 </section>
             </section>
 
-            <section class="our-founders" data-aos="fade-up-right">
-                <h2>Our Founders</h2>
+            <section class="our-founders">
+                <h2 data-aos="fade-up">Our Founders</h2>
                 <div class="founders-container">
                     <div class="founder" data-aos="fade-right">
                         <img src="/HOMESPECTOR/img/staff/CEO.jpg" alt="Sumes Chetthamrongchai" class="founder-photo">
@@ -370,20 +369,23 @@ $content = $row['content'];
                 </div>
             </section>
 
+            <section class="about">
+                <div class="about-container">
+                    <?php echo getContent('about'); ?>
+                </div>
+            </section>
 
-            <div class="container">
-                <?php 
-                    // Dynamically Display the Content
-                    echo $content; 
-                ?>
-            </div>
+            <section class="our-founders">
+                <div class="founders-container">
+                    <?php echo getContent('founders'); ?>
+                </div>
+            </section>
 
-            <script>
-                AOS.init();
-            </script>
-
-
-
+            <section class="team-section">
+                <div class="team-container">
+                    <?php echo getContent('team'); ?>
+                </div>
+            </section>
 
             <footer class="footer">
                 <div class="footer-container">

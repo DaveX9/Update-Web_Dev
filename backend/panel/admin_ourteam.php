@@ -1,18 +1,6 @@
 <?php
-session_start();
-include '../header.php';
-
-// Database Connection
-$pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-// Fetch latest content
-$stmt = $pdo->prepare("SELECT content, youtube_video FROM ourteam WHERE section_name = 'ourteam'");
-$stmt->execute();
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-$content = $row['content'];
-$youtube_video = $row['youtube_video'];
+include 'db.php';
+$result = $conn->query("SELECT * FROM ourteam");
 ?>
 
 <!DOCTYPE html>
@@ -20,107 +8,231 @@ $youtube_video = $row['youtube_video'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Manage Our Team</title>
-
-    <!-- jQuery & Froala Editor -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.15/css/froala_editor.pkgd.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.15/js/froala_editor.pkgd.min.js"></script>
-
-    <!-- AOS Animation -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            padding: 20px;
-        }
-        .admin-container {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        .save-btn {
-            display: block;
-            width: 100%;
-            max-width: 200px;
-            margin: 20px auto;
-            padding: 12px;
-            background: linear-gradient(90deg, #3b82f6, #9333ea);
-            color: white;
-            border: none;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .save-btn:hover {
-            background: linear-gradient(90deg, #2563eb, #7e22ce);
-            transform: scale(1.05);
-        }
-        .success-message {
-            text-align: center;
-            color: green;
-            font-weight: bold;
-            display: none;
-        }
-    </style>
+    <title>Edit Content</title>
+    
+    <!-- Froala Editor -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/froala-editor/css/froala_editor.pkgd.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/froala-editor/js/froala_editor.pkgd.min.js"></script>
 </head>
+<style>
+    /* General Page Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Admin Panel Container */
+.container {
+    background: white;
+    max-width: 900px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
+/* Heading */
+h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Section Titles */
+h3 {
+    font-size: 18px;
+    color: #444;
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Fix Froala Toolbar Layout */
+.fr-toolbar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: start !important;
+    background: #f9f9f9 !important;
+    border-radius: 8px 8px 0 0 !important;
+    padding: 8px !important;
+}
+
+/* Ensure toolbar buttons stay aligned */
+.fr-toolbar .fr-btn-grp {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+}
+
+/* Fix Editor Box */
+.fr-box {
+    border: 1px solid #ddd !important;
+    border-radius: 8px !important;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1) !important;
+    background: #fff !important;
+    padding: 10px;
+}
+
+/* Editor Wrapper */
+.fr-wrapper {
+    border-radius: 0 0 8px 8px !important;
+    padding: 10px !important;
+    min-height: 250px;
+    overflow-y: auto;
+}
+
+/* Make editor text clear and readable */
+.fr-element {
+    font-size: 16px !important;
+    color: #333 !important;
+    padding: 10px !important;
+    line-height: 1.6 !important;
+    border-radius: 5px !important;
+}
+
+
+/* Save Button */
+button {
+    display: block;
+    width: 100%;
+    background: #007bff;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+/* Success Message */
+.success-message {
+    display: none;
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+/* Error Message */
+.error-message {
+    display: none;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    textarea {
+        min-height: 150px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
+
+</style>
 <body>
-
-<div class="admin-container">
-    <h2 style="text-align: center;">Manage "Our Team"</h2>
-
-    <form id="edit-form">
-        <textarea id="froala-editor" name="content"><?php echo htmlspecialchars($content); ?></textarea>
-        <button type="submit" class="save-btn">Save Changes</button>
+<div class="container">
+    <h2>Edit Website Content</h2>
+    <form id="updateForm">
+        <?php while ($row = $result->fetch_assoc()): ?>
+            <h3><?php echo ucfirst($row['section']); ?> Section</h3>
+            <textarea id="<?php echo $row['section']; ?>" name="content[<?php echo $row['section']; ?>]">
+                <?php echo htmlspecialchars($row['content']); ?>
+            </textarea>
+        <?php endwhile; ?>
+        <button type="submit">Save Changes</button>
     </form>
 
-    <div id="success-message" class="success-message">Content updated successfully!</div>
+    <!-- Success & Error Messages -->
+    <div id="successMessage" class="success-message" style="display: none;">Content updated successfully!</div>
+    <div id="errorMessage" class="error-message" style="display: none;">An error occurred. Please try again.</div>
 </div>
 
 <script>
     // Initialize Froala Editor
-    $(document).ready(function() {
-        var editor = new FroalaEditor('#froala-editor', {
-            heightMin: 400,
-            heightMax: 800
+    document.querySelectorAll('textarea').forEach((el) => {
+        new FroalaEditor(el, {
+            toolbarButtons: [
+                ['bold', 'italic', 'underline', 'strikeThrough', '|',
+                'fontSize', 'color', '|',
+                'align', 'formatOL', 'formatUL', '|',
+                'insertImage', 'insertLink', 'insertVideo', '|',
+                'undo', 'redo']
+            ],
+            heightMin: 250,
+            theme: 'gray',
+            placeholderText: 'Start typing here...',
+            charCounterCount: true,
+            toolbarSticky: true
         });
+    });
 
-        // Initialize AOS Animations
-        AOS.init();
+    // Handle Form Submission via AJAX
+    document.getElementById("updateForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent page reload
 
-        // Handle Content Update
-        $("#edit-form").on("submit", function(event) {
-            event.preventDefault();
-            var content = editor.html.get();
-            var formData = { content: content };
+        let formData = new FormData(this);
 
-            $.ajax({
-                url: "update_ourteam.php",
-                type: "POST",
-                data: formData,
-                dataType: "json",
-                success: function(response) {
-                    if (response.status === "success") {
-                        $("#success-message").fadeIn().delay(2000).fadeOut();
-                        AOS.refresh(); // Refresh AOS animations
-                    } else {
-                        alert("Failed to update content!");
-                    }
-                }
-            });
+        fetch("update_ourteam.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                document.getElementById("successMessage").style.display = "block";
+                document.getElementById("errorMessage").style.display = "none";
+            } else {
+                document.getElementById("errorMessage").textContent = data.message;
+                document.getElementById("errorMessage").style.display = "block";
+                document.getElementById("successMessage").style.display = "none";
+            }
+        })
+        .catch(error => {
+            document.getElementById("errorMessage").textContent = "An error occurred: " + error;
+            document.getElementById("errorMessage").style.display = "block";
+            document.getElementById("successMessage").style.display = "none";
         });
-
     });
 </script>
+
 
 </body>
 </html>
