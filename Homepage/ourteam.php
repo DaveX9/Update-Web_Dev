@@ -93,10 +93,10 @@ function getContent($section) {
                                 เกี่ยวกับเรา <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="/HOMESPECTOR/Homepage/ourstory.html"
+                                <li><a href="/HOMESPECTOR/Homepage/ourstory.php"
                                         data-translate="nav.ourStory">ประวัติของเรา</a>
                                 </li>
-                                <li><a href="/HOMESPECTOR/Homepage/ourteam.html"
+                                <li><a href="/HOMESPECTOR/Homepage/ourteam.php"
                                         data-translate="nav.ourTeam">ทีมงานของเรา</a></li>
                             </ul>
                         </li>
@@ -190,10 +190,10 @@ function getContent($section) {
                                                 class="fa-solid fa-caret-down"></i></span>
                                     </a>
                                     <ul class="dropdown-menu1">
-                                        <li><a href="/HOMESPECTOR/Homepage/ourstory.html"
+                                        <li><a href="/HOMESPECTOR/Homepage/ourstory.php"
                                                 data-translate="nav.ourStory">ประวัติของเรา</a>
                                         </li>
-                                        <li><a href="/HOMESPECTOR/Homepage/ourteam.html"
+                                        <li><a href="/HOMESPECTOR/Homepage/ourteam.php"
                                                 data-translate="nav.ourTeam">ทีมงานของเรา</a></li>
                                     </ul>
                                 </li>
@@ -266,7 +266,7 @@ function getContent($section) {
                 </a>
             </div>
 
-            <section class="about">
+            <!-- <section class="about">
                 <div class="about-container">
                     <h2>ต.ตรวจบ้าน</h2>
                     <p>
@@ -367,7 +367,7 @@ function getContent($section) {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
             <section class="about">
                 <div class="about-container">
@@ -375,18 +375,43 @@ function getContent($section) {
                 </div>
             </section>
 
-            <section class="our-founders">
+            <!-- <section class="our-founders">
                 <div class="founders-container">
-                    <?php echo getContent('founders'); ?>
+                    <?php 
+                        // echo getContent('founders'); 
+                    ?> 
+                </div>
+            </section> -->
+            <section class="our-founders">
+                <h2 data-aos="fade-up">Our Founders</h2>
+                <div class="founders-container">
+                    <div class="founder" data-aos="fade-right">
+                        <img src="/HOMESPECTOR/img/staff/CEO.jpg" alt="Sumes Chetthamrongchai" class="founder-photo">
+                        <h3>Sumes Chetthamrongchai</h3>
+                        <p>Founder & Managing Director, NACHI Certified Inspector</p>
+                        <div class="certification-container">
+                            <p class="certification">
+                                ได้รับการรับรองผู้ตรวจสอบบ้านจากสมาคมระดับโลกอย่าง INTERNACHI
+                            </p>
+                            <img src="/HOMESPECTOR/img/certified3.png" alt="Certification Badge"
+                                class="certification-badge">
+                        </div>
+                    </div>
+                    <div class="founder" data-aos="fade-left">
+                        <img src="/HOMESPECTOR/img/staff/Co-founder.jpg" alt="Suthep Chetthamrongchai"
+                            class="founder-photo">
+                        <h3>Suthep Chetthamrongchai</h3>
+                        <p>Co-Founder & Civil Engineer</p>
+                    </div>
                 </div>
             </section>
+
 
             <section class="team-section">
                 <div class="team-container">
                     <?php echo getContent('team'); ?>
                 </div>
             </section>
-
             <footer class="footer">
                 <div class="footer-container">
                     <!-- Left Section: Social Media & Branding -->
@@ -411,8 +436,8 @@ function getContent($section) {
                     <div class="footer-center">
                         <h2>เกี่ยวกับเรา <span class="toggle-icon">+</span></h2>
                         <ul>
-                            <li><a href="/HOMESPECTOR/Homepage/ourstory.html">ประวัติของเรา</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/ourteam.html">ทีมงานของเรา</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/ourstory.php">ประวัติของเรา</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/ourteam.php">ทีมงานของเรา</a></li>
                         </ul>
                     </div>
 
@@ -466,7 +491,7 @@ function getContent($section) {
     <script src="/HOMESPECTOR/JS/ourteam.js"></script>
     <script src="/HOMESPECTOR/JS/search_ham.js"></script>
     <script src="/HOMESPECTOR/JS/footer.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -503,6 +528,7 @@ function getContent($section) {
             });
         });
     </script>
+
 
 </body>
 

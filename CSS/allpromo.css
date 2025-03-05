@@ -665,7 +665,7 @@ header {
 
   .contact-item .icon {
     margin-right: 8px;
-    /* Maintain spacing between icon and text */
+
   }
 }
 
@@ -673,7 +673,6 @@ header {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-image: url('https://www.jesusislife.in/wp-content/uploads/2019/05/Savin-NY-Website-Background-Web.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -700,9 +699,7 @@ header {
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 200px;
-  /* Adjust card width */
   cursor: pointer;
-  /* Add pointer cursor for clickable cards */
 }
 
 .card img {
@@ -714,13 +711,11 @@ header {
   padding: 10px;
   font-size: 14px;
   color: #800000;
-  /* Match the dark red color */
 }
 
 /* Modal Styles */
 .modal {
   display: none;
-  /* Hidden by default */
   position: fixed;
   z-index: 1000;
   top: 0;
@@ -762,7 +757,6 @@ header {
 /* Close Button */
 .close {
   display: none;
-  /* Hidden by default */
   position: absolute;
   top: 20px;
   right: 35px;
@@ -775,7 +769,6 @@ header {
 
 .modal.show .close {
   display: block;
-  /* Show close button only when modal is active */
 }
 
 .close:hover {
@@ -910,7 +903,7 @@ header {
 }
 
 .promotion-details span {
-  background-color: #000000;
+  background-color: var(--font3-color);
   color: white;
   padding: 5px 10px;
   border-radius: 5px;

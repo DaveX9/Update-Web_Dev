@@ -674,7 +674,7 @@ header {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    background-image: url('https://www.jesusislife.in/wp-content/uploads/2019/05/Savin-NY-Website-Background-Web.jpg');
+    background-image: url('/HOMESPECTOR/img/web-bg.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -745,7 +745,7 @@ header {
 }
 
 .promotion-details span {
-    background-color: #000000;
+    background-color: var(--font3-color);
     color: white;
     padding: 5px 10px;
     border-radius: 5px;

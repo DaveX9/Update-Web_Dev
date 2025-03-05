@@ -110,9 +110,9 @@
                     เกี่ยวกับเรา <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="/HOMESPECTOR/Homepage/ourstory.html" data-translate="nav.ourStory">ประวัติของเรา</a>
+                    <li><a href="/HOMESPECTOR/Homepage/ourstory.php" data-translate="nav.ourStory">ประวัติของเรา</a>
                     </li>
-                    <li><a href="/HOMESPECTOR/Homepage/ourteam.html" data-translate="nav.ourTeam">ทีมงานของเรา</a></li>
+                    <li><a href="/HOMESPECTOR/Homepage/ourteam.php" data-translate="nav.ourTeam">ทีมงานของเรา</a></li>
                 </ul>
                 </li>
 
@@ -202,9 +202,9 @@
                         เกี่ยวกับเรา <span class="dropdown-icon1"><i class="fa-solid fa-caret-down"></i></span>
                     </a>
                     <ul class="dropdown-menu1">
-                        <li><a href="/HOMESPECTOR/Homepage/ourstory.html" data-translate="nav.ourStory">ประวัติของเรา</a>
+                        <li><a href="/HOMESPECTOR/Homepage/ourstory.php" data-translate="nav.ourStory">ประวัติของเรา</a>
                         </li>
-                        <li><a href="/HOMESPECTOR/Homepage/ourteam.html" data-translate="nav.ourTeam">ทีมงานของเรา</a></li>
+                        <li><a href="/HOMESPECTOR/Homepage/ourteam.php" data-translate="nav.ourTeam">ทีมงานของเรา</a></li>
                     </ul>
                     </li>
 
