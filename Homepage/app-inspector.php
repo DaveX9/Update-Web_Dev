@@ -1,3 +1,12 @@
+<?php
+include __DIR__ . '/../backend/panel/db.php';
+
+// Fetch content from database
+$sql = "SELECT content FROM newapp_content WHERE id = 1";
+$result = $conn->query($sql);
+$data = $result->fetch_assoc();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -240,7 +249,7 @@
                 </div>
             </div>
 
-            <div class="container-newapp" data-aos="fade-up" data-aos-duration="3000">
+            <!-- <div class="container-newapp" data-aos="fade-up" data-aos-duration="3000">
                 <div class="header-newapp">
                     <h1>New</h1>
                     <h2>Application ตรวจบ้านด้วยตัวเอง</h2>
@@ -257,6 +266,9 @@
                         </button>
                     </div>
                 </div>
+            </div> -->
+            <div class="container-newapp" data-aos="fade-up" data-aos-duration="3000">
+                <?= html_entity_decode($data['content']); ?>
             </div>
             <!-- Hero Section -->
             <header class="hero" data-aos="fade-up">

@@ -754,7 +754,6 @@ header {
 
 .arrow {
     margin-left: 10px;
-    /* Adds some space between the "อ่านต่อ" text and the arrow */
 }
 
 
@@ -776,23 +775,6 @@ header {
     gap: 30px;
 }
 
-/* .footer-left {
-    flex: 1;
-    max-width: 300px;
-    text-align: left;
-}
-
-.footer-left h2 {
-    font-size: 20px;
-    color: var(--font2-color);
-    display: inline-block;
-    padding-bottom: 5px;
-    font-weight: bold;
-}
-
-.footer-logo {
-    width: 180px;
-} */
 .footer-left h2 {
     font-size: 20px;
     color: var(--font2-color);

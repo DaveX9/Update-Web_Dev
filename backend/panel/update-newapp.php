@@ -10,7 +10,9 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $content);
 
 if ($stmt->execute()) {
-    echo "Content updated successfully! <a href='admin_newapp.php'>Back</a>";
+    // Redirect back with a success message
+    header("Location: admin_newapp.php?success=1");
+    exit();
 } else {
     echo "Error: " . $conn->error;
 }

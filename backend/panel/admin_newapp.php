@@ -18,17 +18,14 @@ $data = $result->fetch_assoc();
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.14/css/froala_editor.pkgd.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.14/js/froala_editor.pkgd.min.js"></script>
 
-    <!-- Beautiful & Friendly CSS -->
+    <!-- Styles -->
     <style>
-        /* Global Styles */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f4f6f9;
             margin: 0;
             padding: 0;
         }
-        
-        /* Admin Container */
         .admin-container {
             max-width: 900px;
             margin: auto;
@@ -38,50 +35,35 @@ $data = $result->fetch_assoc();
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             margin-top: 50px;
         }
-        
-        /* Header */
         h2 {
             text-align: center;
             color: #333;
+        }
+        .success-message {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
             margin-bottom: 15px;
+            display: none;
         }
-
-        /* Froala Editor */
-        .editor-container {
-            margin-top: 20px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        /* Floating Save Button */
         .save-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 15px 25px;
+            display: block;
+            width: 100%;
+            padding: 12px;
             background: #28a745;
             color: white;
-            font-size: 16px;
+            font-size: 18px;
             border: none;
             cursor: pointer;
             text-align: center;
-            border-radius: 50px;
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            margin-top: 10px;
             transition: 0.3s;
         }
-
         .save-btn:hover {
             background: #218838;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Card Wrapper */
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-top: 10px;
         }
     </style>
 </head>
@@ -91,24 +73,38 @@ $data = $result->fetch_assoc();
     <div class="admin-container">
         <h2>✏️ Edit Home Inspection App Page</h2>
 
-        <div class="card">
-            <form action="update-newapp.php" method="POST">
-                <div class="editor-container">
-                    <textarea id="froala-editor" name="content"><?= $data['content']; ?></textarea>
-                </div>
-                <button type="submit" class="save-btn">💾 Save Changes</button>
-            </form>
-        </div>
+        <!-- Success Message -->
+        <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+            <div class="success-message" id="successMessage">Content updated successfully!</div>
+            <script>
+                document.getElementById("successMessage").style.display = "block";
+                setTimeout(() => {
+                    document.getElementById("successMessage").style.display = "none";
+                }, 3000);
+            </script>
+        <?php endif; ?>
+
+        <form action="update-newapp.php" method="POST">
+            <textarea id="froala-editor" name="content"><?= $data['content']; ?></textarea>
+            <button type="submit" class="save-btn">💾 Save Changes</button>
+        </form>
     </div>
 
     <script>
-    new FroalaEditor('#froala-editor', {
-        height: 700,
-        imageUploadURL: 'upload-app-image.php',
-        fileUploadURL: 'upload_file.php',
-        toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat', 'align', 'insertImage', 'insertLink', 'html'],
-    });
+        new FroalaEditor('#froala-editor', {
+            height: 500,
+            fullPage: true,
+            htmlAllowedTags: ['.*'],
+            htmlAllowedAttrs: ['.*'],
+            imageUploadURL: 'upload-app-image.php',  // This script now saves to /backend/panel/uploads
+            fileUploadURL: 'upload_file.php',
+            imageUploadParams: {
+                folder: '/HOMESPECTOR/backend/panel/uploads/'  // Ensure correct folder path
+            },
+            imageDefaultWidth: 600, // Optional: Set default image width
+        });
     </script>
+
 
 </body>
 </html>
