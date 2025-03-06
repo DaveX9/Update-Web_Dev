@@ -2,7 +2,7 @@
 include 'db.php';
 
 // Fetch promotions
-$result = $conn->query("SELECT * FROM promo1 ORDER BY id ASC");
+$result = $conn->query("SELECT * FROM promo3 ORDER BY id ASC");
 
 // Insert new promotion
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
@@ -24,12 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
     }
 
     // Insert into database
-    $sql = "INSERT INTO promo1 (title, description, image) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO promo3 (title, description, image) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sss", $title, $description, $image);
     
     if ($stmt->execute()) {
-        header("Location: admin_promo1.php");
+        header("Location: admin_promo3.php");
         exit();
     } else {
         echo "Insert failed!";
@@ -41,12 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
     $id = $_POST['id'];
 
     // Ensure the ID exists before deleting
-    $delete_query = "DELETE FROM promo1 WHERE id=?";
+    $delete_query = "DELETE FROM promo3 WHERE id=?";
     $stmt = $conn->prepare($delete_query);
     $stmt->bind_param("i", $id);
 
     if ($stmt->execute()) {
-        header("Location: admin_promo1.php");
+        header("Location: admin_promo3.php");
         exit();
     } else {
         echo "Delete failed!";
@@ -135,46 +135,46 @@ img {
 </style>
 <body>
 
-<div class="container">
-    <h2>Manage Promotions</h2>
+    <div class="container">
+        <h2>Manage Promotions</h2>
 
-    <form action="" method="POST" enctype="multipart/form-data">
-        <label>Title</label>
-        <input type="text" name="title" required>
+        <form action="" method="POST" enctype="multipart/form-data">
+            <label>Title</label>
+            <input type="text" name="title" required>
 
-        <label>Description</label>
-        <textarea name="description" required></textarea>
+            <label>Description</label>
+            <textarea name="description" required></textarea>
 
-        <label>Upload Image</label>
-        <input type="file" name="image" required>
+            <label>Upload Image</label>
+            <input type="file" name="image" required>
 
-        <button type="submit" name="add">Add Promotion</button>
-    </form>
+            <button type="submit" name="add">Add Promotion</button>
+        </form>
 
-    <h3>Existing Promotions</h3>
-    <table border="1">
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th>Action</th>
-        </tr>
-        <?php while ($row = $result->fetch_assoc()): ?>
+        <h3>Existing Promotions</h3>
+        <table border="1">
             <tr>
-                <td><?= htmlspecialchars($row['title']) ?></td>
-                <td><?= htmlspecialchars($row['description']) ?></td>
-                <td><img src="<?= $row['image'] ?>" width="50"></td>
-                <td>
-                    <a href="update_promo1.php?id=<?= $row['id'] ?>">Edit</a>
-                    <form method="POST" style="display:inline;">
-                        <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                        <button type="submit" name="delete">Delete</button>
-                    </form>
-                </td>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Action</th>
             </tr>
-        <?php endwhile; ?>
-    </table>
-</div>
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <tr>
+                    <td><?= htmlspecialchars($row['title']) ?></td>
+                    <td><?= htmlspecialchars($row['description']) ?></td>
+                    <td><img src="<?= $row['image'] ?>" width="50"></td>
+                    <td>
+                        <a href="update_promo2.php?id=<?= $row['id'] ?>">Edit</a>
+                        <form method="POST" style="display:inline;">
+                            <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                            <button type="submit" name="delete">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
+        </table>
+    </div>
 
 </body>
 </html>

@@ -33,7 +33,7 @@
                         <ul id="nav-menu" class="footer-menu">
                             <li><a href="index.html">หน้าหลัก</a></li>
                             <li><a href="service.html">บริการ</a></li>
-                            <li><a href="promotion.html">สิทธิพิเศษ</a></li>
+                            <li><a href="promotion.php">สิทธิพิเศษ</a></li>
                             <li><a href="projects_media.html">ผลงาน</a></li>
                             <li><a href="articles.html">บทความ</a></li>
                             <li><a href="Contactus.php">ติดต่อเรา</a></li>

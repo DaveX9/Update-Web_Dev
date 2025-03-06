@@ -113,7 +113,7 @@ function getContent($section) {
                         <ul>
                             <li><a href="/HOMESPECTOR/Homepage/index.html#faq">คำถามที่พบบ่อย (FAQ)</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/joinwithus.php">รวมงานกับเรา</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/promotion.html">โปรโมชั่น</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/promotion.php">โปรโมชั่น</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Contactus.php">ติดต่อเรา</a></li>
                         </ul>
                     </div>

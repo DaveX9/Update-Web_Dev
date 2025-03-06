@@ -1,3 +1,15 @@
+<?php
+include __DIR__ . '/../backend/panel/db.php';
+
+// Fetch promotions from database
+$promo_query = "SELECT * FROM promo3 WHERE type='promotion' ORDER BY id ASC";
+$promo_result = $conn->query($promo_query);
+
+// Fetch services from database
+$service_query = "SELECT * FROM promo3 WHERE type='service' ORDER BY id ASC";
+$service_result = $conn->query($service_query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,7 +83,7 @@
                         <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
                         </li>
                         <li><a href="/HOMESPECTOR/Homepage/service.html" data-translate="nav.services">บริการ</a></li>
-                        <li><a href="/HOMESPECTOR/Homepage/promotion.html" data-translate="nav.promotion">สิทธิพิเศษ</a>
+                        <li><a href="/HOMESPECTOR/Homepage/promotion.php" data-translate="nav.promotion">สิทธิพิเศษ</a>
                         </li>
                         <li><a href="/HOMESPECTOR/Homepage/projects_media.html" data-translate="nav.projects">ผลงาน</a>
                         </li>
@@ -167,7 +179,7 @@
                                 </li>
                                 <li><a href="/HOMESPECTOR/Homepage/service.html"
                                         data-translate="nav.services">บริการ</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/promotion.html"
+                                <li><a href="/HOMESPECTOR/Homepage/promotion.php"
                                         data-translate="nav.promotion">สิทธิพิเศษ</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/projects_media.html"
                                         data-translate="nav.projects">ผลงาน</a></li>
@@ -253,38 +265,27 @@
                 </a>
             </div>
 
-            <section class="promotion-container">
-                <!-- Card Section -->
+            <!-- <section class="promotion-container">
                 <div class="card-row">
-                    <!-- Card 1 -->
                     <div class="card">
                         <img src="/HOMESPECTOR/img/promotion3.jpg" alt="Promotion Image 1">
-                        <!-- <p>ตรวจบ้านสบายใจทำบุญบ้านได้ง่ายๆ</p> -->
                     </div>
-                    <!-- Card 2 -->
                     <div class="card">
                         <img src="/HOMESPECTOR/img/promotion3.1.jpg" alt="Promotion Image 2">
-                        <!-- <p>ฟรี 3 รายการ</p> -->
                     </div>
-                    <!-- Card 3 -->
                     <div class="card">
                         <img src="/HOMESPECTOR/img/promotion3.2.jpg" alt="Promotion Image 3">
-                        <!-- <p>รับสิทธิพิเศษฟรี 3 รายการ</p> -->
                     </div>
-                    <!-- Card 4 -->
                 </div>
 
 
-                <!-- Modal for Fullscreen Image -->
-                <div id="imageModal" class="modal">
+                <!- Modal for Fullscreen Image -->
+                <!-- <div id="imageModal" class="modal">
                     <span class="close">&times;</span>
                     <img class="modal-content" id="fullImage">
-                </div>
+                </div> -->
 
-
-
-
-                <div class="service-container">
+                <!-- <div class="service-container">
                     <h2>สำหรับลูกค้า ต.ตรวจบ้าน รับเลย!</h2>
                     <div class="service-list">
                         <div class="service-item">
@@ -311,15 +312,47 @@
                         </div>
                     </div>
                 </div>
+            </section> --> 
+            <!-- Promotion Section -->
+            <section class="promotion-container">
+                <div class="card-row">
+                    <?php while ($row = $promo_result->fetch_assoc()): ?>
+                        <div class="card">
+                            <img src="<?= htmlspecialchars($row['image']) ?>" alt="Promotion Image">
+                        </div>
+                    <?php endwhile; ?>
+                </div>
+                <!-- Modal for Fullscreen Image -->
+                <div id="imageModal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="fullImage">
+                </div>
+
+                <!-- Services Section -->
+                <section class="service-container">
+                    <h2>สำหรับลูกค้า ต.ตรวจบ้าน รับเลย!</h2>
+                    <div class="service-list">
+                        <?php while ($row = $service_result->fetch_assoc()): ?>
+                            <div class="service-item">
+                                <img src="<?= htmlspecialchars($row['image']) ?>" alt="Service Image">
+                                <div class="service-text">
+                                    <h3><?= htmlspecialchars($row['title']) ?></h3>
+                                    <p><?= htmlspecialchars($row['description']) ?></p>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    </div>
+                </section>
             </section>
+
 
             <section class="promotion">
                 <h2 class="promotion-title">บทแนะนำ</h2>
-                <a href="/HOMESPECTOR/Homepage/promotion.html" class="btn btn-firstall">ดูทั้งหมด</a>
+                <a href="/HOMESPECTOR/Homepage/promotion.php" class="btn btn-firstall">ดูทั้งหมด</a>
                 <div class="promotion-grid">
                     <div class="promotion-card">
                         <!-- Wrap both the image and project-info inside the <a> tag -->
-                        <a href="/HOMESPECTOR/Homepage/promo1.html">
+                        <a href="/HOMESPECTOR/Homepage/promo1.php">
                             <img src="/HOMESPECTOR/img/promotion1.jpg" alt="SETTHASIRI Project">
                             <div class="promotion-info">
                                 <h3>รับสิทธิ์พิเศษ ต.ตกแต่ง ฟรี 3 รายการ</h3>
@@ -332,7 +365,7 @@
                         </a>
                     </div>
                     <div class="promotion-card">
-                        <a href="/HOMESPECTOR/Homepage/promo2.html">
+                        <a href="/HOMESPECTOR/Homepage/promo2.php">
                             <img src="/HOMESPECTOR/img/promotion2.jpg" alt="SETTHASIRI Project">
                             <div class="promotion-info">
                                 <h3>ตรวจบ้านสบายใจทำบุญบ้านได้ง่ายๆ</h3>
@@ -345,7 +378,7 @@
                         </a>
                     </div>
                     <div class="promotion-card">
-                        <a href="/HOMESPECTOR/Homepage/promo3.html">
+                        <a href="/HOMESPECTOR/Homepage/promo3.php">
                             <img src="/HOMESPECTOR/img/promotion3.jpg" alt="SETTHASIRI Project">
                             <div class="promotion-info">
                                 <h3>สำหรับลูกค้า ต.ตรวจบ้าบ รับเลย!</h3>
@@ -410,7 +443,7 @@
                         <ul>
                             <li><a href="/HOMESPECTOR/Homepage/index.html#faq">คำถามที่พบบ่อย (FAQ)</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/joinwithus.php">รวมงานกับเรา</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/promotion.html">โปรโมชั่น</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/promotion.php">โปรโมชั่น</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Contactus.php">ติดต่อเรา</a></li>
                         </ul>
                     </div>

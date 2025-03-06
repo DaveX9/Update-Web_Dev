@@ -7,7 +7,7 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
 }
 $id = $_GET['id'];
 
-$query = "SELECT * FROM promo1 WHERE id=?";
+$query = "SELECT * FROM promo2 WHERE id=?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $id);
 $stmt->execute();
@@ -35,19 +35,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Update the database
-    $update_query = "UPDATE promo1 SET title=?, description=?, image=? WHERE id=?";
+    $update_query = "UPDATE promo2 SET title=?, description=?, image=? WHERE id=?";
     $stmt = $conn->prepare($update_query);
     $stmt->bind_param("sssi", $title, $description, $image, $id);
 
     if ($stmt->execute()) {
-        header("Location: admin_promo1.php");
+        header("Location: admin_promo2.php");
         exit();
     } else {
         echo "Update failed!";
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="th">
