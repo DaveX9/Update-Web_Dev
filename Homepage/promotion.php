@@ -284,7 +284,6 @@ $result = $conn->query($sql);
                     </div>
                 </section>
             </section>
-
             <!-- <section class="promotion-header" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000">
                 <h1>สิทธิพิเศษ</h1>
                 <h4>สิทธิพิเศษสำหรับลูกค้าที่ตรวจบ้าน/คอนโด กับเรา</h4>
