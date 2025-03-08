@@ -1,0 +1,58 @@
+# Ignore dependency directories
+/vendor/
+/node_modules/
+
+# Ignore environment files containing sensitive data
+.env
+
+# Ignore package manager lock files (if dependencies are managed manually)
+composer.lock
+package-lock.json
+
+# Ignore database files and backups
+*.sql
+/database-changes.sql
+
+# Ignore uploaded files and media (if stored locally)
+/uploads/
+/storage/
+
+# Ignore logs and debugging files
+*.log
+debug.log
+
+# Ignore cache files
+/cache/
+*.cache
+*.tmp
+
+# Ignore editor and OS-specific files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Ignore compiled files
+*.class
+*.pyc
+*.o
+*.out
+
+# Ignore temporary and session files
+/tmp/
+sessions/
+*.bak
+*.old
+
+# Ignore public files (if generated dynamically)
+public/storage
+public/hot
+
+# Ignore Laravel-specific files (if using Laravel)
+bootstrap/cache/
+.env.example
+homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
