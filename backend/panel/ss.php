@@ -58,6 +58,20 @@ $conn->close();
             <div class="carousel-inner">
                 <?php echo $data['carousel']; ?>
             </div>
+                <!-- Previous Button -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#customCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"
+                        style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; width: 40px; height: 40px;"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                    <!-- Next Button -->
+                <button class="carousel-control-next" type="button" data-bs-target="#customCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"
+                        style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; width: 40px; height: 40px;"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
         </div>
     </section>
 
