@@ -1,136 +1,178 @@
 <?php
 include 'db.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $section = $_POST['section'];
-    $column = $_POST['column'];
-    $content = $_POST['content'];
-
-    $query = "UPDATE thome SET $column=? WHERE section=?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("ss", $content, $section);
-    $stmt->execute();
-
-    echo "Updated Successfully!";
-    exit;
+// Fetch content from the database
+$result = $conn->query("SELECT * FROM thome");
+$data = [];
+while ($row = $result->fetch_assoc()) {
+    $data[$row['section']] = $row;
 }
-
-function fetchData($conn, $section) {
-    $query = "SELECT * FROM thome WHERE section=?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $section);
-    $stmt->execute();
-    return $stmt->get_result()->fetch_assoc();
-}
-
-$hero = fetchData($conn, "hero");
-$services = fetchData($conn, "services");
-$pricing = fetchData($conn, "pricing");
-$reports = fetchData($conn, "reports");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Admin Panel - Edit Content</title>
+    <title>Admin Panel</title>
     
-    <!-- Bootstrap for Styling -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Include jQuery (Required for AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- jQuery (Load Before Froala) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <!-- Froala Editor CSS & JS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.15/css/froala_editor.pkgd.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.15/js/froala_editor.pkgd.min.js"></script>
+    <!-- Froala Editor -->
+    <script src="https://cdn.jsdelivr.net/npm/froala-editor/js/froala_editor.pkgd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/froala-editor/css/froala_editor.pkgd.min.css">
 
     <style>
-        body { background-color: #f8f9fa; padding: 20px; }
-        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
-        h2 { text-align: center; color: #333; }
-        .form-group { margin-bottom: 20px; }
-        button { background: #28a745; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin-top: 10px; }
-        button:hover { background: #218838; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Page Title */
+        h2 {
+            margin-top: 20px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        /* Form Container */
+        form {
+            width: 80%;
+            max-width: 800px;
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            color: green;
+            margin-top: 10px;
+            font-size: 16px;
+            text-align: center;
+            background-color: #d4edda;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #c3e6cb;
+        }
+
+        /* Submit Button */
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+        /* Fix Froala Toolbar Layout */
+        .fr-toolbar {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: start !important;
+            background: #f9f9f9 !important;
+            border-radius: 8px 8px 0 0 !important;
+            padding: 8px !important;
+        }
+
+        /* Ensure toolbar buttons stay aligned */
+        .fr-toolbar .fr-btn-grp {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+        }
+
+        /* Fix Editor Box */
+        .fr-box {
+            border: 1px solid #ddd !important;
+            border-radius: 8px !important;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1) !important;
+            background: #fff !important;
+            padding: 10px;
+        }
+
+        /* Editor Wrapper */
+        .fr-wrapper {
+            border-radius: 0 0 8px 8px !important;
+            padding: 10px !important;
+            min-height: 250px;
+            overflow-y: auto;
+        }
+
+        /* Make editor text clear and readable */
+        .fr-element {
+            font-size: 16px !important;
+            color: #333 !important;
+            padding: 10px !important;
+            line-height: 1.6 !important;
+            border-radius: 5px !important;
+        }
+
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>Admin Panel - Edit Website Content</h2>
+    <h2>Admin Panel - Edit Content</h2>
 
-    <!-- Hero Section -->
-    <h3>Hero Section</h3>
-    <form class="updateForm" data-section="hero" data-column="title">
-        <label>Hero Title:</label>
-        <textarea class="froala" name="content"><?= $hero['title']; ?></textarea>
-        <button type="submit">Save</button>
+    <!-- Success message -->
+    <p class="success-message" id="successMessage">✅ Content updated successfully!</p>
+
+    <form id="updateForm">
+        <h3>Services Section</h3>
+        <textarea name="services_content"><?= htmlspecialchars($data['services']['content'] ?? '') ?></textarea>
+
+        <h3>Pricing Section</h3>
+        <textarea name="pricing_content"><?= htmlspecialchars($data['pricing']['content'] ?? '') ?></textarea>
+
+        <h3>Reports Section</h3>
+        <textarea name="reports_content"><?= htmlspecialchars($data['reports']['content'] ?? '') ?></textarea>
+
+        <button type="submit">Save Changes</button>
     </form>
 
-    <form class="updateForm" data-section="hero" data-column="image_url">
-        <label>Background Image URL:</label>
-        <input type="text" name="content" value="<?= $hero['image_url']; ?>" required>
-        <button type="submit">Save</button>
-    </form>
+    <script>
+        $(document).ready(function() {
+            // Initialize Froala Editor
+            new FroalaEditor('textarea', {
+                imageUploadURL: 'upload_service1_img.php'
+            });
 
-    <!-- Services Section -->
-    <h3>Services Section</h3>
-    <form class="updateForm" data-section="services" data-column="title">
-        <label>Heading:</label>
-        <textarea class="froala" name="content"><?= $services['title']; ?></textarea>
-        <button type="submit">Save</button>
-    </form>
+            // AJAX form submission
+            $("#updateForm").submit(function(e) {
+                e.preventDefault(); // Prevent page reload
 
-    <form class="updateForm" data-section="services" data-column="description">
-        <label>Description:</label>
-        <textarea class="froala" name="content"><?= $services['description']; ?></textarea>
-        <button type="submit">Save</button>
-    </form>
-
-    <!-- Pricing Section -->
-    <h3>Pricing Section</h3>
-    <form class="updateForm" data-section="pricing" data-column="title">
-        <label>Pricing Heading:</label>
-        <textarea class="froala" name="content"><?= $pricing['title']; ?></textarea>
-        <button type="submit">Save</button>
-    </form>
-
-    <!-- Reports Section -->
-    <h3>Reports Section</h3>
-    <form class="updateForm" data-section="reports" data-column="title">
-        <label>Reports Heading:</label>
-        <textarea class="froala" name="content"><?= $reports['title']; ?></textarea>
-        <button type="submit">Save</button>
-    </form>
-</div>
-
-<script>
-$(document).ready(function () {
-    // Ensure Froala Editor is loaded before applying it
-    if (typeof $.fn.froalaEditor !== "undefined") {
-        $('.froala').froalaEditor({
-            height: 200,
-            imageUploadURL: 'upload_image.php',
-            fileUploadURL: 'upload_pdf.php',
-            imageUploadParams: { id: 'my_editor' },
-            fileUploadParams: { id: 'my_editor' }
+                $.ajax({
+                    url: "update_service1.php",
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        console.log(response); // Debugging
+                        if (response.trim() === "success") {
+                            $("#successMessage").fadeIn().delay(3000).fadeOut();
+                        } else {
+                            alert("Error: " + response); // Show error if update fails
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert("An error occurred: " + error);
+                    }
+                });
+            });
         });
-    } else {
-        console.error("Froala Editor failed to load. Check script paths.");
-    }
-
-    // AJAX Update Functionality
-    $('.updateForm').submit(function (e) {
-        e.preventDefault();
-        let section = $(this).data('section');
-        let column = $(this).data('column');
-        let content = $(this).find('.froala, input').val();
-
-        $.post('ser1.php', { section: section, column: column, content: content }, function (response) {
-            alert(response);
-        });
-    });
-});
-</script>
-
+    </script>
 </body>
 </html>
