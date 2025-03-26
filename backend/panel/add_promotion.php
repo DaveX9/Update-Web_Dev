@@ -1,13 +1,36 @@
 <?php
 include 'db.php';
 
+$editing = false;
+$promoData = [
+    'title' => '',
+    'description' => '',
+    'image' => '',
+];
+
+if (isset($_GET['id'])) {
+    $editing = true;
+    $id = intval($_GET['id']);
+    
+    $stmt = $conn->prepare("SELECT * FROM promotions WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        $promoData = $result->fetch_assoc();
+    } else {
+        echo "ไม่พบข้อมูลโปรโมชั่น";
+        exit();
+    }
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST['title'];
     $description = $_POST['description'];
-    $link = $_POST['link'];
+    $id = $_POST['id'] ?? null;
 
-    // Handle Image Upload
-    $image = "";
+    // Upload Image
+    $image = $_POST['current_image'] ?? '';
     if (!empty($_FILES['image']['name'])) {
         $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/HOMESPECTOR/backend/panel/uploads/";
         $image_name = basename($_FILES["image"]["name"]);
@@ -20,19 +43,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Insert Data into Database
-    $sql = "INSERT INTO promotions (title, description, image, link) VALUES (?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $title, $description, $image, $link);
-
-    if ($stmt->execute()) {
-        header("Location: admin_promotion.php");
-        exit();
+    if ($id) {
+        // Update
+        $update = $conn->prepare("UPDATE promotions SET title = ?, description = ?, image = ? WHERE id = ?");
+        $update->bind_param("sssi", $title, $description, $image, $id);
+        $update->execute();
     } else {
-        echo "Insert failed!";
+        // Insert ใหม่
+        $insert = $conn->prepare("INSERT INTO promotions (title, description, image, link) VALUES (?, ?, ?, '')");
+        $insert->bind_param("sss", $title, $description, $image);
+        if ($insert->execute()) {
+            $last_id = $insert->insert_id;
+            $link = "/HOMESPECTOR/Homepage/promo4.php?page=$last_id";
+            $updateLink = $conn->prepare("UPDATE promotions SET link = ? WHERE id = ?");
+            $updateLink->bind_param("si", $link, $last_id);
+            $updateLink->execute();
+        }
     }
+
+    header("Location: admin_promotion.php");
+    exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="th">
@@ -127,28 +160,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <h2>เพิ่มโปรโมชั่น</h2>
         <form action="" method="POST" enctype="multipart/form-data">
+            <?php if ($editing): ?>
+                <input type="hidden" name="id" value="<?= $id ?>">
+                <input type="hidden" name="current_image" value="<?= htmlspecialchars($promoData['image']) ?>">
+            <?php endif; ?>
+
             <label>ชื่อโปรโมชั่น</label>
-            <input type="text" name="title" required>
+            <input type="text" name="title" value="<?= htmlspecialchars($promoData['title']) ?>" required>
 
             <label>อัปโหลดรูป</label>
             <input type="file" name="image">
+            <?php if ($editing && $promoData['image']): ?>
+                <div>
+                    <img src="<?= $promoData['image'] ?>" alt="" style="width: 200px; margin-top: 10px;">
+                </div>
+            <?php endif; ?>
 
-            <label>ลิงก์ไปยังหน้าโปรโมชั่น</label>
-            <input type="text" name="link">
-
-
-            <!-- Promotion Details Section (Moved Froala Editor Here) -->
             <div class="promotion-details">
                 <h3>รายละเอียดโปรโมชั่น</h3>
-                
                 <label>รายละเอียด</label>
-                <textarea name="description" id="froala-editor"></textarea>
+                <textarea name="description" id="froala-editor"><?= $promoData['description'] ?></textarea>
             </div>
 
-            <button type="submit" class="btn-submit">บันทึก</button>
+            <button type="submit" class="btn-submit"><?= $editing ? 'อัปเดต' : 'บันทึก' ?></button>
         </form>
     </div>
-
 
     <script>
         new FroalaEditor('#froala-editor', {
@@ -159,11 +195,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 'align', 'formatOL', 'formatUL', '|',
                 'insertImage', 'insertLink', 'insertVideo', 'undo', 'redo'
             ],
-            imageUploadURL: 'upload_promo_img.php', // ✅ Now using the correct upload script
-            fileUploadURL: 'upload_file.php', // If needed, ensure you have a file upload script
+            imageUploadURL: 'upload_promo_img.php',
+            fileUploadURL: 'upload_file.php'
         });
     </script>
-
 
 </body>
 </html>

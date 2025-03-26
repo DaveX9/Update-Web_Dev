@@ -1,15 +1,21 @@
 <?php
 include __DIR__ . '/../backend/panel/db.php';
 
-// Fetch promotions from database
-$promo_query = "SELECT * FROM promo3 WHERE type='promotion' ORDER BY id ASC";
-$promo_result = $conn->query($promo_query);
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
-// Fetch services from database
-$service_query = "SELECT * FROM promo3 WHERE type='service' ORDER BY id ASC";
-$service_result = $conn->query($service_query);
+$sql = "SELECT * FROM promotions WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $page);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 0) {
+    echo "ไม่พบโปรโมชั่นนี้";
+    exit();
+}
+
+$promo = $result->fetch_assoc();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -314,37 +320,28 @@ $service_result = $conn->query($service_query);
                 </div>
             </section> --> 
             <!-- Promotion Section -->
-            <section class="promotion-container">
-                <div class="card-row">
-                    <?php while ($row = $promo_result->fetch_assoc()): ?>
-                        <div class="card">
-                            <img src="<?= htmlspecialchars($row['image']) ?>" alt="Promotion Image">
-                        </div>
-                    <?php endwhile; ?>
+            <style>
+                .promo-container {
+                    max-width: 800px;
+                    margin: 50px auto; /* auto ทำให้กลางแนวนอน */
+                    background: white;
+                    padding: 30px;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                    text-align: center; /* ✅ center เนื้อหาภายใน */
+                }
+            </style>
+            
+            <div class="promo-container">
+                <div >
+                    <?= $promo['description'] ?>
                 </div>
-                <!-- Modal for Fullscreen Image -->
-                <div id="imageModal" class="modal">
-                    <span class="close">&times;</span>
-                    <img class="modal-content" id="fullImage">
-                </div>
-
-                <!-- Services Section -->
-                <section class="service-container">
-                    <h2>สำหรับลูกค้า ต.ตรวจบ้าน รับเลย!</h2>
-                    <div class="service-list">
-                        <?php while ($row = $service_result->fetch_assoc()): ?>
-                            <div class="service-item">
-                                <img src="<?= htmlspecialchars($row['image']) ?>" alt="Service Image">
-                                <div class="service-text">
-                                    <h3><?= htmlspecialchars($row['title']) ?></h3>
-                                    <p><?= htmlspecialchars($row['description']) ?></p>
-                                </div>
-                            </div>
-                        <?php endwhile; ?>
-                    </div>
-                </section>
-            </section>
-
+            </div>
+            <!-- Modal for Fullscreen Image -->
+            <div id="imageModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="fullImage">
+            </div>
 
             <section class="promotion">
                 <h2 class="promotion-title">บทแนะนำ</h2>
@@ -463,7 +460,6 @@ $service_result = $conn->query($service_query);
                     <p>© 2024 HomeInspector. All Rights Reserved.</p>
                 </div>
             </footer>
-
         </div>
     </div>
 

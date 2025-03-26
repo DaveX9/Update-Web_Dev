@@ -1,15 +1,37 @@
+<?php
+include 'db.php';
+
+// Mapping กำหนดหน้าแก้ไขเฉพาะโปรบางตัว
+$customEditLinks = [
+    1 => 'admin_promo1.php', // สำหรับโปรโมชัน ตกแต่งฟรี
+    2 => 'admin_promo2.php', // สำหรับโปร ทำบุญบ้าน
+    3 => 'admin_promo3.php'  // สำหรับโปร รับของสมนาคุณ
+];
+
+
+// Fetch promotions from the database
+$sql = "SELECT * FROM promotions ORDER BY position ASC";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <title>Admin Panel</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.14/css/froala_editor.pkgd.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
         .button-container {
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
         }
+
         .btn {
             background-color: #2d68c4;
             color: white;
@@ -22,49 +44,24 @@
             gap: 5px;
             font-size: 16px;
         }
+
         .btn:hover { background-color: #1d4c8c; }
         .btn i { font-size: 18px; }
-    </style>
-</head>
-<body>
-    <h2>จัดการโปรโมชั่น</h2>
 
-    <div class="button-container">
-        <button class="btn" onclick="window.location.href='add_promotion.php'">
-            <i class="fa-solid fa-plus"></i> เพิ่มโปรโมชั่น
-        </button>
-        <button class="btn" onclick="window.location.href='manage_promotion.php'">
-            <i class="fa-solid fa-list"></i> จัดการแสดงผล
-        </button>
-    </div>
-    <?php
-        include 'db.php';
-
-        // Fetch promotions from the database
-        $sql = "SELECT * FROM promotions ORDER BY position ASC";
-        $result = $conn->query($sql);
-    ?>
-    <style>
         .promotion-header {
             text-align: center;
             margin-top: 30px;
             margin-bottom: 20px;
             padding-bottom: 5px;
-            max-width: 100%;
-            margin-left: auto;
-            margin-right: auto;
             background-image: url('/HOMESPECTOR/img/web-bg.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             color: var(--font-color);
-            text-align: center;
             width: 100vw;
             min-height: 60vh;
         }
 
-
-        /* promotion */
         .promotion {
             max-width: 1200px;
             margin: 0 auto;
@@ -78,7 +75,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            /* Optional: add a gap above the grid */
         }
 
         .promotion-card {
@@ -89,13 +85,13 @@
             transition: transform 0.3s;
         }
 
-        .promotion-card a {
-            text-decoration: none;
-        }
-
         .promotion-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .promotion-card a {
+            text-decoration: none;
         }
 
         .promotion-card img {
@@ -133,16 +129,55 @@
 
         .arrow {
             margin-left: 10px;
-            /* Adds some space between the "อ่านต่อ" text and the arrow */
+        }
+
+        .admin-buttons .btn {
+            padding: 6px 12px;
+            font-size: 14px;
+            border-radius: 5px;
+            text-decoration: none;
+            border: none;
+        }
+
+        .btn-edit {
+            background-color: #2d68c4;
+        }
+
+        .btn-edit:hover {
+            background-color: #1d4c8c;
+        }
+
+        .btn-delete {
+            background-color: #e74c3c;
+        }
+
+        .btn-delete:hover {
+            background-color: #c0392b;
         }
     </style>
-    <section class="promotion-header" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000">
+</head>
+<body>
+
+    <h2>จัดการโปรโมชั่น</h2>
+
+    <div class="button-container">
+        <button class="btn" onclick="window.location.href='add_promotion.php'">
+            <i class="fa-solid fa-plus"></i> เพิ่มโปรโมชั่น
+        </button>
+        <button class="btn" onclick="window.location.href='manage_promotion.php'">
+            <i class="fa-solid fa-list"></i> จัดการแสดงผล
+        </button>
+    </div>
+
+    <section class="promotion-header">
         <h1>สิทธิพิเศษ</h1>
         <h4>สิทธิพิเศษสำหรับลูกค้าที่ตรวจบ้าน/คอนโด กับเรา</h4>
         
-        <section class="promotion" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1000">
+        <section class="promotion">
             <div class="promotion-grid">
                 <?php while ($row = $result->fetch_assoc()): ?>
+                    <!-- Debug: ID = <?= $row['id'] ?> | Title = <?= htmlspecialchars($row['title']) ?> -->
+
                     <div class="promotion-card">
                         <a href="<?= $row['link'] ?>">
                             <img src="<?= $row['image'] ?>" alt="<?= htmlspecialchars($row['title']) ?>">
@@ -154,12 +189,21 @@
                                 </div>
                             </div>
                         </a>
+
+                        <div class="admin-buttons" style="display:flex; justify-content: space-around; padding: 10px;">
+                            <?php
+                                $editLink = isset($customEditLinks[$row['id']])
+                                            ? $customEditLinks[$row['id']]
+                                            : 'add_promotion.php?id=' . $row['id'];
+                            ?>
+                            <a href="<?= $editLink ?>" class="btn btn-edit">แก้ไข</a>
+                            <a href="delete_promotion.php?id=<?= $row['id'] ?>" class="btn btn-delete" onclick="return confirm('คุณแน่ใจว่าต้องการลบโปรโมชั่นนี้?');">ลบ</a>
+                        </div>
                     </div>
                 <?php endwhile; ?>
             </div>
         </section>
     </section>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

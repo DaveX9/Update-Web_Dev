@@ -1,52 +1,58 @@
 <?php
 include 'db.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $developer = $_POST['developer'];
-    $headline = $_POST['headline'];
-    $short_detail = $_POST['short_detail'];
-    $review_detail = $_POST['review_detail'];
+// Handle file upload
+function uploadImage($fileInput) {
+    if (!empty($_FILES[$fileInput]['name'])) {
+        $uploadDir = __DIR__ . "/uploads/";
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
 
-    // Define the uploads directory
-    $uploadDir = __DIR__ . "/uploads/"; // Absolute path to uploads folder
+        $filename = time() . "_" . basename($_FILES[$fileInput]["name"]);
+        $targetFile = $uploadDir . $filename;
 
-    // Ensure the directory exists
-    if (!is_dir($uploadDir)) {
-        mkdir($uploadDir, 0777, true); // Create the uploads folder if it doesn't exist
+        if (move_uploaded_file($_FILES[$fileInput]["tmp_name"], $targetFile)) {
+            // Return relative path for DB (so image shows correctly)
+            return "uploads/" . $filename;
+        }
+    }
+    return null;
+}
+
+$id             = $_POST['id'] ?? null;
+$developer_id   = $_POST['developer_id'] ?? null;
+$headline       = $_POST['headline'] ?? '';
+$short_detail   = $_POST['short_detail'] ?? '';
+$review_detail  = $_POST['review_detail'] ?? '';
+
+$thumbnailPath = uploadImage('thumbnail');
+
+// --- INSERT ---
+if (!$id) {
+    $stmt = $conn->prepare("INSERT INTO home_reviews (developer_id, thumbnail, headline, short_detail, review_detail) VALUES (?, ?, ?, ?, ?)");
+    if (!$stmt) die("Prepare failed: " . $conn->error);
+
+    $stmt->bind_param("issss", $developer_id, $thumbnailPath, $headline, $short_detail, $review_detail);
+} else {
+    // Use old thumbnail if no new one
+    if (!$thumbnailPath) {
+        $result = $conn->query("SELECT thumbnail FROM home_reviews WHERE id = $id");
+        $row = $result->fetch_assoc();
+        $thumbnailPath = $row['thumbnail'];
     }
 
-    $thumbnailPath = null;
-    $facebookSharePath = null;
+    $stmt = $conn->prepare("UPDATE home_reviews SET developer_id = ?, thumbnail = ?, headline = ?, short_detail = ?, review_detail = ? WHERE id = ?");
+    if (!$stmt) die("Prepare failed: " . $conn->error);
 
-    // Handle Thumbnail Upload
-    if (!empty($_FILES['thumbnail']['name'])) {
-        $thumbnailName = basename($_FILES['thumbnail']['name']);
-        $thumbnailPath = "uploads/" . $thumbnailName;
-        move_uploaded_file($_FILES['thumbnail']['tmp_name'], $uploadDir . $thumbnailName);
-    }
+    $stmt->bind_param("issssi", $developer_id, $thumbnailPath, $headline, $short_detail, $review_detail, $id);
+}
 
-    // Handle Facebook Share Image Upload
-    if (!empty($_FILES['facebook_share']['name'])) {
-        $facebookShareName = basename($_FILES['facebook_share']['name']);
-        $facebookSharePath = "uploads/" . $facebookShareName;
-        move_uploaded_file($_FILES['facebook_share']['tmp_name'], $uploadDir . $facebookShareName);
-    }
-
-    // Prepare the SQL statement using MySQLi
-    $stmt = $conn->prepare("INSERT INTO home_reviews (developer, headline, short_detail, review_detail, thumbnail, facebook_share) 
-                            VALUES (?, ?, ?, ?, ?, ?)");
-
-    // Bind the parameters
-    $stmt->bind_param("ssssss", $developer, $headline, $short_detail, $review_detail, $thumbnailPath, $facebookSharePath);
-
-    // Execute the query
-    if ($stmt->execute()) {
-        echo "Review saved successfully!";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-
-    // Close the statement
-    $stmt->close();
+// --- Execute and Redirect ---
+if ($stmt->execute()) {
+    header("Location: admin_reviews.php");
+    exit;
+} else {
+    die("Query failed: " . $stmt->error);
 }
 ?>

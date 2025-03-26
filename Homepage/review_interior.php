@@ -254,8 +254,8 @@
             </div>
             <div class="review-page" data-aos="fade-up">
                 <h1>ผลงานออกแบบตกแต่งภายใน</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                    Neque consequatur corrupti ipsum laudantium,<br>
+                <p>ต.ตกเเต่ง เราบริการแบบ One Service Solution ทุกอย่างครบจบที่เดียว! <br>
+                ออกแบบรวมตกแต่ง ราคาเริ่มต้นเพียง 10,000 บาท/ตร.ม.<br>
                 </p>
                 <hr>
                 <br>
