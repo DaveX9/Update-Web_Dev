@@ -68,5 +68,14 @@ $developers = $conn->query("SELECT * FROM review_developer ORDER BY position ASC
     <script>
         new FroalaEditor('#editor');
     </script>
+    <script>
+        new FroalaEditor('#editor', {
+            imageUploadURL: 'upload_review-image.php', // ต้องตรงกับชื่อไฟล์ upload
+            imageUploadParams: {
+            id: 'review_image'
+            }
+        });
+    </script>
+
 </body>
 </html>

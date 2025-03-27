@@ -50,7 +50,7 @@ $result = $conn->query($query);
             <?php while ($row = $result->fetch_assoc()): 
             $category = htmlspecialchars($row['developer_name']);
             $thumbnail = !empty($row['thumbnail']) ? $row['thumbnail'] : '/HOMESPECTOR/img/default.jpg';
-            $link = "/HOMESPECTOR/Homepage/after_review_home.php?id=" . $row['id'];
+            $link = "/HOMESPECTOR/Homepage/after_review_home10.php?id=" . $row['id'];
             ?>
             <a href="<?php echo $link; ?>" class="card" data-category="<?php echo $category; ?>">
                 <img src="<?php echo $thumbnail; ?>" alt="Review Image">

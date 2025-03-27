@@ -1,180 +1,91 @@
 <?php
 include 'db.php';
 
-// Fetch promotions
-$result = $conn->query("SELECT * FROM promo1 ORDER BY id ASC");
-
-// Insert new promotion
+// Insert new review
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
-    $title = $_POST['title'];
-    $description = $_POST['description'];
+    $name_en = $_POST['name_en'];
+    $position = $_POST['position'];
 
-    // Handle image upload
-    $image = "";
-    if (!empty($_FILES['image']['name'])) {
-        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/HOMESPECTOR/backend/panel/uploads/";
-        $image_name = basename($_FILES["image"]["name"]);
-        $image_path = "/HOMESPECTOR/backend/panel/uploads/" . $image_name;
+    // Upload thumbnail
+    $thumbnail = "";
+    if (!empty($_FILES['thumbnail']['name'])) {
+        $upload_dir = $_SERVER['DOCUMENT_ROOT'] . "/HOMESPECTOR/backend/panel/uploads/";
+        $thumb_name = basename($_FILES["thumbnail"]["name"]);
+        $thumb_path = "/HOMESPECTOR/backend/panel/uploads/" . $thumb_name;
 
-        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_dir . $image_name)) {
-            $image = $image_path;
+        if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $upload_dir . $thumb_name)) {
+            $thumbnail = $thumb_path;
         } else {
-            die("File upload failed!");
+            die("Thumbnail upload failed!");
         }
     }
 
-    // Insert into database
-    $sql = "INSERT INTO promo1 (title, description, image) VALUES (?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $title, $description, $image);
-    
-    if ($stmt->execute()) {
-        header("Location: admin_promo1.php");
-        exit();
-    } else {
-        echo "Insert failed!";
-    }
+    // Insert to DB
+    $stmt = $conn->prepare("INSERT INTO after_review_developer1 (name_en, position, thumbnail) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $name_en, $position, $thumbnail);
+    $stmt->execute();
+    $stmt->close();
+
+    header("Location: admin_after_review1.php");
+    exit;
 }
 
-// Delete promotion
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
-    $id = $_POST['id'];
-
-    // Ensure the ID exists before deleting
-    $delete_query = "DELETE FROM promo1 WHERE id=?";
-    $stmt = $conn->prepare($delete_query);
-    $stmt->bind_param("i", $id);
-
-    if ($stmt->execute()) {
-        header("Location: admin_promo1.php");
-        exit();
-    } else {
-        echo "Delete failed!";
-    }
-}
+// Fetch existing reviews
+$reviews = $conn->query("SELECT * FROM after_review_developer1 ORDER BY id DESC");
 ?>
 
 <!DOCTYPE html>
-<html lang="th">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Manage Promotions</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Review Admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
-<style>
-    body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
-}
+<body class="container py-4">
+    <h2>Add New Review</h2>
 
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: auto;
-}
+    <form method="post" enctype="multipart/form-data" class="mb-5">
+        <input type="hidden" name="add" value="1">
 
-h2, h3 {
-    text-align: center;
-}
+        <div class="mb-3">
+            <label>Project Name</label>
+            <input type="text" name="name_en" class="form-control" required>
+        </div>
 
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-}
+        <div class="mb-3">
+            <label>Description</label>
+            <textarea name="position" class="form-control" rows="4" required></textarea>
+        </div>
 
-button {
-    background-color: #2d68c4;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 15px;
-}
+        <div class="mb-3">
+            <label>Thumbnail Image</label>
+            <input type="file" name="thumbnail" class="form-control" required>
+        </div>
 
-button:hover {
-    background-color: #1d4c8c;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-th, td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-}
-
-th {
-    background-color: #2d68c4;
-    color: white;
-}
-
-tr:hover {
-    background-color: #f1f1f1;
-}
-
-img {
-    max-width: 100%;
-    border-radius: 5px;
-}
-
-</style>
-<body>
-
-<div class="container">
-    <h2>Manage Promotions</h2>
-
-    <form action="" method="POST" enctype="multipart/form-data">
-        <label>Title</label>
-        <input type="text" name="title" required>
-
-        <label>Description</label>
-        <textarea name="description" required></textarea>
-
-        <label>Upload Image</label>
-        <input type="file" name="image" required>
-
-        <button type="submit" name="add">Add Promotion</button>
+        <button type="submit" class="btn btn-success">Add Review</button>
     </form>
 
-    <h3>Existing Promotions</h3>
-    <table border="1">
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th>Action</th>
-        </tr>
-        <?php while ($row = $result->fetch_assoc()): ?>
+    <h3>Existing Reviews</h3>
+    <table class="table table-bordered">
+        <thead>
             <tr>
-                <td><?= htmlspecialchars($row['title']) ?></td>
-                <td><?= htmlspecialchars($row['description']) ?></td>
-                <td><img src="<?= $row['image'] ?>" width="50"></td>
-                <td>
-                    <a href="update_promo1.php?id=<?= $row['id'] ?>">Edit</a>
-                    <form method="POST" style="display:inline;">
-                        <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                        <button type="submit" name="delete">Delete</button>
-                    </form>
-                </td>
+                <th>ID</th>
+                <th>Thumbnail</th>
+                <th>Project</th>
+                <th>Description</th>
+                <th>Created</th>
             </tr>
-        <?php endwhile; ?>
+        </thead>
+        <tbody>
+            <?php while($row = $reviews->fetch_assoc()): ?>
+            <tr>
+                <td><?= $row['id'] ?></td>
+                <td><img src="<?= $row['thumbnail'] ?>" style="width:100px;"></td>
+                <td><?= htmlspecialchars($row['name_en']) ?></td>
+                <td><?= htmlspecialchars($row['position']) ?></td>
+                <td><?= $row['created_at'] ?></td>
+            </tr>
+            <?php endwhile; ?>
+        </tbody>
     </table>
-</div>
-
 </body>
 </html>
