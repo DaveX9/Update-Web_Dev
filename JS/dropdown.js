@@ -2,7 +2,7 @@
 document.querySelectorAll('.dropdown').forEach(dropdown => {
     const toggle = dropdown.querySelector('.menu-item'); // Clickable menu item
     const menu = dropdown.querySelector('.dropdown-menu'); // Dropdown menu
-  
+    
     toggle.addEventListener('click', (e) => {
       e.preventDefault(); // Prevent default behavior of the link
       // Close other open dropdowns
@@ -18,4 +18,3 @@ document.querySelectorAll('.dropdown').forEach(dropdown => {
       document.querySelectorAll('.dropdown-menu').forEach(menu => menu.style.display = 'none');
     }
   });
-  

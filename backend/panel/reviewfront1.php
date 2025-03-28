@@ -249,9 +249,10 @@
         fetch('http://localhost/HomeSpector/backend/panel/admin_after_review1.php?fetch=json')
         .then(res => res.json())
         .then(data => {
-            document.getElementById('project-name').innerText = data.review.title;
-            document.getElementById('project-description').innerText = data.review.description;
-            document.getElementById('thumbnail').src = data.review.banner_image;
+            document.getElementById('project-name').innerHTML = data.review.name_en;
+            document.getElementById('project-description').innerHTML = data.review.position;
+            document.getElementById('thumbnail').src = data.review.thumbnail;
+
 
             const container = document.getElementById('image-list');
             data.images.forEach(img => {

@@ -4,7 +4,8 @@ include 'db.php';
 $query = "SELECT hr.*, d.name_en AS developer_name 
             FROM home_reviews hr 
             JOIN review_developer d ON hr.developer_id = d.id 
-            ORDER BY hr.created_at DESC";
+            ORDER BY hr.sort_order ASC";
+
 $result = $conn->query($query);
 ?>
 
