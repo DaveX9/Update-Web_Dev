@@ -254,6 +254,14 @@
             <?php
                 include '../backend/panel/db.php';
 
+                // ✅ Helper function สำหรับจัดการ thumbnail path
+                function getThumbnailPath($thumb) {
+                    if ($thumb && !str_contains($thumb, '/')) {
+                        return '/HOMESPECTOR/backend/panel/uploads/' . $thumb;
+                    }
+                    return $thumb;
+                }
+
                 $id = $_GET['id'] ?? null;
                 $review = null;
 
@@ -268,6 +276,8 @@
                     echo "<h3>Review not found.</h3>";
                     exit;
                 }
+
+                $thumbnail = getThumbnailPath($review['thumbnail']);
             ?>
 
                 <!-- Hero Banner Section -->
@@ -294,7 +304,6 @@
                 <span class="close">&times;</span>
                 <img class="modal-content" id="fullImage" alt="Zoomed Image">
             </div>
-
 
 
 

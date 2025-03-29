@@ -319,6 +319,60 @@
             </div>
 
 
+            <div class="interior-container">
+                <!-- Banner Image -->
+                <div class="interior-banner">
+                <img id="thumbnail" alt="Project Thumbnail">
+                </div>
+        
+                <!-- Text Box -->
+                <div class="banner-text">
+                <div class="review-title" id="project-name"></div>
+                <div class="photo-description" id="project-description"></div>
+                </div>
+            </div>
+        
+            <!-- Related Images -->
+            <div class="review-page">
+                <h3 class="related-images-title">ภาพตรวจสอบอื่น ๆ</h3>
+                <div class="image-gallery" id="image-list"></div>
+            </div>
+        
+            <!-- Modal (คลิกภาพเพื่อดูใหญ่) -->
+            <div class="modal" id="imageModal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="modalImg">
+            </div>
+        
+            <script>
+                fetch('http://localhost/HomeSpector/backend/panel/admin_after_review1.php?fetch=json')
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('project-name').innerHTML = data.review.name_en;
+                    document.getElementById('project-description').innerHTML = data.review.position;
+                    document.getElementById('thumbnail').src = data.review.thumbnail;
+        
+        
+                    const container = document.getElementById('image-list');
+                    data.images.forEach(img => {
+                        const div = document.createElement('div');
+                        div.className = 'image-item';
+                        div.innerHTML = `<img src="${img.image_path}" alt="${img.alt_text}" onclick="openModal('${img.image_path}')">`;
+                        container.appendChild(div);
+                    });
+                });
+        
+        
+                function openModal(src) {
+                document.getElementById("imageModal").classList.add("show");
+                document.getElementById("modalImg").src = src;
+                }
+        
+                function closeModal() {
+                document.getElementById("imageModal").classList.remove("show");
+                }
+            </script>
+
             <footer class="footer">
                 <div class="footer-container">
                     <!-- Left Section: Social Media & Branding -->

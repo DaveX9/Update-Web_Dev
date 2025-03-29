@@ -24,7 +24,7 @@ $developers = $conn->query("SELECT * FROM review_developer ORDER BY position ASC
     <div class="container mt-5">
         <h2><?php echo $id ? 'Edit' : 'Add'; ?> Review</h2>
         <form action="save_review.php" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="<?php echo $review['id'] ?? ''; ?>">
+            <input type="hidden" name="id" value="<?php echo $review['id'] ?? ''; ?>"> 
             
             <div class="mb-3">
                 <label>Developer</label>
