@@ -3,6 +3,7 @@ include 'db.php';
 $id = $_GET['id'] ?? null;
 $review = null;
 
+
 if ($id) {
     $stmt = $conn->prepare("SELECT * FROM interior_reviews1 WHERE id = ?");
     $stmt->bind_param("i", $id);
@@ -12,6 +13,15 @@ if ($id) {
 
 // ✅ ดึง developer (style)
 $developers = $conn->query("SELECT * FROM interior_developer1 ORDER BY position ASC")->fetch_all(MYSQLI_ASSOC);
+
+
+// Thumbnail path helper
+function getThumbnailPath($thumb) {
+    if (!str_contains($thumb, '/')) {
+        return '/HOMESPECTOR/backend/panel/uploads/' . $thumb;
+    }
+    return $thumb;
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,10 +38,10 @@ $developers = $conn->query("SELECT * FROM interior_developer1 ORDER BY position 
         <input type="hidden" name="id" value="<?= $review['id'] ?? ''; ?>">
 
         <div class="mb-3">
-            <label>Style (Developer)</label>
-            <select name="developer_id" class="form-control">
+            <label>Developer</label>
+            <select name="developer_id" class="form-control" required>
                 <?php foreach ($developers as $dev): ?>
-                    <option value="<?= $dev['id'] ?>" <?= (($review['developer_id'] ?? '') == $dev['id']) ? 'selected' : '' ?>>
+                    <option value="<?= $dev['id']; ?>" <?= (($review['developer_id'] ?? '') == $dev['id']) ? 'selected' : '' ?>>
                         <?= htmlspecialchars($dev['name_en']) ?>
                     </option>
                 <?php endforeach; ?>
@@ -48,7 +58,7 @@ $developers = $conn->query("SELECT * FROM interior_developer1 ORDER BY position 
 
         <div class="mb-3">
             <label>Headline</label>
-            <input type="text" name="headline" class="form-control" value="<?= htmlspecialchars($review['headline'] ?? ''); ?>">
+            <input type="text" name="headline" class="form-control" value="<?= htmlspecialchars($review['headline'] ?? ''); ?>" required>
         </div>
 
         <div class="mb-3">
@@ -68,10 +78,13 @@ $developers = $conn->query("SELECT * FROM interior_developer1 ORDER BY position 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.10/js/froala_editor.pkgd.min.js"></script>
 <script>
     new FroalaEditor('#editor', {
-        // imageUploadURL: 'upload_review-image.php',
+        height: 300,
+        imageUploadURL: 'upload_review-image.php',
         imageUploadParams: {
-            id: 'interior_image'
-        }
+            id: 'review_image'
+        },
+        // imageAllowedTypes: ['jpeg', 'jpg', 'png', 'gif', 'webp'],
+        imageUploadMethod: 'POST'
     });
 </script>
 </body>

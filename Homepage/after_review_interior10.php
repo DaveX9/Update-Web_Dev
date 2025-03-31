@@ -14,6 +14,50 @@
     <link rel="stylesheet" href="/HOMESPECTOR/CSS/after_review_interior.css">
     <title>Header Design</title>
 </head>
+<style>
+.review-detail {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* ✅ 1 row 3 images */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.review-detail img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+}
+
+/* ✅ Allow grid to apply even if wrapped inside <p>, <div>, <figure> */
+.review-detail p,
+.review-detail div,
+.review-detail figure {
+    margin: 0;
+    padding: 0;
+    display: contents;
+}
+
+/* ✅ Responsive grid layout */
+@media (max-width: 1024px) {
+    .review-detail {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .review-detail {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
 
 <body>
     <div class="content-box">

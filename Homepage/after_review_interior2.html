@@ -252,12 +252,11 @@
                 </a>
             </div>
 
-            <section class="interior-container">
+            <!-- <section class="interior-container">
                 <div class="interior-banner">
                     <img src="/HOMESPECTOR/img/after_review/interrior-bg2.jpg" alt="House Review 2">
                 </div>
 
-                <!-- Text below the image -->
                 <div class="banner-text" data-aos="fade-up">
                     <h2 class="review-title">ตกแต่งบ้านหรู สไตล์ Modern </h2>
                     <p class="photo-description">
@@ -269,7 +268,6 @@
                 </div>
             </section>
 
-            <!-- Related Images Section -->
             <section class="review-page" data-aos="fade-up">
                 <h3 class="related-images-title">รูปภาพที่เกี่ยวข้อง</h3>
                 <div class="image-gallery">
@@ -312,11 +310,98 @@
                 </div>
             </section>
 
-            <!-- Modal for Zoomed Image -->
+            <div id="imageModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="fullImage" alt="Zoomed Image">
+            </div> -->
+
+            <div class="interior-container">
+                <!-- Banner Image -->
+                <div class="interior-banner">
+                    <img id="thumbnail" alt="Project Thumbnail">
+                </div>
+
+                <!-- Text Box -->
+                <div class="banner-text">
+                    <div class="review-title" id="project-name"></div>
+                    <div class="photo-description" id="project-description"></div>
+                </div>
+            </div>
+
+            <!-- Related Images -->
+            <div class="review-page">
+                <h3 class="related-images-title">รูปภาพที่เกี่ยวข้อง</h3>
+                <div class="image-gallery" id="image-list"></div>
+            </div>
+
+            <!-- Modal for Zoomed Image (ใช้ fullImage ตามที่คุณต้องการ) -->
             <div id="imageModal" class="modal">
                 <span class="close">&times;</span>
                 <img class="modal-content" id="fullImage" alt="Zoomed Image">
             </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const params = new URLSearchParams(window.location.search);
+                    const id = params.get('id') || 1;
+
+                    fetch(`http://localhost/HomeSpector/backend/panel/admin_after_interior2.php?fetch=json&id=${id}`)
+                        .then(res => res.json())
+                        .then(data => {
+                            if (!data.review) {
+                                document.getElementById('project-name').innerHTML = "ไม่พบข้อมูลรีวิว";
+                                return;
+                            }
+
+                            // แสดงข้อมูล
+                            const titleElem = document.getElementById('project-name');
+                            const descElem = document.getElementById('project-description');
+                            const thumbElem = document.getElementById('thumbnail');
+
+                            if (titleElem) titleElem.innerHTML = data.review.title;
+                            if (descElem) descElem.innerHTML = data.review.description;
+                            if (thumbElem) thumbElem.src = data.review.banner_image;
+
+                            // แสดงรูปภาพที่เกี่ยวข้อง
+                            const container = document.getElementById('image-list');
+                            data.images.forEach(img => {
+                                const div = document.createElement('div');
+                                div.className = 'image-item';
+                                div.innerHTML = `
+                                    <img src="${img.image_path}" alt="${img.alt_text}" onclick="openModal('${img.image_path}')">
+                                `;
+                                container.appendChild(div);
+                            });
+                        })
+                        .catch(err => {
+                            console.error("Fetch Error:", err);
+                        });
+
+                    // ฟังก์ชันแสดง modal
+                    function openModal(src) {
+                        document.getElementById("imageModal").classList.add("show");
+                        document.getElementById("fullImage").src = src;
+                    }
+
+                    // ปิด modal
+                    document.querySelector("#imageModal .close").addEventListener("click", function () {
+                        document.getElementById("imageModal").classList.remove("show");
+                    });
+
+                    document.getElementById("imageModal").addEventListener("click", function (e) {
+                        if (e.target === this) {
+                            this.classList.remove("show");
+                        }
+                    });
+
+                    // ให้ modal ใช้งานได้ทั่ว scope
+                    window.openModal = openModal;
+                });
+            </script>
+
+
+
+
 
 
             <footer class="footer">

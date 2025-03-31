@@ -14,7 +14,50 @@
     <link rel="stylesheet" href="/HOMESPECTOR/CSS/after_review_interior.css">
     <title>Header Design</title>
 </head>
+<style>
+.review-detail {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* ✅ 1 row 3 images */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
+.review-detail img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+}
+
+/* ✅ Allow grid to apply even if wrapped inside <p>, <div>, <figure> */
+.review-detail p,
+.review-detail div,
+.review-detail figure {
+    margin: 0;
+    padding: 0;
+    display: contents;
+}
+
+/* ✅ Responsive grid layout */
+@media (max-width: 1024px) {
+    .review-detail {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .review-detail {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
 <body>
     <div class="content-box">
         <div class="content-box">
@@ -254,19 +297,22 @@
             <?php
                 include '../backend/panel/db.php';
 
-                // ✅ Helper function สำหรับจัดการ thumbnail path
+                // ✅ Helper: จัด path ของ thumbnail ให้อยู่ในรูปแบบที่ถูกต้อง
                 function getThumbnailPath($thumb) {
-                    if ($thumb && !str_contains($thumb, '/')) {
-                        return '/HOMESPECTOR/backend/panel/uploads/' . $thumb;
-                    }
-                    return $thumb;
+                    // ลบคำว่า 'uploads/' ถ้ามีใน thumbnail
+                    $filename = str_replace('uploads/', '', trim($thumb));
+                    return '/HOMESPECTOR/backend/panel/uploads/' . $filename;
                 }
 
+                // ✅ รับ ID จาก query string
                 $id = $_GET['id'] ?? null;
                 $review = null;
 
                 if ($id) {
-                    $stmt = $conn->prepare("SELECT hr.*, d.name_en AS developer_name FROM home_reviews hr JOIN review_developer d ON hr.developer_id = d.id WHERE hr.id = ?");
+                    $stmt = $conn->prepare("SELECT hr.*, d.name_en AS developer_name 
+                                            FROM home_reviews hr 
+                                            JOIN review_developer d ON hr.developer_id = d.id 
+                                            WHERE hr.id = ?");
                     $stmt->bind_param("i", $id);
                     $stmt->execute();
                     $review = $stmt->get_result()->fetch_assoc();
@@ -277,35 +323,48 @@
                     exit;
                 }
 
+                // ✅ เตรียม path thumbnail ที่จะใช้แสดงผล
                 $thumbnail = getThumbnailPath($review['thumbnail']);
             ?>
-
-                <!-- Hero Banner Section -->
+            <!-- Hero Banner Section -->
             <section class="interior-container">
                 <div class="interior-banner">
-                    <img src="/HOMESPECTOR/backend/panel/<?php echo $review['thumbnail']; ?>" alt="Thumbnail">
+                    <img src="<?php echo $thumbnail; ?>" alt="Thumbnail" id="thumbnail">
                 </div>
 
                 <div class="banner-text" data-aos="fade-up">
                     <h2 class="review-title"><?php echo htmlspecialchars($review['headline']); ?></h2>
-                    <!-- <p class="photo-description">Developer: <?php echo htmlspecialchars($review['developer_name']); ?></p> -->
                 </div>
             </section>
 
-                <!-- Review Detail Content -->
-            <section class="review-page" data-aos="fade-up">
-                <h3 class="related-images-title">รายละเอียดรีวิว</h3>
+            <!-- Review Detail Content -->
+            <div class="review-page">
+                <h3 class="related-images-title">รูปภาพที่เกี่ยวข้อง</h3>
+                <div class="image-gallery" id="image-list"></div>
                 <div class="review-detail">
-                    <?php echo $review['review_detail']; ?>
+                    <?php echo htmlspecialchars_decode($review['review_detail']); ?>
                 </div>
-            </section>
+            </div>
+
+
             <!-- Modal for Zoomed Image -->
             <div id="imageModal" class="modal">
                 <span class="close">&times;</span>
                 <img class="modal-content" id="fullImage" alt="Zoomed Image">
             </div>
 
+            <script>
+                data.images.forEach(img => {
+                    const div = document.createElement('div');
+                    div.className = 'image-item';
+                    div.innerHTML = `
+                        <img src="${img.image_path}" alt="${img.alt_text}" onclick="openModal('${img.image_path}')">
+                    `;
+                    container.appendChild(div);
+                });
 
+            </script>
+            
 
 
             <footer class="footer">

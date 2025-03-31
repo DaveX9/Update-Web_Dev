@@ -54,8 +54,8 @@ $developers = $devResult->fetch_all(MYSQLI_ASSOC);
 
     <div class="mb-3 d-flex gap-2 flex-wrap">
         <a href="add_review.php" class="btn btn-success">➕ Add Review</a>
-        <a href="admin_manage_review.php" class="btn btn-outline-primary">📝 จัดการการแสดงผล</a>
-        <a href="admin_manage_developer_review.php" class="btn btn-outline-primary">📝 จัดการ Developers</a>
+        <!-- <a href="admin_manage_review.php" class="btn btn-outline-primary">📝 จัดการการแสดงผล</a>
+        <a href="admin_manage_developer_review.php" class="btn btn-outline-primary">📝 จัดการ Developers</a> -->
     </div>
 
     <!-- ✅ Developer Names Horizontal List -->

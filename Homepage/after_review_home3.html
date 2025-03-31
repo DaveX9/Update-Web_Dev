@@ -253,12 +253,11 @@
             </div>
 
             <!-- Hero Banner Section -->
-            <section class="interior-container">
+            <!-- <section class="interior-container">
                 <div class="interior-banner">
                     <img src="/HOMESPECTOR/img/after_review/sarangsiri-bg.png" alt="House Review 2">
                 </div>
 
-                <!-- Move the text outside of the image -->
                 <div class="banner-text" data-aos="fade-up">
                     <h2 class="review-title">สราญสิริ แกรนเด พุทธมณฑล สาย 3 </h2>
                     <p class="photo-description">
@@ -273,60 +272,113 @@
                 <div class="image-gallery">
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review4.1.png" alt="ตรวจสอบโครงสร้างพื้น">
-                        <!-- <p>ตรวจสอบโครงสร้างพื้น</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review4.2.png" alt="ตรวจสอบการติดตั้งรั้ว">
-                        <!-- <p>ตรวจสอบการติดตั้งรั้ว</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review4.3.png" alt="ตรวจสอบการระบายน้ำ">
-                        <!-- <p>ตรวจสอบการระบายน้ำ</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review4.4.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review4.5.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review4.6.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review4.7.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review4.8.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review4.9.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review4.10.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review4.11.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review4.12.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                 </div>
             </section>
             
-            <!-- Modal for Zoomed Image -->
+            <div id="imageModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="fullImage" alt="Zoomed Image">
+            </div> -->
+
+
+            <!-- Update code -->
+            <div class="interior-container">
+                <div class="interior-banner">
+                    <img id="thumbnail" alt="Project Thumbnail">
+                </div>
+        
+                <div class="banner-text">
+                    <div class="review-title" id="project-name"></div>
+                    <div class="photo-description" id="project-description"></div>
+                </div>
+            </div>
+        
+            <!-- Related Images -->
+            <div class="review-page">
+                <h3 class="related-images-title">รูปภาพที่เกี่ยวข้อง</h3>
+                <div class="image-gallery" id="image-list"></div>
+            </div>
+        
+            <!-- Modal -->
             <div id="imageModal" class="modal">
                 <span class="close">&times;</span>
                 <img class="modal-content" id="fullImage" alt="Zoomed Image">
             </div>
+        
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    fetch('http://localhost/HomeSpector/backend/panel/admin_after_review4.php?fetch=json')
+                        .then(res => res.json())
+                        .then(data => {
+                            // Set project title and description
+                            document.getElementById('project-name').innerHTML = data.review.title;
+                            document.getElementById('project-description').innerHTML = data.review.description;
+        
+                            // Set thumbnail
+                            document.getElementById('thumbnail').src = data.review.banner_image;
+        
+                            // Add images
+                            const container = document.getElementById('image-list');
+                            data.images.forEach(img => {
+                                const div = document.createElement('div');
+                                div.className = 'image-item';
+                                div.innerHTML = `<img src="${img.image_path}" alt="${img.alt_text}" onclick="openModal('${img.image_path}')">`;
+                                container.appendChild(div);
+                            });
+                        });
+        
+                    function openModal(src) {
+                        document.getElementById("imageModal").classList.add("show");
+                        document.getElementById("fullImage").src = src;
+                    }
+        
+                    document.querySelector("#imageModal .close").addEventListener("click", function () {
+                        document.getElementById("imageModal").classList.remove("show");
+                    });
+        
+                    document.getElementById("imageModal").addEventListener("click", function (e) {
+                        if (e.target === this) {
+                            this.classList.remove("show");
+                        }
+                    });
+        
+                    window.openModal = openModal;
+                });
+            </script>
 
 
             <footer class="footer">

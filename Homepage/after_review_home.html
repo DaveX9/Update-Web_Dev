@@ -251,127 +251,130 @@
                 </a>
             </div>
 
-            <!-- Hero Banner Section -->
-            <section class="interior-container">
+            <!-- <section class="interior-container">
                 <div class="interior-banner">
                     <img src="/HOMESPECTOR/img/after_review/bugaan-bg.jpg" alt="House Review 1">
                 </div>
-
-                <!-- Move the text outside of the image -->
                 <div class="banner-text">
                     <h2 class="review-title">บูก้าน กรุงเทพกรีฑา </h2>
                 </div>
             </section>
-            <!-- Related Images Section -->
+
             <section class="review-page">
                 <h3 class="related-images-title">รูปภาพที่เกี่ยวข้อง</h3>
                 <div class="image-gallery">
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review1.1.png" alt="ตรวจสอบโครงสร้างพื้น">
-                        <!-- <p>ตรวจสอบโครงสร้างพื้น</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review1.2.png" alt="ตรวจสอบการติดตั้งรั้ว">
-                        <!-- <p>ตรวจสอบการติดตั้งรั้ว</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review1.3.png" alt="ตรวจสอบการระบายน้ำ">
-                        <!-- <p>ตรวจสอบการระบายน้ำ</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review1.4.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review1.5.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review1.7.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review1.8.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review1.9.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review1.10.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review1.11.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                     <div class="image-item">
                         <img src="/HOMESPECTOR/img/after_review/review1.12.png" alt="ตรวจสอบระบบไฟฟ้า">
-                        <!-- <p>ตรวจสอบระบบไฟฟ้า</p> -->
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- Modal for Zoomed Image -->
-            <div id="imageModal" class="modal">
+            <!-- <div id="imageModal" class="modal">
                 <span class="close">&times;</span>
                 <img class="modal-content" id="fullImage" alt="Zoomed Image">
-            </div>
+            </div> -->
 
 
             <div class="interior-container">
                 <!-- Banner Image -->
                 <div class="interior-banner">
-                <img id="thumbnail" alt="Project Thumbnail">
+                    <img id="thumbnail" alt="Project Thumbnail">
                 </div>
-        
+
                 <!-- Text Box -->
                 <div class="banner-text">
-                <div class="review-title" id="project-name"></div>
-                <div class="photo-description" id="project-description"></div>
+                    <div class="review-title" id="project-name"></div>
+                    <div class="photo-description" id="project-description"></div>
                 </div>
             </div>
-        
+
             <!-- Related Images -->
             <div class="review-page">
-                <h3 class="related-images-title">ภาพตรวจสอบอื่น ๆ</h3>
+                <h3 class="related-images-title">รูปภาพที่เกี่ยวข้อง</h3>
                 <div class="image-gallery" id="image-list"></div>
             </div>
-        
-            <!-- Modal (คลิกภาพเพื่อดูใหญ่) -->
-            <div class="modal" id="imageModal">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <img class="modal-content" id="modalImg">
+
+            <!-- Modal for Zoomed Image (ใช้ fullImage ตามที่คุณต้องการ) -->
+            <div id="imageModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="fullImage" alt="Zoomed Image">
             </div>
-        
+
             <script>
-                fetch('http://localhost/HomeSpector/backend/panel/admin_after_review1.php?fetch=json')
-                .then(res => res.json())
-                .then(data => {
-                    document.getElementById('project-name').innerHTML = data.review.name_en;
-                    document.getElementById('project-description').innerHTML = data.review.position;
-                    document.getElementById('thumbnail').src = data.review.thumbnail;
-        
-        
-                    const container = document.getElementById('image-list');
-                    data.images.forEach(img => {
-                        const div = document.createElement('div');
-                        div.className = 'image-item';
-                        div.innerHTML = `<img src="${img.image_path}" alt="${img.alt_text}" onclick="openModal('${img.image_path}')">`;
-                        container.appendChild(div);
+                document.addEventListener("DOMContentLoaded", function () {
+                    fetch('http://localhost/HomeSpector/backend/panel/admin_after_review1.php?fetch=json')
+                        .then(res => res.json())
+                        .then(data => {
+                            // แสดงข้อมูลชื่อโปรเจกต์และคำอธิบาย
+                            document.getElementById('project-name').innerHTML = data.review.name_en;
+                            document.getElementById('project-description').innerHTML = data.review.position;
+
+                            // โหลดรูป thumbnail
+                            document.getElementById('thumbnail').src = data.review.thumbnail;
+
+                            // แสดงรูปภาพทั้งหมด
+                            const container = document.getElementById('image-list');
+                            data.images.forEach(img => {
+                                const div = document.createElement('div');
+                                div.className = 'image-item';
+                                div.innerHTML = `<img src="${img.image_path}" alt="${img.alt_text}" onclick="openModal('${img.image_path}')">`;
+                                container.appendChild(div);
+                            });
+                        });
+
+                    // ฟังก์ชันแสดง modal
+                    function openModal(src) {
+                        document.getElementById("imageModal").classList.add("show");
+                        document.getElementById("fullImage").src = src;
+                    }
+
+                    // ปิด modal เมื่อคลิกปุ่มปิด
+                    document.querySelector("#imageModal .close").addEventListener("click", function () {
+                        document.getElementById("imageModal").classList.remove("show");
                     });
+
+                    // ปิด modal เมื่อคลิกด้านนอกรูป
+                    document.getElementById("imageModal").addEventListener("click", function (e) {
+                        if (e.target === this) {
+                            this.classList.remove("show");
+                        }
+                    });
+
+                    // ให้ openModal ใช้งานได้ใน global scope
+                    window.openModal = openModal;
                 });
-        
-        
-                function openModal(src) {
-                document.getElementById("imageModal").classList.add("show");
-                document.getElementById("modalImg").src = src;
-                }
-        
-                function closeModal() {
-                document.getElementById("imageModal").classList.remove("show");
-                }
             </script>
+
 
             <footer class="footer">
                 <div class="footer-container">

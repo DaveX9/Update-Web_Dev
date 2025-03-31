@@ -268,6 +268,44 @@
                     <button class="category-btn" data-category="Modern Classic">Modern Classic</button>
                 </div>
 
+                <div class="review-cards" id="review-container">
+                    <!-- cards will be inserted dynamically -->
+                </div>
+                <script>
+                    fetch('/HOMESPECTOR/backend/panel/api_interior.php')
+                        .then(res => res.json())
+                        .then(data => {
+                            const container = document.querySelector(".review-cards");
+                            renderCards(data);
+                
+                            document.querySelectorAll('.category-btn').forEach(btn => {
+                                btn.addEventListener('click', () => {
+                                    const cat = btn.dataset.category;
+                                    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                                    btn.classList.add('active');
+                
+                                    const filtered = cat === 'all' ? data : data.filter(r => r.category === cat);
+                                    container.innerHTML = '';
+                                    renderCards(filtered);
+                                });
+                            });
+                
+                            function renderCards(reviews) {
+                                reviews.reverse().forEach(review => {
+                                    const card = document.createElement('a');
+                                    card.className = "card";
+                                    card.setAttribute("data-category", review.category || "Others");
+                                    card.href = review.url;
+                                    card.innerHTML = `
+                                        <img src="${review.thumbnail}" alt="${review.headline}">
+                                        <p>${review.headline}</p>
+                                    `;
+                                    container.appendChild(card);
+                                });
+                            }
+                        });
+                </script>
+
 
                 <div class="review-cards">
                     <a href="/HOMESPECTOR/Homepage/after_review_interior1.html" class="card" data-category="Modern">

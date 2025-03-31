@@ -92,6 +92,10 @@ $('.delete-btn').click(function() {
         });
     }
 });
+$.post('admin_manage_review.php', { id, move: dir }, function() {
+    window.location.href = 'admin_reviews.php'; // หรือ admin_manage_overview.php ตามที่คุณตั้งชื่อไว้
+});
+
 </script>
 </body>
 </html>
