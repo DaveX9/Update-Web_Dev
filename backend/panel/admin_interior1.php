@@ -28,7 +28,8 @@ $devResult = $conn->query($devQuery);
 $developers = $devResult->fetch_all(MYSQLI_ASSOC);
 
 // ✅ Fetch Videos
-$videos = $conn->query("SELECT * FROM interior_videos ORDER BY sort_order ASC")->fetch_all(MYSQLI_ASSOC);
+$videos = $conn->query("SELECT * FROM interior_videos ORDER BY id DESC")->fetch_all(MYSQLI_ASSOC);
+
 
 // ✅ Edit Video
 $editVideo = null;
@@ -144,6 +145,7 @@ if (isset($_GET['delete_video'])) {
     </div>
 
     <h4 class="mt-4">🎥 Interior Videos</h4>
+    <!-- <a href="admin_manage_videos.php" class="btn btn-success">Manage Videos</a> -->
 
     <form method="POST" class="mb-4 d-flex gap-2">
         <?php if ($editVideo): ?>

@@ -272,39 +272,61 @@
                     <!-- cards will be inserted dynamically -->
                 </div>
                 <script>
-                    fetch('/HOMESPECTOR/backend/panel/api_interior.php')
-                        .then(res => res.json())
-                        .then(data => {
-                            const container = document.querySelector(".review-cards");
-                            renderCards(data);
-                
-                            document.querySelectorAll('.category-btn').forEach(btn => {
-                                btn.addEventListener('click', () => {
-                                    const cat = btn.dataset.category;
-                                    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-                                    btn.classList.add('active');
-                
-                                    const filtered = cat === 'all' ? data : data.filter(r => r.category === cat);
-                                    container.innerHTML = '';
-                                    renderCards(filtered);
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const container = document.querySelector(".review-cards");
+
+                        fetch('/HOMESPECTOR/backend/panel/api_interior.php')
+                            .then(res => res.json())
+                            .then(apiData => {
+                                // ✅ ดึง static reviews จาก HTML เดิมก่อนล้าง
+                                const staticCards = Array.from(container.querySelectorAll(".card")).map(card => {
+                                    return {
+                                        element: card,
+                                        category: card.dataset.category || 'Others'
+                                    };
                                 });
-                            });
-                
-                            function renderCards(reviews) {
-                                reviews.reverse().forEach(review => {
-                                    const card = document.createElement('a');
+
+                                // ✅ ล้าง review container ก่อน render ใหม่ทั้งหมด
+                                container.innerHTML = '';
+
+                                // ✅ เพิ่ม dynamic reviews ก่อน (บนสุด)
+                                apiData.forEach(review => {
+                                    const card = document.createElement("a");
                                     card.className = "card";
-                                    card.setAttribute("data-category", review.category || "Others");
                                     card.href = review.url;
+                                    card.setAttribute("data-category", review.category);
+                                    card.setAttribute("data-source", "api");
                                     card.innerHTML = `
                                         <img src="${review.thumbnail}" alt="${review.headline}">
                                         <p>${review.headline}</p>
                                     `;
-                                    container.appendChild(card);
+                                    container.appendChild(card); // อยู่บนสุด เพราะ static จะตามหลัง
                                 });
-                            }
-                        });
+
+                                // ✅ แล้วค่อยเพิ่ม static cards ถัดจาก dynamic
+                                staticCards.forEach(item => {
+                                    item.element.setAttribute("data-source", "static");
+                                    container.appendChild(item.element);
+                                });
+
+                                // ✅ ระบบ filter category
+                                document.querySelectorAll('.category-btn').forEach(btn => {
+                                    btn.addEventListener('click', () => {
+                                        const selectedCategory = btn.dataset.category;
+                                        document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                                        btn.classList.add('active');
+
+                                        document.querySelectorAll('.card').forEach(card => {
+                                            const cardCategory = card.dataset.category;
+                                            const isVisible = selectedCategory === 'all' || cardCategory === selectedCategory;
+                                            card.style.display = isVisible ? 'block' : 'none';
+                                        });
+                                    });
+                                });
+                            });
+                    });
                 </script>
+
 
 
                 <div class="review-cards">
@@ -352,7 +374,54 @@
                     </a>
                 </div>
             </div>
+
+            <!-- fetch video use api  -->
             <div class="video-carousel" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <div class="video-wrapper" id="videoSlider">
+                    <!-- Videos will be inserted here dynamically -->
+                </div>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    fetch("/HOMESPECTOR/backend/panel/api_interior_videos.php")
+                        .then(res => res.json())
+                        .then(videos => {
+                            const slider = document.getElementById("videoSlider");
+                            slider.innerHTML = "";
+
+                            videos.forEach(link => {
+                                const div = document.createElement("div");
+                                div.className = "video-item";
+                                div.innerHTML = `<iframe src="${link}" allowfullscreen></iframe>`;
+                                slider.appendChild(div);
+                            });
+
+                            // ✅ กำหนดตัวแปรไว้หลังจากโหลด video เสร็จ
+                            let currentIndex = 0;
+                            const videoItems = slider.querySelectorAll(".video-item");
+                            const totalVideos = videoItems.length;
+
+                            window.moveSlide = function(direction) {
+                                currentIndex += direction;
+
+                                if (currentIndex < 0) {
+                                    currentIndex = totalVideos - 1;
+                                } else if (currentIndex >= totalVideos) {
+                                    currentIndex = 0;
+                                }
+
+                                const offset = -currentIndex * 100 + "%";
+                                slider.style.transform = "translateX(" + offset + ")";
+                            };
+                        });
+                });
+            </script>
+
+
+            <!-- <div class="video-carousel" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                 <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
                 <div class="video-wrapper" id="videoSlider">
                     <div class="video-item">
@@ -375,7 +444,7 @@
                     </div>
                 </div>
                 <button class="next" onclick="moveSlide(1)">&#10095;</button>
-            </div> 
+            </div> -->
 
             <?php
                 try {
@@ -538,7 +607,7 @@
         AOS.init();
     </script>
     <!-- video slider js -->
-    <script>
+    <!-- <script>
         let currentIndex = 0;
         const videos = document.querySelectorAll(".video-item");
         const totalVideos = videos.length;
@@ -556,7 +625,7 @@
             const offset = -currentIndex * 100 + "%";
             videoSlider.style.transform = "translateX(" + offset + ")";
         }
-    </script>
+    </script> -->
 
 </body>
 

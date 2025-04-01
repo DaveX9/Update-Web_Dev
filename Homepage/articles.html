@@ -332,7 +332,30 @@
         </div>
     </div>
 
+    <div id="articles-container"></div>
 
+    <script>
+        fetch('/HOMESPECTOR/backend/panel/api_articles.php')
+            .then(res => res.json())
+            .then(data => {
+                    const container = document.getElementById('articles-container');
+                    data.forEach(article => {
+                        const html = `
+                <div class="article-card">
+                    <img src="/HOMESPECTOR/backend/panel/${article.thumbnail}" alt="Thumbnail">
+                    <h3>${article.title}</h3>
+                    <p><small>${article.article_date}</small></p>
+                    <p>${article.caption_main}</p>
+                    <div class="tags">
+                    ${article.tags.split(',').map(tag => `<span class="tag">${tag.trim()}</span>`).join(' ')}
+                    </div>
+                    <a href="/HOMESPECTOR/homepage/article11.php?id=${article.id}" class="read-more">อ่านต่อ</a>
+                </div>
+                `;
+                    container.innerHTML += html;
+                });
+            });
+    </script>
 
     <footer class="footer">
         <div class="footer-container">
