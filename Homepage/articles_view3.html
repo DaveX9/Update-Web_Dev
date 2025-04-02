@@ -251,21 +251,21 @@
                     <span>@t.home</span>
                 </a>
             </div>
-            <section class="article-section" data-aos="fade-up">
+            <!-- <section class="article-section" data-aos="fade-up">
                 <div class="content-container">
-                    <!-- <h2 class="content-subtitle">สรุป!! จัดการการออกแบบสาย LAN ตามบ้าน</h2> -->
+                    
 
-                    <!-- Main Image Section -->
+                    
                     <div class="main-image-container">
                         <img src="/HOMESPECTOR/img/articles_releted.jpg"
                             alt="Main LAN Design" class="main-image">
                         <p class="main-image-caption">
-                            <!-- สรุป!! จัดการการออกแบบสาย LAN ตามบ้าน............... -->
+                            
                         </p>
                     </div>
                     <section class="image-guide">
                         <div class="image-container">
-                            <!-- Row 1 -->
+                            
                             <div class="image-step">
                                 <img src="/HOMESPECTOR/img/article3.2.jpg"
                                     alt="Step 1">
@@ -281,7 +281,7 @@
                                 </p>
                             </div>
 
-                            <!-- Row 2 -->
+                            
                             <div class="image-step">
                                 <img src="/HOMESPECTOR/img/article3.4.jpg"
                                     alt="Step 3">
@@ -297,7 +297,7 @@
                                         เฟส หรือ 3 เฟส </strong>จากนั้นกด คำนวณ</p>
                             </div>
 
-                            <!-- Row 3 -->
+                            
                             <div class="image-step">
                                 <img src="/HOMESPECTOR/img/article3.6.jpg"
                                     alt="Step 5">
@@ -320,7 +320,7 @@
                             </div>
                         </div>
                     </section>
-                    <!-- Tag Section -->
+                    
                     <div class="tag-section">
                         <button class="tag-btn">ตตรวจบ้าน</button>
                         <button class="tag-btn">ต่อเติมบ้าน</button>
@@ -328,11 +328,11 @@
                         <button class="tag-btn">homeinspector</button>
                     </div>
 
-                    <!-- Article Display Section -->
+                
                     <div id="article-list"></div>
 
 
-                    <!-- Social Share Section -->
+                
                     <div class="social-share">
                         <span>SHARE :</span>
                         <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
@@ -351,7 +351,95 @@
                     </div>
 
                 </div>
-            </section>
+            </section> -->
+
+
+            <div class="article-container">
+                <h1 id="article-title" class="article-title"></h1>
+                <p id="article-caption" class="article-description"></p>
+                <div id="article-content"></div>
+            
+                <div id="tag-list" class="tag-section"></div>
+            </div>
+            <!-- Tag Section -->
+            <div class="tag-section">
+                <button class="tag-btn">ตตรวจบ้าน</button>
+                <button class="tag-btn">ต่อเติมบ้าน</button>
+                <button class="tag-btn">ตรวจคอนโด</button>
+                <button class="tag-btn">homeinspector</button>
+            </div>
+
+            <!-- Article Display Section -->
+            <div id="article-list"></div>
+            
+            <div class="social-share">
+                    <span>SHARE :</span>
+                    <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
+                    <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
+                    </a>
+                    <a href="https://www.instagram.com/t.homeinspector/">
+                    <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="Instagram">
+                    </a>
+                    <a href="https://page.line.me/t.home?openQrModal=true">
+                    <img src="/HOMESPECTOR/icon/ICON/line.png" alt="Line">
+                    </a>
+                    <a href="#" id="share-icon">
+                    <i class="fa-solid fa-share" aria-label="Share"></i>
+                    </a>
+            </div>
+            
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const params = new URLSearchParams(window.location.search);
+                    const id = params.get("id") || 3;
+
+                    fetch(`/HOMESPECTOR/backend/panel/api_article_view3.php?id=${id}`)
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.error) {
+                                document.getElementById("article-content").innerHTML = "<p style='color:red;'>❌ ไม่พบบทความ</p>";
+                                return;
+                            }
+
+                            document.getElementById("article-title").textContent = data.title;
+                            document.getElementById("article-caption").textContent = data.caption;
+
+                            // ครอบ content ด้วย article-section
+                            document.getElementById("article-content").innerHTML = `
+                                <div class="article-section">
+                                    ${data.content}
+                                </div>
+                            `;
+
+                            // ลบ heading ซ้ำใน content
+                            const articleSection = document.querySelector(".article-section");
+                            const duplicateHeading = articleSection?.querySelector("h1, h2, h3");
+                            if (duplicateHeading) duplicateHeading.remove();
+
+                            // Render tags จาก database
+                            const tagList = document.getElementById("tag-list");
+                            tagList.innerHTML = ""; // ล้าง tag เดิมก่อน
+                            if (data.tags) {
+                                data.tags.split(',').forEach(tag => {
+                                    const tagBtn = document.createElement("span");
+                                    tagBtn.className = "tag-btn";
+                                    tagBtn.textContent = tag.trim();
+                                    tagList.appendChild(tagBtn);
+                                });
+                            }
+                        })
+                        .catch(err => {
+                            console.error("Fetch error:", err);
+                            document.getElementById("article-content").innerHTML = "<p style='color:red;'>เกิดข้อผิดพลาด</p>";
+                        });
+                });
+
+            </script>
+            
+
+
+
+
             <section class="carousel-content" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                 <h2>Other Articles</h2>
                 <div class="content-carousel-container">

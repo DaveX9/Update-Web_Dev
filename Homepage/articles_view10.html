@@ -416,6 +416,52 @@
 
                 </div>
             </section>
+
+            <div class="article-container">
+                <h1 id="article-title"></h1>
+                <p id="article-caption" style="font-weight: normal;"></p>
+                <div id="article-content" class="article-content"></div>
+            
+                <!-- Optional: Tags -->
+                <div id="tag-list" class="tag-section mt-4"></div>
+            </div>
+            
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const params = new URLSearchParams(window.location.search);
+                    const id = params.get("id") || 1;
+                
+                    fetch(`/HOMESPECTOR/backend/panel/api_article_view10.php?id=${id}`)
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.error) {
+                                document.getElementById("article-title").textContent = "❌ ไม่พบบทความ";
+                                return;
+                            }
+                
+                            document.getElementById("article-title").textContent = data.title;
+                            document.getElementById("article-caption").textContent = data.caption;
+                            document.getElementById("article-content").innerHTML = data.content;
+                
+                            // Render tags (optional)
+                            if (data.tags) {
+                                const tagList = document.getElementById("tag-list");
+                                data.tags.split(',').forEach(tag => {
+                                    const btn = document.createElement("a");
+                                    btn.href = "#";
+                                    btn.className = "tag-btn";
+                                    btn.textContent = tag.trim();
+                                    tagList.appendChild(btn);
+                                });
+                            }
+                        })
+                        .catch(err => {
+                            console.error("Error loading article:", err);
+                        });
+                });
+            </script>
+            
+            
             <section class="carousel-content" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                 <h2>Other Articles</h2>
                 <div class="content-carousel-container">

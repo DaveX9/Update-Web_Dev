@@ -103,5 +103,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">💾 บันทึกการเปลี่ยนแปลง</button>
     </form>
 
+    <!-- Froala Editor JS -->
+<script src="https://cdn.jsdelivr.net/npm/froala-editor@4.0.15/js/froala_editor.pkgd.min.js"></script>
+<script>
+    new FroalaEditor('#froala-editor', {
+        height: 600,
+        language: 'th',
+        imageUploadURL: 'upload_image.php' // ถ้ามีระบบอัปโหลดภาพ
+        toolbarButtons: [
+            'bold', 'italic', 'underline', '|',
+            'formatOL', 'formatUL', '|',
+            'insertLink', 'insertImage', 'insertVideo', '|',
+            'html', 'undo', 'redo'
+        ],
+    });
+</script>
+
+
+
 </body>
 </html>

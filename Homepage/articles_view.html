@@ -360,12 +360,12 @@
                     <span>@t.home</span>
                 </a>
             </div>
-            <section class="article-section" data-aos="fade-up">
+            <!-- <section class="article-section" data-aos="fade-up">
                 <div class="content-container">
                     <h2 class="content-subtitle">สรุป!! จัดการการออกแบบสาย LAN ตามบ้าน</h2>
                     <span class="upload-date" data-date="2024-12-10"></span>
 
-                    <!-- Main Image Section -->
+                    
                     <div class="main-image-container">
                         <img src="/HOMESPECTOR/img/lan.jpg"
                             alt="Main LAN Design" class="main-image">
@@ -375,13 +375,13 @@
                     </div>
 
                     <div class="detailed-section">
-                        <!-- <h3>สรุป!! จัดการการออกแบบสาย LAN ตามบ้านแบบทั่วไป</h3> -->
+                
                         <p>
                             สรุปจักรวาลการออกแบบสาย LAN ตามบ้านแบบเข้าใจง่าย โดยหลักการออกแบบเบื้องต้นจะมี 4 แบบดังนี้
                             (หรืออ่านในรูปได้ค่ะ)
                         </p>
 
-                        <!-- Subsection 1 -->
+                    
                         <div class="subsection">
                             <img src="/HOMESPECTOR/img/article1.jpg" alt="Fiber Optic Design 1" class="sub-image">
                             <div class="sub-content">
@@ -394,7 +394,7 @@
                             </div>
                         </div>
 
-                        <!-- Subsection 2 -->
+                        
                         <div class="subsection">
                             <img src="/HOMESPECTOR/img/article1.jpg" alt="Fiber Optic Design 2" class="sub-image">
                             <div class="sub-content">
@@ -430,7 +430,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Tag Section -->
+            
                 <div class="tag-section">
                     <button class="tag-btn">ตตรวจบ้าน</button>
                     <button class="tag-btn">ต่อเติมบ้าน</button>
@@ -438,11 +438,11 @@
                     <button class="tag-btn">homeinspector</button>
                 </div>
 
-                <!-- Article Display Section -->
+                
                 <div id="article-list"></div>
 
 
-                <!-- Social Share Section -->
+            
                 <div class="social-share">
                     <span>SHARE :</span>
                     <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
@@ -458,7 +458,63 @@
                         <i class="fa-solid fa-share" aria-label="Share"></i>
                     </a>
                 </div>
-            </section>
+            </section> -->
+
+
+            <div class="article-container">
+                <div id="article-content" class="article-content"></div>
+            </div>
+
+            <div class="tag-section">
+                <button class="tag-btn">ตตรวจบ้าน</button>
+                <button class="tag-btn">ต่อเติมบ้าน</button>
+                <button class="tag-btn">ตรวจคอนโด</button>
+                <button class="tag-btn">homeinspector</button>
+            </div>
+
+            <!-- Article Display Section -->
+            <div id="article-list"></div>
+            <!-- Social Share Section -->
+            
+            <div class="social-share">
+                <span>SHARE :</span>
+                <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
+                    <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/t.homeinspector/">
+                    <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="Instagram">
+                </a>
+                <a href="https://page.line.me/t.home?openQrModal=true">
+                    <img src="/HOMESPECTOR/icon/ICON/line.png" alt="Line">
+                </a>
+                <a href="#" id="share-icon">
+                    <i class="fa-solid fa-share" aria-label="Share"></i>
+                </a>
+            </div>
+            <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                    const params = new URLSearchParams(window.location.search);
+                    const id = params.get("id") || 1;
+                
+                    fetch(`/HOMESPECTOR/backend/panel/api_article_view1.php?id=${id}`)
+                        .then(res => res.json())
+                        .then(data => {
+                        if (data.error) {
+                            document.getElementById("article-content").innerHTML = "<p style='color:red;'>ไม่พบบทความ</p>";
+                            return;
+                        }
+                
+                        // ไม่ต้องแสดง title ซ้ำ
+                        document.getElementById("article-content").innerHTML = data.content;
+                        })
+                        .catch(err => {
+                        console.error("Error loading article:", err);
+                        document.getElementById("article-content").innerHTML = "<p style='color:red;'>เกิดข้อผิดพลาดในการโหลดข้อมูล</p>";
+                        });
+                    });
+            </script>
+            
+            
             <section class="carousel-content" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                 <h2>Other Articles</h2>
                 <div class="content-carousel-container">
@@ -470,15 +526,14 @@
                             <img src="/HOMESPECTOR/img/articles_releted.jpg"
                                 alt="Content 1">
                             <div class="content-carousel-info">
-                                <h3>....... <i class="fa-solid fa-circle-arrow-right"></i></h3>
+                                <h3>....... </h3>
                             </div>
                         </a>
                         <a href="/HOMESPECTOR/Homepage/articles_view2.html" class="content-carousel-item">
                             <img src="/HOMESPECTOR/img/releted2.jpg"
                                 alt="Content 1">
                             <div class="content-carousel-info">
-                                <h3>เราต่างจากที่อื่นอย่างไร What Makes US Different?<i
-                                        class="fa-solid fa-circle-arrow-right"></i></h3>
+                                <h3>เราต่างจากที่อื่นอย่างไร What Makes US Different?</h3>
                             </div>
                         </a>
                         <!-- Item 2 -->
@@ -486,8 +541,7 @@
                             <img src="/HOMESPECTOR/img/ev-charger.jpg"
                                 alt="Content 2">
                             <div class="content-carousel-info">
-                                <h3>สิ่งที่ต้องรู้เกี่ยวกับ EV Charger <i class="fa-solid fa-circle-arrow-right"></i>
-                                </h3>
+                                <h3>สิ่งที่ต้องรู้เกี่ยวกับ EV Charger </h3>
                             </div>
                         </a>
 
@@ -496,7 +550,7 @@
                             <img src="/HOMESPECTOR/img/ac.jpg"
                                 alt="Content 3">
                             <div class="content-carousel-info">
-                                <h3>การตรวจเช็คเครื่องปรับอากาศ <i class="fa-solid fa-circle-arrow-right"></i></h3>
+                                <h3>การตรวจเช็คเครื่องปรับอากาศ</h3>
                             </div>
                         </a>
                         <!-- Item 4 -->
@@ -504,8 +558,7 @@
                             <img src="/HOMESPECTOR/img/tou.jpg"
                                 alt="Content 4">
                             <div class="content-carousel-info">
-                                <h3>ความแตกต่างระหว่างมิเตอร์ปกติกับมิเตอร์ TOU <i
-                                        class="fa-solid fa-circle-arrow-right"></i></h3>
+                                <h3>ความแตกต่างระหว่างมิเตอร์ปกติกับมิเตอร์ TOU</h3>
                             </div>
                         </a>
                         <!-- Item 5 -->
@@ -513,8 +566,7 @@
                             <img src="/HOMESPECTOR/img/knowladge.jpg"
                                 alt="Content 5">
                             <div class="content-carousel-info">
-                                <h3>แจกฟรี!!! ebook ความรู้ระบบไฟฟ้าภายในบ้าน<i
-                                        class="fa-solid fa-circle-arrow-right"></i></h3>
+                                <h3>แจกฟรี!!! ebook ความรู้ระบบไฟฟ้าภายในบ้าน</h3>
                             </div>
                         </a>
                     </div>
@@ -522,8 +574,6 @@
                     <button class="carousel-btn next-btn">❯</button>
                 </div>
             </section>
-
-
             <footer class="footer">
                 <div class="footer-container">
                     <!-- Left Section: Social Media & Branding -->
@@ -599,7 +649,7 @@
 
 
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
-    <script src="/HOMESPECTOR/JS/upload_date.js"></script>
+    <!-- <script src="/HOMESPECTOR/JS/upload_date.js"></script> -->
     <script src="/HOMESPECTOR/JS/dropdown.js"></script>
     <script src="/HOMESPECTOR/JS/content_carousel.js"></script>
     <script src="/HOMESPECTOR/JS/article_tag.js"></script>

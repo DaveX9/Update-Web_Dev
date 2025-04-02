@@ -11,50 +11,9 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <link rel="stylesheet" href="/HOMESPECTOR/CSS/after_review_interior.css">
+    <link rel="stylesheet" href="/HOMESPECTOR/CSS/articles_view.css">
     <title>Header Design</title>
 </head>
-<style>
-    .review-detail {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        max-width: 1200px;
-        margin: 30px auto;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-
-    .review-detail img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        object-fit: cover;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease;
-        cursor: zoom-in;
-    }
-
-    .review-detail p,
-    .review-detail div,
-    .review-detail figure {
-        margin: 0;
-        padding: 0;
-        display: contents;
-    }
-
-    @media (max-width: 1024px) {
-        .review-detail {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (max-width: 600px) {
-        .review-detail {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
 
 <body>
     <div class="content-box">
@@ -277,6 +236,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="contact-container">
                 <a href="tel:02-454-2043" class="contact-item" data-aos="fade-up-left">
                     <div class="icon">
@@ -292,36 +252,165 @@
                 </a>
             </div>
 
-            <div class="container mt-4">
-                <h2>📚 บทความทั้งหมด</h2>
-                <div id="article-list" class="row"></div>
+            <?php
+                include __DIR__ . '/../backend/panel/db.php';
+
+                $id = $_GET['id'] ?? null;
+                if (!$id) {
+                    echo "<h2>ไม่พบรหัสบทความ</h2>";
+                    exit;
+                }
+
+                $stmt = $conn->prepare("SELECT * FROM articles WHERE id = ?");
+                $stmt->bind_param("i", $id);
+                $stmt->execute();
+                $article = $stmt->get_result()->fetch_assoc();
+                $stmt->close();
+
+                if (!$article) {
+                    echo "<h2>ไม่พบบทความที่ต้องการ</h2>";
+                    exit;
+                }
+            ?>
+
+            <style>
+            .article-section {
+                padding: 20px;
+            }
+
+            .article-title {
+                font-size: 32px;
+                font-weight: bold;
+                text-align: center;
+                color: #333;
+                margin-bottom: 10px;
+            }
+
+
+            .main-image-container {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .main-image-caption {
+                font-size: 14px;
+                color: #555;
+                font-weight: bold;
+                text-align: center;
+                margin-top: 8px;
+            }
+
+            .article-content {
+                font-size: 16px;
+                color: #333;
+                line-height: 1.8;
+                margin-top: 20px;
+                word-wrap: break-word;
+            }
+
+            .article-content img {
+                max-width: 100%;
+                height: auto;
+                margin: 10px auto;
+                display: block;
+                border-radius: 8px;
+            }
+
+            /* Tags */
+            .tag-section {
+                margin-top: 30px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .tag-btn {
+                padding: 8px 16px;
+                text-decoration: none;
+                border-radius: 20px;
+                background: transparent;
+                font-size: 14px;
+                color: #0056b3;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .tag-btn:hover {
+                background: #0056b3;
+                color: white;
+            }
+
+            /* Responsive Layout */
+            @media (max-width: 768px) {
+                .article-title {
+                    font-size: 24px;
+                }
+
+                .upload-date {
+                    font-size: 14px;
+                }
+
+                .article-content {
+                    font-size: 15px;
+                }
+
+                .main-image {
+                    max-width: 100%;
+                }
+
+                .tag-btn {
+                    font-size: 13px;
+                    padding: 6px 12px;
+                }
+            }
+            </style>
+            <div class="article-section">
+                <h2 class="article-title"><?= htmlspecialchars($article['title']) ?></h2>
+                <p class="upload-date"><?= htmlspecialchars($article['article_date']) ?></p>
+
+                <?php if (!empty($article['thumbnail'])): ?>
+                <div class="main-image-container">
+                    <img src="/HOMESPECTOR/backend/panel/<?= htmlspecialchars($article['thumbnail']) ?>"
+                        class="main-image" alt="Main Image">
+                </div>
+                <?php endif; ?>
+
+                <?php if (!empty($article['caption_main'])): ?>
+                <p class="main-image-caption"><?= htmlspecialchars($article['caption_main']) ?></p>
+                <?php endif; ?>
+
+                <div class="article-content">
+                    <?= !empty($article['full_content']) ? $article['full_content'] : '<p style="color:red">⚠️ ไม่พบเนื้อหาบทความ</p>' ?>
+                </div>
+
+                <?php if (!empty($article['tags'])): ?>
+                <div class="tag-section">
+                    <?php foreach (explode(',', $article['tags']) as $tag): ?>
+                    <?php $tag = trim($tag); ?>
+                    <a href="/HOMESPECTOR/backend/panel/articles_by_tag.php?tag=<?= urlencode($tag) ?>" class="tag-btn">
+                        <?= htmlspecialchars($tag) ?>
+                    </a>
+                    <?php endforeach; ?>
+                </div>
+                <!-- Social Share Section -->
+                <div class="social-share">
+                    <span>SHARE :</span>
+                    <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
+                        <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
+                    </a>
+                    <a href="https://www.instagram.com/t.homeinspector/">
+                        <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="Instagram">
+                    </a>
+                    <a href="https://page.line.me/t.home?openQrModal=true">
+                        <img src="/HOMESPECTOR/icon/ICON/line.png" alt="Line">
+                    </a>
+                    <a href="#" id="share-icon">
+                        <i class="fa-solid fa-share" aria-label="Share"></i>
+                    </a>
+                </div>
+                <?php endif; ?>
             </div>
-
-            <script>
-                fetch('fetch_articles.php')
-                    .then(res => res.json())
-                    .then(data => {
-                        const list = document.getElementById('article-list');
-                        data.forEach(article => {
-                            const col = document.createElement('div');
-                            col.className = 'col-md-4';
-
-                            col.innerHTML = `
-                                <div class="card mb-4">
-                                    <a href="article11.php?id=${article.id}">
-                                        <img src="${article.thumbnail}" class="card-img-top" alt="Thumbnail">
-                                    </a>
-                                    <div class="card-body">
-                                        <h5><a href="article11.php?id=${article.id}" style="text-decoration:none;">${article.title}</a></h5>
-                                        <p>${article.article_date}</p>
-                                    </div>
-                                </div>
-                            `;
-                            list.appendChild(col);
-                        });
-                    });
-            </script>
-
 
 
             <footer class="footer">
@@ -399,47 +488,21 @@
 
 
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
-    <script src="/HOMESPECTOR/JS/review_zoom.js"></script>
-    <script src="/HOMESPECTOR/JS/filter.js"></script>
-    <script src="/HOMESPECTOR/JS/upload_date.js"></script>
+    <!-- <script src="/HOMESPECTOR/JS/upload_date.js"></script> -->
     <script src="/HOMESPECTOR/JS/dropdown.js"></script>
+    <!-- <script src="/HOMESPECTOR/JS/content_carousel.js"></script> -->
+    <!-- <script src="/HOMESPECTOR/JS/article_tag.js"></script> -->
+    <script src="/HOMESPECTOR/JS/search_ham.js"></script>
     <script src="/HOMESPECTOR/JS/footer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="/HOMESPECTOR/JS/search_ham.js"></script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-        AOS.init();
+    AOS.init();
     </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const modal = document.getElementById("imageModal");
-            const modalImg = document.getElementById("fullImage");
-            const closeBtn = document.querySelector(".modal .close");
-
-            // ถ้าเป็น img ที่อยู่ใน review-detail ทั้งหมด
-            document.querySelectorAll(".review-detail img").forEach(img => {
-                img.style.cursor = "zoom-in"; // ให้รู้ว่า image คลิกได้
-                img.addEventListener("click", function () {
-                    modal.style.display = "flex";
-                    modalImg.src = this.src;
-                });
-            });
-
-            closeBtn.addEventListener("click", function () {
-                modal.style.display = "none";
-            });
-
-            // Close when clicking outside the image
-            modal.addEventListener("click", function (e) {
-                if (e.target === modal) {
-                    modal.style.display = "none";
-                }
-            });
-        });
-    </script>
-
+    <!-- <script src="/HOMESPECTOR/JS/article_tag.js"></script> -->
+    <script src="/HOMESPECTOR/JS/share_icon.js"></script>
 
 </body>
 

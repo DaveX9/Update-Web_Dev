@@ -251,12 +251,11 @@
                     <span>@t.home</span>
                 </a>
             </div>
-            <section class="article-section" data-aos="fade-up">
+            <!-- <section class="article-section" data-aos="fade-up">
                 <div class="content-container">
                     <h2 class="content-subtitle">แจกฟรี!!! ebook ความรู้ระบบไฟฟ้าภายในบ้าน</h2>
                     <span class="upload-date" data-date="2024-12-10"></span>
 
-                    <!-- Main Image Section -->
                     <div class="main-image-container">
                         <img src="/HOMESPECTOR/img/ebook.jpg"
                             alt="Main LAN Design" class="main-image">
@@ -266,7 +265,7 @@
                         <a href="https://anyflip.com/vviiz/zmby/">ebook-link</a>
                     </div>
                 </div>
-                <!-- Tag Section -->
+            
                 <div class="tag-section">
                     <button class="tag-btn">ตตรวจบ้าน</button>
                     <button class="tag-btn">ต่อเติมบ้าน</button>
@@ -274,11 +273,11 @@
                     <button class="tag-btn">homeinspector</button>
                 </div>
 
-                <!-- Article Display Section -->
+            
                 <div id="article-list"></div>
 
 
-                <!-- Social Share Section -->
+            
                 <div class="social-share">
                     <span>SHARE :</span>
                     <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
@@ -295,7 +294,77 @@
                     </a>
 
                 </div>
-            </section>
+            </section> -->
+            <div class="article-container">
+                <h1 id="article-title" class="article-title"></h1>
+                <p id="article-caption" class="article-description"></p>
+                <div id="article-content"></div>
+                <div id="tag-list" class="tag-section"></div>
+            </div>
+            
+            <!-- Social Share -->
+            <div class="social-share">
+                <span>SHARE :</span>
+                <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
+                    <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/t.homeinspector/">
+                    <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="Instagram">
+                </a>
+                <a href="https://page.line.me/t.home?openQrModal=true">
+                    <img src="/HOMESPECTOR/icon/ICON/line.png" alt="Line">
+                </a>
+                <a href="#" id="share-icon">
+                    <i class="fa-solid fa-share" aria-label="Share"></i>
+                </a>
+            </div>
+            
+            <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const params = new URLSearchParams(window.location.search);
+                const id = params.get("id") || 4;
+            
+                fetch(`/HOMESPECTOR/backend/panel/api_article_view4.php?id=${id}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.error) {
+                            document.getElementById("article-content").innerHTML = "<p style='color:red;'>❌ ไม่พบบทความ</p>";
+                            return;
+                        }
+            
+                        document.getElementById("article-caption").textContent = data.caption;
+            
+                        document.getElementById("article-content").innerHTML = `
+                            <div class="article-section">
+                                ${data.content}
+                            </div>
+                        `;
+            
+                        // Remove first <h1/h2/h3> from the content
+                        const articleSection = document.querySelector(".article-section");
+                        const duplicateHeading = articleSection?.querySelector("h1, h2, h3");
+                        if (duplicateHeading) duplicateHeading.remove();
+            
+                        // Render dynamic tags
+                        const tagList = document.getElementById("tag-list");
+                        tagList.innerHTML = "";
+                        if (data.tags && typeof data.tags === "string") {
+                            data.tags.split(',').forEach(tag => {
+                                const tagBtn = document.createElement("span");
+                                tagBtn.className = "tag-btn";
+                                tagBtn.textContent = tag.trim();
+                                tagList.appendChild(tagBtn);
+                            });
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Fetch error:", err);
+                        document.getElementById("article-content").innerHTML = "<p style='color:red;'>เกิดข้อผิดพลาด</p>";
+                    });
+            });
+            </script>
+            
+
             <section class="carousel-content" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                 <h2>Other Articles</h2>
                 <div class="content-carousel-container">
