@@ -92,7 +92,7 @@
                                 บริการเสริม <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                                <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                         data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                 </li>
                                 <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
@@ -190,7 +190,7 @@
                                                 class="fa-solid fa-caret-down"></i></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                                        <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                                 data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                         </li>
                                         <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
@@ -251,16 +251,15 @@
                     <span>@t.home</span>
                 </a>
             </div>
-            <section class="article-section" data-aos="fade-up">
+            <!-- <section class="article-section" data-aos="fade-up">
                 <div class="content-container">
                     <h2 class="content-subtitle">
                         การตรวจสอบสาย LAN</h2>
                     <span class="upload-date" data-date="2024-12-10"></span>
 
-                    <!-- Main Image Section -->
+                
                     <div class="main-image-container">
-                        <img src="/HOMESPECTOR/img/review8.1.jpg"
-                            alt="Main LAN Design" class="main-image">
+                        <img src="/HOMESPECTOR/img/review8.1.jpg" alt="Main LAN Design" class="main-image">
                         <p class="main-image-caption">
                             ความแตกต่างระหว่างมิเตอร์ปกติกับมิเตอร์ TOU...
                         </p>
@@ -274,32 +273,32 @@
                     <p>1. ต้องทำการเข้าหัวสายแลนที่ต้องการทดสอบให้เรียบร้อยก่อน</p>
                     <div class="articles_container">
                         <div class="articles_view7-1">
-                            <img src="/HOMESPECTOR/img/review8.2.jpg"
-                                alt="ภาพประกอบการตรวจบ้าน" class="inspection-image1">
+                            <img src="/HOMESPECTOR/img/review8.2.jpg" alt="ภาพประกอบการตรวจบ้าน"
+                                class="inspection-image1">
                         </div>
                     </div>
                     <br>
                     <p>2. เสียบสายแลนด้านส่งสัญญาณเข้ากับตัวรับสัญญาณ</p>
                     <div class="articles_container">
                         <div class="articles_view7-1">
-                            <img src="/HOMESPECTOR/img/review8.3.jpg"
-                                alt="ภาพประกอบการตรวจบ้าน" class="inspection-image1">
+                            <img src="/HOMESPECTOR/img/review8.3.jpg" alt="ภาพประกอบการตรวจบ้าน"
+                                class="inspection-image1">
                         </div>
                     </div>
                     <br>
                     <p>3. เสียบสายแลนจากเครื่องเข้ากับเต้ารับด้านรับสัญญาณ</p>
                     <div class="articles_container">
                         <div class="articles_view7-1">
-                            <img src="/HOMESPECTOR/img/review8.4.jpg"
-                                alt="ภาพประกอบการตรวจบ้าน" class="inspection-image1">
+                            <img src="/HOMESPECTOR/img/review8.4.jpg" alt="ภาพประกอบการตรวจบ้าน"
+                                class="inspection-image1">
                         </div>
                     </div>
                     <br>
                     <p>4. เลือกคำสั่ง Wiremap ในการทดสอบ</p>
                     <div class="articles_container">
                         <div class="articles_view7-1">
-                            <img src="/HOMESPECTOR/img/review8.5.jpg"
-                                alt="ภาพประกอบการตรวจบ้าน" class="inspection-image1">
+                            <img src="/HOMESPECTOR/img/review8.5.jpg" alt="ภาพประกอบการตรวจบ้าน"
+                                class="inspection-image1">
                         </div>
                     </div>
                     <br>
@@ -313,12 +312,12 @@
                     </p>
                     <div class="articles_container">
                         <div class="articles_view7-1">
-                            <img src="/HOMESPECTOR/img/review8.6.jpg"
-                                alt="ภาพประกอบการตรวจบ้าน" class="inspection-image1">
+                            <img src="/HOMESPECTOR/img/review8.6.jpg" alt="ภาพประกอบการตรวจบ้าน"
+                                class="inspection-image1">
                         </div>
                     </div>
                 </div>
-                <!-- Tag Section -->
+        
                 <div class="tag-section">
                     <button class="tag-btn">ตตรวจบ้าน</button>
                     <button class="tag-btn">ต่อเติมบ้าน</button>
@@ -326,11 +325,11 @@
                     <button class="tag-btn">homeinspector</button>
                 </div>
 
-                <!-- Article Display Section -->
+        
                 <div id="article-list"></div>
 
 
-                <!-- Social Share Section -->
+                
                 <div class="social-share">
                     <span>SHARE :</span>
                     <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
@@ -347,70 +346,175 @@
                     </a>
 
                 </div>
-            </section>
+            </section> -->
+
+            <div class="article-container">
+                <h1 id="article-title" class="article-title"></h1>
+                <p id="article-caption" class="photo-description"></p>
+                <div id="article-content"></div>
+                <div id="tag-list" class="tag-section"></div>
+            </div>
+            <!-- Tag Section -->
+            <div class="tag-section">
+                <button class="tag-btn">ตตรวจบ้าน</button>
+                <button class="tag-btn">ต่อเติมบ้าน</button>
+                <button class="tag-btn">ตรวจคอนโด</button>
+                <button class="tag-btn">homeinspector</button>
+            </div>
+
+            <!-- Article Display Section -->
+            <div id="article-list"></div>
+
+
+            <!-- Social Share Section -->
+            <div class="social-share">
+                <span>SHARE :</span>
+                <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
+                    <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/t.homeinspector/">
+                    <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="Instagram">
+                </a>
+                <a href="https://page.line.me/t.home?openQrModal=true">
+                    <img src="/HOMESPECTOR/icon/ICON/line.png" alt="Line">
+                </a>
+                <a href="#" id="share-icon">
+                    <i class="fa-solid fa-share" aria-label="Share"></i>
+                </a>
+
+            </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const params = new URLSearchParams(window.location.search);
+                    const id = params.get("id") || 8;
+
+                    fetch(`/HOMESPECTOR/backend/panel/api_article_view8.php?id=${id}`)
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.error) {
+                                document.getElementById("article-content").innerHTML = "<p style='color:red;'>❌ ไม่พบบทความ</p>";
+                                return;
+                            }
+
+                            document.getElementById("article-title").textContent = data.title;
+                            document.getElementById("article-caption").textContent = data.caption;
+                            document.getElementById("article-content").innerHTML = `
+                            <div class="article-section">
+                                ${data.content}
+                            </div>
+                        `;
+
+                            // แสดง tags
+                            const tagList = document.getElementById("tag-list");
+                            tagList.innerHTML = "";
+                            if (data.tags) {
+                                data.tags.split(',').forEach(tag => {
+                                    const tagBtn = document.createElement("span");
+                                    tagBtn.className = "tag-btn";
+                                    tagBtn.textContent = tag.trim();
+                                    tagList.appendChild(tagBtn);
+                                });
+                            }
+                        })
+                        .catch(err => {
+                            console.error("Fetch error:", err);
+                            document.getElementById("article-content").innerHTML = "<p style='color:red;'>เกิดข้อผิดพลาด</p>";
+                        });
+                });
+            </script>
+
             <section class="carousel-content" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                 <h2>Other Articles</h2>
                 <div class="content-carousel-container">
-                    <!-- Navigation Buttons -->
                     <button class="carousel-btn prev-btn">❮</button>
-                    <div class="content-carousel">
-                        <!-- Item 1 -->
-                        <a href="/HOMESPECTOR/Homepage/articles_view3.html" class="content-carousel-item">
-                            <img src="/HOMESPECTOR/img/articles_releted.jpg"
-                                alt="Content 1">
-                            <div class="content-carousel-info">
-                                <h3>....... <i class="fa-solid fa-circle-arrow-right"></i></h3>
-                            </div>
-                        </a>
-                        <a href="/HOMESPECTOR/Homepage/articles_view2.html" class="content-carousel-item">
-                            <img src="/HOMESPECTOR/img/releted2.jpg"
-                                alt="Content 1">
-                            <div class="content-carousel-info">
-                                <h3>เราต่างจากที่อื่นอย่างไร What Makes US Different?<i
-                                        class="fa-solid fa-circle-arrow-right"></i></h3>
-                            </div>
-                        </a>
-                        <!-- Item 2 -->
-                        <a href="/HOMESPECTOR/Homepage/articles_view6.html" class="content-carousel-item">
-                            <img src="/HOMESPECTOR/img/ev-charger.jpg"
-                                alt="Content 2">
-                            <div class="content-carousel-info">
-                                <h3>สิ่งที่ต้องรู้เกี่ยวกับ EV Charger <i class="fa-solid fa-circle-arrow-right"></i>
-                                </h3>
-                            </div>
-                        </a>
-
-                        <!-- Item 3 -->
-                        <a href="/HOMESPECTOR/Homepage/articles_view9.html" class="content-carousel-item">
-                            <img src="/HOMESPECTOR/img/ac.jpg"
-                                alt="Content 3">
-                            <div class="content-carousel-info">
-                                <h3>การตรวจเช็คเครื่องปรับอากาศ <i class="fa-solid fa-circle-arrow-right"></i></h3>
-                            </div>
-                        </a>
-                        <!-- Item 4 -->
-                        <a href="/HOMESPECTOR/Homepage/articles_view7.html" class="content-carousel-item">
-                            <img src="/HOMESPECTOR/img/tou.jpg"
-                                alt="Content 4">
-                            <div class="content-carousel-info">
-                                <h3>ความแตกต่างระหว่างมิเตอร์ปกติกับมิเตอร์ TOU <i
-                                        class="fa-solid fa-circle-arrow-right"></i></h3>
-                            </div>
-                        </a>
-                        <!-- Item 5 -->
-                        <a href="/HOMESPECTOR/Homepage/articles_view4.html" class="content-carousel-item">
-                            <img src="/HOMESPECTOR/img/knowladge.jpg"
-                                alt="Content 5">
-                            <div class="content-carousel-info">
-                                <h3>แจกฟรี!!! ebook ความรู้ระบบไฟฟ้าภายในบ้าน<i
-                                        class="fa-solid fa-circle-arrow-right"></i></h3>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Navigation Buttons -->
+                    <div class="content-carousel" id="other-carousel"></div>
                     <button class="carousel-btn next-btn">❯</button>
                 </div>
             </section>
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const container = document.getElementById("other-carousel");
+
+                    fetch("/HOMESPECTOR/backend/panel/api_articles.php")
+                        .then(res => res.ok ? res.json() : Promise.reject("API error"))
+                        .then(data => {
+                            // ✅ static article ที่ฝังไว้ใน DOM หรือ define ตรงนี้
+                            const staticCards = [
+                                {
+                                    id: 0,
+                                    title: "สิ่งที่ต้องรู้เกี่ยวกับ EV Charger",
+                                    thumbnail: "/HOMESPECTOR/img/ev-charger.jpg",
+                                    article_date: "2025-01-01",
+                                    category: "Plumbing System",
+                                    url: "/HOMESPECTOR/Homepage/articles_view6.html"
+                                },
+                                {
+                                    id: 1,
+                                    title: "การตรวจเช็คเครื่องปรับอากาศ",
+                                    thumbnail: "/HOMESPECTOR/img/ac.jpg",
+                                    article_date: "2025-01-03",
+                                    category: "HVAC System",
+                                    url: "/HOMESPECTOR/Homepage/articles_view9.html"
+                                },
+                                {
+                                    id: 2,
+                                    title: "แจกฟรี eBook ความรู้ระบบไฟฟ้าภายในบ้าน",
+                                    thumbnail: "/HOMESPECTOR/img/knowladge.jpg",
+                                    article_date: "2024-12-01",
+                                    category: "Electrical System",
+                                    url: "/HOMESPECTOR/Homepage/articles_view4.html"
+                                }
+                                // 👉 เพิ่มได้อีกตามต้องการ
+                            ];
+
+                            const allArticles = [...staticCards, ...data];
+
+                            const shuffled = allArticles.sort(() => Math.random() - 0.5);
+                            const selected = shuffled.slice(0, Math.floor(Math.random() * 3) + 6); // 6–8 ชิ้น
+
+                            renderOtherArticlesCarousel(selected);
+                        })
+                        .catch(err => {
+                            console.error("❌ Error loading other articles", err);
+                            container.innerHTML = "<p class='text-danger'>ไม่สามารถโหลดบทความอื่น ๆ ได้</p>";
+                        });
+
+                    function renderOtherArticlesCarousel(articles) {
+                        const container = document.getElementById("other-carousel");
+                        container.innerHTML = "";
+
+                        articles.forEach(article => {
+                            const html = `
+                    <a href="${article.url || '/HOMESPECTOR/Homepage/articles_view11.php?id=' + article.id}" class="content-carousel-item">
+                        <img src="${article.thumbnail}" alt="${article.title}">
+                        <div class="content-carousel-info">
+                            <h3>${article.title}</h3>
+                        </div>
+                    </a>`;
+                            container.insertAdjacentHTML("beforeend", html);
+                        });
+
+                        initCarouselScroll();
+                    }
+
+                    function initCarouselScroll() {
+                        const container = document.querySelector('.content-carousel');
+                        const nextBtn = document.querySelector('.next-btn');
+                        const prevBtn = document.querySelector('.prev-btn');
+
+                        nextBtn?.addEventListener('click', () => {
+                            container.scrollBy({ left: 300, behavior: 'smooth' });
+                        });
+
+                        prevBtn?.addEventListener('click', () => {
+                            container.scrollBy({ left: -300, behavior: 'smooth' });
+                        });
+                    }
+                });
+            </script>
 
 
 
@@ -452,7 +556,7 @@
                             <li><a href="/HOMESPECTOR/Homepage/Hconstruction.php">ต.เติม</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Hbulter.php">H.Bulter</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/cal-electric.html">ตรวจสอบระบบไฟฟ้า</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/app-inspector.html">ตรวจบ้านเอง</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/app-inspector.php">ตรวจบ้านเอง</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/checklist.html">เทียบสเปกบ้าน</a></li>
                         </ul>
                     </div>

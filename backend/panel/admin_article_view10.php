@@ -109,17 +109,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <script>
     new FroalaEditor('#froala', {
-        height: 800,
+        height: 1200,
         language: 'th',
         imageUploadURL: '/HOMESPECTOR/backend/panel/upload_image.php',
         videoResize: true,
         videoEditButtons: ['videoDisplay', 'videoAlign', 'videoRemove', 'videoSize'],
         videoInsertButtons: ['videoBack', '|', 'videoByURL', 'videoEmbed'],
         toolbarButtons: [
-            'bold', 'italic', 'underline', '|',
-            'formatOL', 'formatUL', '|',
-            'insertImage', 'insertVideo', '|',
-            'html', 'undo', 'redo'
+            ['bold', 'italic', 'underline', 'strikeThrough', '|',
+                'fontSize', 'color', '|',
+                'align', 'formatOL', 'formatUL', '|',
+                'insertImage', 'insertLink', 'insertVideo', '|',
+                'undo', 'redo']
         ]
     });
 </script>

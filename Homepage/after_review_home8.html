@@ -92,7 +92,7 @@
                                 บริการเสริม <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                                <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                         data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                 </li>
                                 <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
@@ -190,7 +190,7 @@
                                                 class="fa-solid fa-caret-down"></i></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                                        <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                                 data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                         </li>
                                         <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
@@ -313,30 +313,30 @@
                 <img class="modal-content" id="fullImage" alt="Zoomed Image">
             </div> -->
 
-             <!-- Update code -->
-             <div class="interior-container">
+            <!-- Update code -->
+            <div class="interior-container">
                 <div class="interior-banner">
                     <img id="thumbnail" alt="Project Thumbnail">
                 </div>
-        
+
                 <div class="banner-text">
                     <div class="review-title" id="project-name"></div>
                     <div class="photo-description" id="project-description"></div>
                 </div>
             </div>
-        
+
             <!-- Related Images -->
             <div class="review-page">
                 <h3 class="related-images-title">รูปภาพที่เกี่ยวข้อง</h3>
                 <div class="image-gallery" id="image-list"></div>
             </div>
-        
+
             <!-- Modal -->
             <div id="imageModal" class="modal">
                 <span class="close">&times;</span>
                 <img class="modal-content" id="fullImage" alt="Zoomed Image">
             </div>
-        
+
             <script>
                 document.addEventListener("DOMContentLoaded", function () {
                     fetch('http://localhost/HomeSpector/backend/panel/admin_after_review9.php?fetch=json')
@@ -345,10 +345,10 @@
                             // Set project title and description
                             document.getElementById('project-name').innerHTML = data.review.title;
                             document.getElementById('project-description').innerHTML = data.review.description;
-        
+
                             // Set thumbnail
                             document.getElementById('thumbnail').src = data.review.banner_image;
-        
+
                             // Add images
                             const container = document.getElementById('image-list');
                             data.images.forEach(img => {
@@ -358,22 +358,22 @@
                                 container.appendChild(div);
                             });
                         });
-        
+
                     function openModal(src) {
                         document.getElementById("imageModal").classList.add("show");
                         document.getElementById("fullImage").src = src;
                     }
-        
+
                     document.querySelector("#imageModal .close").addEventListener("click", function () {
                         document.getElementById("imageModal").classList.remove("show");
                     });
-        
+
                     document.getElementById("imageModal").addEventListener("click", function (e) {
                         if (e.target === this) {
                             this.classList.remove("show");
                         }
                     });
-        
+
                     window.openModal = openModal;
                 });
             </script>
@@ -418,7 +418,7 @@
                             <li><a href="/HOMESPECTOR/Homepage/Hconstruction.php">ต.เติม</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Hbulter.php">H.Bulter</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/cal-electric.html">ตรวจสอบระบบไฟฟ้า</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/app-inspector.html">ตรวจบ้านเอง</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/app-inspector.php">ตรวจบ้านเอง</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/checklist.html">เทียบสเปกบ้าน</a></li>
                         </ul>
                     </div>

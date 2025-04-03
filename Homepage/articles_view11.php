@@ -92,7 +92,7 @@
                                 บริการเสริม <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                                <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                         data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                 </li>
                                 <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
@@ -190,7 +190,7 @@
                                                 class="fa-solid fa-caret-down"></i></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                                        <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                                 data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                         </li>
                                         <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
@@ -412,6 +412,98 @@
                 <?php endif; ?>
             </div>
 
+            <section class="carousel-content" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <h2>Other Articles</h2>
+                <div class="content-carousel-container">
+                    <button class="carousel-btn prev-btn">❮</button>
+                    <div class="content-carousel" id="other-carousel"></div>
+                    <button class="carousel-btn next-btn">❯</button>
+                </div>
+            </section>
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const container = document.getElementById("other-carousel");
+                
+                    fetch("/HOMESPECTOR/backend/panel/api_articles.php")
+                        .then(res => res.ok ? res.json() : Promise.reject("API error"))
+                        .then(data => {
+                            // ✅ static article ที่ฝังไว้ใน DOM หรือ define ตรงนี้
+                            const staticCards = [
+                                {
+                                    id: 0,
+                                    title: "สิ่งที่ต้องรู้เกี่ยวกับ EV Charger",
+                                    thumbnail: "/HOMESPECTOR/img/ev-charger.jpg",
+                                    article_date: "2025-01-01",
+                                    category: "Plumbing System",
+                                    url: "/HOMESPECTOR/Homepage/articles_view6.html"
+                                },
+                                {
+                                    id: 1,
+                                    title: "การตรวจเช็คเครื่องปรับอากาศ",
+                                    thumbnail: "/HOMESPECTOR/img/ac.jpg",
+                                    article_date: "2025-01-03",
+                                    category: "HVAC System",
+                                    url: "/HOMESPECTOR/Homepage/articles_view9.html"
+                                },
+                                {
+                                    id: 2,
+                                    title: "แจกฟรี eBook ความรู้ระบบไฟฟ้าภายในบ้าน",
+                                    thumbnail: "/HOMESPECTOR/img/knowladge.jpg",
+                                    article_date: "2024-12-01",
+                                    category: "Electrical System",
+                                    url: "/HOMESPECTOR/Homepage/articles_view4.html"
+                                }
+                                // 👉 เพิ่มได้อีกตามต้องการ
+                            ];
+                
+                            const allArticles = [...staticCards, ...data];
+                
+                            const shuffled = allArticles.sort(() => Math.random() - 0.5);
+                            const selected = shuffled.slice(0, Math.floor(Math.random() * 3) + 6); // 6–8 ชิ้น
+                
+                            renderOtherArticlesCarousel(selected);
+                        })
+                        .catch(err => {
+                            console.error("❌ Error loading other articles", err);
+                            container.innerHTML = "<p class='text-danger'>ไม่สามารถโหลดบทความอื่น ๆ ได้</p>";
+                        });
+                
+                    function renderOtherArticlesCarousel(articles) {
+                        const container = document.getElementById("other-carousel");
+                        container.innerHTML = "";
+                
+                        articles.forEach(article => {
+                            const html = `
+                                <a href="${article.url || '/HOMESPECTOR/Homepage/articles_view11.php?id=' + article.id}" class="content-carousel-item">
+                                    <img src="${article.thumbnail}" alt="${article.title}">
+                                    <div class="content-carousel-info">
+                                        <h3>${article.title}</h3>
+                                    </div>
+                                </a>`;
+                            container.insertAdjacentHTML("beforeend", html);
+                        });
+                
+                        initCarouselScroll();
+                    }
+                
+                    function initCarouselScroll() {
+                        const container = document.querySelector('.content-carousel');
+                        const nextBtn = document.querySelector('.next-btn');
+                        const prevBtn = document.querySelector('.prev-btn');
+                
+                        nextBtn?.addEventListener('click', () => {
+                            container.scrollBy({ left: 300, behavior: 'smooth' });
+                        });
+                
+                        prevBtn?.addEventListener('click', () => {
+                            container.scrollBy({ left: -300, behavior: 'smooth' });
+                        });
+                    }
+                });
+            </script>
+
 
             <footer class="footer">
                 <div class="footer-container">
@@ -451,7 +543,7 @@
                             <li><a href="/HOMESPECTOR/Homepage/Hconstruction.php">ต.เติม</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Hbulter.php">H.Bulter</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/cal-electric.html">ตรวจสอบระบบไฟฟ้า</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/app-inspector.html">ตรวจบ้านเอง</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/app-inspector.php">ตรวจบ้านเอง</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/checklist.html">เทียบสเปกบ้าน</a></li>
                         </ul>
                     </div>
@@ -488,10 +580,10 @@
 
 
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
-    <!-- <script src="/HOMESPECTOR/JS/upload_date.js"></script> -->
+    <script src="/HOMESPECTOR/JS/upload_date.js"></script>
     <script src="/HOMESPECTOR/JS/dropdown.js"></script>
-    <!-- <script src="/HOMESPECTOR/JS/content_carousel.js"></script> -->
-    <!-- <script src="/HOMESPECTOR/JS/article_tag.js"></script> -->
+    <script src="/HOMESPECTOR/JS/content_carousel.js"></script>
+    <script src="/HOMESPECTOR/JS/article_tag.js"></script>
     <script src="/HOMESPECTOR/JS/search_ham.js"></script>
     <script src="/HOMESPECTOR/JS/footer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -501,7 +593,6 @@
     <script>
     AOS.init();
     </script>
-    <!-- <script src="/HOMESPECTOR/JS/article_tag.js"></script> -->
     <script src="/HOMESPECTOR/JS/share_icon.js"></script>
 
 </body>

@@ -103,7 +103,7 @@ $content = $stmt->fetchColumn();
                                 บริการเสริม <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                                <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                         data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                 </li>
                                 <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
@@ -201,7 +201,7 @@ $content = $stmt->fetchColumn();
                                                 class="fa-solid fa-caret-down"></i></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                                        <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                                 data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                         </li>
                                         <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
@@ -263,7 +263,7 @@ $content = $stmt->fetchColumn();
                 </a>
             </div>
 
-            <section class="story-container">
+            <!-- <section class="story-container">
 
                 <div class="story-header">
                     <img src="/HOMESPECTOR/img/ourstoryimage1.png" alt="Building B" class="header-image">
@@ -323,8 +323,6 @@ $content = $stmt->fetchColumn();
                         </div>
                     </div>
                 </section>
-
-
                 <section class="commitment" data-aos="fade-up">
                     <h2>Our Commitment to the Client</h2>
                     <div class="commitment-content">
@@ -341,8 +339,8 @@ $content = $stmt->fetchColumn();
                         </ul>
                     </div>
                 </section>
-            </section>
-                
+            </section> -->
+            
                 <div class="our-story-content" id="story-content">
                     <?php echo $content ? html_entity_decode($content) : "<p>No content available.</p>"; ?>
                 </div>
@@ -389,7 +387,7 @@ $content = $stmt->fetchColumn();
                                 <li><a href="/HOMESPECTOR/Homepage/Hconstruction.php">ต.เติม</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/Hbulter.php">H.Bulter</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/cal-electric.html">ตรวจสอบระบบไฟฟ้า</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/app-inspector.html">ตรวจบ้านเอง</a></li>
+                                <li><a href="/HOMESPECTOR/Homepage/app-inspector.php">ตรวจบ้านเอง</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/checklist.html">เทียบสเปกบ้าน</a></li>
                             </ul>
                         </div>
@@ -425,10 +423,9 @@ $content = $stmt->fetchColumn();
 
 
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
-    <script src="/HOOMESPECTOR/JS/dropdown.js"></script>
+    <!-- <script src="/HOOMESPECTOR/JS/dropdown.js"></script> -->
     <script src="/HOMESPECTOR/JS/carousel.js"></script>
     <script src="/HOMESPECTOR/JS/carousel2.js"></script>
-    <script src="/HOMESPECTOR/JS/carousel5.js"></script>
     <script src="/HOMESPECTOR/JS/footer.js"></script>
     <script src="/HOMESPECTOR/JS/search_ham.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

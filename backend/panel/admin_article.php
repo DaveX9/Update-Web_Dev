@@ -60,7 +60,6 @@ if (isset($_POST['delete_id'])) {
     <div class="container mt-4">
         <h2>📰 Manage Articles</h2>
         <a href="add_article.php" class="btn btn-success mb-3">➕ Add Article</a>
-        <a href="admin_article_carousel.php" class="btn btn-success mb-3">🖼 Manage Carousel</a>
 
         <div class="row">
             <?php foreach ($articles as $a): ?>

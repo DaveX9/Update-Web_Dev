@@ -112,7 +112,7 @@ $conn->close();
                 บริการเสริม <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                     data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                 </li>
                 <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
@@ -202,7 +202,7 @@ $conn->close();
                     บริการเสริม <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                    <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                         data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                     </li>
                     <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
@@ -330,7 +330,7 @@ $conn->close();
 
 
       <!-- Our Services Section -->
-      <section class="services1" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+      <!-- <section class="services1" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
         <div class="services-container">
 
           <div class="image-container">
@@ -420,7 +420,7 @@ $conn->close();
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-      </section>
+      </section> -->
 
       <!-- Services Section -->
       <section class="services1">
@@ -493,7 +493,7 @@ $conn->close();
               <li><a href="/HOMESPECTOR/Homepage/Hconstruction.php">ต.เติม</a></li>
               <li><a href="/HOMESPECTOR/Homepage/Hbulter.php">H.Bulter</a></li>
               <li><a href="/HOMESPECTOR/Homepage/cal-electric.html">ตรวจสอบระบบไฟฟ้า</a></li>
-              <li><a href="/HOMESPECTOR/Homepage/app-inspector.html">ตรวจบ้านเอง</a></li>
+              <li><a href="/HOMESPECTOR/Homepage/app-inspector.php">ตรวจบ้านเอง</a></li>
               <li><a href="/HOMESPECTOR/Homepage/checklist.html">เทียบสเปกบ้าน</a></li>
             </ul>
           </div>
@@ -530,10 +530,10 @@ $conn->close();
 
 
   <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
-  <script src="/HOOMESPECTOR/JS/dropdown.js"></script>
+  <!-- <script src="/HOOMESPECTOR/JS/dropdown.js"></script> -->
   <script src="/HOMESPECTOR/JS/carousel.js"></script>
   <script src="/HOMESPECTOR/JS/carousel2.js"></script>
-  <script src="/HOMESPECTOR/JS/carousel5.js"></script>
+  <!-- <script src="/HOMESPECTOR/JS/carousel4.js"></script> -->
   <script src="/HOMESPECTOR/JS/search_ham.js"></script>
   <script src="/HOMESPECTOR/JS/footer.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

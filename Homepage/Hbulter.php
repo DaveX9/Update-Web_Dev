@@ -112,7 +112,7 @@ $row_carousel = $result_carousel->fetch_assoc();
                                 บริการเสริม <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                                <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                         data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                 </li>
                                 <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
@@ -210,7 +210,7 @@ $row_carousel = $result_carousel->fetch_assoc();
                                                 class="fa-solid fa-caret-down"></i></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/HOMESPECTOR/Homepage/app-inspector.html"
+                                        <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                                 data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                         </li>
                                         <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
@@ -287,12 +287,12 @@ $row_carousel = $result_carousel->fetch_assoc();
                 </div>
             </section>
             <!-- Our Services Section -->
-            <section class="services" data-aos="fade-up" data-aos-anchor-placement="top-center">
+            <!-- <section class="services" data-aos="fade-up" data-aos-anchor-placement="top-center">
                 <div class="service-container">
-                    <!-- Left Image Section -->
+                    
                     <div class="image-container">
                         <div class="image-box">
-                            <div class="image-bg"></div> <!-- Yellow Background -->
+                            <div class="image-bg"></div> 
                             <img src="/HOMESPECTOR/img/homebultter-bg.JPG" alt="Home Inspection">
                         </div>
                         <div class="call-box">
@@ -300,7 +300,7 @@ $row_carousel = $result_carousel->fetch_assoc();
                         </div>
                     </div>
 
-                    <!-- Right Text Section -->
+                    
                     <div class="text-container">
                         <h2 class="main-title">ต. ตรวจบ้าน รับตรวจรับบ้านและคอนโดก่อนโอนกรรมสิทธิ์</h2>
                         <p class="description">
@@ -315,7 +315,7 @@ $row_carousel = $result_carousel->fetch_assoc();
                         <p><i class="fa-solid fa-location-dot"></i> 2043 Soi Kanchanaphisek 008, Bangkae, Bangkae
                             Bangkok 10160 Thailand</p>
 
-                        <!-- Social Icons -->
+                        
                         <div class="social-icons">
                             <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
                                 <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
@@ -338,7 +338,7 @@ $row_carousel = $result_carousel->fetch_assoc();
             <section class="carousel2 py-4" data-aos="fade-up" data-aos-duration="3000">
                 <div id="customCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        <!-- First Slide -->
+                    
                         <div class="carousel-item active">
                             <div class="carousel-content mx-auto text-center">
                                 <div class="carousel-heading">ราคาค่าบริการตรวจบ้านทาวน์โฮม</div>
@@ -346,7 +346,7 @@ $row_carousel = $result_carousel->fetch_assoc();
                                     class="img-fluid">
                             </div>
                         </div>
-                        <!-- Second Slide -->
+                        
                         <div class="carousel-item">
                             <div class="carousel-content mx-auto text-center">
                                 <div class="carousel-heading">ราคาค่าบริการตรวจบ้านทาวน์โฮม</div>
@@ -354,14 +354,14 @@ $row_carousel = $result_carousel->fetch_assoc();
                                     class="img-fluid">
                             </div>
                         </div>
-                        <!-- Third Slide -->
+                        
                         <div class="carousel-item">
                             <div class="carousel-content mx-auto text-center">
                                 <div class="carousel-heading">ราคาค่าบริการตรวจบ้านทาวน์โฮม</div>
                                 <img src="/HOMESPECTOR/img/servicecharge3.png" alt="Service Details" class="img-fluid">
                             </div>
                         </div>
-                        <!-- Fourth Slide -->
+                        
                         <div class="carousel-item">
                             <div class="carousel-content mx-auto text-center">
                                 <div class="carousel-heading">ราคาค่าบริการตรวจบ้านทาวน์โฮม</div>
@@ -369,14 +369,14 @@ $row_carousel = $result_carousel->fetch_assoc();
                             </div>
                         </div>
                     </div>
-                    <!-- Previous Button -->
+                    
                     <button class="carousel-control-prev" type="button" data-bs-target="#customCarousel"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"
                             style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; width: 40px; height: 40px;"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <!-- Next Button -->
+                    
                     <button class="carousel-control-next" type="button" data-bs-target="#customCarousel"
                         data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"
@@ -384,7 +384,7 @@ $row_carousel = $result_carousel->fetch_assoc();
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-            </section>
+            </section> -->
 
             <!-- 🏠 Services Section -->
             <section class="services">
@@ -456,7 +456,7 @@ $row_carousel = $result_carousel->fetch_assoc();
                             <li><a href="/HOMESPECTOR/Homepage/Hconstruction.php">ต.เติม</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Hbulter.php">H.Bulter</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/cal-electric.html">ตรวจสอบระบบไฟฟ้า</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/app-inspector.html">ตรวจบ้านเอง</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/app-inspector.php">ตรวจบ้านเอง</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/checklist.html">เทียบสเปกบ้าน</a></li>
                         </ul>
                     </div>

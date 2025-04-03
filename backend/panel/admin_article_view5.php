@@ -105,10 +105,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         videoEditButtons: ['videoDisplay', 'videoAlign', 'videoRemove', 'videoSize'],
         videoInsertButtons: ['videoBack', '|', 'videoByURL', 'videoEmbed'],
         toolbarButtons: [
-            'bold', 'italic', 'underline', '|',
-            'formatOL', 'formatUL', '|',
-            'insertLink', 'insertImage', 'insertVideo', '|',
-            'html', 'undo', 'redo'
+            ['bold', 'italic', 'underline', 'strikeThrough', '|',
+                'fontSize', 'color', '|',
+                'align', 'formatOL', 'formatUL', '|',
+                'insertImage', 'insertLink', 'insertVideo', '|',
+                'undo', 'redo']
         ]
         });
     </script>
