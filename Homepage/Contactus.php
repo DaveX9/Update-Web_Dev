@@ -400,10 +400,6 @@
 
 
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
-    <script src="/HOOMESPECTOR/JS/dropdown.js"></script>
-    <script src="/HOMESPECTOR/JS/carousel.js"></script>
-    <script src="/HOMESPECTOR/JS/carousel2.js"></script>
-    <script src="/HOMESPECTOR/JS/carousel5.js"></script>
     <script src="/HOMESPECTOR/JS/search_ham.js"></script>
     <script src="/HOMESPECTOR/JS/footer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

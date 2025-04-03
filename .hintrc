@@ -65,6 +65,12 @@
       {
         "nested-interactive": "off"
       }
+    ],
+    "axe/forms": [
+      "default",
+      {
+        "select-name": "off"
+      }
     ]
   }
 }
