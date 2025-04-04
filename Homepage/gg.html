@@ -1,12 +1,3 @@
-<?php
-include __DIR__ . '/../backend/panel/db.php';
-
-// Fetch content from database
-$sql = "SELECT content FROM newapp_content WHERE id = 1";
-$result = $conn->query($sql);
-$data = $result->fetch_assoc();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +14,7 @@ $data = $result->fetch_assoc();
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap">
-    <link rel="stylesheet" href="/HOMESPECTOR/CSS/app-inspector.css">
+    <link rel="stylesheet" href="/HOMESPECTOR/CSS/index.css">
     <title>Header Design</title>
 </head>
 
@@ -175,8 +166,8 @@ $data = $result->fetch_assoc();
                             <ul>
                                 <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
                                 </li>
-                                <li><a href="/HOMESPECTOR/Homepage/service.php"
-                                        data-translate="nav.services">บริการ</a></li>
+                                <li><a href="/HOMESPECTOR/Homepage/service.php" data-translate="nav.services">บริการ</a>
+                                </li>
                                 <li><a href="/HOMESPECTOR/Homepage/promotion.php"
                                         data-translate="nav.promotion">สิทธิพิเศษ</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/projects_media.html"
@@ -249,83 +240,349 @@ $data = $result->fetch_assoc();
                 </div>
             </div>
 
-            <!-- <div class="container-newapp" data-aos="fade-up" data-aos-duration="3000">
-                <div class="header-newapp">
-                    <h1>New</h1>
-                    <h2>Application ตรวจบ้านด้วยตัวเอง</h2>
-                    <p>ตรวจบ้านด้วยตัวเอง พร้อมออกรายงานในตัว ตรวจไม่เป็นก็มีคลิปสอนให้ภายในแอป</p>
-                </div>
-                <div class="content-newapp">
-                    <div class="app-preview">
-                        <img src="/HOMESPECTOR/img/app1.png" alt="App Preview 1">
-                        <img src="/HOMESPECTOR/img/app2.png" alt="App Preview 2">
-                    </div>
-                    <div class="main-btn">
-                        <button>
-                            <a href="https://liff.line.me/2005695449-36Xrdj94">ใช้งานฟรี!</a>
-                        </button>
-                    </div>
-                </div>
-            </div> -->
-            
-            <div class="container-newapp" data-aos="fade-up" data-aos-duration="3000">
-                <?= html_entity_decode($data['content']); ?>
-            </div>
             <!-- Hero Section -->
-            <header class="hero" data-aos="fade-up">
-                <h1>ต.ตรวจบ้าน - บริการตรวจสอบบ้าน</h1>
-                <p>แพลตฟอร์มที่ช่วยเจ้าของบ้านและผู้ซื้อบ้านตรวจสอบคุณภาพบ้านก่อนซื้อ</p>
-                <a href="https://liff.line.me/2005695449-36Xrdj94" class="btn">เข้าใช้งานแอป</a>
-            </header>
+            <section class="hero">
+                <div class="hero-bg" id="hero-bg"></div>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 id="hero-title">Loading...</h1>
+                    <p id="hero-subtitle"></p>
+                </div>
+            </section>
 
-            <!-- Feature Section -->
-            <section class="features">
-                <div class="container">
-                    <h2 data-aos="fade-right">📌 คุณสมบัติเด่นของแอป</h2>
-                    <div class="grid">
-                        <div class="card" data-aos="zoom-in">
-                            <h3>🛠️ ระบบตรวจสอบบ้าน</h3>
-                            <p>สามารถเพิ่มข้อบกพร่องที่พบ เช่น หลังคารั่ว, ผนังแตกร้าว และระบบไฟฟ้ามีปัญหา</p>
+            <script>
+                let texts = [];
+                let bgImages = [];
+                let textIndex = 0;
+                let bgIndex = 0;
+
+                // โหลดข้อมูลจาก backend
+                fetch('/HOMESPECTOR/backend/panel/get_hero_data.php')
+                    .then(res => res.json())
+                    .then(data => {
+                        texts = data.texts;
+                        bgImages = data.backgrounds;
+
+                        if (texts.length > 0 && bgImages.length > 0) {
+                            startHeroRotation();
+                        } else {
+                            console.warn("ไม่พบข้อมูล Hero หรือ Background");
+                        }
+                    })
+                    .catch(err => console.error("โหลดข้อมูลผิดพลาด", err));
+
+                // เริ่มเปลี่ยนข้อความ + รูป
+                function startHeroRotation() {
+                    updateHeroContent();
+
+                    setInterval(() => {
+                        textIndex = (textIndex + 1) % texts.length;
+                        bgIndex = (bgIndex + 1) % bgImages.length;
+                        updateHeroContent();
+                    }, 8000); // เปลี่ยนทุก 8 วินาที
+                }
+
+                // อัปเดตเนื้อหา Hero
+                function updateHeroContent() {
+                    document.getElementById('hero-title').innerHTML = texts[textIndex].title;
+                    document.getElementById('hero-subtitle').innerText = texts[textIndex].subtitle;
+                    document.getElementById('hero-bg').style.backgroundImage = `url('${bgImages[bgIndex]}')`;
+                }
+            </script>
+
+            <!-- Services Section -->
+            <section class="services">
+                <div class="services-header" data-aos="fade-up">
+                    <h2>Our Services</h2>
+                </div>
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card" data-aos="fade-up-right">
+                        <div class="service-icon">
+                            <a href="/HOMESPECTOR/Homepage/service1.php">
+                                <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector">
+                            </a>
                         </div>
-                        <div class="card" data-aos="zoom-in" data-aos-delay="100">
-                            <h3>📑 รายงานการตรวจสอบ</h3>
-                            <p>สามารถสร้างรายงานสรุปปัญหา และแยกหมวดหมู่เพื่อให้เข้าใจง่าย</p>
+                        <h3>T. Home Inspector</h3>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card" data-aos="fade-up">
+                        <div class="service-icon">
+                            <a href="/HOMESPECTOR/Homepage/hinterior.html">
+                                <img src="/HOMESPECTOR/img/s2.png" alt="T. Home Interior">
+                            </a>
                         </div>
-                        <div class="card" data-aos="zoom-in" data-aos-delay="200">
-                            <h3>📊 สรุปรายการปัญหา</h3>
-                            <p>ดูตารางข้อบกพร่อง พร้อมสถานะการแก้ไข “แก้แล้ว” หรือ “รอแก้ไข”</p>
+                        <h3>T. Home Interior</h3>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card" data-aos="fade-up">
+                        <div class="service-icon">
+                            <a href="/HOMESPECTOR/Homepage/Hconstruction.php">
+                                <img src="/HOMESPECTOR/img/s3.png" alt="T. Home Construction">
+                            </a>
                         </div>
-                        <div class="card" data-aos="zoom-in" data-aos-delay="300">
-                            <h3>🔍 วิธีตรวจบ้าน</h3>
-                            <p>แนะนำวิธีตรวจบ้านขั้นตอนต่าง ๆ โดยผู้เชี่ยวชาญ</p>
+                        <h3>T. Home Construction</h3>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card" data-aos="fade-up-left">
+                        <div class="service-icon">
+                            <a href="/HOMESPECTOR/Homepage/Hbulter.php">
+                                <img src="/HOMESPECTOR/img/s4-bg.png" alt="Home Butler">
+                            </a>
+                        </div>
+                        <h3>Home Butler</h3>
+                    </div>
+                </div>
+                <!-- Inspection Info Section -->
+                <div class="wrapper" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                    <div class="inspection-info">
+                        <div class="info-content">
+                            <h2>ตรวจบ้านต้องทำอย่างไร ?</h2>
+                            <h3 data-translate="inspection-details">
+                                รายละเอียดที่ต้องตกลง และเตรียมก่อนตรวจบ้าน
+                            </h3>
+                            <a href="/HOMESPECTOR/Homepage/description.html">
+                                <button data-translate="see-details">
+                                    <i class="fa-solid fa-eye"></i> ดูรายละเอียด
+                                </button>
+                            </a>
+                        </div>
+                        <div class="info-image">
+                            <!-- <img src="/HOMESPECTOR/img/how.png" alt="Inspection Process"> -->
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const servicesSection = document.querySelector(".services");
+
+                    fetch("/HOMESPECTOR/backend/panel/get_index_service.php")
+                        .then(res => res.json())
+                        .then(images => {
+                            let index = 0;
+                            function changeBackground() {
+                                servicesSection.style.backgroundImage = `url('${images[index]}')`;
+                                index = (index + 1) % images.length;
+                            }
+                            if (images.length > 0) {
+                                changeBackground();
+                                setInterval(changeBackground, 5000);
+                            }
+                        })
+                        .catch(err => console.error("โหลดภาพพื้นหลังผิดพลาด:", err));
+                });
+            </script>
+
+            <section class="why-choose-us">
+                <div id="why-choose-us-container"></div>
+            </section>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    fetch('/HOMESPECTOR/backend/panel/get_why_choose_us.php')
+                        .then(res => res.json())
+                        .then(data => {
+                            document.getElementById("why-choose-us-container").innerHTML = data.content;
+                        })
+                        .catch(err => console.error("โหลดเนื้อหาผิดพลาด:", err));
+                });
+            </script>
+
+            <section class="stats-section" id="stats-section">
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <!-- <h2 class="section-title" id="review-title">Loading...</h2> -->
+                        <p class="section-subtitle" id="review-subtitle">Please wait...</p>
+                    </div>
+
+                    <div class="elfsight-app-c9e9af2e-5acf-4478-8bc7-62f17e30af1c" data-elfsight-app-lazy></div>
+
+                    <div class="stats-container" id="stats-container"></div>
+                </div>
+            </section>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    fetch("/HOMESPECTOR/backend/panel/get_index_reviews.php")
+                        .then(res => res.json())
+                        .then(data => {
+                            // Set review title and subtitle (allow HTML from Froala)
+                            // document.getElementById('review-title').innerText = data.text.title;
+                            document.getElementById('review-subtitle').innerHTML = data.text.subtitle;
+
+                            // Generate stat boxes
+                            const statsContainer = document.getElementById('stats-container');
+                            data.stats.forEach(stat => {
+                                const box = document.createElement("div");
+                                box.className = "stat-box";
+                                box.innerHTML = `
+                            <img src="${stat.icon_url}" alt="${stat.label}">
+                            <h2 id="stat-${stat.id}">0</h2>
+                            <p>${stat.label}</p>
+                        `;
+                                statsContainer.appendChild(box);
+                            });
+
+                            // Animate numbers only when in view
+                            let animated = false;
+                            const animateValue = (id, end, duration) => {
+                                let start = 0;
+                                let increment = Math.ceil(end / (duration / 50));
+                                const element = document.getElementById(id);
+                                const interval = setInterval(() => {
+                                    start += increment;
+                                    if (start >= end) {
+                                        start = end;
+                                        clearInterval(interval);
+                                    }
+                                    element.textContent = start.toLocaleString();
+                                }, 50);
+                            };
+
+                            window.addEventListener("scroll", () => {
+                                const section = document.getElementById("stats-section");
+                                const offset = section.offsetTop;
+
+                                if (!animated && window.scrollY + window.innerHeight > offset) {
+                                    data.stats.forEach(stat => {
+                                        animateValue(`stat-${stat.id}`, stat.final_value, stat.animation_duration);
+                                    });
+                                    animated = true;
+                                }
+                            });
+                        })
+                        .catch(err => {
+                            console.error("โหลดข้อมูลรีวิวผิดพลาด:", err);
+                        });
+                });
+            </script>
+
+<!--
+            <section class="container-newapp">
+                <div class="header-newapp" data-aos="fade-up" data-aos-duration="3000">
+                    <div class="content-newapp" id="newapp-content">
+                        <div class="app-preview">
+                            <p>กำลังโหลดข้อมูล...</p>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- Category Section -->
-            <section class="categories">
-                <div class="container-categories">
-                    <div class="category-header">
-                        <h2 data-aos="fade-right">📊 หมวดหมู่การตรวจสอบ</h2>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    fetch("/HOMESPECTOR/backend/panel/get_newapp_content.php")
+                        .then(res => res.json())
+                        .then(data => {
+                            document.getElementById("newapp-content").innerHTML = data.content;
+                        })
+                        .catch(err => {
+                            console.error("ไม่สามารถโหลดเนื้อหา newapp ได้:", err);
+                        });
+                });
+            </script> -->
+
+
+            <section class="faq" id="faq">
+                <div class="faq-container">
+                    <h1 class="faq-title">คำถามที่พบบ่อย</h1>
+                    <div class="faq-content">
+                        <aside class="faq-menu">
+                            <ul id="faq-category-list">
+                                <li class="active" data-category="all" onclick="filterFAQ('all')">ทั้งหมด</li>
+                            </ul>
+                        </aside>
+
+                        <div class="faq-questions" id="faq-content">
+                            <!-- คำถามจะโหลดแบบ dynamic -->
+                        </div>
                     </div>
-                    <ul class="category-list">
-                        <li>🏠 โครงสร้างอาคาร</li>
-                        <li>🏡 หลังคา</li>
-                        <li>🚰 สุขาภิบาล</li>
-                        <li>⚡ ระบบไฟฟ้า</li>
-                        <li>💧 รั่วซึม</li>
-                    </ul>
+
+
                 </div>
             </section>
 
 
-            <!-- Call to Action -->
-            <section class="cta" data-aos="fade-up">
-                <div class="container">
-                    <h2>เริ่มต้นตรวจสอบบ้านของคุณวันนี้!</h2>
-                    <a href="https://liff.line.me/2005695449-36Xrdj94" class="btn">ใช้งานแอป</a>
-                </div>
-            </section>
+            <script>
+                function slugify(str) {
+                    return str.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+                }
+
+                function toggleAnswer(btn) {
+                    const answer = btn.nextElementSibling;
+                    btn.classList.toggle("active");
+                    answer.style.display = answer.style.display === "block" ? "none" : "block";
+                }
+
+                function filterFAQ(category) {
+                    document.querySelectorAll("#faq-category-list li").forEach(li => li.classList.remove("active"));
+                    document.querySelector(`#faq-category-list li[data-category="${category}"]`)?.classList.add("active");
+
+                    document.querySelectorAll(".faq-section").forEach(section => {
+                        section.style.display = category === "all" || section.getAttribute("data-category") === category ? "block" : "none";
+                    });
+                }
+
+                // Fetch FAQs
+                window.addEventListener("DOMContentLoaded", () => {
+                    fetch("/HOMESPECTOR/backend/panel/get_faqs.php")
+                        .then(res => res.json())
+                        .then(data => {
+                            const categories = new Set();
+                            const faqContent = document.getElementById("faq-content");
+                            const categoryList = document.getElementById("faq-category-list");
+                            faqContent.innerHTML = "";
+
+                            const grouped = {};
+                            data.forEach(faq => {
+                                const cat = faq.category;
+                                categories.add(cat);
+                                if (!grouped[cat]) grouped[cat] = [];
+                                grouped[cat].push(faq);
+                            });
+
+                            categories.forEach(cat => {
+                                const li = document.createElement("li");
+                                li.textContent = cat;
+                                li.setAttribute("data-category", cat);
+                                li.onclick = () => filterFAQ(cat);
+                                categoryList.appendChild(li);
+                            });
+
+                            for (const cat in grouped) {
+                                const section = document.createElement("div");
+                                section.className = `faq-section`;
+                                section.setAttribute("data-category", cat);
+
+                                grouped[cat].forEach(faq => {
+                                    const item = document.createElement("div");
+                                    item.className = "faq-item";
+                                    item.innerHTML = `
+                                    <button class="faq-question" onclick="toggleAnswer(this)">
+                                        ${faq.question} <span class="icon">+</span>
+                                    </button>
+                                    <div class="faq-answer" style="display:none"><p>${faq.answer}</p></div>
+                                    `;
+                                    section.appendChild(item);
+                                });
+
+                                faqContent.appendChild(section);
+                            }
+
+                            filterFAQ("all");
+                        })
+                        .catch(err => console.error("โหลด FAQ ไม่สำเร็จ:", err));
+                });
+            </script>
+
+
+
+
+
 
 
 
@@ -399,13 +656,21 @@ $data = $result->fetch_assoc();
                 </div>
             </footer>
 
+
         </div>
     </div>
 
 
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
-    <script src="/HOMESPECTOR/JS/dropdown.js"></script>>
-    <script src="/HOMESPECTOR/JS/search_ham.js"></script>
+    <script src="/HOMESPECTOR/JS/dropdown.js"></script>
+    <!-- <script src="/HOMESPECTOR/JS/pull_articles.js"></script>
+    <script src="/HOMESPECTOR/JS/carousel.js"></script>
+    <script src="/HOMESPECTOR/JS/carousel2.js"></script>
+    <script src="/HOMESPECTOR/JS/carousel4.js"></script>
+    <script src="/HOMESPECTOR/JS/stats-section.js"></script>
+    <script src="/HOMESPECTOR/JS/pull_project.js"></script>
+    <script src="/HOMESPECTOR/JS/faq.js"></script>
+    <script src="/HOMESPECTOR/JS/search_ham.js"></script> -->
     <script src="/HOMESPECTOR/JS/footer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -422,6 +687,7 @@ $data = $result->fetch_assoc();
 
             let scale = 1;
             let growing = true;
+
             function animateBackground() {
                 if (growing) {
                     scale += 0.005; // Slowly zoom in
@@ -438,6 +704,7 @@ $data = $result->fetch_assoc();
         });
 
     </script>
+
 
 </body>
 
