@@ -393,6 +393,8 @@
                 });
             </script>
 
+
+
             <section class="stats-section" id="stats-section">
                 <div class="content-wrapper">
                     <div class="text-content">
@@ -405,6 +407,87 @@
                     <div class="stats-container" id="stats-container"></div>
                 </div>
             </section>
+
+
+
+            <div class="carousel-container3" data-aos="fade-up" data-aos-anchor-placement="top-center">
+                <div class="carousel-header3">
+                    <h2 class="carousel-title3">Content</h2>
+                    <a href="/HOMESPECTOR/Homepage/content.html" class="btn btn-all">ดูทั้งหมด</a>
+                </div>
+
+                <div class="carousel3">
+                    <div class="carousel-slides3" id="carousel-slides"></div>
+
+                    <div class="carousel-thumbnails" id="carousel-thumbnails">
+                        <button class="prev-btn" onclick="changeSlide(-1)">&lt;</button>
+                        <!-- Thumbnails will be added here -->
+                        <button class="next-btn" onclick="changeSlide(1)">&gt;</button>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                let currentSlide = 0;
+                let totalSlides = 0;
+
+                function showSlide(index) {
+                    const slides = document.querySelectorAll('.carousel-slide3');
+                    const thumbnails = document.querySelectorAll('.thumbnail');
+
+                    if (index < 0) index = totalSlides - 1;
+                    if (index >= totalSlides) index = 0;
+                    currentSlide = index;
+
+                    slides.forEach((slide, i) => {
+                        slide.classList.toggle('active', i === index);
+                    });
+
+                    thumbnails.forEach((thumb, i) => {
+                        thumb.classList.toggle('active', i === index);
+                    });
+                }
+
+                function changeSlide(step) {
+                    showSlide(currentSlide + step);
+                }
+
+                fetch("/HOMESPECTOR/backend/panel/fetch_content_carousel.php")
+                    .then(res => res.json())
+                    .then(data => {
+                        const slidesContainer = document.getElementById("carousel-slides");
+                        const thumbnailsContainer = document.getElementById("carousel-thumbnails");
+
+                        data.forEach((item, index) => {
+                            // Slide
+                            const slide = document.createElement("div");
+                            slide.className = "carousel-slide3" + (index === 0 ? " active" : "");
+                            slide.innerHTML = `
+                            <img src="${item.image_url}" alt="Feature ${index + 1}">
+                            <div class="slide-content3">
+                                <h3>${item.title}</h3>
+                                <p>${item.episodes}</p>
+                                <p>${item.description}</p>
+                                <a href="${item.link_url}" class="btn">ดูทั้งหมด</a>
+                            </div>
+                            `;
+                            slidesContainer.appendChild(slide);
+
+                            // Thumbnail
+                            const thumb = document.createElement("div");
+                            thumb.className = "thumbnail" + (index === 0 ? " active" : "");
+                            thumb.setAttribute("onclick", `showSlide(${index})`);
+                            thumb.innerHTML = `<img src="${item.thumbnail_url}" alt="Thumb ${index + 1}">`;
+                            thumbnailsContainer.insertBefore(thumb, thumbnailsContainer.querySelector(".next-btn"));
+                        });
+
+                        totalSlides = data.length;
+                    });
+            </script>
+
+
+
+
 
             <script>
                 document.addEventListener("DOMContentLoaded", () => {
@@ -462,29 +545,25 @@
                 });
             </script>
 
-<!--
-            <section class="container-newapp">
-                <div class="header-newapp" data-aos="fade-up" data-aos-duration="3000">
-                    <div class="content-newapp" id="newapp-content">
-                        <div class="app-preview">
-                            <p>กำลังโหลดข้อมูล...</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
+            <div id="newapp-container" class="container-newapp" data-aos="fade-up" data-aos-duration="3000">
+                <!-- Content will load here -->
+            </div>
             <script>
                 document.addEventListener("DOMContentLoaded", () => {
                     fetch("/HOMESPECTOR/backend/panel/get_newapp_content.php")
-                        .then(res => res.json())
-                        .then(data => {
-                            document.getElementById("newapp-content").innerHTML = data.content;
+                        .then(res => res.text())
+                        .then(html => {
+                            document.getElementById("newapp-container").innerHTML = html;
                         })
                         .catch(err => {
-                            console.error("ไม่สามารถโหลดเนื้อหา newapp ได้:", err);
+                            document.getElementById("newapp-container").innerHTML = "<p>ไม่สามารถโหลดข้อมูลได้</p>";
+                            console.error("Fetch error:", err);
                         });
                 });
-            </script> -->
+            </script>
+
+
 
 
             <section class="faq" id="faq">

@@ -1,10 +1,12 @@
 <?php
 include 'db.php';
 
-$result = $conn->query("SELECT content FROM newapp_content WHERE id = 1");
-$row = $result->fetch_assoc();
+$sql = "SELECT content FROM newapp_content WHERE id = 1";
+$result = $conn->query($sql);
 
-echo json_encode([
-    "content" => $row['content'] ?? ""
-]);
+if ($result && $row = $result->fetch_assoc()) {
+    echo $row['content'];
+} else {
+    echo "ยังไม่มีเนื้อหาใหม่";
+}
 ?>

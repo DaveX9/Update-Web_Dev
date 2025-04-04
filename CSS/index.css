@@ -1935,6 +1935,30 @@ button.next-btn:hover {
     margin-top: 20px;
 }
 
+.main-btn {
+    margin-top: 20px;
+}
+
+.main-btn button {
+    background-color: #ffffff;
+    color: rgb(1, 35, 107);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.main-btn button:hover {
+    background-color: #2a9881;
+}
+.main-btn button a{
+    text-decoration: none;
+}
+
 .cta button {
     background-color: #ffffff;
     color: rgb(1, 35, 107);
