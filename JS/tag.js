@@ -8,13 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         title: "ต.ตรวจบ้าน x การตลาดวันละตอน EP.2 ",
-        youtubeId: "oAPAWQvzN6Y",
+        youtubeId: "pmCYMxTst7I",
         tags: ["GrandBangkokBoulevardPinklaoBoroma", "รีวิวบ้าน"],
-      },
-      {
-        title: "ต.ตรวจบ้าน x การตลาดวันละตอน EP.3 ",
-        youtubeId: "DRHx_UoICvI",
-        tags: ["Investing", "ตตรวจบ้าน"],
       },
       {
         title: "ต.ตรวจบ้าน x การตลาดวันละตอน EP.4",

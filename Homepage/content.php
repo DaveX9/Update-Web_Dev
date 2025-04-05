@@ -249,43 +249,31 @@
 
       <!-- Review Cards -->
       <div class="content-cards">
-        <a href="/HOMESPECTOR/Homepage/after_content.html" class="card" data-category="Roof">
-          <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="content 1">
-          <p>ตกแต่งบ้านหรู สไตล์ Modern classic</p>
+        <a href="/HOMESPECTOR/Homepage/after_content.php" class="card" data-category="Roof">
+          <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="content 1">
+          <h5>รีวิวตรวจบ้านดารา เซเลบ อินฟลู</h5>
         </a>
-        <a href="/HOMESPECTOR/Homepage/after1_content.html" class="card" data-category=">Price">
-          <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="content 2">
-          <p>Review SEtthasiri</p>
+        <a href="/HOMESPECTOR/Homepage/after1_content.php" class="card" data-category=">Price">
+          <img src="/HOMESPECTOR/img/carousel_thumb1.jpg" alt="content 2">
+          <h5>ต.ตรวจบ้าน x การตลาดวันละตอน</h5>
 
         </a>
-        <a href="/HOMESPECTOR/Homepage/after_content.html" class="card" data-category="Price">
+        <a href="/HOMESPECTOR/Homepage/after_content.php" class="card" data-category="Price">
           <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Hcontent 3">
-          <p>Review Ladawan</p>
+          <h5>สุดพิเศษ! พาดูบ้านหรู</h5>
         </a>
-        <a href="/HOMESPECTOR/Homepage/after_content.html" class="card" data-category="Price">
-          <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Hcontent 3">
-          <p>Review Ladawan</p>
+        <a href="/HOMESPECTOR/Homepage/after_content.php" class="card" data-category="Price">
+          <img src="/HOMESPECTOR/img/carousel_thumb2.jpg" alt="Hcontent 4">
+          <h5>ตรวจบ้านก่อนโอน by ต.ตรวจบ้าน</h5>
 
         </a>
-        <a href="/HOMESPECTOR/Homepage/after_content.html" class="card" data-category="Process">
-          <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="House Review 3">
-          <p>Review SC Asset</p>
+        <a href="/HOMESPECTOR/Homepage/after_content.php" class="card" data-category="Process">
+          <img src="/HOMESPECTOR/img/warentty.jpg" alt="House Review 5">
+          <h5>ประกันภัยบ้าน แฮปปี้โฮม ธนชาต</h5>
         </a>
-        <a href="/HOMESPECTOR/Homepage/after_content.html" class="card" data-category="Interior">
-          <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="House Review 5">
-          <p>Review Ap Thai</p>
-        </a>
-        <a href="/HOMESPECTOR/Homepage/after_content.html" class="card" data-category="Interior">
-          <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="House Review 5">
-          <p>Review Ap Thai</p>
-        </a>
-        <a href="/HOMESPECTOR/Homepage/after_content.html" class="card" data-category="Interior">
-          <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="House Review 5">
-          <p>Review Ap Thai</p>
-        </a>
-        <a href="/HOMESPECTOR/Homepage/after_content.html" class="card" data-category="Interior">
-          <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="House Review 5">
-          <p>Review Ap Thai</p>
+        <a href="/HOMESPECTOR/Homepage/after_content.php" class="card" data-category="Interior">
+          <img src="/HOMESPECTOR/img/team_thumb.jpg" alt="House Review 6">
+          <h5>สนุก มันส์ ฮา กับช่างตรวจ</h5>
         </a>
       </div>
     </div>
