@@ -1,6 +1,5 @@
 <?php
 session_start();
-include '../header.php';
 // Database Connection
 $pdo = new PDO('mysql:host=localhost;dbname=homespector', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -355,7 +355,6 @@
                         </div>
                     </div>
                 </div>
-
             </section>
 
             <script>
@@ -551,7 +550,7 @@
             </div>
             <script>
                 document.addEventListener("DOMContentLoaded", () => {
-                    fetch("/HOMESPECTOR/backend/panel/get_newapp_content.html")
+                    fetch("/HOMESPECTOR/backend/panel/get_newapp_content.php")
                         .then(res => res.text())
                         .then(html => {
                             document.getElementById("newapp-container").innerHTML = html;

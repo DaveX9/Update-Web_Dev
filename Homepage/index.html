@@ -242,58 +242,53 @@
 
             <!-- Hero Section -->
             <section class="hero">
-                <div class="hero-bg" id="hero-bg"></div> <!-- Background will change dynamically -->
+                <div class="hero-bg" id="hero-bg"></div>
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
-                    <h1 id="hero-title">Thailand’s No.1 <br><span></span></h1>
-                    <p id="hero-subtitle">Home Inspection Company.</p>
+                    <h1 id="hero-title">Loading...</h1>
+                    <p id="hero-subtitle"></p>
                 </div>
             </section>
 
             <script>
-                // Text rotation
-                const texts = [
-                    {
-                        title: "Thailand’s No.1 <br><span></span>",
-                        subtitle: "Home Inspection Company."
-                    },
-                    {
-                        title: "บริษัทตรวจบ้านอันดับ 1<br><span></span>",
-                        subtitle: "ที่ลูกค้าบอกต่อมากที่สุดในประเทศ"
-                    },
-                    {
-                        title: "Thailand’s No.1<br><span></span>",
-                        subtitle: "Home Inspection Company"
-                    },
-                    {
-                        title: "บริษัทตรวจบ้านอันดับ 1 <br><span></span>",
-                        subtitle: "ที่ลูกค้าบอกต่อมากที่สุดในประเทศ"
-                    }
-                ];
-
-                // Background images array
-                const bgImages = [
-                    "/HOMESPECTOR/img/hero-bg1.jpg",
-                    "/HOMESPECTOR/img/hero-bg2.jpg",
-                    "/HOMESPECTOR/img/hero-bg3.jpg"
-                ];
-
+                let texts = [];
+                let bgImages = [];
                 let textIndex = 0;
                 let bgIndex = 0;
 
-                setInterval(() => {
-                    // Update text content
+                // โหลดข้อมูลจาก backend
+                fetch('/HOMESPECTOR/backend/panel/get_hero_data.php')
+                    .then(res => res.json())
+                    .then(data => {
+                        texts = data.texts;
+                        bgImages = data.backgrounds;
+
+                        if (texts.length > 0 && bgImages.length > 0) {
+                            startHeroRotation();
+                        } else {
+                            console.warn("ไม่พบข้อมูล Hero หรือ Background");
+                        }
+                    })
+                    .catch(err => console.error("โหลดข้อมูลผิดพลาด", err));
+
+                // เริ่มเปลี่ยนข้อความ + รูป
+                function startHeroRotation() {
+                    updateHeroContent();
+
+                    setInterval(() => {
+                        textIndex = (textIndex + 1) % texts.length;
+                        bgIndex = (bgIndex + 1) % bgImages.length;
+                        updateHeroContent();
+                    }, 8000); // เปลี่ยนทุก 8 วินาที
+                }
+
+                // อัปเดตเนื้อหา Hero
+                function updateHeroContent() {
                     document.getElementById('hero-title').innerHTML = texts[textIndex].title;
                     document.getElementById('hero-subtitle').innerText = texts[textIndex].subtitle;
-                    textIndex = (textIndex + 1) % texts.length;
-
-                    // Update background image
                     document.getElementById('hero-bg').style.backgroundImage = `url('${bgImages[bgIndex]}')`;
-                    bgIndex = (bgIndex + 1) % bgImages.length;
-                }, 8000); // Change every 10 seconds
+                }
             </script>
-
-
 
             <!-- Services Section -->
             <section class="services">
@@ -360,30 +355,29 @@
                         </div>
                     </div>
                 </div>
-
             </section>
+
             <script>
                 document.addEventListener("DOMContentLoaded", function () {
                     const servicesSection = document.querySelector(".services");
 
-                    const bgImages = [
-                        "/HOMESPECTOR/img/hero-bg3.jpg",
-                        "/HOMESPECTOR/img/inspector-bg.jpg",
-                        "/HOMESPECTOR/img/interior-bg.jpg",
-                        "/HOMESPECTOR/img/construction-bg.jpg",
-                    ];
-
-                    let index = 0;
-
-                    function changeBackground() {
-                        servicesSection.style.backgroundImage = `url(${bgImages[index]})`;
-                        index = (index + 1) % bgImages.length;
-                    }
-                    setInterval(changeBackground, 5000);
-                    changeBackground();
+                    fetch("/HOMESPECTOR/backend/panel/get_index_service.php")
+                        .then(res => res.json())
+                        .then(images => {
+                            let index = 0;
+                            function changeBackground() {
+                                servicesSection.style.backgroundImage = `url('${images[index]}')`;
+                                index = (index + 1) % images.length;
+                            }
+                            if (images.length > 0) {
+                                changeBackground();
+                                setInterval(changeBackground, 5000);
+                            }
+                        })
+                        .catch(err => console.error("โหลดภาพพื้นหลังผิดพลาด:", err));
                 });
             </script>
-
+    
 
             <!-- line -->
             <div class="contact-container">
@@ -401,71 +395,20 @@
                 </a>
             </div>
 
+            <!-- why choose us -->
             <section class="why-choose-us">
-                <h2 class="section-title" data-translate="why-choose-us-title" data-aos="fade-down">ทำไมต้องเลือก
-                    ต.ตรวจบ้าน</h2>
-                <div class="content-container">
-                    <!-- Left Text Section -->
-                    <div class="text-section">
-                        <div class="text-item">
-                            <div class="icon-box">
-                                <img src="/HOMESPECTOR/icon/ICON/trusted.png" alt="Trust Icon" data-aos="fade-right">
-                            </div>
-                            <div class="text-content" data-aos="fade-right">
-                                <h3 data-translate="trust-title">TRUST</h3>
-                                <p data-translate="trust-details">
-                                    บริษัทตรวจบ้านอันดับ 1 ที่ลูกค้าบอกต่อมากที่สุดในประเทศไทย
-                                    เราเป็นผู้นำด้านการตรวจบ้านอันดับต้นๆของประเทศ
-                                    <br> ที่ลูกค้าไว้วางใจให้ตรวจบ้าน โครงการแบรนด์ชั้นนำต่างๆ ในประเทศ
-                                </p>
-                            </div>
-                        </div>
-                        <div class="text-item">
-                            <div class="icon-box">
-                                <img src="/HOMESPECTOR/icon/ICON/future.png" alt="Tech Icon" data-aos="fade-right">
-                            </div>
-                            <div class="text-content" data-aos="fade-right">
-                                <h3 data-translate="tech-title">TECH</h3>
-                                <p data-translate="tech-details">
-                                    บริษัทตรวจบ้านเจ้าแรกและเจ้าเดียวที่ออกแบบและพัฒนาระบบ Web-Application
-                                    ในการตรวจบ้านเป็นของตัวเอง <br>
-                                    เป็นผู้นำการใช้อุปกรณ์การตรวจที่ทันสมัย เช่น กล้องอินฟาเรด และโดรนตรวจหลังคา
-                                </p>
-                            </div>
-                        </div>
-                        <div class="text-item">
-                            <div class="icon-box">
-                                <img src="/HOMESPECTOR/icon/ICON/group.png" alt="Team Icon" data-aos="fade-right">
-                            </div>
-                            <div class="text-content" data-aos="fade-right">
-                                <h3 data-translate="team-title">TEAM</h3>
-                                <p data-translate="team-details">
-                                    เราทำงานเป็นระบบแบบมืออาชีพ มีประสบการณ์และเชี่ยวชาญ ทีมของเราไม่ใช่พนักงานของ
-                                    บริษัทอสังหาริมทรัพย์ที่ออกมาตรวจรับงานตัวเอง และไม่มีการส่งต่องานให้ซับ
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Image Section -->
-                    <div class="image-section" data-aos="fade-up-left">
-                        <img src=" /HOMESPECTOR/img/carousel2.1.jpg" alt="Example Image">
-                    </div>
-                </div>
-                <div class="certifications" data-aos="fade-up-right">
-                    <div class=" certification">
-                        <img src="/HOMESPECTOR/img/certified1.png" alt="T. Home Inspector">
-                        <p data-translate="certification1">ต.ตรวจบ้าน ได้รับการรับรองมาตรฐาน ISO/IEC 29110-4-3: 2018</p>
-                    </div>
-                    <div class="certification" data-aos="fade-up-right">
-                        <img src="/HOMESPECTOR/img/certified2.png" alt="Certified Professional Inspector">
-                        <p data-translate="certification2">ได้รับ Certified จาก Inter NACHI</p>
-                    </div>
-                    <div class="certification" data-aos="fade-up-right">
-                        <img src="/HOMESPECTOR/img/certified3.png" alt="Certified Professional Inspector">
-                        <p data-translate="certification3">ได้รับ Certified จาก Inter NACHI</p>
-                    </div>
+                <div id="why-choose-us-container"></div>
             </section>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    fetch('/HOMESPECTOR/backend/panel/get_why_choose_us.php')
+                        .then(res => res.json())
+                        .then(data => {
+                            document.getElementById("why-choose-us-container").innerHTML = data.content;
+                        })
+                        .catch(err => console.error("โหลดเนื้อหาผิดพลาด:", err));
+                });
+            </script>
 
             <div class="cal-container" data-aos="zoom-in-down">
                 <div class="cal">
@@ -508,97 +451,142 @@
                 </div>
             </section>
 
-
+            <!-- content -->
             <div class="carousel-container3" data-aos="fade-up" data-aos-anchor-placement="top-center">
-                <div class=" carousel-header3">
+                <div class="carousel-header3">
                     <h2 class="carousel-title3">Content</h2>
                     <a href="/HOMESPECTOR/Homepage/content.html" class="btn btn-all">ดูทั้งหมด</a>
                 </div>
-                <div class="carousel3">
-                    <!-- Main Slide Section -->
-                    <div class="carousel-slides3">
-                        <div class="carousel-slide3 active">
-                            <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="Feature 1">
-                            <div class="slide-content3">
-                                <h3>รีวิวตรวจบ้านดารา เซเลบ อินฟลู</h3>
-                                <p>6 EPISODES</p>
-                                <p>รีวิวการตรวจบ้านเดี่ยว พระเอกดัง!! " ตงตง เดอะสตาร์</p>
-                                <a href="/HOMESPECTOR/Homepage/carousel_content.html" class="btn">ดูทั้งหมด</a>
-                            </div>
-                        </div>
-                        <div class="carousel-slide3">
-                            <img src="/HOMESPECTOR/img/carousel_thumb3.webp" alt="Feature 2">
-                            <div class="slide-content3">
-                                <h3>ต.ตรวจบ้าน x การตลาดวันละตอน</h3>
-                                <p>5 EPISODES</p>
-                                <p>พาดูบ้านหรู 89 ล้าน! แกรนด์ บางกอก บูเลอวาร์ด ยาร์ด บางนา</p>
-                                <a href="/HOMESPECTOR/Homepage/carousel_content1.html" class="btn">ดูทั้งหมด</a>
-                            </div>
-                        </div>
-                        <div class="carousel-slide3">
-                            <img src="/HOMESPECTOR/img/carousel_thumb1.jpg" alt="Feature 3">
-                            <div class="slide-content3">
-                                <h3>สุดพิเศษ! พาดูบ้านหรู</h3>
-                                <p>3 EPISODES</p>
-                                <p>รีวิวตรวจบ้านหรู 40ล้าน! CEO #บุญนําพา</p>
-                                <a href="/HOMESPECTOR/Homepage/carousel_content2.html" class="btn">ดูทั้งหมด</a>
-                            </div>
-                        </div>
-                        <div class="carousel-slide3">
-                            <img src="/HOMESPECTOR/img/carousel_thumb2.jpg" alt="Feature 4">
-                            <div class="slide-content3">
-                                <h3>ตรวจบ้านก่อนโอน by ต.ตรวจบ้าน</h3>
-                                <p>6 EPISODES</p>
-                                <p>ตรวจบ้านก่อนโอน by ต.ตรวจบ้าน...🏡⛈️</p>
-                                <a href="/HOMESPECTOR/Homepage/carousel_content3.html" class="btn">ดูทั้งหมด</a>
-                            </div>
-                        </div>
-                        <div class="carousel-slide3">
-                            <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Feature 5">
-                            <div class="slide-content3">
-                                <h3>ประกันภัยบ้าน แฮปปี้โฮม ธนชาต</h3>
-                                <p>8 EPISODES</p>
-                                <p>ช่วงนี้หน้าฝน อย่ามองข้ามสิ่งนี้🏡⛈️</p>
-                                <a href="/HOMESPECTOR/Homepage/carousel_content4.html" class="btn">ดูทั้งหมด</a>
-                            </div>
-                        </div>
-                        <div class="carousel-slide3">
-                            <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Feature 6">
-                            <div class="slide-content3">
-                                <h3>สนุก มันส์ ฮา กับช่างตรวจ</h3>
-                                <p>10 EPISODES</p>
-                                <p>สนุก มันส์ ฮา กับช่างตรวจ</p>
-                                <a href="/HOMESPECTOR/Homepage/carousel_content5.html" class="btn">ดูทั้งหมด</a>
-                            </div>
-                        </div>
-                        <!-- Add more slides if needed -->
-                    </div>
 
-                    <!-- Thumbnail Navigation -->
-                    <div class="carousel-thumbnails">
-                        <button class="prev-btn">&lt;</button> <!-- Left icon -->
-                        <div class="thumbnail active" onclick="showSlide(0)"> <!-- Index 0 -->
-                            <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="Thumb 1">
-                        </div>
-                        <div class="thumbnail" onclick="showSlide(1)"> <!-- Index 1 -->
-                            <img src="/HOMESPECTOR/img/carousel_thumb3.webp" alt="Thumb 2">
-                        </div>
-                        <div class="thumbnail" onclick="showSlide(2)"> <!-- Index 2 -->
-                            <img src="/HOMESPECTOR/img/carousel_thumb1.jpg" alt="Thumb 3">
-                        </div>
-                        <div class="thumbnail" onclick="showSlide(3)"> <!-- Index 3 -->
-                            <img src="/HOMESPECTOR/img/carousel_thumb2.jpg" alt="Thumb 4">
-                        </div>
-                        <div class="thumbnail" onclick="showSlide(4)"> <!-- Index 4 -->
-                            <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Thumb 5">
-                        </div>
-                        <div class="thumbnail" onclick="showSlide(5)"> <!-- Index 4 -->
-                            <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Thumb 5">
-                        </div>
-                        <button class="next-btn">&gt;</button> <!-- Right icon -->
+                <div class="carousel3">
+                    <div class="carousel-slides3" id="carousel-slides"></div>
+
+                    <div class="carousel-thumbnails" id="carousel-thumbnails">
+                        <button class="prev-btn" onclick="changeSlide(-1)">&lt;</button>
+                        <!-- Thumbnails will be added here -->
+                        <button class="next-btn" onclick="changeSlide(1)">&gt;</button>
                     </div>
                 </div>
             </div>
+
+            <script>
+                let currentSlide = 0;
+                let totalSlides = 0;
+
+                function showSlide(index) {
+                    const slides = document.querySelectorAll('.carousel-slide3');
+                    const thumbnails = document.querySelectorAll('.thumbnail');
+
+                    if (index < 0) index = totalSlides - 1;
+                    if (index >= totalSlides) index = 0;
+                    currentSlide = index;
+
+                    slides.forEach((slide, i) => {
+                        slide.classList.toggle('active', i === index);
+                    });
+
+                    thumbnails.forEach((thumb, i) => {
+                        thumb.classList.toggle('active', i === index);
+                    });
+                }
+
+                function changeSlide(step) {
+                    showSlide(currentSlide + step);
+                }
+
+                fetch("/HOMESPECTOR/backend/panel/fetch_content_carousel.php")
+                    .then(res => res.json())
+                    .then(data => {
+                        const slidesContainer = document.getElementById("carousel-slides");
+                        const thumbnailsContainer = document.getElementById("carousel-thumbnails");
+
+                        data.forEach((item, index) => {
+                            // Slide
+                            const slide = document.createElement("div");
+                            slide.className = "carousel-slide3" + (index === 0 ? " active" : "");
+                            slide.innerHTML = `
+                            <img src="${item.image_url}" alt="Feature ${index + 1}">
+                            <div class="slide-content3">
+                                <h3>${item.title}</h3>
+                                <p>${item.episodes}</p>
+                                <p>${item.description}</p>
+                                <a href="${item.link_url}" class="btn">ดูทั้งหมด</a>
+                            </div>
+                            `;
+                            slidesContainer.appendChild(slide);
+
+                            // Thumbnail
+                            const thumb = document.createElement("div");
+                            thumb.className = "thumbnail" + (index === 0 ? " active" : "");
+                            thumb.setAttribute("onclick", `showSlide(${index})`);
+                            thumb.innerHTML = `<img src="${item.thumbnail_url}" alt="Thumb ${index + 1}">`;
+                            thumbnailsContainer.insertBefore(thumb, thumbnailsContainer.querySelector(".next-btn"));
+                        });
+
+                        totalSlides = data.length;
+                    });
+            </script>
+
+
+
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    fetch("/HOMESPECTOR/backend/panel/get_index_reviews.php")
+                        .then(res => res.json())
+                        .then(data => {
+                            // Set review title and subtitle (allow HTML from Froala)
+                            // document.getElementById('review-title').innerText = data.text.title;
+                            document.getElementById('review-subtitle').innerHTML = data.text.subtitle;
+
+                            // Generate stat boxes
+                            const statsContainer = document.getElementById('stats-container');
+                            data.stats.forEach(stat => {
+                                const box = document.createElement("div");
+                                box.className = "stat-box";
+                                box.innerHTML = `
+                            <img src="${stat.icon_url}" alt="${stat.label}">
+                            <h2 id="stat-${stat.id}">0</h2>
+                            <p>${stat.label}</p>
+                        `;
+                                statsContainer.appendChild(box);
+                            });
+
+                            // Animate numbers only when in view
+                            let animated = false;
+                            const animateValue = (id, end, duration) => {
+                                let start = 0;
+                                let increment = Math.ceil(end / (duration / 50));
+                                const element = document.getElementById(id);
+                                const interval = setInterval(() => {
+                                    start += increment;
+                                    if (start >= end) {
+                                        start = end;
+                                        clearInterval(interval);
+                                    }
+                                    element.textContent = start.toLocaleString();
+                                }, 50);
+                            };
+
+                            window.addEventListener("scroll", () => {
+                                const section = document.getElementById("stats-section");
+                                const offset = section.offsetTop;
+
+                                if (!animated && window.scrollY + window.innerHeight > offset) {
+                                    data.stats.forEach(stat => {
+                                        animateValue(`stat-${stat.id}`, stat.final_value, stat.animation_duration);
+                                    });
+                                    animated = true;
+                                }
+                            });
+                        })
+                        .catch(err => {
+                            console.error("โหลดข้อมูลรีวิวผิดพลาด:", err);
+                        });
+                });
+            </script>
+
 
             <section class="articles" data-aos="fade-up" data-aos-delay="100">
                 <h2 class="articles-title">Latest Articles</h2>
@@ -608,235 +596,132 @@
                 </div>
             </section>
 
-            <div class="container-newapp" data-aos="fade-up" data-aos-duration="3000">
-                <div class="header-newapp">
-                    <h1>New</h1>
-                    <h2>Application ตรวจบ้านด้วยตัวเอง</h2>
-                    <p>ตรวจบ้านด้วยตัวเอง พร้อมออกรายงานในตัว ตรวจไม่เป็นก็มีคลิปสอนให้ภายในแอป</p>
-                </div>
-                <div class="content-newapp">
-                    <div class="app-preview">
-                        <img src="/HOMESPECTOR/img/app1.png" alt="App Preview 1">
-                        <img src="/HOMESPECTOR/img/app2.png" alt="App Preview 2">
-                    </div>
-                    <div class="cta">
-                        <button>
-                            <a href="https://liff.line.me/2005695449-36Xrdj94">ใช้งานฟรี!</a>
-                        </button>
-                    </div>
-                </div>
+            <!-- newapp -->
+            <div id="newapp-container" class="container-newapp" data-aos="fade-up" data-aos-duration="3000">
+                <!-- Content will load here -->
             </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    fetch("/HOMESPECTOR/backend/panel/get_newapp_content.php")
+                        .then(res => res.text())
+                        .then(html => {
+                            document.getElementById("newapp-container").innerHTML = html;
+                        })
+                        .catch(err => {
+                            document.getElementById("newapp-container").innerHTML = "<p>ไม่สามารถโหลดข้อมูลได้</p>";
+                            console.error("Fetch error:", err);
+                        });
+                });
+            </script>
+
             <!-- Reviews Section -->
-            <div class="stats-section" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+            <section class="stats-section" id="stats-section">
                 <div class="content-wrapper">
-                    <!-- Left Content: Title and Subtitle -->
                     <div class="text-content">
-                        <h2 class="section-title">Read What Others Have To Say.</h2>
-                        <p class="section-subtitle">
-                            In the 7+ years we have been doing business, our customers have left us lots of great
-                            feedback. <br>
-                            In the 7+ years we have been doing business, our customers have left us lots of great
-                            feedback. <br>
-                            In the 7+ years we have been doing business, our customers have left us lots of great
-                            feedback. <br>
-                        </p>
+                        <!-- <h2 class="section-title" id="review-title">Loading...</h2> -->
+                        <p class="section-subtitle" id="review-subtitle">Please wait...</p>
                     </div>
+
                     <div class="elfsight-app-c9e9af2e-5acf-4478-8bc7-62f17e30af1c" data-elfsight-app-lazy></div>
-                    <!-- Stats Boxes -->
-                    <div class="stats-container">
-                        <div class="stat-box">
-                            <img src="/HOMESPECTOR/icon/ICON/capacity.png" alt="Developer Count">
-                            <h2 id="developer-count">0</h2>
-                            <p>Developer Count</p>
-                        </div>
-                        <div class="stat-box">
-                            <img src="/HOMESPECTOR/icon/ICON/blueprint.png" alt="Projects">
-                            <h2 id="project-count">0</h2>
-                            <p>Projects</p>
-                        </div>
-                        <div class="stat-box">
-                            <img src="/HOMESPECTOR/icon/ICON/house.png" alt="Houses">
-                            <h2 id="house-count">0</h2>
-                            <p>Houses</p>
-                        </div>
-                    </div>
+
+                    <div class="stats-container" id="stats-container"></div>
                 </div>
-            </div>
+            </section>
 
-
-            <section class="faq" id="faq" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+            <!-- faq Section -->
+            <section class="faq" id="faq">
                 <div class="faq-container">
                     <h1 class="faq-title">คำถามที่พบบ่อย</h1>
-
-
                     <div class="faq-content">
                         <aside class="faq-menu">
-                            <ul>
-                                <li class="active" onclick="filterFAQ('all')">ทั้งหมด</li>
-                                <li onclick="filterFAQ('plumbing')">ระบบประปา</li>
-                                <li onclick="filterFAQ('roof')">หลังคา</li>
-                                <li onclick="filterFAQ('pricing')">ราคา</li>
-                                <li onclick="filterFAQ('process')">กระบวนการ</li>
+                            <ul id="faq-category-list">
+                                <li class="active" data-category="all" onclick="filterFAQ('all')">ทั้งหมด</li>
                             </ul>
                         </aside>
 
-                        <div class="faq-questions">
-                            <!-- plumbing Questions -->
-                            <div class="faq-section plumbing" id="plumbing">
-                                <div class="faq-item">
-                                    <button class="faq-question" onclick="toggleAnswer(this)">
-                                        เราแตกต่างจากที่อื่นอย่างไร? <span class="icon">+</span>
-                                    </button>
-                                    <div class="faq-answer">
-                                        <p>เราเป็นผู้นำด้านการตรวจบ้านอันดับต้นๆ ของประเทศ
-                                            และเป็นบริษัทตรวจบ้านเจ้าแรกและเจ้าเดียวที่ออกแบบและพัฒนาระบบ
-                                            Web-Application
-                                            ในการตรวจบ้านเป็นของตัวเอง
-                                            จดทะเบียนเป็นบริษัทและได้รับอนุญาตประกอบวิชาชีพวิศวกรรมควบคุมในรูปแบบนิติบุคคล
-                                            มีมาตรฐานสากล
-                                            ISO29110-4-3 Service Delivery รองรับ</p>
-                                    </div>
-                                </div>
-                                <div class="faq-item">
-                                    <button class="faq-question" onclick="toggleAnswer(this)">
-                                        มีรับประกันตรวจสอบไหม ? <span class="icon">+</span>
-                                    </button>
-                                    <div class="faq-answer">
-                                        <p>การตรวจบ้านไม่สามารถรับประกันการตรวจสอบ การันตี หรือการประกันภัยใดๆ
-                                            ที่เกี่ยวกับงานโครงสร้างและระบบของตัวบ้านได้
-                                            การตรวจสอบนี้ไม่ใช่การประกอบวิชาชีพทางวิศวกรรมหรือสถาปัตยกรรม
-                                            ไม่สามารถพยากรณ์หรือคาดคะเนได้ถึงสภาพของบ้านในอนาคตภายหน้าในทุกสภาวะ
-                                            เนื่องด้วยอาจมีปัจจัยแวดล้อมอื่นๆ ที่ไม่สามารถควบคุมได้</p>
-                                    </div>
-                                </div>
-                                <div class="faq-item">
-                                    <button class="faq-question" onclick="toggleAnswer(this)">
-                                        บริษัทตรวจในเรื่องความสวยงามละเอียดไหม ? <span class="icon">+</span>
-                                    </button>
-                                    <div class="faq-answer">
-                                        <p>ความสวยงามเป็นเรื่องปัจเจคบุคคล ที่แต่ละคนก็มีมุมมอง ความต้องการ
-                                            ความรู้สึกและความพึงพอใจในเรื่องความสวยงามที่ไม่เท่ากัน
-                                            ทางบริษัททำการตรวจสอบให้ในภาพรวมโดยใช้สายตา
-                                            (Visual Inspection)
-                                            ทั้งนี้การตรวจสอบจะเน้นตรวจงานระบบและฟังก์ชันการใช้งานในบ้านเป็นหลัก</p>
-                                    </div>
-                                </div>
-                                <div class="faq-item">
-                                    <button class="faq-question" onclick="toggleAnswer(this)">
-                                        ตรวจสอบความแข็งแรงโครงสร้างบ้านด้วยไหม ? <span class="icon">+</span>
-                                    </button>
-                                    <div class="faq-answer">
-                                        <p>การตรวจสอบงานโครงสร้างบ้านนั้นสามารถดูที่ปลายเหตุเท่านั้น
-                                            เนื่องจากบ้านที่สร้างเสร็จแล้วนั้นส่วนของโครงสร้างทั้งหมดจะถูกปิดบังเอาไว้ด้วยส่วนตกแต่งต่างๆ
-                                            ไปทั้งหมด ทั้งเสาเข็ม ฐานราก การผูกเหล็กฯ
-                                            อย่างเช่นเสาและคานจะถูกทับด้วยปูนฉาบ
-                                            ดังนั้นปัญหาโครงสร้างที่ตรวจพบจึงเป็นแค่ปลายเหตุ
-                                            กล่าวคือทีมงานตรวจสอบงานโครงสร้างที่สามารถมองเห็นได้ด้วยตาเปล่า เช่น
-                                            ตรวจสอบรอยร้าว
-                                            วิศวกรที่เชี่ยวชาญจะสามารถประเมินได้ว่าลักษณะรอยแตกร้าวที่พบเป็นรอยแตกร้าวที่บ่งชี้ถึงปัญหาโครงสร้างหรือรอยแตกร้าวผิวทั่วไป
-                                            หรือตรวจสอบรูปร่างลักษณะของโครงสร้างต่างๆ
-                                            เช่น เสา คานต้องไม่รูปร่างผิดปกติ เช่น คานไม่งอ ไม่โค้ง ไม่แอ่น</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Roof Questions -->
-                            <!-- <div class="faq-section roof" id="roof" style="display: none;">
-                            <div class="faq-item">
-                                <button class="faq-question" onclick="toggleAnswer(this)">
-                                    What types of roofs do you inspect? <span class="icon">+</span>
-                                </button>
-                                <div class="faq-answer">
-                                    <p>We inspect all types of roofs, including shingles, metal, tile, flat, and
-                                        slate roofs, to
-                                        ensure their integrity and condition.</p>
-                                </div>
-                            </div>
-                            <div class="faq-item">
-                                <button class="faq-question" onclick="toggleAnswer(this)">
-                                    How do you check for roof damage? <span class="icon">+</span>
-                                </button>
-                                <div class="faq-answer">
-                                    <p>We look for signs of wear, leaks, cracks, missing shingles, or structural
-                                        damage using a
-                                        combination of visual inspection and specialized tools.</p>
-                                </div>
-                            </div>
-                            <div class="faq-item">
-                                <button class="faq-question" onclick="toggleAnswer(this)">
-                                    Can you inspect roofs during bad weather? <span class="icon">+</span>
-                                </button>
-                                <div class="faq-answer">
-                                    <p>While we can perform limited inspections in light weather, we recommend
-                                        rescheduling for a
-                                        thorough assessment in optimal conditions.</p>
-                                </div>
-                            </div>
-                        </div> -->
-
-
-
-                            <!-- Pricing Questions -->
-                            <!-- <div class="faq-section pricing" id="pricing" style="display: none;">
-                            <div class="faq-item">
-                                <button class="faq-question" onclick="toggleAnswer(this)">
-                                    How much does a home inspection cost? <span class="icon">+</span>
-                                </button>
-                                <div class="faq-answer">
-                                    <p>Our pricing varies based on the property size and location. Typically,
-                                        inspections start at
-                                        $300.</p>
-                                </div>
-                            </div>
-                            <div class="faq-item">
-                                <button class="faq-question" onclick="toggleAnswer(this)">
-                                    Are there any additional fees? <span class="icon">+</span>
-                                </button>
-                                <div class="faq-answer">
-                                    <p>Additional fees may apply for specialized inspections like radon testing,
-                                        mold inspection, or
-                                        sewer line evaluations.</p>
-                                </div>
-                            </div>
-                            <div class="faq-item">
-                                <button class="faq-question" onclick="toggleAnswer(this)">
-                                    Are there any additional fees? <span class="icon">+</span>
-                                </button>
-                                <div class="faq-answer">
-                                    <p>Additional fees may apply for specialized inspections like radon testing,
-                                        mold inspection, or
-                                        sewer line evaluations.</p>
-                                </div>
-                            </div>
-                        </div> -->
-
-                            <!-- Process Questions -->
-                            <!-- <div class="faq-section process" id="process" style="display: none;">
-                            <div class="faq-item">
-                                <button class="faq-question" onclick="toggleAnswer(this)">
-                                    How long does a home inspection take? <span class="icon">+</span>
-                                </button>
-                                <div class="faq-answer">
-                                    <p>On average, a home inspection takes 2-3 hours, depending on the property's
-                                        size and condition.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="faq-item">
-                                <button class="faq-question" onclick="toggleAnswer(this)">
-                                    Do I need to be present during the inspection? <span class="icon">+</span>
-                                </button>
-                                <div class="faq-answer">
-                                    <p>It's not required, but we recommend it. Being present allows you to ask
-                                        questions and get
-                                        firsthand insights from the inspector.</p>
-                                </div>
-                            </div>
-                        </div> -->
+                        <div class="faq-questions" id="faq-content">
+                            <!-- คำถามจะโหลดแบบ dynamic -->
                         </div>
                     </div>
+
+
                 </div>
             </section>
+
+
+            <script>
+                function slugify(str) {
+                    return str.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+                }
+
+                function toggleAnswer(btn) {
+                    const answer = btn.nextElementSibling;
+                    btn.classList.toggle("active");
+                    answer.style.display = answer.style.display === "block" ? "none" : "block";
+                }
+
+                function filterFAQ(category) {
+                    document.querySelectorAll("#faq-category-list li").forEach(li => li.classList.remove("active"));
+                    document.querySelector(`#faq-category-list li[data-category="${category}"]`)?.classList.add("active");
+
+                    document.querySelectorAll(".faq-section").forEach(section => {
+                        section.style.display = category === "all" || section.getAttribute("data-category") === category ? "block" : "none";
+                    });
+                }
+
+                // Fetch FAQs
+                window.addEventListener("DOMContentLoaded", () => {
+                    fetch("/HOMESPECTOR/backend/panel/get_faqs.php")
+                        .then(res => res.json())
+                        .then(data => {
+                            const categories = new Set();
+                            const faqContent = document.getElementById("faq-content");
+                            const categoryList = document.getElementById("faq-category-list");
+                            faqContent.innerHTML = "";
+
+                            const grouped = {};
+                            data.forEach(faq => {
+                                const cat = faq.category;
+                                categories.add(cat);
+                                if (!grouped[cat]) grouped[cat] = [];
+                                grouped[cat].push(faq);
+                            });
+
+                            categories.forEach(cat => {
+                                const li = document.createElement("li");
+                                li.textContent = cat;
+                                li.setAttribute("data-category", cat);
+                                li.onclick = () => filterFAQ(cat);
+                                categoryList.appendChild(li);
+                            });
+
+                            for (const cat in grouped) {
+                                const section = document.createElement("div");
+                                section.className = `faq-section`;
+                                section.setAttribute("data-category", cat);
+
+                                grouped[cat].forEach(faq => {
+                                    const item = document.createElement("div");
+                                    item.className = "faq-item";
+                                    item.innerHTML = `
+                                    <button class="faq-question" onclick="toggleAnswer(this)">
+                                        ${faq.question} <span class="icon">+</span>
+                                    </button>
+                                    <div class="faq-answer" style="display:none"><p>${faq.answer}</p></div>
+                                    `;
+                                    section.appendChild(item);
+                                });
+
+                                faqContent.appendChild(section);
+                            }
+
+                            filterFAQ("all");
+                        })
+                        .catch(err => console.error("โหลด FAQ ไม่สำเร็จ:", err));
+                });
+            </script>
+
+            
             <section class="elfsight" data-aos="fade-up">
                 <h1>Facebook </h1>
                 <div class="elfsight-app-497acae0-7e96-4622-8948-67f19c0a831b" data-aos="fade-up"
@@ -922,12 +807,12 @@
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
     <script src="/HOMESPECTOR/JS/dropdown.js"></script>
     <script src="/HOMESPECTOR/JS/pull_articles.js"></script>
-    <script src="/HOMESPECTOR/JS/carousel.js"></script>
+    <!-- <script src="/HOMESPECTOR/JS/carousel.js"></script>
     <script src="/HOMESPECTOR/JS/carousel2.js"></script>
-    <script src="/HOMESPECTOR/JS/carousel4.js"></script>
-    <script src="/HOMESPECTOR/JS/stats-section.js"></script>
+    <script src="/HOMESPECTOR/JS/carousel4.js"></script> -->
+    <!-- <script src="/HOMESPECTOR/JS/stats-section.js"></script> -->
     <script src="/HOMESPECTOR/JS/pull_project.js"></script>
-    <script src="/HOMESPECTOR/JS/faq.js"></script>
+    <!-- <script src="/HOMESPECTOR/JS/faq.js"></script> -->
     <script src="/HOMESPECTOR/JS/search_ham.js"></script>
     <script src="/HOMESPECTOR/JS/footer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
