@@ -302,66 +302,89 @@
         <!-- Filtered videos will appear here -->
       </div>
     </section>
+
     <section class="carousel-content">
       <h2>Other Contents</h2>
       <div class="content-carousel-container">
-        <!-- Navigation Buttons -->
         <button class="carousel-btn prev-btn">❮</button>
-        <div class="content-carousel">
-          <!-- Item 1 -->
-          <a href="/HOMESPECTOR/Homepage/carousel_content.php" class="content-carousel-item">
-            <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="Content 1">
-            <div class="content-carousel-info">
-              <h3>รีวิวตรวจบ้านดารา เซเลบ อินฟลู</h3>
-              <p>รีวิวการตรวจบ้านเดี่ยว พระเอกดัง!! " ตงตง เดอะสตาร์</p>
-            </div>
-          </a>
-          <!-- Item 2 -->
-          <a href="/HOMESPECTOR/Homepage/carousel_content1.html" class="content-carousel-item">
-            <img src="/HOMESPECTOR/img/carousel_thumb1.jpg" alt="Content 1">
-            <div class="content-carousel-info">
-              <h3>ต.ตรวจบ้าน x การตลาดวันละตอน</h3>
-              <p>พาดูบ้านหรู 89 ล้าน! แกรนด์ บางกอก บูเลอวาร์ด ยาร์ด บางนา</p>
-            </div>
-          </a>
-          <!-- Item 3 -->
-          <a href="/HOMESPECTOR/Homepage/carousel_content2.html" class="content-carousel-item">
-            <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Content 2">
-            <div class="content-carousel-info">
-              <h3>สุดพิเศษ! พาดูบ้านหรู</h3>
-              <p>รีวิวตรวจบ้านหรู 40ล้าน! CEO #บุญนําพา</p>
-            </div>
-          </a>
-
-          <!-- Item 4 -->
-          <a href="/HOMESPECTOR/Homepage/carousel_content3.html" class="content-carousel-item">
-            <img src="/HOMESPECTOR/img/carousel_thumb2.jpg" alt="Content 3">
-            <div class="content-carousel-info">
-              <h3>ตรวจบ้านก่อนโอน by ต.ตรวจบ้าน</h3>
-              <p>ตรวจบ้านก่อนโอน by ต.ตรวจบ้าน...</p>
-            </div>
-          </a>
-          <!-- Item 5 -->
-          <!-- <a href="/HOMESPECTOR/Homepage/carousel_content4.html" class="content-carousel-item">
-                      <img src="/HOMESPECTOR/img/thumbnail1.jpg" alt="Content 4">
-                      <div class="content-carousel-info">
-                        <h3>ประกันภัยบ้าน แฮปปี้โฮม ธนชาต </h3>
-                        <p>ช่วงนี้หน้าฝน อย่ามองข้ามสิ่งนี้🏡⛈️</p>
-                      </div>
-                    </a> -->
-          <!-- Item 6 -->
-          <a href="/HOMESPECTOR/Homepage/carousel_content5.html" class="content-carousel-item">
-            <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Content 5">
-            <div class="content-carousel-info">
-              <h3>สนุก มันส์ ฮา กับช่างตรวจ</h3>
-              <p>สนุก มันส์ ฮา กับช่างตรวจ</p>
-            </div>
-          </a>
+        <div class="content-carousel" id="carousel-wrapper">
+          <!-- Cards will be injected here via JavaScript -->
         </div>
-        <!-- Navigation Buttons -->
         <button class="carousel-btn next-btn">❯</button>
       </div>
     </section>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const wrapper = document.getElementById("carousel-wrapper");
+
+        // Static content
+        const staticContents = [
+          {
+            title: "รีวิวตรวจบ้านดารา เซเลบ อินฟลู",
+            url: "/HOMESPECTOR/Homepage/carousel_content.html",
+            image: "/HOMESPECTOR/img/thumbnail4.jpg",
+            desc: "รีวิวการตรวจบ้านเดี่ยว พระเอกดัง!!"
+          },
+          {
+            title: "ต.ตรวจบ้าน x การตลาดวันละตอน",
+            url: "/HOMESPECTOR/Homepage/carousel_content1.html",
+            image: "/HOMESPECTOR/img/carousel_thumb1.jpg",
+            desc: "พาดูบ้านหรู 89 ล้าน!"
+          },
+          {
+            title: "สุดพิเศษ! พาดูบ้านหรู",
+            url: "/HOMESPECTOR/Homepage/carousel_content2.html",
+            image: "/HOMESPECTOR/img/thumbnail3.jpg",
+            desc: "รีวิวตรวจบ้านหรู 40ล้าน! CEO #บุญนำพา"
+          },
+          {
+            title: "ตรวจบ้านก่อนโอน by ต.ตรวจบ้าน",
+            url: "/HOMESPECTOR/Homepage/carousel_content3.html",
+            image: "/HOMESPECTOR/img/carousel_thumb2.jpg",
+            desc: "ตรวจบ้านก่อนโอน by ต.ตรวจบ้าน..."
+          },
+          {
+            title: "ประกันภัยบ้าน แฮปปี้โฮม ธนชาต",
+            url: "/HOMESPECTOR/Homepage/carousel_content4.html",
+            image: "/HOMESPECTOR/img/warentty.jpg",
+            desc: "ช่วงนี้หน้าฝน อย่ามองข้ามสิ่งนี้🏡⛈️"
+          }
+        ];
+
+        // Fetch from API and merge with static
+        fetch("/HOMESPECTOR/backend/panel/api_admin_content.php")
+          .then(res => res.json())
+          .then(({ contents }) => {
+            const combined = [...staticContents, ...contents];
+            const shuffled = combined.sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, Math.floor(Math.random() * 4) + 5); // 5–8
+
+            selected.forEach(item => {
+              const card = document.createElement("a");
+              card.className = "content-carousel-item";
+              card.href = item.link_url || item.url;
+              card.innerHTML = `
+                  <img src="${item.image_url || item.image}" alt="${item.title}">
+                  <div class="content-carousel-info">
+                  <h3>${item.title}</h3>
+                  <p>${item.desc || ""}</p>
+                  </div>
+              `;
+              wrapper.appendChild(card);
+            });
+          });
+
+        // Scroll controls
+        document.querySelector(".prev-btn").onclick = () => {
+          wrapper.scrollBy({ left: -300, behavior: 'smooth' });
+        };
+        document.querySelector(".next-btn").onclick = () => {
+          wrapper.scrollBy({ left: 300, behavior: 'smooth' });
+        };
+      });
+    </script>
 
 
 

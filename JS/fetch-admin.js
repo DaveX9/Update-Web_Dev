@@ -26,7 +26,7 @@ $.get('load-carousel.php', function (data) {
 });
 //why choose us
 // Fetch saved content and populate the section
-$.get('load-content.php', function (data) {
+$.get('load-content.html', function (data) {
     const content = JSON.parse(data);
 
     // Populate content dynamically
@@ -48,33 +48,33 @@ fetch('inspection-info.json')
     })
     .catch((error) => console.error('Error loading Inspection Info:', error));
 
-    //why choose us image and certifiaction
-    // Fetch and render updated certifications
-    fetch('certifications.json')
-        .then((response) => response.json())
-        .then((data) => {
-            document.getElementById('main-image').src = data.main_image;
-            document.getElementById('certification-1').src = data.certifications.certification_1;
-            document.getElementById('certification-2').src = data.certifications.certification_2;
-            document.getElementById('certification-3').src = data.certifications.certification_3;
-        })
-        .catch((error) => console.error('Error loading certifications:', error));
+//why choose us image and certifiaction
+// Fetch and render updated certifications
+fetch('certifications.json')
+    .then((response) => response.json())
+    .then((data) => {
+        document.getElementById('main-image').src = data.main_image;
+        document.getElementById('certification-1').src = data.certifications.certification_1;
+        document.getElementById('certification-2').src = data.certifications.certification_2;
+        document.getElementById('certification-3').src = data.certifications.certification_3;
+    })
+    .catch((error) => console.error('Error loading certifications:', error));
 
 
 //carousel3
 fetch('carousel-data.json')
-.then((response) => response.json())
-.then((data) => {
-    // Update carousel slides
-    data.carousel.forEach((slide, index) => {
-        document.getElementById(`carousel-preview-${index + 1}`).src = slide.image;
-        document.getElementById(`carousel-title-${index + 1}`).textContent = slide.title;
-        document.getElementById(`carousel-description-${index + 1}`).textContent = slide.description;
-    });
+    .then((response) => response.json())
+    .then((data) => {
+        // Update carousel slides
+        data.carousel.forEach((slide, index) => {
+            document.getElementById(`carousel-preview-${index + 1}`).src = slide.image;
+            document.getElementById(`carousel-title-${index + 1}`).textContent = slide.title;
+            document.getElementById(`carousel-description-${index + 1}`).textContent = slide.description;
+        });
 
-    // Update thumbnails
-    data.thumbnails.forEach((thumbnail, index) => {
-        document.getElementById(`thumbnail-preview-${index + 1}`).src = thumbnail;
-    });
-})
-.catch((error) => console.error('Error loading Carousel and Thumbnails:', error));
+        // Update thumbnails
+        data.thumbnails.forEach((thumbnail, index) => {
+            document.getElementById(`thumbnail-preview-${index + 1}`).src = thumbnail;
+        });
+    })
+    .catch((error) => console.error('Error loading Carousel and Thumbnails:', error));

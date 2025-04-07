@@ -286,92 +286,92 @@
                     <h2 class="section-title">All Episodes</h2>
                     <div class="episodes-list">
                         <div class="episode">
-                            <a href="/HOMESPECTOR/Homepage/after_content.php">
+                            <a href="/HOMESPECTOR/Homepage/after_content.html">
                                 <img src="/HOMESPECTOR/img/thumbnail5.jpg" alt="Episode 2">
                             </a>
                             <div class="episode-info">
                                 <h3>
-                                    <a href="/HOMESPECTOR/Homepage/after_content.php">รีวิวการตรวจบ้านเดี่ยว
+                                    <a href="/HOMESPECTOR/Homepage/after_content.html">รีวิวการตรวจบ้านเดี่ยว
                                         พระเอกดัง!! " ตงตง
                                         เดอะสตาร์</a>
                                 </h3>
                                 <p>
-                                    <a href="/HOMESPECTOR/Homepage/after_content.php">ต.ตรวจบ้าน</a>
+                                    <a href="/HOMESPECTOR/Homepage/after_content.html">ต.ตรวจบ้าน</a>
                                 </p>
                             </div>
                         </div>
                         <div class="episode">
-                            <a href="/HOMESPECTOR/Homepage/after_content.php">
+                            <a href="/HOMESPECTOR/Homepage/after_content.html">
                                 <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="Episode 2">
                             </a>
                             <div class="episode-info">
                                 <h3>
-                                    <a href="/HOMESPECTOR/Homepage/after_content.php">รีวิวการตรวจบ้านเดี่ยว
+                                    <a href="/HOMESPECTOR/Homepage/after_content.html">รีวิวการตรวจบ้านเดี่ยว
                                         พระเอกดัง!! " ตงตง
                                         เดอะสตาร์</a>
                                 </h3>
                                 <p>
-                                    <a href="/HOMESPECTOR/Homepage/after_content.php">ต.ตรวจบ้าน</a>
+                                    <a href="/HOMESPECTOR/Homepage/after_content.html">ต.ตรวจบ้าน</a>
                                 </p>
                             </div>
                         </div>
                         <div class="episode">
-                            <a href="/HOMESPECTOR/Homepage/after_content.php">
+                            <a href="/HOMESPECTOR/Homepage/after_content.html">
                                 <img src="/HOMESPECTOR/img/thumbnail5.jpg" alt="Episode 2">
                             </a>
                             <div class="episode-info">
                                 <h3>
-                                    <a href="/HOMESPECTOR/Homepage/after_content.php">รีวิวการตรวจบ้านเดี่ยว
+                                    <a href="/HOMESPECTOR/Homepage/after_content.html">รีวิวการตรวจบ้านเดี่ยว
                                         พระเอกดัง!! " ตงตง
                                         เดอะสตาร์</a>
                                 </h3>
                                 <p>
-                                    <a href="/HOMESPECTOR/Homepage/after_content.php">ต.ตรวจบ้าน</a>
+                                    <a href="/HOMESPECTOR/Homepage/after_content.html">ต.ตรวจบ้าน</a>
                                 </p>
                             </div>
                         </div>
                         <div class="episode">
-                            <a href="/HOMESPECTOR/Homepage/after_content.php">
+                            <a href="/HOMESPECTOR/Homepage/after_content.html">
                                 <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="Episode 2">
                             </a>
                             <div class="episode-info">
                                 <h3>
-                                    <a href="/HOMESPECTOR/Homepage/after_content.php">รีวิวการตรวจบ้านเดี่ยว
+                                    <a href="/HOMESPECTOR/Homepage/after_content.html">รีวิวการตรวจบ้านเดี่ยว
                                         พระเอกดัง!! " ตงตง
                                         เดอะสตาร์</a>
                                 </h3>
                                 <p>
-                                    <a href="/HOMESPECTOR/Homepage/after_content.php">ต.ตรวจบ้าน</a>
+                                    <a href="/HOMESPECTOR/Homepage/after_content.html">ต.ตรวจบ้าน</a>
                                 </p>
                             </div>
                         </div>
                         <div class="episode">
-                            <a href="/HOMESPECTOR/Homepage/after_content.php">
+                            <a href="/HOMESPECTOR/Homepage/after_content.html">
                                 <img src="/HOMESPECTOR/img/thumbnail5.jpg" alt="Episode 2">
                             </a>
                             <div class="episode-info">
                                 <h3>
-                                    <a href="/HOMESPECTOR/Homepage/after_content.php">รีวิวการตรวจบ้านเดี่ยว
+                                    <a href="/HOMESPECTOR/Homepage/after_content.html">รีวิวการตรวจบ้านเดี่ยว
                                         พระเอกดัง!! " ตงตง
                                         เดอะสตาร์</a>
                                 </h3>
                                 <p>
-                                    <a href="/HOMESPECTOR/Homepage/after_content.php">ต.ตรวจบ้าน</a>
+                                    <a href="/HOMESPECTOR/Homepage/after_content.html">ต.ตรวจบ้าน</a>
                                 </p>
                             </div>
                         </div>
                         <div class="episode">
-                            <a href="/HOMESPECTOR/Homepage/after_content.php">
+                            <a href="/HOMESPECTOR/Homepage/after_content.html">
                                 <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="Episode 2">
                             </a>
                             <div class="episode-info">
                                 <h3>
-                                    <a href="/HOMESPECTOR/Homepage/after_content.php">รีวิวการตรวจบ้านเดี่ยว
+                                    <a href="/HOMESPECTOR/Homepage/after_content.html">รีวิวการตรวจบ้านเดี่ยว
                                         พระเอกดัง!! " ตงตง
                                         เดอะสตาร์</a>
                                 </h3>
                                 <p>
-                                    <a href="/HOMESPECTOR/Homepage/after_content.php">ต.ตรวจบ้าน</a>
+                                    <a href="/HOMESPECTOR/Homepage/after_content.html">ต.ตรวจบ้าน</a>
                                 </p>
                             </div>
                         </div>
@@ -386,7 +386,7 @@
                 <button class="carousel-btn prev-btn">❮</button>
                 <div class="content-carousel">
                     <!-- Item 1 -->
-                    <!-- <a href="/HOMESPECTOR/Homepage/carousel_content.php" class="content-carousel-item">
+                    <!-- <a href="/HOMESPECTOR/Homepage/carousel_content.html" class="content-carousel-item">
                           <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="Content 1">
                           <div class="content-carousel-info">
                             <h3>รีวิวตรวจบ้านดารา เซเลบ อินฟลู</h3>

@@ -236,49 +236,102 @@
     </div>
 
     <div class="Content">
-      <h1>Content</h1>
+      <h2>Content</h2>
 
       <!-- Categories Section -->
-      <div class="categories">
+      <!-- <div class="categories">
         <button class="category-btn active" data-category="all">All</button>
         <button class="category-btn" data-category="Roof">Roof</button>
         <button class="category-btn" data-category="Price">Price</button>
         <button class="category-btn" data-category="Process">Process</button>
         <button class="category-btn" data-category="Interior">Interior</button>
-      </div>
+      </div> -->
+
+      <!-- Categories (Dynamically loaded) -->
+      <div class="categories" id="category-buttons"></div>
+
+      <!-- Content Cards -->
+      <div class="content-cards" id="content-container"></div>
+
+
+      <script>
+        fetch("/HOMESPECTOR/backend/panel/api_admin_content.php")
+          .then(res => res.json())
+          .then(({ categories, contents }) => {
+            const container = document.getElementById("content-container");
+            const categoryButtons = document.getElementById("category-buttons");
+
+            // 1. Create filter buttons
+            const allBtn = `<button class="category-btn active" data-category="all">All</button>`;
+            const catBtns = categories.map(cat =>
+              `<button class="category-btn" data-category="${cat.name}">${cat.name}</button>`
+            ).join('');
+            categoryButtons.innerHTML = allBtn + catBtns;
+
+            // 2. Render dynamic cards (add after static ones)
+            contents.forEach(item => {
+              const card = document.createElement("a");
+              card.className = "card";
+              card.href = item.link_url;
+              card.setAttribute("data-category", item.category_name);
+              card.innerHTML = `
+          <img src="${item.image_url}" alt="${item.title}">
+          <div class="card-content">
+            <h5>${item.title}</h5>
+          </div>
+
+        `;
+              container.appendChild(card);
+            });
+
+            // 3. Filter both static & dynamic cards
+            categoryButtons.addEventListener('click', e => {
+              if (e.target.classList.contains('category-btn')) {
+                document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+
+                const selectedCat = e.target.dataset.category;
+                const cards = document.querySelectorAll("#content-container .card");
+
+                cards.forEach(card => {
+                  const cardCat = card.dataset.category;
+                  card.style.display = (selectedCat === "all" || cardCat === selectedCat) ? "block" : "none";
+                });
+              }
+            });
+          });
+      </script>
 
       <!-- Review Cards -->
-      <div class="content-cards">
-        <a href="/HOMESPECTOR/Homepage/after_content.php" class="card" data-category="Roof">
+      <div class="content-cards" id="content-container">
+        <a href="/HOMESPECTOR/Homepage/carousel_content.html" class="card" data-category="Roof">
           <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="content 1">
           <h5>รีวิวตรวจบ้านดารา เซเลบ อินฟลู</h5>
         </a>
-        <a href="/HOMESPECTOR/Homepage/after1_content.php" class="card" data-category=">Price">
+        <a href="/HOMESPECTOR/Homepage/carousel_content1.html" class="card" data-category=">Price">
           <img src="/HOMESPECTOR/img/carousel_thumb1.jpg" alt="content 2">
           <h5>ต.ตรวจบ้าน x การตลาดวันละตอน</h5>
 
         </a>
-        <a href="/HOMESPECTOR/Homepage/after_content.php" class="card" data-category="Price">
+        <a href="/HOMESPECTOR/Homepage/carousel_content2.html" class="card" data-category="Price">
           <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Hcontent 3">
           <h5>สุดพิเศษ! พาดูบ้านหรู</h5>
         </a>
-        <a href="/HOMESPECTOR/Homepage/after_content.php" class="card" data-category="Price">
+        <a href="/HOMESPECTOR/Homepage/carousel_content3.html" class="card" data-category="Price">
           <img src="/HOMESPECTOR/img/carousel_thumb2.jpg" alt="Hcontent 4">
           <h5>ตรวจบ้านก่อนโอน by ต.ตรวจบ้าน</h5>
 
         </a>
-        <a href="/HOMESPECTOR/Homepage/after_content.php" class="card" data-category="Process">
+        <a href="/HOMESPECTOR/Homepage/carousel_content4.html" class="card" data-category="Process">
           <img src="/HOMESPECTOR/img/warentty.jpg" alt="House Review 5">
           <h5>ประกันภัยบ้าน แฮปปี้โฮม ธนชาต</h5>
         </a>
-        <a href="/HOMESPECTOR/Homepage/after_content.php" class="card" data-category="Interior">
+        <a href="/HOMESPECTOR/Homepage/carousel_content5.html" class="card" data-category="Interior">
           <img src="/HOMESPECTOR/img/team_thumb.jpg" alt="House Review 6">
           <h5>สนุก มันส์ ฮา กับช่างตรวจ</h5>
         </a>
       </div>
     </div>
-
-
 
 
     <footer class="footer">

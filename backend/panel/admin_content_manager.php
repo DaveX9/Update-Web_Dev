@@ -31,22 +31,22 @@ if (isset($_POST['save_content'])) {
     }
 
     if (!empty($_POST['content_id'])) {
-        // Update
         $id = $_POST['content_id'];
         $pdo->prepare("UPDATE content_items SET title=?, image_url=?, category_id=? WHERE id=?")
             ->execute([$title, $image_url, $category_id, $id]);
+        header("Location: admin_content_manager.php?edit_content=$id"); // ✅ redirect ไปหน้า edit
     } else {
-        // Insert
-        $stmt = $pdo->prepare("INSERT INTO content_items (title, image_url, link_url, category_id) VALUES (?, ?, ?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO content_items (title, image_url, link_url, category_id, source) VALUES (?, ?, ?, ?, 'admin_content_manager')");
         $stmt->execute([$title, $image_url, '', $category_id]);
+
         $inserted_id = $pdo->lastInsertId();
         $link = "/HOMESPECTOR/Homepage/carousel_content6.php?id=" . $inserted_id;
         $pdo->prepare("UPDATE content_items SET link_url = ? WHERE id = ?")->execute([$link, $inserted_id]);
+        header("Location: admin_content_manager.php?edit_content=$inserted_id"); // ✅ redirect ไปหน้า edit
     }
-
-    header("Location: admin_content_manager.php");
     exit;
 }
+
 
 // === HANDLE RELATED VIDEO ADD ===
 if (isset($_POST['add_related_video'])) {
@@ -55,8 +55,13 @@ if (isset($_POST['add_related_video'])) {
     $title = $_POST['related_title'];
     $desc = $_POST['related_description'];
 
-    $stmt = $pdo->prepare("INSERT INTO related_videos (content_item_id, youtube_url, title, description) VALUES (?, ?, ?, ?)");
-    $stmt->execute([$content_id, $youtube_url, $title, $desc]);
+    if (!empty($content_id)) {
+        if (!empty($content_id)) {
+            // ✅ INSERT into related_videos (ไม่ใช่ content_items)
+            $stmt = $pdo->prepare("INSERT INTO related_videos (content_item_id, youtube_url, title, description) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$content_id, $youtube_url, $title, $desc]);
+        }
+    }
 
     header("Location: admin_content_manager.php?edit_content=$content_id");
     exit;
@@ -68,6 +73,16 @@ if (isset($_GET['delete_content'])) {
     header("Location: admin_content_manager.php");
     exit;
 }
+
+// === DELETE RELATED VIDEO ===
+if (isset($_GET['delete_video'])) {
+    $stmt = $pdo->prepare("DELETE FROM related_videos WHERE id = ?");
+    $stmt->execute([$_GET['delete_video']]);
+    $redirectId = $_GET['edit_content'] ?? '';
+    header("Location: admin_content_manager.php?edit_content=" . $redirectId);
+    exit;
+}
+
 
 // === FETCH DATA ===
 $categories = $pdo->query("SELECT * FROM content_categories ORDER BY name")->fetchAll();
@@ -185,7 +200,7 @@ if (isset($_GET['edit_content'])) {
     <button type="submit" name="save_content">Save Content</button>
 </form>
 
-<?php if ($edit_content): ?>
+<?php if (isset($edit_content['id'])): ?>
     <h3>🎬 Add Related Video</h3>
     <form method="post">
         <input type="hidden" name="add_related_video" value="1">
@@ -195,35 +210,26 @@ if (isset($_GET['edit_content'])) {
         <input type="text" name="youtube_url" placeholder="YouTube Embed URL (https://www.youtube.com/embed/...)" required>
         <button type="submit">Add Related Video</button>
     </form>
-<?php endif; ?>
 
-<h2>📋 All Content</h2>
-<?php foreach ($contents as $item): ?>
-    <div class="card">
-        <h4><?= htmlspecialchars($item['title']) ?></h4>
-        <small>Category: <?= htmlspecialchars($item['category_name']) ?></small><br>
-        <img src="<?= $item['image_url'] ?>" class="preview" alt="">
-        <br><a href="<?= $item['link_url'] ?? ('/HOMESPECTOR/Homepage/carousel_content6.php?id=' . $item['id']) ?>" target="_blank">🔗 Visit</a>
-        <br>
-        <a href="?edit_content=<?= $item['id'] ?>" class="edit-btn">✏️ Edit</a>
-        <a href="?delete_content=<?= $item['id'] ?>" class="delete-btn" onclick="return confirm('Delete this content?')">🗑️ Delete</a>
-        <?php
-        $vids = $pdo->prepare("SELECT * FROM related_videos WHERE content_item_id = ?");
-        $vids->execute([$item['id']]);
-        $related = $vids->fetchAll();
-        if ($related):
-            echo "<h5>🎞 Related Videos:</h5>";
-            foreach ($related as $vid) {
-                echo "<div style='margin-bottom:20px'>";
-                echo "<strong>" . htmlspecialchars($vid['title']) . "</strong><br>";
-                echo "<iframe src='{$vid['youtube_url']}' width='100%' height='280' style='border-radius:8px; margin-top:10px;' allowfullscreen></iframe>";
-                echo "<p>" . htmlspecialchars($vid['description']) . "</p>";
-                echo "</div>";
-            }
-        endif;
-        ?>
-    </div>
-<?php endforeach; ?>
+    <h3>🎞 Related Videos</h3>
+    <?php
+    $vids = $pdo->prepare("SELECT * FROM related_videos WHERE content_item_id = ?");
+    $vids->execute([$edit_content['id']]);
+    $related_videos = $vids->fetchAll();
+    ?>
+    <?php if ($related_videos): ?>
+        <?php foreach ($related_videos as $vid): ?>
+            <div style="margin-bottom: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 8px;">
+                <strong><?= htmlspecialchars($vid['title']) ?></strong><br>
+                <iframe src="<?= htmlspecialchars($vid['youtube_url']) ?>" width="100%" height="260" style="border-radius: 6px; margin-top: 10px;" allowfullscreen></iframe>
+                <p><?= htmlspecialchars($vid['description']) ?></p>
+                <a href="?delete_video=<?= $vid['id'] ?>&edit_content=<?= $edit_content['id'] ?>" style="color:red; font-weight:bold;" onclick="return confirm('Delete this video?')">🗑️ Delete</a>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p style="color:#777;">No related videos yet.</p>
+    <?php endif; ?>
+<?php endif; ?>
 
 <h2>🗂 All Categories</h2>
 <ul>
@@ -231,6 +237,9 @@ if (isset($_GET['edit_content'])) {
         <li><?= htmlspecialchars($cat['name']) ?> - <a class="delete-btn" href="?delete_category=<?= $cat['id'] ?>" onclick="return confirm('Delete this category?')">🗑️ Delete</a></li>
     <?php endforeach; ?>
 </ul>
+
+
+
 
 </body>
 </html>
