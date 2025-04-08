@@ -258,16 +258,26 @@
       });
     </script>
 
+    <?php
+            $pdo = new PDO("mysql:host=localhost;dbname=homespector;charset=utf8", "username", "password");
+
+            // Fetch main section
+            $main = $pdo->query("SELECT * FROM carousel_main_content4 WHERE id = 1")->fetch();
+
+            // Fetch all episodes
+            $episodes = $pdo->query("SELECT * FROM carousel_episodes4 ORDER BY created_at DESC")->fetchAll();
+        ?>
     <div class="carousel_content">
-      <!-- Main Content Section -->
       <section class="main-content">
-        <!-- Left Side: Image -->
+        <!-- Left Side: Main Content -->
         <div class="left-image">
-          <img src="/HOMESPECTOR/img/team_thumb.jpg" alt="Main Talk Image" class="main-image">
+          <img src="<?= htmlspecialchars($main['thumbnail_url']) ?>" alt="Main Talk Image" class="main-image">
           <div class="left-content">
-            <h1>สนุก มันส์ ฮา กับช่างตรวจ</h1>
+            <h1>
+              <?= htmlspecialchars($main['title']) ?>
+            </h1>
             <p class="main-description">
-              สนุก มันส์ ฮา กับช่างตรวจ
+              <?= htmlspecialchars($main['description']) ?>
             </p>
             <div class="social-share">
               <span>SHARE :</span>
@@ -284,85 +294,50 @@
                 <i class="fa-solid fa-share" aria-label="Share"></i>
               </a>
             </div>
-
           </div>
         </div>
 
-        <!-- Right Side: Episodes List -->
+
+        <!-- Right Side: Episodes -->
         <div class="right-episodes">
           <h2 class="section-title">All Episodes</h2>
           <div class="episodes-list">
-
+            <?php foreach ($episodes as $ep): ?>
             <div class="episode">
               <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/63fSZ3dqLj8?si=fCREt4PYf7cf1Moh" title="รีวิวบ้าน 1"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                <iframe src="<?= htmlspecialchars($ep['youtube_url']) ?>" title="<?= htmlspecialchars($ep['title']) ?>"
                   allowfullscreen></iframe>
               </div>
               <div class="episode-info">
-                <h3>#เกมทายภาพ " บุคคลสำคัญของโลก "</h3>
-                <p>ต.ตรวจบ้าน</p>
+                <h3>
+                  <?= htmlspecialchars($ep['title']) ?>
+                </h3>
+                <p>
+                  <?= htmlspecialchars($ep['description']) ?>
+                </p>
               </div>
             </div>
-
-            <div class="episode">
-              <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/YRPwFYsBcwQ?si=rsWP0zTByiUs9btJ" title="รีวิวบ้าน 2"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="episode-info">
-                <h3>รีเจอตอ...ทายวัสดุตกแต่งภายใน!! ใครจะทายได้เยอะที่สุด..ไปดูกัน!"</h3>
-                <p>ต.ตรวจบ้าน</p>
-              </div>
-            </div>
-
-            <div class="episode">
-              <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/Gnr4b9UCtSA?si=ub4iCxE5u9t2Rqxk" title="รีวิวบ้าน 3"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="episode-info">
-                <h3> มาทายอุปกรณ์ตรวจในกล่องปริศนา!!!</h3>
-                <p>ต.ตรวจบ้าน</p>
-              </div>
-            </div>
-            <div class="episode">
-              <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/SRw3yCvdYrI?si=tuOq2UHnlYBzNEnn" title="รีวิวบ้าน 4"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="episode-info">
-                <h3> ทายชื่อผีง่ายๆ👻✨ แค่สือสารให้ดี! #ฮาโลวีน2024</h3>
-                <p>ต.ตรวจบ้าน</p>
-              </div>
-            </div>
+            <?php endforeach; ?>
           </div>
         </div>
       </section>
-    </div>
 
-    <section class="tag-content">
-      <!-- Tags Section -->
-      <div class="tags-section">
-        <div class="tags">
-          <a href="#" class="tag" data-tag="SCASSET">SCASSET</a>
-          <a href="#" class="tag" data-tag="ตตรวจบ้าน">ตตรวจบ้าน</a>
-          <a href="#" class="tag" data-tag="รีวิวบ้าน">รีวิวบ้าน</a>
-          <a href="#" class="tag" data-tag="GrandBangkokBoulevardPinklaoBoroma">GrandBangkokBoulevardPinklaoBorom</a>
-          <a href="#" class="tag" data-tag="การตลาดวันละหลัง">การตลาดวันละหลัง</a>
+      <section class="tag-content">
+        <!-- Tags Section -->
+        <div class="tags-section">
+          <div class="tags">
+            <a href="#" class="tag" data-tag="SCASSET">SCASSET</a>
+            <a href="#" class="tag" data-tag="ตตรวจบ้าน">ตตรวจบ้าน</a>
+            <a href="#" class="tag" data-tag="รีวิวบ้าน">รีวิวบ้าน</a>
+            <a href="#" class="tag" data-tag="GrandBangkokBoulevardPinklaoBoroma">GrandBangkokBoulevardPinklaoBorom</a>
+            <a href="#" class="tag" data-tag="การตลาดวันละหลัง">การตลาดวันละหลัง</a>
+          </div>
         </div>
-      </div>
-      <div id="video-list" class="video-list">
-        <!-- Filtered videos will appear here -->
-      </div>
-    </section>
+        <div id="video-list" class="video-list">
+          <!-- Filtered videos will appear here -->
+        </div>
+      </section>
+    </div>
 
 
     <section class="carousel-content">
@@ -385,31 +360,31 @@
         const staticContents = [
           {
             title: "รีวิวตรวจบ้านดารา เซเลบ อินฟลู",
-            url: "/HOMESPECTOR/Homepage/carousel_content.html",
+            url: "/HOMESPECTOR/Homepage/carousel_content.php",
             image: "/HOMESPECTOR/img/thumbnail4.jpg",
             desc: "รีวิวการตรวจบ้านเดี่ยว พระเอกดัง!!"
           },
           {
             title: "ต.ตรวจบ้าน x การตลาดวันละตอน",
-            url: "/HOMESPECTOR/Homepage/carousel_content1.html",
+            url: "/HOMESPECTOR/Homepage/carousel_content1.php",
             image: "/HOMESPECTOR/img/carousel_thumb1.jpg",
             desc: "พาดูบ้านหรู 89 ล้าน!"
           },
           {
             title: "สุดพิเศษ! พาดูบ้านหรู",
-            url: "/HOMESPECTOR/Homepage/carousel_content2.html",
+            url: "/HOMESPECTOR/Homepage/carousel_content2.php",
             image: "/HOMESPECTOR/img/thumbnail3.jpg",
             desc: "รีวิวตรวจบ้านหรู 40ล้าน! CEO #บุญนำพา"
           },
           {
             title: "ตรวจบ้านก่อนโอน by ต.ตรวจบ้าน",
-            url: "/HOMESPECTOR/Homepage/carousel_content3.html",
+            url: "/HOMESPECTOR/Homepage/carousel_content3.php",
             image: "/HOMESPECTOR/img/carousel_thumb2.jpg",
             desc: "ตรวจบ้านก่อนโอน by ต.ตรวจบ้าน..."
           },
           {
             title: "ประกันภัยบ้าน แฮปปี้โฮม ธนชาต",
-            url: "/HOMESPECTOR/Homepage/carousel_content4.html",
+            url: "/HOMESPECTOR/Homepage/carousel_content4.php",
             image: "/HOMESPECTOR/img/warentty.jpg",
             desc: "ช่วงนี้หน้าฝน อย่ามองข้ามสิ่งนี้🏡⛈️"
           }
@@ -519,6 +494,8 @@
         <p>© 2024 HomeInspector. All Rights Reserved.</p>
       </div>
     </footer>
+
+
   </div>
   </div>
 

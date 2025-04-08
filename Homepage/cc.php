@@ -386,14 +386,14 @@
                 <button class="carousel-btn prev-btn">❮</button>
                 <div class="content-carousel">
                     <!-- Item 1 -->
-                    <!-- <a href="/HOMESPECTOR/Homepage/carousel_content.html" class="content-carousel-item">
+                    <!-- <a href="/HOMESPECTOR/Homepage/carousel_content.php" class="content-carousel-item">
                           <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="Content 1">
                           <div class="content-carousel-info">
                             <h3>รีวิวตรวจบ้านดารา เซเลบ อินฟลู</h3>
                             <p>รีวิวการตรวจบ้านเดี่ยว พระเอกดัง!! " ตงตง เดอะสตาร์</p>
                           </div>
                         </a> -->
-                    <a href="/HOMESPECTOR/Homepage/carousel_content1.html" class="content-carousel-item">
+                    <a href="/HOMESPECTOR/Homepage/carousel_content1.php" class="content-carousel-item">
                         <img src="/HOMESPECTOR/img/carousel_thumb1.jpg" alt="Content 1">
                         <div class="content-carousel-info">
                             <h3>ต.ตรวจบ้าน x การตลาดวันละตอน</h3>
@@ -401,7 +401,7 @@
                         </div>
                     </a>
                     <!-- Item 2 -->
-                    <a href="/HOMESPECTOR/Homepage/carousel_content2.html" class="content-carousel-item">
+                    <a href="/HOMESPECTOR/Homepage/carousel_content2.php" class="content-carousel-item">
                         <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Content 2">
                         <div class="content-carousel-info">
                             <h3>สุดพิเศษ! พาดูบ้านหรู</h3>
@@ -410,7 +410,7 @@
                     </a>
 
                     <!-- Item 3 -->
-                    <a href="/HOMESPECTOR/Homepage/carousel_content3.html" class="content-carousel-item">
+                    <a href="/HOMESPECTOR/Homepage/carousel_content3.php" class="content-carousel-item">
                         <img src="/HOMESPECTOR/img/carousel_thumb2.jpg" alt="Content 3">
                         <div class="content-carousel-info">
                             <h3>ตรวจบ้านก่อนโอน by ต.ตรวจบ้าน</h3>
@@ -418,7 +418,7 @@
                         </div>
                     </a>
                     <!-- Item 4 -->
-                    <a href="/HOMESPECTOR/Homepage/carousel_content4.html" class="content-carousel-item">
+                    <a href="/HOMESPECTOR/Homepage/carousel_content4.php" class="content-carousel-item">
                         <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Content 4">
                         <div class="content-carousel-info">
                             <h3>ประกันภัยบ้าน แฮปปี้โฮม ธนชาต </h3>
@@ -426,7 +426,7 @@
                         </div>
                     </a>
                     <!-- Item 5 -->
-                    <a href="/HOMESPECTOR/Homepage/carousel_content5.html" class="content-carousel-item">
+                    <a href="/HOMESPECTOR/Homepage/carousel_content5.php" class="content-carousel-item">
                         <img src="/HOMESPECTOR/img/thumbnail3.jpg" alt="Content 5">
                         <div class="content-carousel-info">
                             <h3>สนุก มันส์ ฮา กับช่างตรวจ</h3>

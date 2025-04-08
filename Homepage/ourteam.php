@@ -23,6 +23,8 @@ function getContent($section) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/HOMESPECTOR/CSS/ourteam.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <title>Header Design</title>
@@ -338,59 +340,9 @@ function getContent($section) {
                         <p>Co-Founder & Civil Engineer</p>
                     </div>
                 </div>
-            </section>
-
-
-
-
-            <section class="team-section">
-                <div class="carousel-header">
-                    <h3 class="team-subtitle">Our Dedicated Team</h3>
-                    <div class="carousel-controls">
-                        <button class="carousel-btn" id="prevBtn">&#10094;</button>
-                        <button class="carousel-btn" id="nextBtn">&#10095;</button>
-                    </div>
-                </div>
-                <div class="carousel-container">
-                    <div class="carousel" id="carousel">
-                        <div class="team-member">
-                            <img src="/HOMESPECTOR/img/staff/Charnthawat.jpg" alt="Charnthawat">
-                            <h3>Charnthawat</h3>
-                            <p>Engineering Manager</p>
-                        </div>
-                        <div class="team-member">
-                            <img src="/HOMESPECTOR/img/staff/Jakkarin.jpg" alt="Jakkarin">
-                            <h3>Jakkarin</h3>
-                            <p>Senior Inspector</p>
-                        </div>
-                        <div class="team-member">
-                            <img src="/HOMESPECTOR/img/staff/Waroj.jpg" alt="Waroj">
-                            <h3>Waroj</h3>
-                            <p>Senior Inspector</p>
-                        </div>
-                        <div class="team-member">
-                            <img src="/HOMESPECTOR/img/staff/Supapat.jpg" alt="Supapat">
-                            <h3>Supapat</h3>
-                            <p>Inspector</p>
-                        </div>
-                        <div class="team-member">
-                            <img src="/HOMESPECTOR/img/staff/Chonsawat.jpg" alt="Chonsawat">
-                            <h3>Chonsawat</h3>
-                            <p>Inspector</p>
-                        </div>
-                        <div class="team-member">
-                            <img src="/HOMESPECTOR/img/staff/Phonthewa.JPG" alt="Phonthewa">
-                            <h3>Phonthewa</h3>
-                            <p>Inspector</p>
-                        </div>
-                        <div class="team-member">
-                            <img src="/HOMESPECTOR/img/staff/Watanon.JPG" alt="Watanon">
-                            <h3>Watanon</h3>
-                            <p>Inspector</p>
-                        </div>
-                    </div>
-                </div>
             </section> -->
+
+
 
             <section class="about">
                 <div class="about-container">
@@ -398,13 +350,13 @@ function getContent($section) {
                 </div>
             </section>
 
-            <!-- <section class="our-founders">
+            <section class="our-founders">
                 <div class="founders-container">
                     <?php 
                         // echo getContent('founders'); 
                     ?> 
                 </div>
-            </section> -->
+            </section>
             <section class="our-founders">
                 <h2 data-aos="fade-up">Our Founders</h2>
                 <div class="founders-container">
@@ -430,11 +382,146 @@ function getContent($section) {
             </section>
 
 
-            <section class="team-section">
+            <!-- <div class="team-section-wrapper">
+                <div class="team-section">
+                    <h4> <strong>Meet Our Team</strong></h4>
+
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            
+                            <div class="swiper-slide">
+                                <img src="/HOMESPECTOR/img/staff/Charnthawat_120.webp" alt="Charnthawat"
+                                    class="member-image">
+                                <div class="team-name">Charnthawat</div>
+                                <div class="team-role">Engineering Manager</div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/HOMESPECTOR/img/staff/Charnthawat_240.webp" alt="Jennie Roberts"
+                                    class="member-image">
+                                <div class="team-name">Charnthawat</div>
+                                <div class="team-role">Senior Inspector</div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/HOMESPECTOR/img/staff/Waroj_240.webp" alt="Ann Richmond"
+                                    class="member-image">
+                                <div class="team-name">Waroj</div>
+                                <div class="team-role">Senior Inspector</div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/HOMESPECTOR/img/staff/Supapat_240.webp" alt="Supapat"
+                                    class="member-image">
+                                <div class="team-name">Supapat</div>
+                                <div class="team-role">Inspector</div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/HOMESPECTOR/img/staff/Chonsawat_240.webp" alt="Chonsawat"
+                                    class="member-image">
+                                <div class="team-name">Chonsawat</div>
+                                <div class="team-role">Phonthewa</div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/HOMESPECTOR/img/staff/Phonthewa_240.webp" alt="Phonthewa"
+                                    class="member-image">
+                                <div class="team-name">Phonthewa</div>
+                                <div class="team-role">Inspector</div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/HOMESPECTOR/img/staff/Watanon_240.webp" alt="Watanon"
+                                    class="member-image">
+                                <div class="team-name">Watanon</div>
+                                <div class="team-role">Inspector</div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Jennie Roberts"
+                                    class="member-image">
+                                <div class="team-name">Jennie Roberts</div>
+                                <div class="team-role">Creative Director</div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://randomuser.me/api/portraits/women/13.jpg" alt="Ann Richmond"
+                                    class="member-image">
+                                <div class="team-name">Ann Richmond</div>
+                                <div class="team-role">Lead Developer</div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="James Oliver"
+                                    class="member-image">
+                                <div class="team-name">James Oliver</div>
+                                <div class="team-role">Marketing Director</div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://randomuser.me/api/portraits/women/15.jpg" alt="Sophia Chen"
+                                    class="member-image">
+                                <div class="team-name">Sophia Chen</div>
+                                <div class="team-role">UX Designer</div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://randomuser.me/api/portraits/men/16.jpg" alt="Michael Johnson"
+                                    class="member-image">
+                                <div class="team-name">Michael Johnson</div>
+                                <div class="team-role">Product Manager</div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://randomuser.me/api/portraits/men/16.jpg" alt="Michael Johnson"
+                                    class="member-image">
+                                <div class="team-name">Michael Johnson</div>
+                                <div class="team-role">Product Manager</div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://randomuser.me/api/portraits/men/16.jpg" alt="Michael Johnson"
+                                    class="member-image">
+                                <div class="team-name">Michael Johnson</div>
+                                <div class="team-role">Product Manager</div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://randomuser.me/api/portraits/men/16.jpg" alt="Michael Johnson"
+                                    class="member-image">
+                                <div class="team-name">Michael Johnson</div>
+                                <div class="team-role">Product Manager</div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div> -->
+
+            <section class="team-section-wrapper">
                 <div class="team-container">
                     <?php echo getContent('team'); ?>
                 </div>
             </section>
+
+            <!-- Swiper JS -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+            <!-- Swiper Configuration -->
+            <script>
+                var swiper = new Swiper(".mySwiper", {
+                    loop: true,
+                    grabCursor: true,
+                    spaceBetween: 30,
+                    centeredSlides: true,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    breakpoints: {
+                        0: { slidesPerView: 1 },
+                        640: { slidesPerView: 2 },
+                        768: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 },
+                        1200: { slidesPerView: 4 }
+                    }
+                });
+            </script>
+
             <footer class="footer">
                 <div class="footer-container">
                     <!-- Left Section: Social Media & Branding -->
@@ -521,37 +608,6 @@ function getContent($section) {
     <script>
         AOS.init();
     </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const carousel = document.getElementById("carousel");
-            const prevBtn = document.getElementById("prevBtn");
-            const nextBtn = document.getElementById("nextBtn");
-            const teamMembers = document.querySelectorAll(".team-member");
-            const visibleItems = 4;
-            let currentIndex = 0;
-
-            function updateCarousel() {
-                const offset = -(currentIndex * teamMembers[0].offsetWidth + 20 * currentIndex);
-                carousel.style.transform = `translateX(${offset}px)`;
-            }
-
-            prevBtn.addEventListener("click", () => {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    updateCarousel();
-                }
-            });
-
-            nextBtn.addEventListener("click", () => {
-                if (currentIndex < teamMembers.length - visibleItems) {
-                    currentIndex++;
-                    updateCarousel();
-                }
-            });
-        });
-    </script>
-
 
 </body>
 

@@ -604,31 +604,31 @@
                 const staticContents = [
                 {
                     title: "รีวิวตรวจบ้านดารา เซเลบ อินฟลู",
-                    url: "/HOMESPECTOR/Homepage/carousel_content.html",
+                    url: "/HOMESPECTOR/Homepage/carousel_content.php",
                     image: "/HOMESPECTOR/img/thumbnail4.jpg",
                     desc: "รีวิวการตรวจบ้านเดี่ยว พระเอกดัง!!"
                 },
                 {
                     title: "ต.ตรวจบ้าน x การตลาดวันละตอน",
-                    url: "/HOMESPECTOR/Homepage/carousel_content1.html",
+                    url: "/HOMESPECTOR/Homepage/carousel_content1.php",
                     image: "/HOMESPECTOR/img/carousel_thumb1.jpg",
                     desc: "พาดูบ้านหรู 89 ล้าน!"
                 },
                 {
                     title: "สุดพิเศษ! พาดูบ้านหรู",
-                    url: "/HOMESPECTOR/Homepage/carousel_content2.html",
+                    url: "/HOMESPECTOR/Homepage/carousel_content2.php",
                     image: "/HOMESPECTOR/img/thumbnail3.jpg",
                     desc: "รีวิวตรวจบ้านหรู 40ล้าน! CEO #บุญนำพา"
                 },
                 {
                     title: "ตรวจบ้านก่อนโอน by ต.ตรวจบ้าน",
-                    url: "/HOMESPECTOR/Homepage/carousel_content3.html",
+                    url: "/HOMESPECTOR/Homepage/carousel_content3.php",
                     image: "/HOMESPECTOR/img/carousel_thumb2.jpg",
                     desc: "ตรวจบ้านก่อนโอน by ต.ตรวจบ้าน..."
                 },
                 {
                     title: "ประกันภัยบ้าน แฮปปี้โฮม ธนชาต",
-                    url: "/HOMESPECTOR/Homepage/carousel_content4.html",
+                    url: "/HOMESPECTOR/Homepage/carousel_content4.php",
                     image: "/HOMESPECTOR/img/thumbnail1.jpg",
                     desc: "ช่วงนี้หน้าฝน อย่ามองข้ามสิ่งนี้🏡⛈️"
                 }

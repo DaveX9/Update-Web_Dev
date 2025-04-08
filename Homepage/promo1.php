@@ -286,53 +286,6 @@ $service_result = $conn->query($service_query);
                     });
                 });
             </script>
-
-            <!-- <section class="promotion-container">
-                <div class="card-row">
-                    <div class="card">
-                        <img src="/HOMESPECTOR/img/promotion1.jpg" alt="Promotion Image 1">
-                    </div>
-                    <div class="card">
-                        <img src="/HOMESPECTOR/img/promotion1.1.jpg" alt="Promotion Image 2">
-                    </div>
-                    <div class="card">
-                        <img src="/HOMESPECTOR/img/promotion1.2.jpg" alt="Promotion Image 3">
-                    </div>
-                </div> -->
-
-
-                <!-- Modal for Fullscreen Image -->
-                <!-- <div id="imageModal" class="modal">
-                    <span class="close">&times;</span>
-                    <img class="modal-content" id="fullImage">
-                </div>
-                <div class="service-container">
-                    <h2>สิทธิพิเศษ ต.ตกแต่ง</h2>
-                    <div class="service-list">
-                        <div class="service-item">
-                            <img src="/HOMESPECTOR/icon/ICON/3d-printer.png" alt="Service 1">
-                            <div class="service-text">
-                                <h3>ทำแบบ 3D ให้ฟรีทันที 3 รูป</h3>
-                                <p>บริการออกแบบ 3D ฟรี</p>
-                            </div>
-                        </div>
-                        <div class="service-item">
-                            <img src="/HOMESPECTOR/icon/ICON/customer-service.png" alt="Service 2">
-                            <div class="service-text">
-                                <h3>บริการวัดหน้างานฟรี</h3>
-                                <p>รับการวัดขนาดพื้นที่ฟรี</p>
-                            </div>
-                        </div>
-                        <div class="service-item">
-                            <img src="/HOMESPECTOR/icon/ICON/10-percent.png" alt="Service 3">
-                            <div class="service-text">
-                                <h3>ส่วนลดค่าเฟ้น และฟิล์ม 10%</h3>
-                                <p>รับส่วนลดสุดพิเศษ</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
             <section class="promotion-container">
                 <div class="card-row">
                     <?php while ($row = $promo_result->fetch_assoc()): ?>
