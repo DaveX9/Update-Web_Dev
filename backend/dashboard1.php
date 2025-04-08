@@ -1,4 +1,10 @@
-
+<?php
+session_start();
+if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
+    header("Location: login_form.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +23,9 @@
             <p>Hi, <strong>Admin</strong></p>
         </div>
         <ul class="nav-list">
-            <li class="nav-item"><a href="dashboard1.html" class="nav-link"><i class="fas fa-tools"></i>Dashboard</a>
+            <li class="nav-item"><a href="/HOMESPECTOR/backend/dashboard1.php" class="nav-link"><i class="fas fa-tools"></i>Dashboard</a>
+            </li>
+            <li class="nav-item"><a href="/HOMESPECTOR/backend/panel/admin_line_section.php" class="nav-link"><i class="fas fa-tools"></i>Line Id</a>
             </li>
 
             <!-- Home Dropdown -->

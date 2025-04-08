@@ -6,7 +6,6 @@
 .env
 
 # Ignore package manager lock files (if dependencies are managed manually)
-composer.lock
 package-lock.json
 
 # Ignore database files and backups
@@ -59,3 +58,8 @@ yarn-error.log
 
 #.txt files
 *.txt
+
+#generate hash for the file
+# Dev scripts (ไม่ควร push ขึ้น repo)
+backend/generate_hash.php
+backend/create_admin.php

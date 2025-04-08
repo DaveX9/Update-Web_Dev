@@ -112,8 +112,7 @@ $conn->close();
                 บริการเสริม <span class="dropdown-icon"><i class="fa-solid fa-caret-down"></i></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
-                    data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
+                <li><a href="/HOMESPECTOR/Homepage/app-inspector.php" data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                 </li>
                 <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
                 </li>
@@ -244,20 +243,6 @@ $conn->close();
           </div>
         </div>
       </div>
-      <div class="contact-container">
-        <a href="tel:02-454-2043" class="contact-item" data-aos="fade-up-left">
-          <div class="icon">
-            <i class="fa-solid fa-phone"></i>
-          </div>
-          <span>โทร 02-454-2043</span>
-        </a>
-        <a href="https://line.me/R/ti/p/@t.home" target="_blank" class="contact-item" data-aos="fade-up-right">
-          <div class="icon">
-            <i class="fa-brands fa-line" style="color: #00a347;"></i>
-          </div>
-          <span>@t.home</span>
-        </a>
-      </div>
 
       <section class="services" data-aos="fade-right" data-aos-offset="200" data-aos-easing="ease-in-sine">
         <div class="services-header">
@@ -327,129 +312,71 @@ $conn->close();
           changeBackground();
         });
       </script>
+      <div class="contact-container">
+        <a id="phone-link" href="#" class="contact-item" data-aos="fade-up-left">
+          <div class="icon">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <span id="phone-text">โทร ...</span>
+        </a>
+
+        <a id="line-link" href="#" target="_blank" class="contact-item" data-aos="fade-up-right">
+          <div class="icon">
+            <i class="fa-brands fa-line" style="color: #00a347;"></i>
+          </div>
+          <span id="line-text">@line.id</span>
+        </a>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          fetch('/HOMESPECTOR/backend/panel/get_line_section.php')
+            .then(response => response.json())
+            .then(data => {
+              // อัปเดตเบอร์โทร
+              const phoneLink = document.getElementById('phone-link');
+              const phoneText = document.getElementById('phone-text');
+              phoneLink.href = 'tel:' + data.phone_number;
+              phoneText.textContent = 'โทร ' + data.phone_number;
+
+              // อัปเดต Line ID
+              const lineLink = document.getElementById('line-link');
+              const lineText = document.getElementById('line-text');
+              lineLink.href = 'https://line.me/R/ti/p/' + encodeURIComponent(data.line_id);
+              lineText.textContent = data.line_id;
+            })
+            .catch(error => {
+              console.error('เกิดข้อผิดพลาดในการโหลดข้อมูลติดต่อ:', error);
+            });
+        });
+      </script>
 
 
-      <!-- Our Services Section -->
-      <!-- <section class="services1" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+      <!-- Services Section -->
+      <section class="services1">
         <div class="services-container">
-
-          <div class="image-container">
-            <div class="image-box">
-              <img src="/HOMESPECTOR/img/service-bg.JPG" alt="T.home Services">
-            </div>
-            <div class="call-box">
-              <i class="fa-solid fa-phone"></i> 082-045-6165
-            </div>
-          </div>
-
-
-          <div class="text-container">
-            <h2>ต. ตรวจบ้าน รับตรวจรับบ้านและคอนโดก่อนโอนกรรมสิทธิ์</h2>
-            <p>
-              ทำไมต้องเลือกเรา "ตรวจจริง เห็นกับตา ไปพร้อมลูกค้า" ตรวจบ้านและคอนโดโดยใช้อุปกรณ์จริง
-              (ไม่ได้ตรวจสอบด้วยตาเปล่า) และเทคโนโลยีที่ทันสมัย
-            </p>
-            <h2 class="contact-title">Requesting Services on the Telephone</h2>
-            <p><strong><i class="fa-solid fa-user-tie"></i>:</strong> 082-045-6165, 02-301-0283</p>
-            <p><strong><i class="fa-solid fa-user"></i>:</strong> 082-669-9666</p>
-            <p><strong><i class="fa-solid fa-user"></i>:</strong> 086-500-0019</p>
-            <p><strong><i class="fa-solid fa-location-dot"></i>:</strong> 2043 Soi Kanchanaphisek 008, Bangkae, Bangkae
-              Bangkok 10160 Thailand</p>
-
-
-            <div class="social-icons">
-              <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH">
-                <img src="/HOMESPECTOR/icon/ICON/Fb.png" alt="Facebook">
-              </a>
-              <a href="https://www.instagram.com/t.homeinspector/">
-                <img src="/HOMESPECTOR/icon/ICON/IG.png" alt="Instagram">
-              </a>
-              <a href="https://page.line.me/t.home?openQrModal=true">
-                <img src="/HOMESPECTOR/icon/ICON/line.png" alt="Line">
-              </a>
-              <a href="tel:082-045-6165">
-                <img src="/HOMESPECTOR/icon/ICON/phone.png" alt="Phone">
-              </a>
-            </div>
-          </div>
+          <?php echo $data['services']; ?>
         </div>
       </section>
 
-      <section class="carousel2 py-4" data-aos="fade-up" data-aos-duration="3000">
-        <div id="customCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Carousel Section -->
+      <section class="carousel2 py-4">
+        <div class="carousel slide">
           <div class="carousel-inner">
-
-            <div class="carousel-item active">
-              <div class="carousel-content mx-auto text-center">
-                <div class="carousel-heading">ราคาค่าบริการตรวจบ้านทาวน์โฮม</div>
-                <img src="/HOMESPECTOR/img/servicecharge1.png" alt="Service Pricing 1" class="img-fluid">
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <div class="carousel-content mx-auto text-center">
-                <div class="carousel-heading">ราคาค่าบริการตรวจบ้านทาวน์โฮม</div>
-                <img src="/HOMESPECTOR/img/servicecharge2.png" alt="Service Pricing 2" class="img-fluid">
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <div class="carousel-content mx-auto text-center">
-                <div class="carousel-heading">ราคาค่าบริการตรวจบ้านทาวน์โฮม</div>
-                <img src="/HOMESPECTOR/img/servicecharge3.png" alt="Service Details" class="img-fluid">
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <div class="carousel-content mx-auto text-center">
-                <div class="carousel-heading">ราคาค่าบริการตรวจบ้านทาวน์โฮม</div>
-                <img src="/HOMESPECTOR/img/servicecharge4.png" alt="Service Details" class="img-fluid">
-              </div>
-            </div>
+            <?php echo $data['carousel']; ?>
           </div>
-
+          <!-- Previous Button -->
           <button class="carousel-control-prev" type="button" data-bs-target="#customCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"
               style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; width: 40px; height: 40px;"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-
+          <!-- Next Button -->
           <button class="carousel-control-next" type="button" data-bs-target="#customCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"
               style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; width: 40px; height: 40px;"></span>
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-      </section> -->
-
-      <!-- Services Section -->
-      <section class="services1">
-          <div class="services-container">
-              <?php echo $data['services']; ?>
-          </div>
-      </section>
-
-      <!-- Carousel Section -->
-      <section class="carousel2 py-4">
-          <div class="carousel slide">
-              <div class="carousel-inner">
-                  <?php echo $data['carousel']; ?>
-              </div>
-                  <!-- Previous Button -->
-                  <button class="carousel-control-prev" type="button" data-bs-target="#customCarousel"
-                      data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"
-                          style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; width: 40px; height: 40px;"></span>
-                      <span class="visually-hidden">Previous</span>
-                  </button>
-                      <!-- Next Button -->
-                  <button class="carousel-control-next" type="button" data-bs-target="#customCarousel"
-                      data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"
-                          style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; width: 40px; height: 40px;"></span>
-                      <span class="visually-hidden">Next</span>
-                  </button>
-          </div>
       </section>
 
 
