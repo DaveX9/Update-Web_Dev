@@ -720,7 +720,7 @@ header {
 }
 
 /* Founders Section */
-.our-founders {
+/* .our-founders {
   background-image: url('/HOMESPECTOR/img/web-bg.webp');
   background-size: cover;
   background-position: center;
@@ -799,10 +799,10 @@ p {
 .certification-badge {
   width: 100px;
   height: auto;
-}
+} */
 
 /* our team */
-.team-section-wrapper {
+/* .team-section-wrapper {
   padding: 60px 20px;
   background: linear-gradient(to bottom, #dff6ff, #ffffff);
   color: var(--dark);
@@ -889,7 +889,7 @@ h4:after {
   margin-bottom: 15px;
   transition: all 0.3s ease;
   z-index: 1;
-  image-rendering: auto; /* ป้องกันเบลอบางเคส */
+  image-rendering: auto;
 }
 
 .swiper-slide:hover .member-image {
@@ -984,16 +984,8 @@ h4:after {
   .swiper-button-prev {
     display: none;
   }
-}
+} */
 
-
-/* Footer Base */
-.footer {
-  background: rgb(236, 236, 236);
-  color: white;
-  padding: 50px 20px;
-  font-size: 16px;
-}
 
 /* Footer Container */
 .footer-container {

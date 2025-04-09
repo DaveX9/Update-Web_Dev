@@ -24,7 +24,8 @@ function getContent($section) {
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/HOMESPECTOR/CSS/ourteam.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <title>Header Design</title>
@@ -178,8 +179,8 @@ function getContent($section) {
                             <ul>
                                 <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
                                 </li>
-                                <li><a href="/HOMESPECTOR/Homepage/service.php"
-                                        data-translate="nav.services">บริการ</a></li>
+                                <li><a href="/HOMESPECTOR/Homepage/service.php" data-translate="nav.services">บริการ</a>
+                                </li>
                                 <li><a href="/HOMESPECTOR/Homepage/promotion.php"
                                         data-translate="nav.promotion">สิทธิพิเศษ</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/projects_media.html"
@@ -255,39 +256,39 @@ function getContent($section) {
             <!-- line -->
             <div class="contact-container">
                 <a id="phone-link" href="#" class="contact-item" data-aos="fade-up-left">
-                <div class="icon">
-                    <i class="fa-solid fa-phone"></i>
-                </div>
-                <span id="phone-text">โทร ...</span>
+                    <div class="icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <span id="phone-text">โทร ...</span>
                 </a>
 
                 <a id="line-link" href="#" target="_blank" class="contact-item" data-aos="fade-up-right">
-                <div class="icon">
-                    <i class="fa-brands fa-line" style="color: #00a347;"></i>
-                </div>
-                <span id="line-text">@line.id</span>
+                    <div class="icon">
+                        <i class="fa-brands fa-line" style="color: #00a347;"></i>
+                    </div>
+                    <span id="line-text">@line.id</span>
                 </a>
             </div>
             <script>
                 document.addEventListener("DOMContentLoaded", function () {
-                fetch('/HOMESPECTOR/backend/panel/get_line_section.php')
-                    .then(response => response.json())
-                    .then(data => {
-                    // อัปเดตเบอร์โทร
-                    const phoneLink = document.getElementById('phone-link');
-                    const phoneText = document.getElementById('phone-text');
-                    phoneLink.href = 'tel:' + data.phone_number;
-                    phoneText.textContent = 'โทร ' + data.phone_number;
+                    fetch('/HOMESPECTOR/backend/panel/get_line_section.php')
+                        .then(response => response.json())
+                        .then(data => {
+                            // อัปเดตเบอร์โทร
+                            const phoneLink = document.getElementById('phone-link');
+                            const phoneText = document.getElementById('phone-text');
+                            phoneLink.href = 'tel:' + data.phone_number;
+                            phoneText.textContent = 'โทร ' + data.phone_number;
 
-                    // อัปเดต Line ID
-                    const lineLink = document.getElementById('line-link');
-                    const lineText = document.getElementById('line-text');
-                    lineLink.href = 'https://line.me/R/ti/p/' + encodeURIComponent(data.line_id);
-                    lineText.textContent = data.line_id;
-                    })
-                    .catch(error => {
-                    console.error('เกิดข้อผิดพลาดในการโหลดข้อมูลติดต่อ:', error);
-                    });
+                            // อัปเดต Line ID
+                            const lineLink = document.getElementById('line-link');
+                            const lineText = document.getElementById('line-text');
+                            lineLink.href = 'https://line.me/R/ti/p/' + encodeURIComponent(data.line_id);
+                            lineText.textContent = data.line_id;
+                        })
+                        .catch(error => {
+                            console.error('เกิดข้อผิดพลาดในการโหลดข้อมูลติดต่อ:', error);
+                        });
                 });
             </script>
 
@@ -354,10 +355,10 @@ function getContent($section) {
                 <div class="founders-container">
                     <?php 
                         // echo getContent('founders'); 
-                    ?> 
+                    ?>
                 </div>
             </section>
-            <section class="our-founders">
+            <!-- <section class="our-founders">
                 <h2 data-aos="fade-up">Our Founders</h2>
                 <div class="founders-container">
                     <div class="founder" data-aos="fade-right">
@@ -379,148 +380,349 @@ function getContent($section) {
                         <p>Co-Founder & Civil Engineer</p>
                     </div>
                 </div>
-            </section>
+            </section> -->
+            <style>
+                .team-container {
+                    padding: 40px 20px;
+                    max-width: 1200px;
+                    margin: auto;
+                    border-radius: 12px;
+                    margin-bottom:50px;
+                    /* background: linear-gradient(to bottom right, #f7f9fc, #e0ecff); */
+                }
 
+                .heading {
+                    text-align: center;
+                    margin-bottom: 40px;
+                    font-size: 28px;
+                    color: #1a237e;
+                    font-weight: bold;
+                }
 
-            <!-- <div class="team-section-wrapper">
-                <div class="team-section">
-                    <h4> <strong>Meet Our Team</strong></h4>
+                .team-member {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 50px;
+                    text-align: center;
+                    background-color: rgb(255, 255, 255);
+                    border-radius: 12px;
+                }
 
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            
-                            <div class="swiper-slide">
-                                <img src="/HOMESPECTOR/img/staff/Charnthawat_120.webp" alt="Charnthawat"
-                                    class="member-image">
-                                <div class="team-name">Charnthawat</div>
-                                <div class="team-role">Engineering Manager</div>
+                .team-member img {
+                    width: 100%;
+                    max-width: 250px;
+                    border-radius: 15px;
+                    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+                    margin-bottom: 12px;
+                }
+
+                .team-member h4 {
+                    margin: 12px 0 6px;
+                    font-size: 20px;
+                    color: #0d47a1;
+                    text-align: center;
+                    font-weight: bold;
+                }
+
+                .team-member p {
+                    color: #444;
+                    font-size: 15px;
+                    font-weight: bold;
+                }
+
+                .team-groups {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    gap: 40px;
+                }
+
+                .team-group {
+                    flex: 1 1 45%;
+                }
+
+                .group-heading {
+                    font-size: 22px;
+                    font-weight: bold;
+                    color: #1a237e;
+                    margin-bottom: 20px;
+                    text-align: center;
+                }
+
+                .team-grid {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 30px;
+                }
+
+                .team-card {
+                    flex: 1 1 230px;
+                    max-width: 230px;
+                    height: 335px;
+                    background-color: #ffffff;
+                    border-radius: 12px;
+                    padding: 15px;
+                    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    text-align: center;
+                }
+
+                .team-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+                }
+
+                .team-card img {
+                    width: 100%;
+                    max-width: 200px;
+                    height: 250px;
+                    border-radius: 10px;
+                    margin-bottom: 10px;
+                }
+
+                .team-card h4 {
+                    font-size: 17px;
+                    color: #0d47a1;
+                    margin: 8px 0 4px;
+                    font-weight: bold;
+                }
+
+                .team-card p {
+                    color: #666;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+
+                @media (max-width: 768px) {
+                    .team-groups {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+
+                    .team-grid {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+
+                    .team-member img {
+                        max-width: 90%;
+                    }
+
+                    .team-card {
+                        width: 90%;
+                        max-width: 90%;
+                    }
+                }
+            </style>
+
+            <div class="team-container">
+                <h2 class="heading">Our Valuable Team Members</h2>
+
+                <!-- CEO -->
+                <div class="team-member">
+                    <img src="/HOMESPECTOR/img/staff/Sumes.jpg" alt="Sumes Chetthamrongchai" />
+                    <h4>Sumes Chetthamrongchai</h4>
+                    <p>Founder & Managing Director, NACHI Certified Inspector</p>
+                </div>
+                <!-- <h2 class="heading">T.HOME INSPECTOR</h2> -->
+                <!-- Team Groups -->
+                <div class="team-groups">
+                    <!-- Left: Engineering Team -->
+                    <div class="team-group">
+                        <div class="team-grid">
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Co-founder.jpg" alt="Suthep J.">
+                                <h4>Suthep J.</h4>
+                                <p>Engineering Manager</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="/HOMESPECTOR/img/staff/Charnthawat_240.webp" alt="Jennie Roberts"
-                                    class="member-image">
-                                <div class="team-name">Charnthawat</div>
-                                <div class="team-role">Senior Inspector</div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Charnthawat.jpg" alt="Charnthawat">
+                                <h4>Charnthawat C.</h4>
+                                <p>Engineering Manager</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="/HOMESPECTOR/img/staff/Waroj_240.webp" alt="Ann Richmond"
-                                    class="member-image">
-                                <div class="team-name">Waroj</div>
-                                <div class="team-role">Senior Inspector</div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Jakkarin.jpg" alt="Jakkarin">
+                                <h4>Jakkarin S.</h4>
+                                <p>Inspector</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="/HOMESPECTOR/img/staff/Supapat_240.webp" alt="Supapat"
-                                    class="member-image">
-                                <div class="team-name">Supapat</div>
-                                <div class="team-role">Inspector</div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Phonthewa.JPG" alt="Phonthewa">
+                                <h4>Phonthewa K.</h4>
+                                <p>Inspector</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="/HOMESPECTOR/img/staff/Chonsawat_240.webp" alt="Chonsawat"
-                                    class="member-image">
-                                <div class="team-name">Chonsawat</div>
-                                <div class="team-role">Phonthewa</div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Waroj.jpg" alt="Waroj">
+                                <h4>Waroj T.</h4>
+                                <p>Inspector</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="/HOMESPECTOR/img/staff/Phonthewa_240.webp" alt="Phonthewa"
-                                    class="member-image">
-                                <div class="team-name">Phonthewa</div>
-                                <div class="team-role">Inspector</div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Chagkrit.jpg" alt="Chagkrit">
+                                <h4>Chagkrit S.</h4>
+                                <p>Inspector</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="/HOMESPECTOR/img/staff/Watanon_240.webp" alt="Watanon"
-                                    class="member-image">
-                                <div class="team-name">Watanon</div>
-                                <div class="team-role">Inspector</div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Chonsawat.jpg" alt="Chonsawat">
+                                <h4>Chonsawat C.</h4>
+                                <p>Inspector</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Jennie Roberts"
-                                    class="member-image">
-                                <div class="team-name">Jennie Roberts</div>
-                                <div class="team-role">Creative Director</div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Watanon.JPG" alt="Watanon">
+                                <h4>Watanon L.</h4>
+                                <p>Inspector</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="https://randomuser.me/api/portraits/women/13.jpg" alt="Ann Richmond"
-                                    class="member-image">
-                                <div class="team-name">Ann Richmond</div>
-                                <div class="team-role">Lead Developer</div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/peerapat.jpg" alt="Charnthawat">
+                                <h4>Peerapat P.</h4>
+                                <p>Inspector</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="James Oliver"
-                                    class="member-image">
-                                <div class="team-name">James Oliver</div>
-                                <div class="team-role">Marketing Director</div>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://randomuser.me/api/portraits/women/15.jpg" alt="Sophia Chen"
-                                    class="member-image">
-                                <div class="team-name">Sophia Chen</div>
-                                <div class="team-role">UX Designer</div>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://randomuser.me/api/portraits/men/16.jpg" alt="Michael Johnson"
-                                    class="member-image">
-                                <div class="team-name">Michael Johnson</div>
-                                <div class="team-role">Product Manager</div>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://randomuser.me/api/portraits/men/16.jpg" alt="Michael Johnson"
-                                    class="member-image">
-                                <div class="team-name">Michael Johnson</div>
-                                <div class="team-role">Product Manager</div>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://randomuser.me/api/portraits/men/16.jpg" alt="Michael Johnson"
-                                    class="member-image">
-                                <div class="team-name">Michael Johnson</div>
-                                <div class="team-role">Product Manager</div>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://randomuser.me/api/portraits/men/16.jpg" alt="Michael Johnson"
-                                    class="member-image">
-                                <div class="team-name">Michael Johnson</div>
-                                <div class="team-role">Product Manager</div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/cho.jpg" alt="Charnthawat">
+                                <h4>Vatanyu T.</h4>
+                                <p>Junior Inspector</p>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="swiper-pagination"></div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                    <!-- Right: Admin/Creative Team -->
+                    <div class="team-group">
+                        <!-- <h3 class="group-heading">Admin & Creative Team</h3> -->
+                        <div class="team-grid">
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Punpun.JPG" alt="PunPun">
+                                <h4>Punpun W.</h4>
+                                <p>General Manager</p>
+                            </div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Fongmany.JPG" alt="Fongmany">
+                                <h4>Fongmany L.</h4>
+                                <p>Marketing Manager</p>
+                            </div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Nutnaree.JPG"
+                                    alt="Nutnaree M.">
+                                <h4>Nutnaree M.</h4>
+                                <p>Admin</p>
+                            </div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/pun.JPG" alt="Puntharika A.">
+                                <h4>Puntharika A.</h4>
+                                <p>Creative Content Creator</p>
+                            </div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Sorawit.JPG"
+                                    alt="Sorawit W.">
+                                <h4>Sorawit W.</h4>
+                                <p>Video Editor</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
-            <section class="team-section-wrapper">
-                <div class="team-container">
-                    <?php echo getContent('team'); ?>
+            <!-- T.Cons -->
+            <div class="team-container">
+                <!-- <h2 class="heading">T.CONSTRUCTION</h2> -->
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="/HOMESPECTOR/img/staff/Co-founder1.jpg" alt="Suthep">
+                        <h4>Suthep J.</h4>
+                        <p>Project Manager</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="/HOMESPECTOR/img/staff/sarayut.jpg" alt="Sarayut">
+                        <h4>Sarayut T.</h4>
+                        <p>Project Consultant</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://img.freepik.com/free-photo/smiling-asian-man-using-tablet-computer_1262-18324.jpg?t=st=1744191496~exp=1744195096~hmac=f62495ae433146723b2c2d5ce529d1d5da87c6712d087ef6c5af4fcacc603c56&w=996" alt="Pikanet">
+                        <h4>Pikanet P.</h4>
+                        <p>Site Manager</p>
+                    </div>
                 </div>
-            </section>
+            </div>
 
-            <!-- Swiper JS -->
-            <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+            <div class="team-container">
+                <!-- <h2 class="heading">T.INTERIOR</h2> -->
+                <!-- Team Groups -->
+                <div class="team-groups">
+                    <!-- Left: Engineering Team -->
+                    <div class="team-group">
+                        <!-- <h3 class="group-heading">Engineering Team</h3> -->
+                        <div class="team-grid">
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Co-founder.jpg" alt="Akkarin">
+                                <h4>Akkarin S.</h4>
+                                <p>Project Manager</p>
+                            </div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Charnthawat.jpg" alt="Nattawee">
+                                <h4>Nattawee K.</h4>
+                                <p>Engineering</p>
+                            </div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Co-founder.jpg" alt="Phattawat">
+                                <h4>Phattawat V.</h4>
+                                <p>Foreman</p>
+                            </div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Jakkarin.jpg" alt="Pilaiwan">
+                                <h4>Pilaiwan P. </h4>
+                                <p>Graphic</p>
+                            </div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Phonthewa.JPG" alt="Phonthewa">
+                                <h4>Technic K.</h4>
+                                <p>Video Editor</p>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- Swiper Configuration -->
-            <script>
-                var swiper = new Swiper(".mySwiper", {
-                    loop: true,
-                    grabCursor: true,
-                    spaceBetween: 30,
-                    centeredSlides: true,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                    breakpoints: {
-                        0: { slidesPerView: 1 },
-                        640: { slidesPerView: 2 },
-                        768: { slidesPerView: 2 },
-                        1024: { slidesPerView: 3 },
-                        1200: { slidesPerView: 4 }
-                    }
-                });
-            </script>
+                    <!-- Right: Admin/Creative Team -->
+                    <div class="team-group">
+                        <!-- <h3 class="group-heading">Admin & Creative Team</h3> -->
+                        <div class="team-grid">
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Punpun.JPG" alt="Srunraz">
+                                <h4>Srunraz K.</h4>
+                                <p>Designer Supervisor</p>
+                            </div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/Fongmany.JPG" alt="Thanyanared">
+                                <h4>Thanyanared P.</h4>
+                                <p>Interior Designer</p>
+                            </div>
+                            <div class="team-card">
+                                <img src="https://img.freepik.com/free-photo/pretty-asian-woman-with-tablet-office_1098-20856.jpg?t=st=1744189063~exp=1744192663~hmac=3f374a2589f19451b5919a81c10f0b10c0bf66b1e61b135aa78af2586545f107&w=740"
+                                    alt="Vaitaya">
+                                <h4>Vaitaya K.</h4>
+                                <p>Interior Designer</p>
+                            </div>
+                            <div class="team-card">
+                                <img src="https://img.freepik.com/premium-photo/portrait-mid-adult-man-photographing-with-camera-against-white-background_1048944-20872893.jpg?w=740"
+                                    alt="Watcharakorn">
+                                <h4>Watcharakorn S.</h4>
+                                <p>Interior Designer</p>
+                            </div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/pun.JPG" alt="Khanawat">
+                                <h4>Khanawat B.</h4>
+                                <p>Interior Designer</p>
+                            </div>
+                            <div class="team-card">
+                                <img src="/HOMESPECTOR/img/staff/pun.JPG" alt="Kewalee">
+                                <h4>Kewalee P.</h4>
+                                <p>Interior Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
 
             <footer class="footer">
                 <div class="footer-container">
@@ -601,7 +803,7 @@ function getContent($section) {
     <script src="/HOMESPECTOR/JS/ourteam.js"></script>
     <script src="/HOMESPECTOR/JS/search_ham.js"></script>
     <script src="/HOMESPECTOR/JS/footer.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
