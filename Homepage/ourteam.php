@@ -30,6 +30,137 @@ function getContent($section) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <title>Header Design</title>
 </head>
+<style>
+    .team-container {
+        padding: 40px 20px;
+        max-width: 1200px;
+        margin: auto;
+        border-radius: 12px;
+        margin-bottom: 50px;
+    }
+
+    .heading {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 28px;
+        color: #1a237e;
+        font-weight: bold;
+    }
+
+    .team-member {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+        text-align: center;
+        border-radius: 12px;
+    }
+
+    .team-member img {
+        width: 100%;
+        max-width: 250px;
+        border-radius: 15px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        margin-bottom: 12px;
+    }
+
+    .team-member h4 {
+        margin: 12px 0 6px;
+        font-size: 20px;
+        color: #0d47a1;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .team-member p {
+        color: #444;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .team-groups {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    .team-group {
+        flex: 1 1 45%;
+    }
+
+    .group-heading {
+        font-size: 22px;
+        font-weight: bold;
+        color: #1a237e;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .team-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .team-card {
+        flex: 1 1 230px;
+        max-width: 230px;
+        height: 348px;
+        border-radius: 12px;
+        padding: 15px;
+        text-align: center;
+    }
+
+
+    .team-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .team-card img {
+        width: 100%;
+        max-width: 200px;
+        height: 250px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .team-card h4 {
+        font-size: 17px;
+        color: #0d47a1;
+        margin: 8px 0 4px;
+        font-weight: bold;
+    }
+
+    .team-card p {
+        color: #666;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .team-groups {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-grid {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-member img {
+            max-width: 90%;
+        }
+
+        .team-card {
+            width: 90%;
+            max-width: 90%;
+        }
+    }
+</style>
 
 <body>
     <div class="content-box">
@@ -292,58 +423,6 @@ function getContent($section) {
                 });
             </script>
 
-            <!-- <section class="about">
-                <div class="about-container">
-                    <h2>ต.ตรวจบ้าน</h2>
-                    <p>
-                        ต.ตรวจบ้านก่อตั้งขึ้นเมื่อปี 2015 โดยคุณสมเย ซอว์ราซัย และคุณเทพ เดชกีราชชัย
-                        จดทะเบียนในนามบริษัท ต.วัสดี ลากคาสตรัค จำกัด
-                        และได้รับอนุญาตประกอบวิชาชีพการตรวจสอบอาคารบ้านเป็นผู้ดูแลจากสภาวิศวกร
-                        และเมตตา ยินดีดูแล
-                    </p>
-                    <p>
-                        ต.ตรวจบ้านมีความมุ่งมั่นตรวจสอบความเรียบร้อยของบ้านและคอนโดก่อนรับโอนกรรมสิทธิ์
-                        ตรวจสอบห้องด้วยผู้เชี่ยวชาญเฉพาะด้าน รวมถึงใช้เครื่องมือการตรวจที่ทันสมัย “ตรวจจริง
-                        เห็นกับตา ไปพร้อมลูกค้า”
-                    </p>
-                </div>
-                <section class="video-section">
-                    <div class="video-container">
-                        <iframe width="560" height="315"
-                            src="https://www.youtube.com/embed/47ZFlpLnICQ?si=qqGsOzRYYFCuL8FQ"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                        </iframe>
-                    </div>
-                </section>
-            </section>
-
-            <section class="our-founders">
-                <h2 data-aos="fade-up">Our Founders</h2>
-                <div class="founders-container">
-                    <div class="founder" data-aos="fade-right">
-                        <img src="/HOMESPECTOR/img/staff/CEO.jpg" alt="Sumes Chetthamrongchai" class="founder-photo">
-                        <h3>Sumes Chetthamrongchai</h3>
-                        <p>Founder & Managing Director, NACHI Certified Inspector</p>
-                        <div class="certification-container">
-                            <p class="certification">
-                                ได้รับการรับรองผู้ตรวจสอบบ้านจากสมาคมระดับโลกอย่าง INTERNACHI
-                            </p>
-                            <img src="/HOMESPECTOR/img/certified3.png" alt="Certification Badge"
-                                class="certification-badge">
-                        </div>
-                    </div>
-                    <div class="founder" data-aos="fade-left">
-                        <img src="/HOMESPECTOR/img/staff/Co-founder.jpg" alt="Suthep Chetthamrongchai"
-                            class="founder-photo">
-                        <h3>Suthep Chetthamrongchai</h3>
-                        <p>Co-Founder & Civil Engineer</p>
-                    </div>
-                </div>
-            </section> -->
-
-
 
             <section class="about">
                 <div class="about-container">
@@ -355,6 +434,13 @@ function getContent($section) {
                 <div class="founders-container">
                     <?php 
                         // echo getContent('founders'); 
+                    ?>
+                </div>
+            </section>
+            <section class="team-container">
+                <div class="team-groups">
+                    <?php 
+                        echo getContent('team'); 
                     ?>
                 </div>
             </section>
@@ -381,345 +467,190 @@ function getContent($section) {
                     </div>
                 </div>
             </section> -->
-            <style>
-                .team-container {
-                    padding: 40px 20px;
-                    max-width: 1200px;
-                    margin: auto;
-                    border-radius: 12px;
-                    margin-bottom:50px;
-                    /* background: linear-gradient(to bottom right, #f7f9fc, #e0ecff); */
-                }
 
-                .heading {
-                    text-align: center;
-                    margin-bottom: 40px;
-                    font-size: 28px;
-                    color: #1a237e;
-                    font-weight: bold;
-                }
-
-                .team-member {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    margin-bottom: 50px;
-                    text-align: center;
-                    background-color: rgb(255, 255, 255);
-                    border-radius: 12px;
-                }
-
-                .team-member img {
-                    width: 100%;
-                    max-width: 250px;
-                    border-radius: 15px;
-                    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-                    margin-bottom: 12px;
-                }
-
-                .team-member h4 {
-                    margin: 12px 0 6px;
-                    font-size: 20px;
-                    color: #0d47a1;
-                    text-align: center;
-                    font-weight: bold;
-                }
-
-                .team-member p {
-                    color: #444;
-                    font-size: 15px;
-                    font-weight: bold;
-                }
-
-                .team-groups {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-between;
-                    gap: 40px;
-                }
-
-                .team-group {
-                    flex: 1 1 45%;
-                }
-
-                .group-heading {
-                    font-size: 22px;
-                    font-weight: bold;
-                    color: #1a237e;
-                    margin-bottom: 20px;
-                    text-align: center;
-                }
-
-                .team-grid {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    gap: 30px;
-                }
-
-                .team-card {
-                    flex: 1 1 230px;
-                    max-width: 230px;
-                    height: 335px;
-                    background-color: #ffffff;
-                    border-radius: 12px;
-                    padding: 15px;
-                    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
-                    text-align: center;
-                }
-
-                .team-card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-                }
-
-                .team-card img {
-                    width: 100%;
-                    max-width: 200px;
-                    height: 250px;
-                    border-radius: 10px;
-                    margin-bottom: 10px;
-                }
-
-                .team-card h4 {
-                    font-size: 17px;
-                    color: #0d47a1;
-                    margin: 8px 0 4px;
-                    font-weight: bold;
-                }
-
-                .team-card p {
-                    color: #666;
-                    font-size: 14px;
-                    font-weight: bold;
-                }
-
-                @media (max-width: 768px) {
-                    .team-groups {
-                        flex-direction: column;
-                        align-items: center;
-                    }
-
-                    .team-grid {
-                        flex-direction: column;
-                        align-items: center;
-                    }
-
-                    .team-member img {
-                        max-width: 90%;
-                    }
-
-                    .team-card {
-                        width: 90%;
-                        max-width: 90%;
-                    }
-                }
-            </style>
-
-            <div class="team-container">
+            <!-- <div class="team-container">
                 <h2 class="heading">Our Valuable Team Members</h2>
 
-                <!-- CEO -->
-                <div class="team-member">
+                <div class="team-member" data-aos="fade-up">
                     <img src="/HOMESPECTOR/img/staff/Sumes.jpg" alt="Sumes Chetthamrongchai" />
                     <h4>Sumes Chetthamrongchai</h4>
                     <p>Founder & Managing Director, NACHI Certified Inspector</p>
                 </div>
-                <!-- <h2 class="heading">T.HOME INSPECTOR</h2> -->
-                <!-- Team Groups -->
                 <div class="team-groups">
-                    <!-- Left: Engineering Team -->
                     <div class="team-group">
                         <div class="team-grid">
-                            <div class="team-card">
+                            <div class="team-card" data-aos="fade-up-right">
                                 <img src="/HOMESPECTOR/img/staff/Co-founder.jpg" alt="Suthep J.">
                                 <h4>Suthep J.</h4>
-                                <p>Engineering Manager</p>
+                                <p>Engineering Manager, T.Home Inspector</p>
                             </div>
-                            <div class="team-card">
+                            <div class="team-card" data-aos="fade-up">
                                 <img src="/HOMESPECTOR/img/staff/Charnthawat.jpg" alt="Charnthawat">
                                 <h4>Charnthawat C.</h4>
-                                <p>Engineering Manager</p>
+                                <p>Engineering Manage, T.Home Inspector</p>
                             </div>
-                            <div class="team-card">
+                            <div class="team-card" data-aos="fade-up-right">
                                 <img src="/HOMESPECTOR/img/staff/Jakkarin.jpg" alt="Jakkarin">
                                 <h4>Jakkarin S.</h4>
-                                <p>Inspector</p>
+                                <p>Inspector, T.Home Inspector</p>
                             </div>
-                            <div class="team-card">
+                            <div class="team-card" data-aos="fade-up">
                                 <img src="/HOMESPECTOR/img/staff/Phonthewa.JPG" alt="Phonthewa">
                                 <h4>Phonthewa K.</h4>
-                                <p>Inspector</p>
+                                <p>Inspector, T.Home Inspector</p>
                             </div>
-                            <div class="team-card">
+                            <div class="team-card" data-aos="fade-up-right">
                                 <img src="/HOMESPECTOR/img/staff/Waroj.jpg" alt="Waroj">
                                 <h4>Waroj T.</h4>
-                                <p>Inspector</p>
+                                <p>Inspector, T.Home Inspector</p>
                             </div>
-                            <div class="team-card">
+                            <div class="team-card" data-aos="fade-up">
                                 <img src="/HOMESPECTOR/img/staff/Chagkrit.jpg" alt="Chagkrit">
                                 <h4>Chagkrit S.</h4>
-                                <p>Inspector</p>
+                                <p>Inspector, T.Home Inspector</p>
                             </div>
-                            <div class="team-card">
+                            <div class="team-card" data-aos="fade-up-right">
                                 <img src="/HOMESPECTOR/img/staff/Chonsawat.jpg" alt="Chonsawat">
                                 <h4>Chonsawat C.</h4>
-                                <p>Inspector</p>
+                                <p>Inspector, T.Home Inspector</p>
                             </div>
-                            <div class="team-card">
+                            <div class="team-card" data-aos="fade-up">
                                 <img src="/HOMESPECTOR/img/staff/Watanon.JPG" alt="Watanon">
                                 <h4>Watanon L.</h4>
-                                <p>Inspector</p>
+                                <p>Inspector, T.Home Inspector</p>
                             </div>
-                            <div class="team-card">
+                            <div class="team-card" data-aos="fade-up-right">
                                 <img src="/HOMESPECTOR/img/staff/peerapat.jpg" alt="Charnthawat">
                                 <h4>Peerapat P.</h4>
-                                <p>Inspector</p>
+                                <p>Inspector, T.Home Inspector</p>
                             </div>
-                            <div class="team-card">
+                            <div class="team-card" data-aos="fade-up">
                                 <img src="/HOMESPECTOR/img/staff/cho.jpg" alt="Charnthawat">
                                 <h4>Vatanyu T.</h4>
-                                <p>Junior Inspector</p>
+                                <p>Junior Inspector, T.Home Inspector</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right: Admin/Creative Team -->
                     <div class="team-group">
-                        <!-- <h3 class="group-heading">Admin & Creative Team</h3> -->
                         <div class="team-grid">
-                            <div class="team-card">
+                            <div class="team-card" data-aos="fade-up">
                                 <img src="/HOMESPECTOR/img/staff/Punpun.JPG" alt="PunPun">
                                 <h4>Punpun W.</h4>
-                                <p>General Manager</p>
+                                <p>General Manager, T.Home Inspector</p>
                             </div>
-                            <div class="team-card">
+                            <div class="team-card" data-aos="fade-up-left">
                                 <img src="/HOMESPECTOR/img/staff/Fongmany.JPG" alt="Fongmany">
                                 <h4>Fongmany L.</h4>
-                                <p>Marketing Manager</p>
+                                <p>Marketing Manager, T.Home Inspector</p>
                             </div>
-                            <div class="team-card">
-                                <img src="/HOMESPECTOR/img/staff/Nutnaree.JPG"
-                                    alt="Nutnaree M.">
+                            <div class="team-card" data-aos="fade-up">
+                                <img src="/HOMESPECTOR/img/staff/Nutnaree.JPG" alt="Nutnaree M.">
                                 <h4>Nutnaree M.</h4>
-                                <p>Admin</p>
+                                <p>Admin, T.Home Inspector</p>
                             </div>
-                            <div class="team-card">
+                            <div class="team-card" data-aos="fade-up-left">
                                 <img src="/HOMESPECTOR/img/staff/pun.JPG" alt="Puntharika A.">
                                 <h4>Puntharika A.</h4>
-                                <p>Creative Content Creator</p>
+                                <p>Creative Content Creator, T.Home Inspector</p>
                             </div>
-                            <div class="team-card">
-                                <img src="/HOMESPECTOR/img/staff/Sorawit.JPG"
-                                    alt="Sorawit W.">
+                            <div class="team-card" data-aos="fade-up">
+                                <img src="/HOMESPECTOR/img/staff/Sorawit.JPG" alt="Sorawit W.">
                                 <h4>Sorawit W.</h4>
-                                <p>Video Editor</p>
+                                <p>Video Editor, T.Home Inspector</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- T.Cons -->
             <div class="team-container">
-                <!-- <h2 class="heading">T.CONSTRUCTION</h2> -->
+
                 <div class="team-grid">
-                    <div class="team-card">
+                    <div class="team-card" data-aos="fade-up-right">
                         <img src="/HOMESPECTOR/img/staff/Co-founder1.jpg" alt="Suthep">
                         <h4>Suthep J.</h4>
-                        <p>Project Manager</p>
+                        <p>Project Manager, T.Construction</p>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-aos="fade-up">
                         <img src="/HOMESPECTOR/img/staff/sarayut.jpg" alt="Sarayut">
                         <h4>Sarayut T.</h4>
-                        <p>Project Consultant</p>
+                        <p>Project Consultant, T.Construction</p>
                     </div>
-                    <div class="team-card">
-                        <img src="https://img.freepik.com/free-photo/smiling-asian-man-using-tablet-computer_1262-18324.jpg?t=st=1744191496~exp=1744195096~hmac=f62495ae433146723b2c2d5ce529d1d5da87c6712d087ef6c5af4fcacc603c56&w=996" alt="Pikanet">
+                    <div class="team-card" data-aos="fade-up-left">
+                        <img src="https://img.freepik.com/free-photo/smiling-asian-man-using-tablet-computer_1262-18324.jpg?t=st=1744191496~exp=1744195096~hmac=f62495ae433146723b2c2d5ce529d1d5da87c6712d087ef6c5af4fcacc603c56&w=996"
+                            alt="Pikanet">
                         <h4>Pikanet P.</h4>
-                        <p>Site Manager</p>
+                        <p>Site Manager, T.Construction</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="team-container">
-                <!-- <h2 class="heading">T.INTERIOR</h2> -->
-                <!-- Team Groups -->
+            <!-- <div class="team-container">
                 <div class="team-groups">
-                    <!-- Left: Engineering Team -->
                     <div class="team-group">
-                        <!-- <h3 class="group-heading">Engineering Team</h3> -->
                         <div class="team-grid">
-                            <div class="team-card">
-                                <img src="/HOMESPECTOR/img/staff/Co-founder.jpg" alt="Akkarin">
+                            <div class="team-card" data-aos="fade-up-right">
+                                <img src="/HOMESPECTOR/img/staff/akkarin.jpg" alt="Akkarin">
                                 <h4>Akkarin S.</h4>
-                                <p>Project Manager</p>
+                                <p>Project Manager, T.Interior</p>
                             </div>
-                            <div class="team-card">
-                                <img src="/HOMESPECTOR/img/staff/Charnthawat.jpg" alt="Nattawee">
+                            <div class="team-card" data-aos="fade-up">
+                                <img src="/HOMESPECTOR/img/staff/nattawee.jpg" alt="Nattawee">
                                 <h4>Nattawee K.</h4>
-                                <p>Engineering</p>
+                                <p>Engineering, T.Interior</p>
                             </div>
-                            <div class="team-card">
-                                <img src="/HOMESPECTOR/img/staff/Co-founder.jpg" alt="Phattawat">
+                            <div class="team-card" data-aos="fade-up-right">
+                                <img src="/HOMESPECTOR/img/staff/phattawat.png" alt="Phattawat">
                                 <h4>Phattawat V.</h4>
-                                <p>Foreman</p>
+                                <p>Foreman, T.Interior</p>
                             </div>
-                            <div class="team-card">
-                                <img src="/HOMESPECTOR/img/staff/Jakkarin.jpg" alt="Pilaiwan">
+                            <div class="team-card" data-aos="fade-up">
+                                <img src="/HOMESPECTOR/img/staff/pilaiwan.jpg" alt="Pilaiwan">
                                 <h4>Pilaiwan P. </h4>
-                                <p>Graphic</p>
+                                <p>Graphic, T.Interior</p>
                             </div>
-                            <div class="team-card">
-                                <img src="/HOMESPECTOR/img/staff/Phonthewa.JPG" alt="Phonthewa">
+                            <div class="team-card" data-aos="fade-up">
+                                <img src="/HOMESPECTOR/img/staff/technic.jpg" alt="technic">
                                 <h4>Technic K.</h4>
-                                <p>Video Editor</p>
+                                <p>Video Editor, T.Interior</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Right: Admin/Creative Team -->
-                    <div class="team-group">
-                        <!-- <h3 class="group-heading">Admin & Creative Team</h3> -->
+                    <!-- <div class="team-group">
                         <div class="team-grid">
-                            <div class="team-card">
-                                <img src="/HOMESPECTOR/img/staff/Punpun.JPG" alt="Srunraz">
+                            <div class="team-card" data-aos="fade-up">
+                                <img src="https://img.freepik.com/free-photo/cheerful-asian-woman-sitting-desk-office-writing-posing-camera_1098-20494.jpg?t=st=1744251417~exp=1744255017~hmac=40806272eb9e24671b56271fdf838728f787967c14a48e48b7734c0eef75194a&w=740"
+                                    alt="Srunraz">
                                 <h4>Srunraz K.</h4>
-                                <p>Designer Supervisor</p>
+                                <p>Designer Supervisor, T.Interior</p>
                             </div>
-                            <div class="team-card">
-                                <img src="/HOMESPECTOR/img/staff/Fongmany.JPG" alt="Thanyanared">
-                                <h4>Thanyanared P.</h4>
-                                <p>Interior Designer</p>
-                            </div>
-                            <div class="team-card">
-                                <img src="https://img.freepik.com/free-photo/pretty-asian-woman-with-tablet-office_1098-20856.jpg?t=st=1744189063~exp=1744192663~hmac=3f374a2589f19451b5919a81c10f0b10c0bf66b1e61b135aa78af2586545f107&w=740"
-                                    alt="Vaitaya">
+                            <div class="team-card" data-aos="fade-up-left">
+                                <img src="/HOMESPECTOR/img/staff/vaitaya.png" alt="Vaitaya">
                                 <h4>Vaitaya K.</h4>
-                                <p>Interior Designer</p>
+                                <p>Interior Designer, T.Interior</p>
                             </div>
-                            <div class="team-card">
-                                <img src="https://img.freepik.com/premium-photo/portrait-mid-adult-man-photographing-with-camera-against-white-background_1048944-20872893.jpg?w=740"
-                                    alt="Watcharakorn">
+                            <div class="team-card" data-aos="fade-up">
+                                <img src="/HOMESPECTOR/img/staff/watcharakorn.png" alt="Watcharakorn">
                                 <h4>Watcharakorn S.</h4>
-                                <p>Interior Designer</p>
+                                <p>Interior Designer, T.Interior</p>
                             </div>
-                            <div class="team-card">
-                                <img src="/HOMESPECTOR/img/staff/pun.JPG" alt="Khanawat">
+                            <div class="team-card" data-aos="fade-up-left">
+                                <img src="/HOMESPECTOR/img/staff/khanawat.png" alt="Khanawat">
                                 <h4>Khanawat B.</h4>
-                                <p>Interior Designer</p>
+                                <p>Interior Designer, T.Interior</p>
                             </div>
-                            <div class="team-card">
-                                <img src="/HOMESPECTOR/img/staff/pun.JPG" alt="Kewalee">
+                            <div class="team-card" data-aos="fade-up">
+                                <img src="/HOMESPECTOR/img/staff/kewalee.png" alt="Kewalee">
                                 <h4>Kewalee P.</h4>
-                                <p>Interior Designer</p>
+                                <p>Interior Designer, T.Interior</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
 

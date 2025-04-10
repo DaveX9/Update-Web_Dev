@@ -387,11 +387,11 @@
                 <div class="content-carousel">
                     <!-- Item 1 -->
                     <!-- <a href="/HOMESPECTOR/Homepage/carousel_content.php" class="content-carousel-item">
-                          <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="Content 1">
-                          <div class="content-carousel-info">
+                        <img src="/HOMESPECTOR/img/thumbnail4.jpg" alt="Content 1">
+                        <div class="content-carousel-info">
                             <h3>รีวิวตรวจบ้านดารา เซเลบ อินฟลู</h3>
                             <p>รีวิวการตรวจบ้านเดี่ยว พระเอกดัง!! " ตงตง เดอะสตาร์</p>
-                          </div>
+                        </div>
                         </a> -->
                     <a href="/HOMESPECTOR/Homepage/carousel_content1.php" class="content-carousel-item">
                         <img src="/HOMESPECTOR/img/carousel_thumb1.jpg" alt="Content 1">
