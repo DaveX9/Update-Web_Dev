@@ -68,7 +68,7 @@
                 </div>
                 <!-- Logo -->
                 <div class="logo">
-                <a href="/HOMESPECTOR/Homepage/index.html">
+                <a href="/HOMESPECTOR/Homepage/index.php">
                     <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
                 </a>
                 </div>
@@ -96,7 +96,7 @@
             </header>
             <nav class="nav-links" id="nav-links">
             <ul>
-                <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
+                <li><a href="/HOMESPECTOR/Homepage/index.php" data-translate="nav.home">หน้าหลัก</a>
                 </li>
                 <li><a href="/HOMESPECTOR/backend/panel/admin_service.php" data-translate="nav.services">บริการ</a></li>
                 <li><a href="/HOMESPECTOR/Homepage/promotion.php" data-translate="nav.promotion">สิทธิพิเศษ</a>
@@ -116,8 +116,8 @@
                 </ul>
                 </li>
 
-                <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
-                <li><a href="/HOMESPECTOR/Homepage/Review-home.html" data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/articles.php" data-translate="nav.articles">บทความ</a></li>
+                <li><a href="/HOMESPECTOR/Homepage/Review-home.php" data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                 <li><a href="/HOMESPECTOR/Homepage/review_interior.php"
                     data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
                 <li class="dropdown">
@@ -165,7 +165,7 @@
 
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="/HOMESPECTOR/Homepage/index.html">
+                    <a href="/HOMESPECTOR/Homepage/index.php">
                     <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
                     </a>
                 </div>
@@ -190,7 +190,7 @@
                 <div class="menu-section">
                 <h3>Navigation</h3>
                 <ul>
-                    <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
+                    <li><a href="/HOMESPECTOR/Homepage/index.php" data-translate="nav.home">หน้าหลัก</a>
                     </li>
                     <li><a href="/HOMESPECTOR/Homepage/service.php" data-translate="nav.services">บริการ</a></li>
                     <li><a href="/HOMESPECTOR/Homepage/promotion.php" data-translate="nav.promotion">สิทธิพิเศษ</a></li>
@@ -208,8 +208,8 @@
                     </ul>
                     </li>
 
-                    <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
-                    <li><a href="/HOMESPECTOR/Homepage/Review-home.html" data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
+                    <li><a href="/HOMESPECTOR/Homepage/articles.php" data-translate="nav.articles">บทความ</a></li>
+                    <li><a href="/HOMESPECTOR/Homepage/Review-home.php" data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                     <li><a href="/HOMESPECTOR/Homepage/review_interior.php"
                         data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
                     <li><a href="/HOMESPECTOR/Homepage/joinwithus.php" data-translate="nav.joinUs">รวมงานกับเรา</a></li>

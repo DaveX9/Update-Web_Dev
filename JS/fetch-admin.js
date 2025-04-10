@@ -26,7 +26,7 @@ $.get('load-carousel.php', function (data) {
 });
 //why choose us
 // Fetch saved content and populate the section
-$.get('load-content.html', function (data) {
+$.get('load-content.php', function (data) {
     const content = JSON.parse(data);
 
     // Populate content dynamically

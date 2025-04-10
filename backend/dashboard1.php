@@ -567,7 +567,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
                 </div>
                 <div class="service-card" data-aos="fade-up">
                     <div class="service-icon">
-                        <a href="hinterior.html">
+                        <a href="Hinterior.php">
                             <img src="/HOMESPECTOR/img/s2.png" alt="T. Home Interior">
                         </a>
                     </div>

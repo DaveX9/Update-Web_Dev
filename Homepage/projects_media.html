@@ -11,9 +11,62 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <link rel="stylesheet" href="/HOMESPECTOR/CSS/Review-home.css">
+    <link rel="stylesheet" href="/HOMESPECTOR/CSS/project_media.css">
     <title>Header Design</title>
 </head>
+<style>
+    .link-cards {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .facebook {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background-image: url('/HOMESPECTOR/img/hero-bg3.jpg'); */
+        background-color: var(--font2-color);
+        background-size: cover;
+        background-position: center;
+        color: white;
+        border-radius: 15px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        width: 200px;
+        height: 60px;
+        box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.767);
+        padding: 10px 20px;
+    }
+
+    .facebook:hover {
+        color: #000;
+
+    }
+
+    .facebook-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .facebook-content p {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .facebook-content i {
+        font-size: 20px;
+        margin-left: 5px;
+    }
+</style>
 
 <body>
     <div class="content-box">
@@ -38,7 +91,7 @@
                         </div>
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="/HOMESPECTOR/Homepage/index.html">
+                            <a href="/HOMESPECTOR/Homepage/index.php">
                                 <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
                             </a>
                         </div>
@@ -66,7 +119,7 @@
                 </header>
                 <nav class="nav-links" id="nav-links">
                     <ul>
-                        <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
+                        <li><a href="/HOMESPECTOR/Homepage/index.php" data-translate="nav.home">หน้าหลัก</a>
                         </li>
                         <li><a href="/HOMESPECTOR/Homepage/service.php" data-translate="nav.services">บริการ</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/promotion.php" data-translate="nav.promotion">สิทธิพิเศษ</a>
@@ -95,14 +148,14 @@
                                 <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                         data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                 </li>
-                                <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
+                                <li><a href="cal-electric.php" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
                                 </li>
-                                <li><a href="checklist.html" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
+                                <li><a href="checklist.php" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
-                        <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
+                        <li><a href="/HOMESPECTOR/Homepage/articles.php" data-translate="nav.articles">บทความ</a></li>
+                        <li><a href="/HOMESPECTOR/Homepage/Review-home.php"
                                 data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/review_interior.php"
                                 data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
@@ -136,7 +189,7 @@
 
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="/HOMESPECTOR/Homepage/index.html">
+                                <a href="/HOMESPECTOR/Homepage/index.php">
                                     <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
                                 </a>
                             </div>
@@ -161,7 +214,7 @@
                         <div class="menu-section">
                             <h3>Navigation</h3>
                             <ul>
-                                <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
+                                <li><a href="/HOMESPECTOR/Homepage/index.php" data-translate="nav.home">หน้าหลัก</a>
                                 </li>
                                 <li><a href="/HOMESPECTOR/Homepage/service.php" data-translate="nav.services">บริการ</a>
                                 </li>
@@ -193,15 +246,15 @@
                                         <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                                 data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                         </li>
-                                        <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
+                                        <li><a href="cal-electric.php" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
                                         </li>
-                                        <li><a href="checklist.html" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
+                                        <li><a href="checklist.php" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="/HOMESPECTOR/Homepage/articles.html"
+                                <li><a href="/HOMESPECTOR/Homepage/articles.php"
                                         data-translate="nav.articles">บทความ</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
+                                <li><a href="/HOMESPECTOR/Homepage/Review-home.php"
                                         data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/review_interior.php"
                                         data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
@@ -236,145 +289,73 @@
                     </div>
                 </div>
             </div>
-
-            <div class="contact-container1">
-                <a id="phone-link" href="#" class="contact-item1" data-aos="fade-up-left">
+            <div class="contact-container">
+                <a id="phone-link" href="#" class="contact-item" data-aos="fade-up-left">
                     <div class="icon">
-                        <i class="fa-solid fa-phone"></i>
+                    <i class="fa-solid fa-phone"></i>
                     </div>
                     <span id="phone-text">โทร ...</span>
                 </a>
-
-                <a id="line-link" href="#" target="_blank" class="contact-item1" data-aos="fade-up-right">
+        
+                <a id="line-link" href="#" target="_blank" class="contact-item" data-aos="fade-up-right">
                     <div class="icon">
-                        <i class="fa-brands fa-line" style="color: #00a347;"></i>
+                    <i class="fa-brands fa-line" style="color: #00a347;"></i>
                     </div>
                     <span id="line-text">@line.id</span>
                 </a>
             </div>
-
             <script>
                 document.addEventListener("DOMContentLoaded", function () {
                     fetch('/HOMESPECTOR/backend/panel/get_line_section.php')
-                        .then(response => response.json())
-                        .then(data => {
-                            // อัปเดตเบอร์โทร
-                            const phoneLink = document.getElementById('phone-link');
-                            const phoneText = document.getElementById('phone-text');
-                            phoneLink.href = 'tel:' + data.phone_number;
-                            phoneText.textContent = 'โทร ' + data.phone_number;
-                
-                            // อัปเดต Line ID
-                            const lineLink = document.getElementById('line-link');
-                            const lineText = document.getElementById('line-text');
-                            lineLink.href = 'https://line.me/R/ti/p/' + encodeURIComponent(data.line_id);
-                            lineText.textContent = data.line_id;
-                        })
-                        .catch(error => {
-                            console.error('เกิดข้อผิดพลาดในการโหลดข้อมูลติดต่อ:', error);
-                        });
+                    .then(response => response.json())
+                    .then(data => {
+                      // อัปเดตเบอร์โทร
+                        const phoneLink = document.getElementById('phone-link');
+                        const phoneText = document.getElementById('phone-text');
+                        phoneLink.href = 'tel:' + data.phone_number;
+                        phoneText.textContent = 'โทร ' + data.phone_number;
+        
+                      // อัปเดต Line ID
+                        const lineLink = document.getElementById('line-link');
+                        const lineText = document.getElementById('line-text');
+                        lineLink.href = 'https://line.me/R/ti/p/' + encodeURIComponent(data.line_id);
+                        lineText.textContent = data.line_id;
+                    })
+                    .catch(error => {
+                        console.error('เกิดข้อผิดพลาดในการโหลดข้อมูลติดต่อ:', error);
+                    });
                 });
             </script>
 
-            <!-- Main Content -->
-            <div class="review-page" data-aos="fade-up">
-                <h1>รีวิวบ้าน</h1>
-                <p>
-                    พาทัวร์บ้านรูปแบบใหม่ ไม่ซ้ำใคร ที่แรกและที่เดียว เพราะเราพาดูงานระบบของบ้านในโครงการต่าง ๆ<br>
-                    ไม่ว่าจะเป็นงานสถาปัตย์ ระบบไฟฟ้า ระบบสุขาภิบาล หรืองานหลังคา ซึ่งไม่มีที่ไหนทำมาก่อน
-                </p>
-
-                <!-- Categories Section -->
-                <div class="categories" data-aos="fade-up" data-aos-duration="1500">
-                    <button class="category-btn active" data-category="all">All</button>
-                    <button class="category-btn" data-category="Land and House">Land and House</button>
-                    <button class="category-btn" data-category="Sansiri">Sansiri</button>
-                    <button class="category-btn" data-category="SC Asset">SC Asset</button>
-                    <button class="category-btn" data-category="Ap Thai">Ap Thai</button>
-                    <button class="category-btn" data-category="Property Profect">Property Profect</button>
-                    <button class="category-btn" data-category="MQDC">MQDC</button>
-                    <button class="category-btn" data-category="QHouse">QHouse</button>
-                    <button class="category-btn" data-category="Others">Others</button>
+            <!-- Use Now -->
+            <div class="main-project">
+                <h1>Projects</h1>
+                <div id="albums-container"
+                    style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 0 auto; padding: 20px 0;">
+                    <div id="albums"
+                        style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; justify-items: center; padding: 0; margin: 0;">
+                    </div>
                 </div>
-
-                <div class="review-cards" id="review-container">
-                    <!-- cards will be inserted dynamically -->
+                <div id="photos-container"
+                    style="display: none; justify-content: center; align-items: center; width: 100%; margin: 20px auto; padding: 20px; flex-direction: column;">
                 </div>
-                <script>
-                    fetch('/HOMESPECTOR/backend/panel/api_reviews.php')
-                        .then(res => res.json())
-                        .then(data => {
-                            const container = document.querySelector(".review-cards");
-                            renderCards(data);
-
-                            document.querySelectorAll('.category-btn').forEach(btn => {
-                                btn.addEventListener('click', () => {
-                                    const cat = btn.dataset.category;
-                                    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-                                    btn.classList.add('active');
-
-                                    const filtered = cat === 'all' ? data : data.filter(r => r.category === cat);
-                                    container.innerHTML = '';
-                                    renderCards(filtered);
-                                });
-                            });
-
-                            function renderCards(reviews) {
-                                reviews.reverse().forEach(review => {
-                                    const card = document.createElement('a');
-                                    card.className = "card";
-                                    card.setAttribute("data-category", review.category || "Others");
-                                    card.href = review.url;
-                                    card.innerHTML = `
-                                        <img src="${review.thumbnail}" alt="${review.headline}">
-                                        <p>${review.headline}</p>
-                                    `;
-                                    container.appendChild(card);
-                                });
-                            }
-                        });
-                </script>
-
-                <!-- Review Cards -->
-                <div class="review-cards">
-                    <a href="/HOMESPECTOR/Homepage/after_review_home.html" class="card" data-category="Land and House">
-                        <img src="/HOMESPECTOR/img/after_review/bugaan-bg.jpg" alt="House Review 1">
-                        <p>บูก้าน กรุงเทพกรีฑา</p>
-                    </a>
-                    <a href="/HOMESPECTOR/Homepage/after_review_home1.html" class="card" data-category="Sansiri">
-                        <img src="/HOMESPECTOR/img/after_review/vie-bg.jpg" alt="House Review 2">
-                        <p>Vie ทางด่วนรามอินทรา-วงแหวน</p>
-                    </a>
-                    <a href="/HOMESPECTOR/Homepage/after_review_home2.html" class="card" data-category="SC Asset">
-                        <img src="/HOMESPECTOR/img/after_review/GrandBangkok-bg.jpg" alt="House Review 3">
-                        <p>Grand Bangkok Boulevard ยาร์ด บางนา</p>
-                    </a>
-                    <a href="/HOMESPECTOR/Homepage/after_review_home3.html" class="card" data-category="Land and House">
-                        <img src="/HOMESPECTOR/img/after_review/sarangsiri-bg.png" alt="House Review 4">
-                        <p>สราญสิริ แกรนเด พุทธมณฑล สาย 3 </p>
-                    </a>
-                    <a href="/HOMESPECTOR/Homepage/after_review_home4.html" class="card" data-category="QHouse">
-                        <img src="/HOMESPECTOR/img/after_review/thecity-bg.jpg" alt="House Review 5">
-                        <p>The City จรัญฯ – ปิ่นเกล้า </p>
-                    </a>
-                    <a href="/HOMESPECTOR/Homepage/after_review_home5.html" class="card" data-category="Ap Thai">
-                        <img src="/HOMESPECTOR/img/after_review/sevres.jpg" alt="House Review 6">
-                        <p>คอนนาเซอร์ พัฒนาการ</p>
-                    </a>
-                    <a href="/HOMESPECTOR/Homepage/after_review_home6.html" class="card"
-                        data-category="Property Profect">
-                        <img src="/HOMESPECTOR/img/after_review/review-bg7.jpg" alt="House Review 7">
-                        <p>เศรษฐสิริ ราชพฤกษ์-สาย1 </p>
-                    </a>
-                    <a href="/HOMESPECTOR/Homepage/after_review_home7.html" class="card" data-category="MQDC">
-                        <img src="/HOMESPECTOR/img/after_review/review-bg8.jpg" alt="House Review 8">
-                        <p>แกรนด์ บางกอก บูเลอวาร์ด แจ้งวัฒนะ-ราชพฤกษ์</p>
-                    </a>
-                    <a href="/HOMESPECTOR/Homepage/after_review_home8.html" class="card" data-category="Others">
-                        <img src="/HOMESPECTOR/img/after_review/review-bg9.jpg" alt="House Review 9">
-                        <p>บางกอก บูเลอวาร์ด ซิกเนเจอร์ แจ้งวัฒนะ-ราชพฤกษ์</p>
-                    </a>
+                <div id="image-modal">
+                    <button class="modal-close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+                    <button class="modal-nav-btn modal-prev-btn" onclick="prevImage()"><i
+                            class="fa-solid fa-caret-left"></i></button>
+                    <button class="modal-nav-btn modal-next-btn" onclick="nextImage()"><i
+                            class="fa-solid fa-caret-right"></i></button>
+                    <img id="modal-image" src="" alt="Zoomed Image">
                 </div>
+            </div>
+            <!-- facebook-link -->
+            <div class="link-cards" id="link-cards">
+                <a href="https://www.facebook.com/t.homeinspector/?locale=th_TH" class="facebook">
+                    <div class="facebook-content">
+                        <p>Read More</p>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
             </div>
 
             <footer class="footer">
@@ -410,13 +391,13 @@
                     <div class="footer-right">
                         <h2>บริการของเรา <span class="toggle-icon">+</span></h2>
                         <ul>
-                            <li><a href="/HOMESPECTOR/Homepage/Hinspector.html">ต.ตรวจบ้าน</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/Hinterior.html">ต.ตงแต่ง</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/Hinspector.php">ต.ตรวจบ้าน</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/Hinterior.php">ต.ตงแต่ง</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Hconstruction.php">ต.เติม</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Hbulter.php">H.Bulter</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/cal-electric.html">ตรวจสอบระบบไฟฟ้า</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/cal-electric.php">ตรวจสอบระบบไฟฟ้า</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/app-inspector.php">ตรวจบ้านเอง</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/checklist.html">เทียบสเปกบ้าน</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/checklist.php">เทียบสเปกบ้าน</a></li>
                         </ul>
                     </div>
 
@@ -424,7 +405,7 @@
                     <div class="footer-help">
                         <h2>ช่วยเหลือ <span class="toggle-icon">+</span></h2>
                         <ul>
-                            <li><a href="/HOMESPECTOR/Homepage/index.html#faq">คำถามที่พบบ่อย (FAQ)</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/index.php#faq">คำถามที่พบบ่อย (FAQ)</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/joinwithus.php">รวมงานกับเรา</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/promotion.php">โปรโมชั่น</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Contactus.php">ติดต่อเรา</a></li>
@@ -451,19 +432,162 @@
     </div>
 
 
+    <script>
+        let currentIndex = 0;
+        let images = [];
+
+        // Fetch and display albums
+        async function fetchAlbums() {
+            try {
+                const response = await fetch("http://localhost:3000/albums");
+                if (!response.ok) {
+                    throw new Error(`Error fetching albums: ${response.status}`);
+                }
+
+                const albums = await response.json();
+                const albumsContainer = document.getElementById("albums");
+                const photosContainer = document.getElementById("photos-container");
+                albumsContainer.innerHTML = ""; // Clear previous content
+
+                albums.forEach((album) => {
+                    const albumDiv = document.createElement("div");
+                    albumDiv.style.cursor = "pointer";
+                    albumDiv.style.border = "1px solid #ccc";
+                    albumDiv.style.padding = "0";
+                    albumDiv.style.margin = "0";
+                    albumDiv.style.width = "250px";
+                    albumDiv.style.textAlign = "center";
+                    albumDiv.style.borderRadius = "10px";
+                    albumDiv.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+                    albumDiv.style.backgroundColor = "#fff";
+
+                    const albumTitle = document.createElement("h3");
+                    albumTitle.style.fontSize = "0.9em";
+                    albumTitle.textContent = album.name;
+                    albumTitle.style.fontWeight = "bold";
+
+                    if (album.coverPhotoUrl) {
+                        const img = document.createElement("img");
+                        img.src = album.coverPhotoUrl;
+                        img.style.width = "100%";
+                        img.style.height = "150px";
+                        img.style.objectFit = "cover";
+                        img.style.borderRadius = "10px 10px 0 0";
+                        albumDiv.appendChild(img);
+                    } else {
+                        const placeholder = document.createElement("div");
+                        placeholder.style.width = "100%";
+                        placeholder.style.height = "150px";
+                        placeholder.style.background = "#ddd";
+                        placeholder.style.borderRadius = "10px 10px 0 0";
+                        placeholder.style.display = "flex";
+                        placeholder.style.alignItems = "center";
+                        placeholder.style.justifyContent = "center";
+                        placeholder.textContent = "No Cover Photo";
+                        albumDiv.appendChild(placeholder);
+                    }
+
+                    albumDiv.appendChild(albumTitle);
+
+                    albumDiv.addEventListener("click", async () => {
+                        albumsContainer.style.display = "none";
+                        photosContainer.style.display = "flex";
+                        photosContainer.innerHTML = ""; // Clear previous photos
+                        await fetchAlbumPhotos(album.id, photosContainer);
+                    });
+
+                    albumsContainer.appendChild(albumDiv);
+                });
+            } catch (error) {
+                console.error("Error fetching albums:", error.message);
+            }
+        }
+
+        // Fetch and display photos in an album
+        async function fetchAlbumPhotos(albumId, photosContainer) {
+            try {
+                const response = await fetch(`http://localhost:3000/albums/${albumId}/photos`);
+                if (!response.ok) {
+                    throw new Error(`Error fetching photos: ${response.status}`);
+                }
+
+                const photos = await response.json();
+                images = photos.data.map(photo => photo.images[0].source);
+
+                const backButton = document.createElement("button");
+                backButton.textContent = "Back to Albums";
+                backButton.style.marginBottom = "20px";
+                backButton.style.padding = "10px 20px";
+                backButton.style.border = "none";
+                backButton.style.backgroundColor = "#007BFF";
+                backButton.style.color = "#fff";
+                backButton.style.borderRadius = "5px";
+                backButton.style.cursor = "pointer";
+                backButton.addEventListener("click", () => {
+                    photosContainer.style.display = "none";
+                    document.getElementById("albums").style.display = "grid";
+                });
+                photosContainer.appendChild(backButton);
+
+                const photoGrid = document.createElement("div");
+                photoGrid.style.display = "grid";
+                photoGrid.style.gridTemplateColumns = "repeat(3, 1fr)";
+                photoGrid.style.gap = "10px";
+                photoGrid.style.marginTop = "10px";
+
+                photos.data.forEach((photo, index) => {
+                    const photoDiv = document.createElement("div");
+                    photoDiv.style.cursor = "pointer";
+                    const img = document.createElement("img");
+                    img.src = photo.images[0].source;
+                    img.style.width = "100%";
+                    img.style.height = "150px";
+                    img.style.objectFit = "cover";
+                    img.addEventListener("click", () => openModal(index));
+                    photoDiv.appendChild(img);
+                    photoGrid.appendChild(photoDiv);
+                });
+
+                photosContainer.appendChild(photoGrid);
+            } catch (error) {
+                console.error("Error fetching photos:", error.message);
+            }
+        }
+
+        // Modal functionality
+        function openModal(index) {
+            currentIndex = index;
+            document.getElementById("modal-image").src = images[currentIndex];
+            document.getElementById("image-modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("image-modal").style.display = "none";
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById("modal-image").src = images[currentIndex];
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            document.getElementById("modal-image").src = images[currentIndex];
+        }
+
+        // Fetch albums on page load
+        window.onload = fetchAlbums;
+    </script>
+
+
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
-    <script src="/HOMESPECTOR/JS/filter.js"></script>
     <script src="/HOMESPECTOR/JS/dropdown.js"></script>
-    <script src="/HOMESPECTOR/JS/footer.js"></script>
+    <script src="/HOMESPECTOR/JS/search_ham.js"></script>
     <script src="/HOMESPECTOR/JS/footer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="/HOMESPECTOR/JS/search_ham.js"></script>
-    <script>
-        AOS.init();
-    </script>
+
 
 </body>
 

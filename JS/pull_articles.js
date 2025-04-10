@@ -1,5 +1,5 @@
 // document.addEventListener("DOMContentLoaded", () => {
-//     fetch('/HOMESPECTOR/Homepage/articles.html')
+//     fetch('/HOMESPECTOR/Homepage/articles.php')
 //         .then(response => response.text())
 //         .then(html => {
 //             const parser = new DOMParser();
@@ -31,8 +31,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector(".articles-grid");
 
-    // ดึง static cards จาก articles.html
-    fetch("/HOMESPECTOR/Homepage/articles.html")
+    // ดึง static cards จาก articles.php
+    fetch("/HOMESPECTOR/Homepage/articles.php")
         .then(response => response.text())
         .then(html => {
             const parser = new DOMParser();
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
         })
         .catch(err => {
-            console.error("❌ Error loading articles.html:", err);
+            console.error("❌ Error loading articles.php:", err);
             grid.innerHTML = "<p class='text-danger'>โหลดบทความไม่สำเร็จ</p>";
         });
 });

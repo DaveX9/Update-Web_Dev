@@ -11,7 +11,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <link rel="stylesheet" href="/HOMESPECTOR/CSS/description.css">
+    <link rel="stylesheet" href="/HOMESPECTOR/CSS/Review-home.css">
     <title>Header Design</title>
 </head>
 
@@ -38,7 +38,7 @@
                         </div>
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="/HOMESPECTOR/Homepage/index.html">
+                            <a href="/HOMESPECTOR/Homepage/index.php">
                                 <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
                             </a>
                         </div>
@@ -66,7 +66,7 @@
                 </header>
                 <nav class="nav-links" id="nav-links">
                     <ul>
-                        <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
+                        <li><a href="/HOMESPECTOR/Homepage/index.php" data-translate="nav.home">หน้าหลัก</a>
                         </li>
                         <li><a href="/HOMESPECTOR/Homepage/service.php" data-translate="nav.services">บริการ</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/promotion.php" data-translate="nav.promotion">สิทธิพิเศษ</a>
@@ -95,14 +95,14 @@
                                 <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                         data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                 </li>
-                                <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
+                                <li><a href="cal-electric.php" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
                                 </li>
-                                <li><a href="checklist.html" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
+                                <li><a href="checklist.php" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
-                        <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
+                        <li><a href="/HOMESPECTOR/Homepage/articles.php" data-translate="nav.articles">บทความ</a></li>
+                        <li><a href="/HOMESPECTOR/Homepage/Review-home.php"
                                 data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/review_interior.php"
                                 data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
@@ -136,7 +136,7 @@
 
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="/HOMESPECTOR/Homepage/index.html">
+                                <a href="/HOMESPECTOR/Homepage/index.php">
                                     <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
                                 </a>
                             </div>
@@ -161,7 +161,7 @@
                         <div class="menu-section">
                             <h3>Navigation</h3>
                             <ul>
-                                <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
+                                <li><a href="/HOMESPECTOR/Homepage/index.php" data-translate="nav.home">หน้าหลัก</a>
                                 </li>
                                 <li><a href="/HOMESPECTOR/Homepage/service.php" data-translate="nav.services">บริการ</a>
                                 </li>
@@ -193,15 +193,15 @@
                                         <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                                 data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                         </li>
-                                        <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
+                                        <li><a href="cal-electric.php" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
                                         </li>
-                                        <li><a href="checklist.html" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
+                                        <li><a href="checklist.php" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="/HOMESPECTOR/Homepage/articles.html"
+                                <li><a href="/HOMESPECTOR/Homepage/articles.php"
                                         data-translate="nav.articles">บทความ</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
+                                <li><a href="/HOMESPECTOR/Homepage/Review-home.php"
                                         data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/review_interior.php"
                                         data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
@@ -236,21 +236,23 @@
                     </div>
                 </div>
             </div>
-            <div class="contact-container">
-                <a id="phone-link" href="#" class="contact-item" data-aos="fade-up-left">
+
+            <div class="contact-container1">
+                <a id="phone-link" href="#" class="contact-item1" data-aos="fade-up-left">
                     <div class="icon">
                         <i class="fa-solid fa-phone"></i>
                     </div>
                     <span id="phone-text">โทร ...</span>
                 </a>
 
-                <a id="line-link" href="#" target="_blank" class="contact-item" data-aos="fade-up-right">
+                <a id="line-link" href="#" target="_blank" class="contact-item1" data-aos="fade-up-right">
                     <div class="icon">
                         <i class="fa-brands fa-line" style="color: #00a347;"></i>
                     </div>
                     <span id="line-text">@line.id</span>
                 </a>
             </div>
+
             <script>
                 document.addEventListener("DOMContentLoaded", function () {
                     fetch('/HOMESPECTOR/backend/panel/get_line_section.php')
@@ -261,7 +263,7 @@
                             const phoneText = document.getElementById('phone-text');
                             phoneLink.href = 'tel:' + data.phone_number;
                             phoneText.textContent = 'โทร ' + data.phone_number;
-
+                
                             // อัปเดต Line ID
                             const lineLink = document.getElementById('line-link');
                             const lineText = document.getElementById('line-text');
@@ -274,48 +276,107 @@
                 });
             </script>
 
-            <section class="carousel-section">
-                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                    <!-- Indicators -->
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"
-                            aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                    </div>
+            <!-- Main Content -->
+            <div class="review-page" data-aos="fade-up">
+                <h1>รีวิวบ้าน</h1>
+                <p>
+                    พาทัวร์บ้านรูปแบบใหม่ ไม่ซ้ำใคร ที่แรกและที่เดียว เพราะเราพาดูงานระบบของบ้านในโครงการต่าง ๆ<br>
+                    ไม่ว่าจะเป็นงานสถาปัตย์ ระบบไฟฟ้า ระบบสุขาภิบาล หรืองานหลังคา ซึ่งไม่มีที่ไหนทำมาก่อน
+                </p>
 
-                    <!-- Carousel Items -->
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="/HOMESPECTOR/img/des.png" class="d-block w-100" alt="Image 1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/HOMESPECTOR/img/des1.png" class="d-block w-100" alt="Image 2">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/HOMESPECTOR/img/des2.png" class="d-block w-100" alt="Image 3">
-                            <!-- <div class="carousel-caption d-none d-md-block">
-                                <h5>Third Slide</h5>
-                                <p>Description for the third image.</p>
-                            </div> -->
-                        </div>
-                    </div>
-
-                    <!-- Controls -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                <!-- Categories Section -->
+                <div class="categories" data-aos="fade-up" data-aos-duration="1500">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="Land and House">Land and House</button>
+                    <button class="category-btn" data-category="Sansiri">Sansiri</button>
+                    <button class="category-btn" data-category="SC Asset">SC Asset</button>
+                    <button class="category-btn" data-category="Ap Thai">Ap Thai</button>
+                    <button class="category-btn" data-category="Property Profect">Property Profect</button>
+                    <button class="category-btn" data-category="MQDC">MQDC</button>
+                    <button class="category-btn" data-category="QHouse">QHouse</button>
+                    <button class="category-btn" data-category="Others">Others</button>
                 </div>
-            </section>
+
+                <div class="review-cards" id="review-container">
+                    <!-- cards will be inserted dynamically -->
+                </div>
+                <script>
+                    fetch('/HOMESPECTOR/backend/panel/api_reviews.php')
+                        .then(res => res.json())
+                        .then(data => {
+                            const container = document.querySelector(".review-cards");
+                            renderCards(data);
+
+                            document.querySelectorAll('.category-btn').forEach(btn => {
+                                btn.addEventListener('click', () => {
+                                    const cat = btn.dataset.category;
+                                    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                                    btn.classList.add('active');
+
+                                    const filtered = cat === 'all' ? data : data.filter(r => r.category === cat);
+                                    container.innerHTML = '';
+                                    renderCards(filtered);
+                                });
+                            });
+
+                            function renderCards(reviews) {
+                                reviews.reverse().forEach(review => {
+                                    const card = document.createElement('a');
+                                    card.className = "card";
+                                    card.setAttribute("data-category", review.category || "Others");
+                                    card.href = review.url;
+                                    card.innerHTML = `
+                                        <img src="${review.thumbnail}" alt="${review.headline}">
+                                        <p>${review.headline}</p>
+                                    `;
+                                    container.appendChild(card);
+                                });
+                            }
+                        });
+                </script>
+
+                <!-- Review Cards -->
+                <div class="review-cards">
+                    <a href="/HOMESPECTOR/Homepage/after_review_home.html" class="card" data-category="Land and House">
+                        <img src="/HOMESPECTOR/img/after_review/bugaan-bg.jpg" alt="House Review 1">
+                        <p>บูก้าน กรุงเทพกรีฑา</p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_home1.html" class="card" data-category="Sansiri">
+                        <img src="/HOMESPECTOR/img/after_review/vie-bg.jpg" alt="House Review 2">
+                        <p>Vie ทางด่วนรามอินทรา-วงแหวน</p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_home2.html" class="card" data-category="SC Asset">
+                        <img src="/HOMESPECTOR/img/after_review/GrandBangkok-bg.jpg" alt="House Review 3">
+                        <p>Grand Bangkok Boulevard ยาร์ด บางนา</p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_home3.html" class="card" data-category="Land and House">
+                        <img src="/HOMESPECTOR/img/after_review/sarangsiri-bg.png" alt="House Review 4">
+                        <p>สราญสิริ แกรนเด พุทธมณฑล สาย 3 </p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_home4.html" class="card" data-category="QHouse">
+                        <img src="/HOMESPECTOR/img/after_review/thecity-bg.jpg" alt="House Review 5">
+                        <p>The City จรัญฯ – ปิ่นเกล้า </p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_home5.html" class="card" data-category="Ap Thai">
+                        <img src="/HOMESPECTOR/img/after_review/sevres.jpg" alt="House Review 6">
+                        <p>คอนนาเซอร์ พัฒนาการ</p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_home6.html" class="card"
+                        data-category="Property Profect">
+                        <img src="/HOMESPECTOR/img/after_review/review-bg7.jpg" alt="House Review 7">
+                        <p>เศรษฐสิริ ราชพฤกษ์-สาย1 </p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_home7.html" class="card" data-category="MQDC">
+                        <img src="/HOMESPECTOR/img/after_review/review-bg8.jpg" alt="House Review 8">
+                        <p>แกรนด์ บางกอก บูเลอวาร์ด แจ้งวัฒนะ-ราชพฤกษ์</p>
+                    </a>
+                    <a href="/HOMESPECTOR/Homepage/after_review_home8.html" class="card" data-category="Others">
+                        <img src="/HOMESPECTOR/img/after_review/review-bg9.jpg" alt="House Review 9">
+                        <p>บางกอก บูเลอวาร์ด ซิกเนเจอร์ แจ้งวัฒนะ-ราชพฤกษ์</p>
+                    </a>
+                </div>
+            </div>
+
             <footer class="footer">
                 <div class="footer-container">
                     <!-- Left Section: Social Media & Branding -->
@@ -349,13 +410,13 @@
                     <div class="footer-right">
                         <h2>บริการของเรา <span class="toggle-icon">+</span></h2>
                         <ul>
-                            <li><a href="/HOMESPECTOR/Homepage/Hinspector.html">ต.ตรวจบ้าน</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/Hinterior.html">ต.ตงแต่ง</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/Hinspector.php">ต.ตรวจบ้าน</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/Hinterior.php">ต.ตงแต่ง</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Hconstruction.php">ต.เติม</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Hbulter.php">H.Bulter</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/cal-electric.html">ตรวจสอบระบบไฟฟ้า</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/cal-electric.php">ตรวจสอบระบบไฟฟ้า</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/app-inspector.php">ตรวจบ้านเอง</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/checklist.html">เทียบสเปกบ้าน</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/checklist.php">เทียบสเปกบ้าน</a></li>
                         </ul>
                     </div>
 
@@ -363,7 +424,7 @@
                     <div class="footer-help">
                         <h2>ช่วยเหลือ <span class="toggle-icon">+</span></h2>
                         <ul>
-                            <li><a href="/HOMESPECTOR/Homepage/index.html#faq">คำถามที่พบบ่อย (FAQ)</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/index.php#faq">คำถามที่พบบ่อย (FAQ)</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/joinwithus.php">รวมงานกับเรา</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/promotion.php">โปรโมชั่น</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Contactus.php">ติดต่อเรา</a></li>
@@ -390,15 +451,19 @@
     </div>
 
 
-
     <script src="/HOMESPECTOR/JS/Toggle_Navbar.js"></script>
+    <script src="/HOMESPECTOR/JS/filter.js"></script>
     <script src="/HOMESPECTOR/JS/dropdown.js"></script>
-    <script src="/HOMESPECTOR/JS/search_ham.js"></script>
+    <script src="/HOMESPECTOR/JS/footer.js"></script>
     <script src="/HOMESPECTOR/JS/footer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="/HOMESPECTOR/JS/search_ham.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
 </body>
 

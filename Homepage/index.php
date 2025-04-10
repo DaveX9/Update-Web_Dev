@@ -41,7 +41,7 @@
                         </div>
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="/HOMESPECTOR/Homepage/index.html">
+                            <a href="/HOMESPECTOR/Homepage/index.php">
                                 <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
                             </a>
                         </div>
@@ -69,7 +69,7 @@
                 </header>
                 <nav class="nav-links" id="nav-links">
                     <ul>
-                        <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
+                        <li><a href="/HOMESPECTOR/Homepage/index.php" data-translate="nav.home">หน้าหลัก</a>
                         </li>
                         <li><a href="/HOMESPECTOR/Homepage/service.php" data-translate="nav.services">บริการ</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/promotion.php" data-translate="nav.promotion">สิทธิพิเศษ</a>
@@ -98,14 +98,14 @@
                                 <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                         data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                 </li>
-                                <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
+                                <li><a href="cal-electric.php" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
                                 </li>
-                                <li><a href="checklist.html" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
+                                <li><a href="checklist.php" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="/HOMESPECTOR/Homepage/articles.html" data-translate="nav.articles">บทความ</a></li>
-                        <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
+                        <li><a href="/HOMESPECTOR/Homepage/articles.php" data-translate="nav.articles">บทความ</a></li>
+                        <li><a href="/HOMESPECTOR/Homepage/Review-home.php"
                                 data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                         <li><a href="/HOMESPECTOR/Homepage/review_interior.php"
                                 data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
@@ -139,7 +139,7 @@
 
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="/HOMESPECTOR/Homepage/index.html">
+                                <a href="/HOMESPECTOR/Homepage/index.php">
                                     <img src="/HOMESPECTOR/img/s1.png" alt="T. Home Inspector Logo">
                                 </a>
                             </div>
@@ -164,7 +164,7 @@
                         <div class="menu-section">
                             <h3>Navigation</h3>
                             <ul>
-                                <li><a href="/HOMESPECTOR/Homepage/index.html" data-translate="nav.home">หน้าหลัก</a>
+                                <li><a href="/HOMESPECTOR/Homepage/index.php" data-translate="nav.home">หน้าหลัก</a>
                                 </li>
                                 <li><a href="/HOMESPECTOR/Homepage/service.php" data-translate="nav.services">บริการ</a>
                                 </li>
@@ -196,15 +196,15 @@
                                         <li><a href="/HOMESPECTOR/Homepage/app-inspector.php"
                                                 data-translate="nav.app-inspector">ตรวจบ้านเอง</a>
                                         </li>
-                                        <li><a href="cal-electric.html" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
+                                        <li><a href="cal-electric.php" data-translate="nav.cal-electric">คำนวณไฟฟ้า</a>
                                         </li>
-                                        <li><a href="checklist.html" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
+                                        <li><a href="checklist.php" data-translate="nav.checklist">เทียบสเปกบ้าน</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="/HOMESPECTOR/Homepage/articles.html"
+                                <li><a href="/HOMESPECTOR/Homepage/articles.php"
                                         data-translate="nav.articles">บทความ</a></li>
-                                <li><a href="/HOMESPECTOR/Homepage/Review-home.html"
+                                <li><a href="/HOMESPECTOR/Homepage/Review-home.php"
                                         data-translate="nav.reviewHome">รีวิวบ้าน</a></li>
                                 <li><a href="/HOMESPECTOR/Homepage/review_interior.php"
                                         data-translate="nav.reviewInterior">บริการตกแต่งภายใน</a></li>
@@ -309,7 +309,7 @@
                     <!-- Service 2 -->
                     <div class="service-card" data-aos="fade-up">
                         <div class="service-icon">
-                            <a href="/HOMESPECTOR/Homepage/hinterior.html">
+                            <a href="/HOMESPECTOR/Homepage/Hinterior.php">
                                 <img src="/HOMESPECTOR/img/s2.png" alt="T. Home Interior">
                             </a>
                         </div>
@@ -344,7 +344,7 @@
                             <h3 data-translate="inspection-details">
                                 รายละเอียดที่ต้องตกลง และเตรียมก่อนตรวจบ้าน
                             </h3>
-                            <a href="/HOMESPECTOR/Homepage/description.html">
+                            <a href="/HOMESPECTOR/Homepage/description.php">
                                 <button data-translate="see-details">
                                     <i class="fa-solid fa-eye"></i> ดูรายละเอียด
                                 </button>
@@ -460,7 +460,7 @@
                 <!-- CTA Section -->
                 <div class="cta-section" data-aos="fade-up">
                     <h2>เริ่มต้นวางแผนระบบไฟฟ้าภายในบ้านของคุณ!</h2>
-                    <a href="cal-electric.html" class="btn">เริ่มต้นคำนวณเลย</a>
+                    <a href="cal-electric.php" class="btn">เริ่มต้นคำนวณเลย</a>
                 </div>
             </div>
 
@@ -478,7 +478,7 @@
             <div class="carousel-container3" data-aos="fade-up" data-aos-anchor-placement="top-center">
                 <div class="carousel-header3">
                     <h2 class="carousel-title3">Content</h2>
-                    <a href="/HOMESPECTOR/Homepage/content.html" class="btn btn-all">ดูทั้งหมด</a>
+                    <a href="/HOMESPECTOR/Homepage/content.php" class="btn btn-all">ดูทั้งหมด</a>
                 </div>
 
                 <div class="carousel3">
@@ -613,7 +613,7 @@
 
             <section class="articles" data-aos="fade-up" data-aos-delay="100">
                 <h2 class="articles-title">Latest Articles</h2>
-                <a href="/HOMESPECTOR/Homepage/articles.html" class="btn btn-firstall">ดูทั้งหมด</a>
+                <a href="/HOMESPECTOR/Homepage/articles.php" class="btn btn-firstall">ดูทั้งหมด</a>
                 <div class="articles-grid">
                     <!-- Dynamically populated -->
                 </div>
@@ -785,13 +785,13 @@
                     <div class="footer-right">
                         <h2>บริการของเรา <span class="toggle-icon">+</span></h2>
                         <ul>
-                            <li><a href="/HOMESPECTOR/Homepage/Hinspector.html">ต.ตรวจบ้าน</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/Hinterior.html">ต.ตงแต่ง</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/Hinspector.php">ต.ตรวจบ้าน</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/Hinterior.php">ต.ตงแต่ง</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Hconstruction.php">ต.เติม</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Hbulter.php">H.Bulter</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/cal-electric.html">ตรวจสอบระบบไฟฟ้า</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/cal-electric.php">ตรวจสอบระบบไฟฟ้า</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/app-inspector.php">ตรวจบ้านเอง</a></li>
-                            <li><a href="/HOMESPECTOR/Homepage/checklist.html">เทียบสเปกบ้าน</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/checklist.php">เทียบสเปกบ้าน</a></li>
                         </ul>
                     </div>
 
@@ -799,7 +799,7 @@
                     <div class="footer-help">
                         <h2>ช่วยเหลือ <span class="toggle-icon">+</span></h2>
                         <ul>
-                            <li><a href="/HOMESPECTOR/Homepage/index.html#faq">คำถามที่พบบ่อย (FAQ)</a></li>
+                            <li><a href="/HOMESPECTOR/Homepage/index.php#faq">คำถามที่พบบ่อย (FAQ)</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/joinwithus.php">รวมงานกับเรา</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/promotion.php">โปรโมชั่น</a></li>
                             <li><a href="/HOMESPECTOR/Homepage/Contactus.php">ติดต่อเรา</a></li>
